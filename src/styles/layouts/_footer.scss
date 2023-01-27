@@ -1,0 +1,38 @@
+#footer_container {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+   background: #a54336;
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-left: 2%;
+  padding-right: 2%;
+  font-size: 70%;
+  align-items: center;
+  color: #211f1f;
+}
+.container__footer {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
+.github-link {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5vw;
+  text-decoration: none;
+  color: #211f1f;
+}
+.year {
+  font-size: 2vw;
+}
+.logo-img {
+  width: 5vw;
+  object-fit: contain;
+}

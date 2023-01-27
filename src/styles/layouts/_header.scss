@@ -1,0 +1,43 @@
+#header_container {
+  flex: 0 0 auto;
+  width: 100%;
+  margin-bottom: 40px;
+  background: #a54336;
+}
+.header__wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.header-total-price {
+  color: #ffffff;
+}
+.header-cart {
+  position: relative;
+  margin-right: 50px;
+}
+.header-cart__img {
+  width: 50px;
+}
+.header-cart__counter {
+  position: absolute;
+  right: 20%;
+  top: 0%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  font-size: 100%;
+  border: 1px solid orange;
+  border-radius: 50%;
+  background-color: #181a1c;
+  color: orange;
+}
+.navbar,
+.navbar-item {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  line-height: 100%;
+  color: orange;
+  padding-bottom: 5%;
+}
