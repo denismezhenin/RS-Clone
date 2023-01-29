@@ -36,7 +36,7 @@
     "no-restricted-modules": 0,
     "@typescript-eslint/no-non-null-assertion": 0,
     "no-debugger": "off",
-    "no-console": 2,
+    "no-console": 0,
     "class-methods-use-this": "off",
     "@typescript-eslint/no-var-requires": 2,
     "@typescript-eslint/no-explicit-any": 2,
