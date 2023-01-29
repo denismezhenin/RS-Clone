@@ -6,7 +6,7 @@ const getBottomBarHtml = () =>
           <a href="https://github.com/katsiaryna-andrabaila" class="github-link"
               >katsiaryna-andrabaila</a
             >
-            <a href="https://https://github.com/denismezhenin" class="github-link"
+            <a href="https://github.com/denismezhenin" class="github-link"
               >denismezhenin</a
             >
             <a href="https://github.com/Sashkakotov" class="github-link"
