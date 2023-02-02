@@ -1,43 +1,90 @@
 #header_container {
   flex: 0 0 auto;
+
   width: 100%;
-  margin-bottom: 40px;
-  background: #a54336;
+
+  background: $color-main;
+  padding: 0 2%;
+  border-bottom: 2px solid $color-additional;
 }
+
 .header__wrapper {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
-.header-total-price {
-  color: #ffffff;
+
+.logo {
+  width: 22.3rem;
+
+  background: url(../assets/icons/cubes.ico) no-repeat left center;
+  border-right: 2px solid $color-additional;
 }
-.header-cart {
-  position: relative;
-  margin-right: 50px;
+
+.logo-header {
+  padding-left: 4rem;
+
+  font-size: 2rem;
 }
-.header-cart__img {
-  width: 50px;
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex: 2 0 auto;
+
+  padding-left: 5rem;
 }
-.header-cart__counter {
-  position: absolute;
-  right: 20%;
-  top: 0%;
-  width: 20px;
-  height: 20px;
-  text-align: center;
-  font-size: 100%;
-  border: 1px solid orange;
-  border-radius: 50%;
-  background-color: #181a1c;
-  color: orange;
+
+.search-input {
+  font-size: 1.5rem;
+  color: $text-color-additional;
 }
-.navbar,
-.navbar-item {
-  text-decoration: none;
+
+.sign {
   display: flex;
   align-items: center;
-  line-height: 100%;
-  color: orange;
-  padding-bottom: 5%;
+}
+
+.sign-in {
+  margin-right: 1rem;
+
+  font-size: 1.5rem;
+  color: $text-color-additional;
+}
+
+.sign-in:hover {
+  color: $button-color-additional;
+}
+
+.hidden {
+  display: none;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+
+  padding-right: 3rem;
+
+  background: url(../assets/icons/arrow-down.svg) no-repeat right center;
+  background-size: 8%;
+
+  cursor: pointer;
+}
+
+.user-name {
+  margin: 0 1rem 0 0;
+
+  font-size: 1.5rem;
+  white-space: nowrap;
+}
+
+.user-img {
+  width: 4rem;
+  height: 4rem;
+
+  border: 2px solid $text-color;
+  border-radius: 50%;
 }

@@ -1,4 +1,4 @@
-export enum FormsData {
+enum FormsData {
   email = 'email',
   password = 'password',
 }

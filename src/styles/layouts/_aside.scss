@@ -1,0 +1,82 @@
+.aside {
+  display: flex;
+  flex-direction: column;
+  float: left;
+
+  color: $text-color-additional;
+}
+
+.aside-nav {
+  position: relative;
+
+  margin: 0;
+  padding: 0 5rem 2rem 0;
+}
+
+.aside-nav:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+
+  width: 95%;
+  height: 0.15rem;
+  margin-left: -30%;
+
+  background: $color-additional;
+}
+
+.aside-item {
+  display: flex;
+
+  margin: 2rem;
+  padding-left: 4rem;
+
+  font-size: 2rem;
+  color: $text-color-additional;
+}
+
+.aside-home {
+  background: url(../assets/icons/home.svg) no-repeat left center;
+}
+
+.aside-messages {
+  background: url(../assets/icons/messages.svg) no-repeat left center;
+}
+
+.aside-tasks {
+  background: url(../assets/icons/tasks.svg) no-repeat left center;
+}
+
+.aside-members {
+  background: url(../assets/icons/members.svg) no-repeat left center;
+}
+
+.aside-settings {
+  background: url(../assets/icons/settings.svg) no-repeat left center;
+}
+
+.aside-projects {
+  position: relative;
+}
+
+.aside-project {
+  background: url(../assets/icons/circle.svg) no-repeat left center;
+
+  cursor: pointer;
+}
+
+.aside-projects_header {
+  margin: 1rem 1rem 1rem 2.5rem;
+
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+.plus-img {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+
+  cursor: pointer;
+}

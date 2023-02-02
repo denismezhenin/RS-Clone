@@ -9,8 +9,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const stylesHandler = 'style-loader';
 
-
-
 const config = {
     entry: './src/app.ts',
     output: {
@@ -27,7 +25,7 @@ const config = {
         }),
         new CleanWebpackPlugin(),
         new CopyWebpackPlugin({
-            patterns: [{ from: path.resolve(__dirname, 'src/assets'), to: '.' }],
+            patterns: [{ from: 'src/assets', to: './assets' }],
         }),
 
         // Add your plugins here

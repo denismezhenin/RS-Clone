@@ -1,4 +1,4 @@
-const loginHTML = (page: ) => `<div class="login">
+const loginHTML = (page: string) => `<div class="login">
   <form action="" onsubmit="return false" class="login__form">
     <fieldset>
       <legend class="login__form-tittle">Log in</legend>
