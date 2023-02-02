@@ -1,1 +1,4 @@
-console.log('hello');
+export enum FormsData {
+  email = 'email',
+  password = 'password',
+}
