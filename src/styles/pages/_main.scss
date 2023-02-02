@@ -1,7 +1,30 @@
 #page_container {
   position: relative;
   display: flex;
+  flex-direction: column;
   flex: 1 0 auto;
-  width: 100%;
   gap: 50px;
+
+  width: 100%;
+}
+
+.main_home {
+  display: flex;
+  flex: 2 0 auto;
+
+  padding: 0 2%;
+}
+
+.main-info {
+  border-left: 2px solid $color-additional;
+  padding: 2rem;
+
+  //background: url(../assets/img/bg_start.jpg) no-repeat;
+  //background-size: cover;
+}
+
+.main-info_header {
+  margin-top: 0;
+
+  font-size: 2.5rem;
 }

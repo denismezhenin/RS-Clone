@@ -2,23 +2,30 @@ const getBottomBarHtml = () =>
   `
     <footer class="footer">
         <ul class="container__footer">
-          <li class="github">
-          <a href="https://github.com/katsiaryna-andrabaila" class="github-link"
-              >katsiaryna-andrabaila</a
-            >
-            <a href="https://github.com/denismezhenin" class="github-link"
-              >denismezhenin</a
-            >
-            <a href="https://github.com/Sashkakotov" class="github-link"
-              >Sashkakotov</a
-            >
-          </li>
           <li>
             <p class="year">2023</p>
           </li>
-          <li class="logo">
-            <a href="https://rs.school/"
-              ><img class="logo-img" src="logo-rs.svg" alt="logo" 
+          <li class="github">
+            <a href="https://github.com/denismezhenin" target="_blank" class="github-link">
+              <img src="../assets/icons/github.png" class="github-img">
+              denismezhenin
+            </a>
+            <a href="https://github.com/Sashkakotov" target="_blank" class="github-link">
+              <img src="../assets/icons/github.png" class="github-img">
+              sashkakotov
+            </a>
+            <a href="https://github.com/alehharnizonau" target="_blank" class="github-link">
+              <img src="../assets/icons/github.png" class="github-img">
+              alehharnizonau
+            </a>
+            <a href="https://github.com/katsiaryna-andrabaila" target="_blank" class="github-link">
+              <img src="../assets/icons/github.png" class="github-img">
+              katsiaryna-andrabaila
+            </a>
+          </li>
+          <li class="rs-logo">
+            <a href="https://rs.school/js/" target="_blank"
+              ><img class="logo-img" src="../assets/icons/logo-rs.svg" alt="rs-logo" 
             /></a>
           </li>
         </ul>

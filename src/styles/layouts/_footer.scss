@@ -1,38 +1,68 @@
 #footer_container {
-  flex: 0 0 auto;
   display: flex;
+  flex: 0 0 auto;
   justify-content: center;
+
   width: 100%;
-   background: #a54336;
+
+  background: $color-additional;
 }
+
 .footer {
   display: flex;
   justify-content: center;
+
   width: 100%;
-  padding-left: 2%;
-  padding-right: 2%;
+
+  padding: 0 2%;
+
   font-size: 70%;
   align-items: center;
-  color: #211f1f;
+  color: $text-color-additional;
 }
+
 .container__footer {
   display: flex;
+  justify-content: space-between;
+
   width: 100%;
-  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+
   align-items: center;
   list-style: none;
 }
+
+.github {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .github-link {
   display: flex;
-  flex-direction: column;
+
+  margin-right: 1rem;
+
   font-size: 1.5vw;
   text-decoration: none;
-  color: #211f1f;
+  color: $text-color-additional;
 }
+
+.github-link:hover {
+  color: $button-color-additional;
+}
+
+.github-img {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin: 0.5rem 0.2rem;
+}
+
 .year {
-  font-size: 2vw;
+  font-size: 1.8vw;
 }
+
 .logo-img {
-  width: 5vw;
+  width: 6vw;
   object-fit: contain;
 }
