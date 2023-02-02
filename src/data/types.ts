@@ -11,3 +11,5 @@ export enum FormsData {
   email = 'email',
   password = 'password',
 }
+
+export type sign = 'signin' | 'signup';
