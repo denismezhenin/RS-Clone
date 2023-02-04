@@ -1,0 +1,74 @@
+.login {
+  max-width: 500px;
+
+  fieldset {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width:300px;
+
+    .input-wrapper { 
+      position:relative; 
+      margin-bottom:45px; 
+    }
+
+    .login-input {
+      font-size:18px;
+      padding:10px 10px 10px 5px;
+      display:block;
+      width:300px;
+      border:none;
+      border-bottom:1px solid #757575;
+    }
+    .login-input:focus {
+       outline:none;
+      }
+
+      .input-wrapper-label {
+        color:#999; 
+        font-size:18px;
+        font-weight:normal;
+        position:absolute;
+        pointer-events:none;
+        left:5px;
+        top:10px;
+        transition:0.2s ease all; 
+      }
+      .login-input:focus ~ .input-wrapper-label, .login-input:enabled ~ .input-wrapper-label 		{
+      top:-20px;
+      font-size:14px;
+      color:#5264AE;
+      }
+      .input-wrapper-bar 	{ 
+        position:relative; 
+        display:block; 
+        width:300px;
+      }
+      .input-wrapper-bar:before, .input-wrapper-bar:after 	{
+        content:'';
+        height:2px; 
+        width:0;
+        bottom:1px; 
+        position:absolute;
+        background:#5264AE; 
+        transition:0.2s ease all; 
+        -moz-transition:0.2s ease all; 
+        -webkit-transition:0.2s ease all;
+      }
+      .input-wrapper-bar:before {
+        left:50%;
+      }
+      .input-wrapper-bar:after {
+        right:50%; 
+      }
+
+      /* active state */
+      .login-input:focus ~ .input-wrapper-bar:before, .login-input:focus ~ .input-wrapper-bar:after {
+        width:50%;
+      }
+}
+&__form-submit {
+  width:300px;
+}
+}

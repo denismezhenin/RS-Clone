@@ -9,16 +9,28 @@ export const loginHTML = (page: sign) => {
       <legend class="login__form-tittle">${
         page === 'signin' ? 'Sign in' : 'Sign up'
       }</legend>
-      <label for="name" class="login__form-label" style="${
-        page === 'signin' ? 'display:none' : ''
-      }">Name</label>
-      <input type="text" required class="login__form-name" id="name" name="name" placeholder="example@gmail.com" style="${
+      <div class="login__form-input-wrapper input-wrapper">
+      <input type="text" required class="input-wrapper-name login-input" id="name" name="name" style="${
         page === 'signin' ? 'display:none' : ''
       }">
-      <label for="email" class="login__form-label">Email</label>
-      <input type="email" required class="login__form-email" id="email" name="email" placeholder="example@gmail.com">
-      <label for="password" class="login__form-label">Password</label>
-      <input type="password" required class="login__form-password" name="password" id="password" placeholder="********">
+      <span class="input-wrapper-highlight"></span>
+      <span class="input-wrapper-bar"></span>
+      <label for="name" class="input-wrapper-label" style="${
+        page === 'signin' ? 'display:none' : ''
+      }">Name</label>
+      </div>
+      <div class="login__form-input-wrapper input-wrapper">
+      <input type="email" required class="input-wrapper-email login-input" id="email" name="email">   
+      <span class="input-wrapper-highlight"></span>
+      <span class="input-wrapper-bar"></span>
+      <label for="email" class="input-wrapper-label">Email</label>
+      </div>
+      <div class="login__form-input-wrapper input-wrapper">
+      <input type="password" required class="login__form-password login-input" name="password" id="password min="20">
+      <span class="input-wrapper-highlight"></span>
+      <span class="input-wrapper-bar"></span>
+      <label for="password" class="input-wrapper-label">Password</label>
+      </div>
       <button type="submit" class="login__form-submit">Log in</button>
     </fieldset>
   </form>
