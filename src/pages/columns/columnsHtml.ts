@@ -3,10 +3,15 @@ import { getColumnsInBoard } from '../../API/columns';
 import { IColumns } from '../../data/types';
 import getTasksInColumn from '../../API/tasks';
 
+const getArrayTasks = async (token: string, columns: IColumns[], boardId: string) => {
+  const arrayPromises = columns.map((column: IColumns) => getTasksInColumn(token, boardId, column._id));
+  const arrayTasks = await Promise.all(arrayPromises);
+  return arrayTasks;
+};
+
 const getColumnHTML = async (token: string, boardId: string) => {
   const columns = await getColumnsInBoard(token, boardId);
-  const arrayPromises = columns.map((colum: IColumns) => getTasksInColumn(token, boardId, colum._id));
-  const arrayTasks = await Promise.all(arrayPromises);
+  const arrayTasks = await getArrayTasks(token, columns, boardId);
   return `
 <ul class="colums-list">
 ${columns
