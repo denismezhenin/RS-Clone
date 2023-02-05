@@ -15,8 +15,7 @@ const getTasksInColumn = async (token: string, boardId: string, columnId: string
     }
     return await response.json();
   } catch (err) {
-    console.log(err);
+    return console.log(err);
   }
-  return null;
 };
 export default getTasksInColumn;

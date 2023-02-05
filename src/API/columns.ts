@@ -15,9 +15,8 @@ export const getColumnsInBoard = async (token: string, boardId: string) => {
     }
     return await response.json();
   } catch (err) {
-    console.log(err);
+    return console.log(err);
   }
-  return null;
 };
 
 export const createColumns = async (
@@ -40,11 +39,10 @@ export const createColumns = async (
     if (response.status !== 200) {
       throw { ...(await response.json()) }.message;
     }
-    await response.json();
+    return await response.json();
   } catch (err) {
-    console.log(err);
+    return console.log(err);
   }
-  return null;
 };
 
 export const getColumnById = async (token: string, boardId: string, columnId: string) => {
@@ -61,9 +59,8 @@ export const getColumnById = async (token: string, boardId: string, columnId: st
     }
     return { ...(await response.json()) };
   } catch (err) {
-    console.log(err);
+    return console.log(err);
   }
-  return null;
 };
 
 export const updateColumnById = async (
