@@ -22,8 +22,6 @@ const Home = {
     return view;
   },
   after_render: async () => {
-    await signIn({ login: 'IMask', password: 'Tesla4ever' }); // LATER REMOVE THIS LINE
-
     const plusBtn = document.querySelector('.plus-img');
     if (plusBtn) {
       plusBtn.addEventListener('click', createNewBoard);

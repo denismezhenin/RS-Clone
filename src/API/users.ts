@@ -32,10 +32,7 @@ export const signIn = async (body: { login: string; password: string }) => {
     if (response.status !== 200) {
       throw { ...(await response.json()) }.message;
     }
-    const result = await response.json();
-    state.id = result.id;
-    state.authToken = result.token;
-    return result;
+    return await response.json();
   } catch (err) {
     return console.log(err);
   }
