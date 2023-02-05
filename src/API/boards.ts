@@ -1,7 +1,7 @@
-import { boardsURL } from '../constants/constants';
+import { BOARDS_URL } from '../constants/constants';
 
 export const getAllBoards = async (token: string) => {
-  const response = await fetch(boardsURL, {
+  const response = await fetch(BOARDS_URL, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -20,7 +20,7 @@ export const createBoard = async (
   }
 ) =>
   (
-    await fetch(boardsURL, {
+    await fetch(BOARDS_URL, {
       method: 'POST',
       body: JSON.stringify(body),
       headers: {
@@ -31,7 +31,7 @@ export const createBoard = async (
   ).json();
 
 export const getBoardsById = async (token: string, id: string) => {
-  const response = await fetch(`${boardsURL}/${id}`, {
+  const response = await fetch(`${BOARDS_URL}/${id}`, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -50,7 +50,7 @@ export const updateBoard = async (
   }
 ) =>
   (
-    await fetch(`${boardsURL}/${id}`, {
+    await fetch(`${BOARDS_URL}/${id}`, {
       method: 'PUT',
       body: JSON.stringify(body),
       headers: {
@@ -62,7 +62,7 @@ export const updateBoard = async (
 
 export const deleteBoard = async (token: string, id: string) =>
   (
-    await fetch(`${boardsURL}/${id}`, {
+    await fetch(`${BOARDS_URL}/${id}`, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${token}`,
