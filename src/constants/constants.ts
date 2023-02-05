@@ -1,5 +1,8 @@
-export const baseURL = 'https://best-team-api.up.railway.app';
-export const signUpURL = `${baseURL}/auth/signup`;
-export const signInURL = `${baseURL}/auth/signin`;
-export const usersURL = `${baseURL}/users`;
-export const boardsURL = `${baseURL}/boards/`;
+export const BASE_URL = 'https://best-team-api.up.railway.app';
+export const SIGN_UP_URL = `${BASE_URL}/auth/signup`;
+export const SIGN_IN_URL = `${BASE_URL}/auth/signin`;
+export const USERS_URL = `${BASE_URL}/users`;
+export const BOARDS_URL = `${BASE_URL}/boards/`;
+export const sliceNumber = -6;
+
+

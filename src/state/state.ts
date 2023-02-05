@@ -1,6 +1,9 @@
 import { IState } from '../data/types';
 
-const state = {
+const state: IState = {
   authToken: '',
-} as IState;
+  id: '',
+  name: '',
+  pageLoaded: false,
+};
 export default state;
