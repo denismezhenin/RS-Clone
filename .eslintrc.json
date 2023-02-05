@@ -35,6 +35,12 @@
     "class-methods-use-this": "off",
     "@typescript-eslint/no-var-requires": 2,
     "@typescript-eslint/no-explicit-any": 2,
+    "overrides": [
+      {
+        "no-shadow": 0,
+        "@typescript-eslint/no-shadow": [2, { "ignoreTypeValueShadow": true }]
+      }
+    ],
     "prettier/prettier": [
       "error",
       {

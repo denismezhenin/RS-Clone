@@ -4,5 +4,3 @@ export const SIGN_IN_URL = `${BASE_URL}/auth/signin`;
 export const USERS_URL = `${BASE_URL}/users`;
 export const BOARDS_URL = `${BASE_URL}/boards/`;
 export const sliceNumber = -6;
-
-

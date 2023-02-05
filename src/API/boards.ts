@@ -1,4 +1,6 @@
 import { BOARDS_URL } from '../constants/constants';
+import { Board } from '../data/types';
+import state from '../state/state';
 
 export const getAllBoards = async (token: string) => {
   const response = await fetch(BOARDS_URL, {
@@ -18,8 +20,8 @@ export const createBoard = async (
     owner: string;
     users: string[];
   }
-) =>
-  (
+) => {
+  const response: Promise<Board> = (
     await fetch(BOARDS_URL, {
       method: 'POST',
       body: JSON.stringify(body),
@@ -29,6 +31,10 @@ export const createBoard = async (
       },
     })
   ).json();
+  const { _id } = await response;
+  state.boardId = _id;
+  return response;
+};
 
 export const getBoardsById = async (token: string, id: string) => {
   const response = await fetch(`${BOARDS_URL}/${id}`, {
