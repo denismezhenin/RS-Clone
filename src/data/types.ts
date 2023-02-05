@@ -18,6 +18,15 @@ export enum FormsData {
   signup = 'signup',
 }
 
+export enum FormsTaskData {
+  color = 'color',
+  title = 'title',
+  description = 'description',
+  startDate = 'start-date',
+  endDate = 'end-date',
+  priority = 'priority',
+}
+
 export interface IColumns {
   boardId: string;
   order: number;
