@@ -21,3 +21,15 @@
 
   color: $button-color-additional;
 }
+
+.button-round {
+  width: 180px;
+  height: 42px;
+  background: #FFFFFF;
+  border: 2px solid #FF7979;
+  border-radius: 20px;
+
+  &:hover {
+    background: #48409E;
+  }
+}

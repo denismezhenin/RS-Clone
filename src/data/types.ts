@@ -5,7 +5,19 @@ export interface ICreateUser {
 }
 export interface IState {
   authToken: string;
+  id: string;
+  name: string;
+  pageLoaded: boolean;
 }
+
+export enum FormsData {
+  name = 'name',
+  email = 'email',
+  password = 'password',
+  signin = 'signin',
+  signup = 'signup',
+}
+
 export interface IColumns {
   boardId: string;
   order: number;
@@ -22,3 +34,6 @@ export interface ITasks {
   columnId: string;
   users: string[];
 }
+
+export type sign = 'signin' | 'signup';
+

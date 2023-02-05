@@ -13,26 +13,28 @@ export const signUp = async (body: { name: string; login: string; password: stri
     if (response.status !== 200) {
       throw { ...(await response.json()) }.message;
     }
-    await response.json();
+    return await response.json();
   } catch (err) {
-    console.log(err);
+    return console.log(err);
   }
 };
 
 export const signIn = async (body: { login: string; password: string }) => {
-  const response = await fetch(SIGN_IN_URL, {
-    method: 'POST',
-    body: JSON.stringify(body),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-  if (response.status === 200) {
-    const result = await response.json();
-
-    return result;
+  try {
+    const response = await fetch(SIGN_IN_URL, {
+      method: 'POST',
+      body: JSON.stringify(body),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    if (response.status !== 200) {
+      throw { ...(await response.json()) }.message;
+    }
+    return await response.json();
+  } catch (err) {
+    return console.log(err);
   }
-  return response.status !== 200 ? false : { ...(await response.json()) };
 };
 
 export const getUsers = async (token: string) => {
@@ -47,14 +49,20 @@ export const getUsers = async (token: string) => {
 };
 
 export const getUserById = async (token: string, id: string) => {
-  const response = await fetch(`${USERS_URL}/${id}`, {
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  const result = await response.json();
-  return result;
+  try {
+    const response = await fetch(`${USERS_URL}/${id}`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (response.status !== 200) {
+      throw { ...(await response.json()) }.message;
+    }
+    return await response.json();
+  } catch (err) {
+    return console.log(err);
+  }
 };
 
 export const updateUser = async (token: string, id: string, body: { name: string; login: string; password: string }) =>

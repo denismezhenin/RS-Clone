@@ -2,6 +2,7 @@ import './styles/style.scss';
 
 import Navbar from './pages/navBar/Navbar';
 import Bottombar from './pages/bottomBar/Bottombar';
+import LogIn from './pages/login/loginPage';
 import Utils from './services/Utils';
 import { tsQuerySelector } from './helpers/helpers';
 import Boards from './pages/boards/boards';
@@ -11,6 +12,8 @@ import Error404 from './pages/error404/error404';
 const routes = {
   '/': Home,
   '/project/:id': Boards,
+  '/signin': LogIn,
+  '/signup': LogIn,
 };
 
 const router = async () => {
