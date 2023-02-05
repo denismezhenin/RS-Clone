@@ -1,10 +1,6 @@
-import { SIGN_UP_URL, signInURL, usersURL } from '../constants/constants';
+import { SIGN_UP_URL, SIGN_IN_URL, USERS_URL } from '../constants/constants';
 
-export const signUp = async (body: {
-  name: string;
-  login: string;
-  password: string;
-}) => {
+export const signUp = async (body: { name: string; login: string; password: string }) => {
   try {
     const response = await fetch(SIGN_UP_URL, {
       method: 'POST',
@@ -25,7 +21,7 @@ export const signUp = async (body: {
 
 export const signIn = async (body: { login: string; password: string }) => {
   try {
-    const response = await fetch(signInURL, {
+    const response = await fetch(SIGN_IN_URL, {
       method: 'POST',
       body: JSON.stringify(body),
       headers: {
@@ -42,7 +38,7 @@ export const signIn = async (body: { login: string; password: string }) => {
 };
 
 export const getUsers = async (token: string) => {
-  const response = await fetch(usersURL, {
+  const response = await fetch(USERS_URL, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -54,7 +50,7 @@ export const getUsers = async (token: string) => {
 
 export const getUserById = async (token: string, id: string) => {
   try {
-    const response = await fetch(`${usersURL}/${id}`, {
+    const response = await fetch(`${USERS_URL}/${id}`, {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${token}`,
@@ -69,13 +65,9 @@ export const getUserById = async (token: string, id: string) => {
   }
 };
 
-export const updateUser = async (
-  token: string,
-  id: string,
-  body: { name: string; login: string; password: string }
-) =>
+export const updateUser = async (token: string, id: string, body: { name: string; login: string; password: string }) =>
   (
-    await fetch(`${usersURL}/${id}`, {
+    await fetch(`${USERS_URL}/${id}`, {
       method: 'PUT',
       body: JSON.stringify(body),
       headers: {
@@ -87,7 +79,7 @@ export const updateUser = async (
 
 export const deleteUser = async (token: string, id: string) =>
   (
-    await fetch(`${usersURL}/${id}`, {
+    await fetch(`${USERS_URL}/${id}`, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${token}`,

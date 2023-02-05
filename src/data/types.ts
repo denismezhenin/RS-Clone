@@ -18,4 +18,22 @@ export enum FormsData {
   signup = 'signup',
 }
 
+export interface IColumns {
+  boardId: string;
+  order: number;
+  title: string;
+  _id: string;
+}
+export interface ITasks {
+  _id: string;
+  title: string;
+  order: number;
+  description: string;
+  userId: string;
+  boardId: string;
+  columnId: string;
+  users: string[];
+}
+
 export type sign = 'signin' | 'signup';
+
