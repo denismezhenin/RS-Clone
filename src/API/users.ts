@@ -53,14 +53,20 @@ export const getUsers = async (token: string) => {
 };
 
 export const getUserById = async (token: string, id: string) => {
-  const response = await fetch(`${usersURL}/${id}`, {
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-  const result = await response.json();
-  return result;
+  try {
+    const response = await fetch(`${usersURL}/${id}`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (response.status !== 200) {
+      throw { ...(await response.json()) }.message;
+    }
+    return await response.json();
+  } catch (err) {
+    return console.log(err);
+  }
 };
 
 export const updateUser = async (

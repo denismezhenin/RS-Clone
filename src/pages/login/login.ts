@@ -4,7 +4,7 @@ import { tsQuerySelector } from '../../helpers/helpers';
 import state from '../../state/state';
 
 const userForm = () => {
-  if (state.pageLoaded === true) return;
+  if (state.pageLoaded) return;
   state.pageLoaded = true;
   const loginForm = tsQuerySelector<HTMLFormElement>(document, '.login__form');
 
