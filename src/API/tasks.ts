@@ -1,22 +1,14 @@
 import { BOARDS_URL } from '../constants/constants';
 
-export const getTasksInColumn = async (
-  token: string,
-  boardId: string,
-  columnId: string
-) => {
+export const getTasksInColumn = async (token: string, boardId: string, columnId: string) => {
   try {
-    const response = await fetch(
-      `${BOARDS_URL}/${boardId}/columns/${columnId}/tasks`,
-      {
-        method: 'GET',
-        headers: {
-          authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-      }
-    );
-
+    const response = await fetch(`${BOARDS_URL}/${boardId}/columns/${columnId}/tasks`, {
+      method: 'GET',
+      headers: {
+        authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    });
     if (response.status !== 200) {
       throw { ...(await response.json()) }.message;
     }
@@ -50,7 +42,6 @@ export const createTask = async (
         },
       }
     );
-
     if (response.status !== 200) {
       throw { ...(await response.json()) }.message;
     }

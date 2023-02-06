@@ -6,9 +6,17 @@ export interface ICreateUser {
 export interface IState {
   authToken: string;
   id: string;
+  boardId: string;
   name: string;
   pageLoaded: boolean;
 }
+
+export type Board = {
+  _id: string;
+  title: string;
+  owner: string;
+  users: string[];
+};
 
 export enum FormsData {
   name = 'name',
@@ -26,7 +34,6 @@ export enum FormsTaskData {
   endDate = 'end-date',
   priority = 'priority',
 }
-
 export interface IColumns {
   boardId: string;
   order: number;

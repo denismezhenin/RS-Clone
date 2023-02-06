@@ -3,6 +3,8 @@
   flex-direction: column;
   float: left;
 
+  border-right: 2px solid $color-additional;
+
   color: $text-color-additional;
 }
 
@@ -60,8 +62,35 @@
   position: relative;
 }
 
+.projects-container {
+  overflow-y: hidden;
+
+  max-height: 21rem;
+}
+
+.projects-container:hover {
+  overflow-y: scroll;
+}
+
+.projects-container::-webkit-scrollbar {
+  width: 1rem;
+}
+
+.projects-container::-webkit-scrollbar-track {
+  border-radius: 0.5rem;
+
+  background-color: $color-main;
+}
+
+.projects-container::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+
+  background-color: #c2affb;
+}
+
 .aside-project {
   background: url(../assets/icons/circle.svg) no-repeat left center;
+  margin: 0.5rem 2rem 1.5rem;
 
   cursor: pointer;
 }
