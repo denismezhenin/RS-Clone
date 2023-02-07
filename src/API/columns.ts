@@ -1,4 +1,4 @@
-import { BOARDS_URL } from '../constants/constants';
+import { BOARDS_URL, COLUMNS_SET } from '../constants/constants';
 
 export const getColumnsInBoard = async (token: string, boardId: string) => {
   try {
@@ -99,4 +99,29 @@ export const deleteColumn = async (token: string, boardId: string, columnId: str
       },
     })
   ).json();
+};
+
+export const updateSetOfColumns = async (
+  token: string,
+  body: {
+    _id: string;
+    order: number;
+  }[]
+) => {
+  try {
+    const response = await fetch(COLUMNS_SET, {
+      method: 'PATCH',
+      body: JSON.stringify(body),
+      headers: {
+        authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    });
+    if (response.status !== 200) {
+      throw { ...(await response.json()) }.message;
+    }
+    await response.json();
+  } catch (err) {
+    console.log(err);
+  }
 };

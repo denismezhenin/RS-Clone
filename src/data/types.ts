@@ -27,10 +27,10 @@ export enum FormsData {
 }
 
 export interface IColumns {
-  boardId: string;
-  order: number;
-  title: string;
   _id: string;
+  title: string;
+  order: number;
+  boardId: string;
 }
 export interface ITasks {
   _id: string;
