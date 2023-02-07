@@ -4,6 +4,8 @@ import state from '../../state/state';
 import drawProjectsList from '../../features/drawProjectsList';
 import getColumnHTML from '../columns/columnsHtml';
 import { createColumns, getColumnsInBoard } from '../../API/columns';
+import dragNdropTasks from '../../features/drag-n-drop/drag-n-dropTasks';
+import dragNdropColumns from '../../features/drag-n-drop/drag-n-dropColumns';
 
 const Boards = {
   render: async () => `
@@ -27,6 +29,7 @@ const Boards = {
         const secondColumn = await createColumns(state.authToken, state.boardId, { title: 'In progress', order: 0 });
         const thirdColumn = await createColumns(state.authToken, state.boardId, { title: 'Done', order: 0 });
         const result = await getColumnHTML(state.authToken, state.boardId);
+
         main.innerHTML = result;
       }
     }
@@ -38,6 +41,9 @@ const Boards = {
     if (state.authToken) {
       drawProjectsList();
     }
+
+    dragNdropColumns();
+    dragNdropTasks();
   },
 };
 

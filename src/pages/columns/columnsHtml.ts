@@ -1,7 +1,7 @@
 import getTaskHTML from '../tasks/taskInColumnsLayout';
 import { getColumnsInBoard } from '../../API/columns';
 import { IColumns } from '../../data/types';
-import getTasksInColumn from '../../API/tasks';
+import { getTasksInColumn } from '../../API/tasks';
 
 const getArrayTasks = async (token: string, columns: IColumns[], boardId: string) => {
   const arrayPromises = columns.map((column: IColumns) => getTasksInColumn(token, boardId, column._id));
@@ -10,14 +10,14 @@ const getArrayTasks = async (token: string, columns: IColumns[], boardId: string
 };
 
 const getColumnHTML = async (token: string, boardId: string) => {
-  const columns = await getColumnsInBoard(token, boardId);
+  const columns: IColumns[] = await getColumnsInBoard(token, boardId);
+  columns.sort((a, b) => a.order - b.order);
   const arrayTasks = await getArrayTasks(token, columns, boardId);
   return `
-<ul class="colums-list">
-${columns
-  .map(
-    (column: IColumns, index: number) => `
-<li class="column">
+<ul class="columns-list">
+${columns.map(
+    (column: IColumns) => `
+<li class="column" id='${column._id}'>
 <div class="column-header">
 <h3 class="column-title">${column.title}</h3>
 <div class="title-settings">
@@ -33,7 +33,9 @@ ${columns
   </ul>
 </div>
 <div class="column-tasks__container">
-  ${getTaskHTML(arrayTasks[index])}
+<ul class="tasks-list" id='tasks__list-${column._id}'>
+  ${getTaskHTML(arrayTasks[column.order])}
+  </ul>
 </div>
 </div>
 </li>

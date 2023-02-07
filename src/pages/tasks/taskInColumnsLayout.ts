@@ -2,11 +2,11 @@ import { ITasks } from '../../data/types';
 
 const getTaskHTML = (tasks: ITasks[]) =>
   `
-  <ul class="tasks-list">
- ${tasks
-   .map(
-     (task: ITasks) => `
- <li class="task">
+   ${tasks
+     .sort((a, b) => a.order - b.order)
+     .map(
+       (task: ITasks) => `
+ <li class="task" id='${task._id}'>
 <div class="task-wrapper">
 <div class="task-header">
   <h3 class="task-title">${task.title}</h3>
@@ -28,11 +28,8 @@ const getTaskHTML = (tasks: ITasks[]) =>
 </div>
 </li> 
  `
-   )
-   .join('')}
- 
-  
-</ul>
+     )
+     .join('')}
 `;
 
 export default getTaskHTML;
