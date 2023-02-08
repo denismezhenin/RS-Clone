@@ -1,4 +1,4 @@
-import { SIGN_UP_URL, SIGN_IN_URL, USERS_URL } from '../constants/constants';
+import { SIGN_UP_URL, SIGN_IN_URL, USERS_URL, DEFAULT_ERROR } from '../constants/constants';
 import state from '../state/state';
 import popUpMessages from '../features/popUpMessages/popupMessages';
 import { ToastrType } from '../data/types';
@@ -18,7 +18,7 @@ export const signUp = async (body: { name: string; login: string; password: stri
     }
     return await response.json();
   } catch (err) {
-    popUpMessages(ToastrType.error, err as string);
+    popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
   }
 };
 
@@ -36,7 +36,7 @@ export const signIn = async (body: { login: string; password: string }) => {
     }
     return await response.json();
   } catch (err) {
-    popUpMessages(ToastrType.error, err as string);
+    popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
   }
 };
 
@@ -64,7 +64,7 @@ export const getUserById = async (token: string, id: string) => {
     }
     return await response.json();
   } catch (err) {
-    popUpMessages(ToastrType.error, err as string);
+    popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
   }
 };
 
