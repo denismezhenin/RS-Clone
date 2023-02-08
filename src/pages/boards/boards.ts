@@ -7,6 +7,7 @@ import { createColumns, getColumnsInBoard } from '../../API/columns';
 import dragNdropTasks from '../../features/drag-n-drop/drag-n-dropTasks';
 import dragNdropColumns from '../../features/drag-n-drop/drag-n-dropColumns';
 
+
 const Boards = {
   render: async () => `
   <div class="main_home">

@@ -44,3 +44,10 @@ export interface ITasks {
 }
 
 export type sign = 'signin' | 'signup';
+
+export enum ToastrType {
+  error = 'error',
+  info = 'info',
+  success = 'success',
+  warning = 'warning',
+}
