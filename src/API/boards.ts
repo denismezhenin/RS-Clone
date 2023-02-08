@@ -20,7 +20,6 @@ export const createBoard = async (
     owner: string;
     users: string[];
   }
-
 ) => {
   const response: Promise<Board> = (
     await fetch(BOARDS_URL, {

@@ -94,3 +94,4 @@ export const deleteTask = async (token: string, boardId: string, columnId: strin
     return console.log(err);
   }
 };
+
