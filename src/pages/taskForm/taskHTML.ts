@@ -1,4 +1,5 @@
-const taskForm = `
+const taskForm = () => {
+  const HTML = `
   <div class="new-card">
         <form action="" class="new-card__form create-card">
             <h3>New Task</h3>
@@ -57,5 +58,7 @@ const taskForm = `
             </div>
       </form>
   </div>`;
+  return HTML
+} 
 
 export default taskForm;

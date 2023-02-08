@@ -4,18 +4,20 @@ import state from '../../state/state';
 import drawProjectsList from '../../features/drawProjectsList';
 import getColumnHTML from '../columns/columnsHtml';
 import { createColumns, getColumnsInBoard } from '../../API/columns';
+import taskForm from '../taskForm/taskHTML';
+import { tsQuerySelector } from '../../helpers/helpers';
+import createTaskFormListener from '../taskForm/createNewTask';
 
 const Boards = {
   render: async () => `
   <div class="main_home">
     ${getAsideHtml()}
     <div class="main-board"></div>
-  </div>
-  `,
+  </div>`,
   after_render: async () => {
     const array = window.location.hash.split('/').reverse().join('/');
     const boardId = array.slice(0, array.indexOf('/'));
-    const main = document.querySelector('.main-board');
+    const main = tsQuerySelector(document, '.main-board');
     const columns = await getColumnsInBoard(state.authToken, boardId);
 
     if (main) {
@@ -30,7 +32,9 @@ const Boards = {
         main.innerHTML = result;
       }
     }
-
+    const task = document.createElement('div')
+    task.innerHTML = taskForm()
+    main.append(task)
     const plusBtn = document.querySelector('.plus-img');
     if (plusBtn) {
       plusBtn.addEventListener('click', createNewBoard);
@@ -38,6 +42,39 @@ const Boards = {
     if (state.authToken) {
       drawProjectsList();
     }
+    document.addEventListener('click', async (e) => {
+      if (!(e.target instanceof HTMLElement)) return;
+      const { target } = e;
+      if (target.classList.contains('title-setting__add')) {
+        // const board = target.closest(board)
+        // const column = target.closest(column)
+        // const form = tsQuerySelector<HTMLFormElement>(
+        //   document,
+        //   '.new-card__form'
+        // );
+        // form.dataset.board = board
+        // form.dataset.column = column
+        // const content = tsQuerySelector(document, '#page_container');
+        // const task = document.createElement('div');
+        // task.classList.add('new-card', 'new-card__active');
+        // task.innerHTML = taskForm;
+        // content.append(task);
+        tsQuerySelector(document, '.new-card').classList.toggle(
+          'new-card__active'
+        );
+      }
+      if (target.classList.contains('new-card')) {
+        tsQuerySelector(document, '.new-card').classList.toggle(
+          'new-card__active'
+        );
+      }
+      if (target.classList.contains('create-card-action-cancel')) {
+        tsQuerySelector(document, '.new-card').classList.toggle(
+          'new-card__active'
+        );
+      }
+    });
+    createTaskFormListener();
   },
 };
 

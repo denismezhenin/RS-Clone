@@ -6,7 +6,7 @@ const getTaskHTML = (tasks: ITasks[]) =>
  ${tasks
    .map(
      (task: ITasks) => `
- <li class="task">
+ <li class="task" id="${task._id}">
 <div class="task-wrapper">
 <div class="task-header">
   <h3 class="task-title">${task.title}</h3>
