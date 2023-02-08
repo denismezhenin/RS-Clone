@@ -43,10 +43,10 @@ export const updateSetOfTasks = async (
   token: string,
   body: 
     {
-      _id: string;
-      order: number;
-      columnId: string;
-    }[]
+    _id: string;
+    order: number;
+    columnId: string;
+  }[]
   
 ) => {
   try {
