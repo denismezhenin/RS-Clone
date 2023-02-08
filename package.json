@@ -19,12 +19,14 @@
   "dependencies": {
     "sortablejs": "^1.15.0",
     "style-loader": "^3.3.1",
+    "toastr": "^2.1.4",
     "workbox-webpack-plugin": "^6.5.4"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@babel/preset-env": "^7.20.2",
     "@types/sortablejs": "^1.15.0",
+    "@types/toastr": "^2.1.40",
     "@typescript-eslint/eslint-plugin": "^5.49.0",
     "@typescript-eslint/parser": "^5.49.0",
     "@webpack-cli/generators": "^3.0.1",

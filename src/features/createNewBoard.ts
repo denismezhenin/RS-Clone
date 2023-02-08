@@ -3,6 +3,7 @@ import state from '../state/state';
 import togglePopup from './togglePopup';
 import { createBoard } from '../API/boards';
 import drawProjectsList from './drawProjectsList';
+import popUpMessages from './popUpMessages/popupMessages';
 
 const createNewBoard = async () => {
   document.querySelector('.shadow')?.remove();
@@ -60,6 +61,7 @@ const createNewBoard = async () => {
     createBoard(state.authToken, { title: resultTitle, owner: state.id, users: [''] })
       .then(() => {
         drawProjectsList();
+        popUpMessages('success', 'New project created');
       })
       .then(() => {
         window.location.hash = `/project/${state.boardId}`;

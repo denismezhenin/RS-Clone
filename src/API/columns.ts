@@ -1,4 +1,5 @@
 import { BOARDS_URL, COLUMNS_SET } from '../constants/constants';
+import popUpMessages from '../features/popUpMessages/popupMessages';
 
 export const getColumnsInBoard = async (token: string, boardId: string) => {
   try {
@@ -15,7 +16,7 @@ export const getColumnsInBoard = async (token: string, boardId: string) => {
     }
     return await response.json();
   } catch (err) {
-    return console.log(err);
+    popUpMessages('error', err as string);
   }
 };
 
@@ -41,7 +42,7 @@ export const createColumns = async (
     }
     return await response.json();
   } catch (err) {
-    return console.log(err);
+    popUpMessages('error', err as string);
   }
 };
 
@@ -59,7 +60,7 @@ export const getColumnById = async (token: string, boardId: string, columnId: st
     }
     return { ...(await response.json()) };
   } catch (err) {
-    return console.log(err);
+    popUpMessages('error', err as string);
   }
 };
 
@@ -86,7 +87,7 @@ export const updateColumnById = async (
     }
     await response.json();
   } catch (err) {
-    console.log(err);
+    popUpMessages('error', err as string);
   }
 };
 
@@ -122,6 +123,6 @@ export const updateSetOfColumns = async (
     }
     await response.json();
   } catch (err) {
-    console.log(err);
+    popUpMessages('error', err as string);
   }
 };
