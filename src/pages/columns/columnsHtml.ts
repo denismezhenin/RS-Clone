@@ -1,7 +1,7 @@
 import getTaskHTML from '../tasks/taskInColumnsLayout';
 import { getColumnsInBoard } from '../../API/columns';
 import { IColumns } from '../../data/types';
-import getTasksInColumn from '../../API/tasks';
+import { getTasksInColumn } from '../../API/tasks';
 
 const getArrayTasks = async (token: string, columns: IColumns[], boardId: string) => {
   const arrayPromises = columns.map((column: IColumns) => getTasksInColumn(token, boardId, column._id));
@@ -11,13 +11,15 @@ const getArrayTasks = async (token: string, columns: IColumns[], boardId: string
 
 const getColumnHTML = async (token: string, boardId: string) => {
   const columns = await getColumnsInBoard(token, boardId);
+  console.log(columns)
   const arrayTasks = await getArrayTasks(token, columns, boardId);
+  console.log(arrayTasks)
   return `
-<ul class="colums-list">
+<ul class="colums-list" id="${boardId}">
 ${columns
   .map(
     (column: IColumns, index: number) => `
-<li class="column">
+<li class="column" id="${column._id}">
 <div class="column-header">
 <h3 class="column-title">${column.title}</h3>
 <div class="title-settings">

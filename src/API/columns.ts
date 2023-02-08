@@ -23,7 +23,7 @@ export const createColumns = async (
   token: string,
   boardId: string,
   body: {
-    title: 'string';
+    title: string;
     order: 0;
   }
 ) => {

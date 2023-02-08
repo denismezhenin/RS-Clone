@@ -84,3 +84,14 @@
   .form-input:focus ~ .input-wrapper-bar:before, .form-input:focus ~ .input-wrapper-bar:after {
     width:50%;
   }
+  
+.new-board-input {
+  background-color: $color-main;
+}
+
+.new-board-input:focus {
+  background-color: $color-main;
+
+  color: $text-color;
+}
+

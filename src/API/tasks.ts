@@ -40,7 +40,6 @@ export const createTask = async (
         'Content-Type': 'application/json',
       },
     });
-
     if (response.status !== 200) {
       throw { ...(await response.json()) }.message;
     }
@@ -87,7 +86,6 @@ export const deleteTask = async (token: string, boardId: string, columnId: strin
     const response = await fetch(`${BOARDS_URL}/${boardId}/columns/${columnId}/tasks/${taskID}`, {
       method: 'DELETE',
     });
-
     if (response.status !== 200) {
       throw { ...(await response.json()) }.message;
     }

@@ -1,21 +1,29 @@
-.tasks-list{
+
+.tasks-list {
   display: flex;
   flex-direction: column;
-  width: 90%;
-  padding: 0;
   gap: 10px;
+
+  width: 90%;
+
+  padding: 0;
 }
+
 .task {
-  width: 100%;
-  background: #ffffff;
-  border-radius: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  width: 100%;
+
+  background: #ffffff;
+  border-radius: 16px;
 }
-.task-wrapper{
+
+.task-wrapper {
   width: 90%;
 }
+
 .task-header {
   display: flex;
   align-items: center;

@@ -1,0 +1,54 @@
+.popup {
+  display: none;
+}
+
+.popup-active {
+  position: absolute;
+  top: 5%;
+  left: 25%;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 50%;
+
+  background-color: $color-main;
+  padding: 2rem;
+  border-radius: 5%;
+}
+
+.new-board-header {
+  position: relative;
+}
+
+.close-sign {
+  position: absolute;
+  top: -3rem;
+  right: -18rem;
+
+  width: 3rem;
+
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.close-sign:hover {
+  transform: scale(1.2);
+}
+
+.new-board-form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  font-size: 1.6rem;
+}
+
+.new-board-img {
+  width: 80%;
+
+  margin: 2rem;
+  border-radius: 5%;
+}
