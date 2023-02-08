@@ -1,9 +1,11 @@
 import { BOARDS_URL, COLUMNS_SET, DEFAULT_ERROR } from '../constants/constants';
 import { ToastrType } from '../data/types';
 import popUpMessages from '../features/popUpMessages/popupMessages';
+import { removeSpinner, getSpinner } from '../features/spinner/spinner';
 
 export const getColumnsInBoard = async (token: string, boardId: string) => {
   try {
+    getSpinner();
     const response = await fetch(`${BOARDS_URL}/${boardId}/columns`, {
       method: 'GET',
       headers: {
@@ -18,6 +20,8 @@ export const getColumnsInBoard = async (token: string, boardId: string) => {
     return await response.json();
   } catch (err) {
     popUpMessages(ToastrType.error, String(err));
+  } finally {
+    removeSpinner();
   }
 };
 
@@ -30,6 +34,7 @@ export const createColumns = async (
   }
 ) => {
   try {
+    getSpinner();
     const response = await fetch(`${BOARDS_URL}/${boardId}/columns`, {
       method: 'POST',
       body: JSON.stringify(body),
@@ -44,6 +49,8 @@ export const createColumns = async (
     return await response.json();
   } catch (err) {
     popUpMessages(ToastrType.error, String(err));
+  } finally {
+    removeSpinner();
   }
 };
 
