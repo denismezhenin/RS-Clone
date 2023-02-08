@@ -25,16 +25,16 @@ const createTaskForm = async () => {
     endDate,
     priority,
   };
-  // if (!boardId || !columnId) return;
+  if (!boardId || !columnId) return;
   const descriptionJSON = JSON.stringify(descriptionObject);
-  // if (!email || !password) return;
-  // const response = await createTask(state.authToken, boardId, columnId, {
-  //   title,
-  //   order: 0,
-  //   description: descriptionJSON,
-  //   userId,
-  //   users,
-  // });
+  const response = await createTask(state.authToken, boardId, columnId, {
+    title,
+    order: 0,
+    description: descriptionJSON,
+    userId,
+    users,
+  });
+  console.log(response)
   tsQuerySelector(document, '.new-card').classList.toggle('new-card__active');
   // if (!response) {
   // }

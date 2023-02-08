@@ -62,9 +62,20 @@ const Boards = {
         tsQuerySelector(document, '.new-card').classList.toggle(
           'new-card__active'
         );
+        const board = tsQuerySelector(document, '.new-card__form')
+        const boardId = target.closest('.colums-list').id
+        const columId = target.closest('.column').id
+        board.dataset.board = boardId
+        board.dataset.column = columId
       }
       if (target.classList.contains('new-card')) {
-        tsQuerySelector(document, '.new-card').classList.toggle(
+
+        // if (target.closest('colums-list')) return
+        // if (board) {
+        //   board.dataset.board = target.closest('colums-list')
+        // }
+
+        target.classList.toggle(
           'new-card__active'
         );
       }
