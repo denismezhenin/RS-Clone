@@ -6,8 +6,12 @@ const getTaskHTML = (tasks: ITasks[]) =>
  ${tasks
    .map(
      (task: ITasks) =>  {
-       const description = JSON.parse(task.description)
+       let description = IsJsonString(task.description); 
+      // if (typeof(JSON.parse(task.description)) =='object') {
+      //  description = JSON.parse(task.description)
+      // }
 
+      console.log(description)
       return `
       <li class="task" id="${task._id}">
      <div class="task-wrapper">
@@ -22,7 +26,7 @@ const getTaskHTML = (tasks: ITasks[]) =>
            <li class="task-menu__item">Delete</li>
          </ul>
        </div>
-       <div class="task-description">${description.description}</div>
+       <div class="task-description" style="color:${description? description.color : ""}">${description? description.description : task.description}</div>
        <div class="task-footer">
          <h4 class="task-assignees__text">Assignees:</h4>
          <div class="task-assignees__container"></div>
@@ -38,5 +42,15 @@ const getTaskHTML = (tasks: ITasks[]) =>
   
 </ul>
 `;
+
+
+function IsJsonString(str: string) {
+  try {
+      JSON.parse(str);
+  } catch (e) {
+      return false;
+  }
+  return JSON.parse(str);
+}
 
 export default getTaskHTML;
