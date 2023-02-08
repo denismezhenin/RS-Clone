@@ -4,11 +4,12 @@ import { tsQuerySelector } from '../../helpers/helpers';
 import state from '../../state/state';
 
 const userForm = () => {
-  if (state.pageLoaded) return;
-  state.pageLoaded = true;
+  // if (state.pageLoaded) return;
+  // state.pageLoaded = true;
   const loginForm = tsQuerySelector<HTMLFormElement>(document, '.login__form');
 
   loginForm.addEventListener('submit', async (e) => {
+    console.log('yes')
     e.preventDefault();
     const formData = new FormData(loginForm);
     const name = String(formData.get(FormsData.name));
@@ -23,6 +24,7 @@ const userForm = () => {
       window.location.href = '#/signin';
     }
     if (loginForm.classList.contains(FormsData.signin)) {
+      console.log('yes')
       const response = await signIn({ login: email, password });
       if (response) {
         state.authToken = response.token;
@@ -31,6 +33,7 @@ const userForm = () => {
         if (user.name) {
           state.name = user.name;
         }
+        console.log(state)
         window.location.href = '#/';
       }
     }
