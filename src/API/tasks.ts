@@ -1,4 +1,5 @@
 import { BOARDS_URL, TASKS_SET } from '../constants/constants';
+import { ToastrType } from '../data/types';
 import popUpMessages from '../features/popUpMessages/popupMessages';
 
 export const getTasksInColumn = async (token: string, boardId: string, columnId: string) => {
@@ -16,7 +17,7 @@ export const getTasksInColumn = async (token: string, boardId: string, columnId:
     }
     return await response.json();
   } catch (err) {
-    popUpMessages('error', err as string);
+    popUpMessages(ToastrType.error, err as string);
   }
 };
 
@@ -35,7 +36,7 @@ export const getTaskById = async (token: string, boardId: string, columnId: stri
     }
     return await response.json();
   } catch (err) {
-    popUpMessages('error', err as string);
+    popUpMessages(ToastrType.error, err as string);
   }
 };
 
@@ -63,6 +64,6 @@ export const updateSetOfTasks = async (
     }
     await response.json();
   } catch (err) {
-    popUpMessages('error', err as string);
+    popUpMessages(ToastrType.error, err as string);
   }
 };
