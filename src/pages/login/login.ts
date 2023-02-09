@@ -1,11 +1,10 @@
 import { getUserById, signIn, signUp } from '../../API/users';
-import { FormsData } from '../../data/types';
+import { FormsData, ToastrType } from '../../data/types';
+import popUpMessages from '../../features/popUpMessages/popupMessages';
 import { tsQuerySelector } from '../../helpers/helpers';
 import state from '../../state/state';
 
 const userForm = () => {
-  if (state.pageLoaded) return;
-  state.pageLoaded = true;
   const loginForm = tsQuerySelector<HTMLFormElement>(document, '.login__form');
 
   loginForm.addEventListener('submit', async (e) => {
@@ -32,6 +31,7 @@ const userForm = () => {
           state.name = user.name;
         }
         window.location.href = '#/';
+        popUpMessages(ToastrType.success, 'You are sign in!');
       }
     }
   });

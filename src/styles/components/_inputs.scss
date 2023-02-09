@@ -23,3 +23,13 @@
 
   outline: none;
 }
+
+.new-board-input {
+  background-color: $color-main;
+}
+
+.new-board-input:focus {
+  background-color: $color-main;
+
+  color: $text-color;
+}

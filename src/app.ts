@@ -9,7 +9,7 @@ import Boards from './pages/boards/boards';
 import Home from './pages/home/home';
 import Error404 from './pages/error404/error404';
 
-const routes = {
+const routes: { [key: string]: typeof Home | typeof Boards } = {
   '/': Home,
   '/project/:id': Boards,
   '/signin': LogIn,
@@ -33,9 +33,7 @@ const router = async () => {
   footer.innerHTML = await Bottombar.render();
   await Bottombar.after_render();
 
-  const page = routes[parsedURL as keyof object]
-    ? routes[parsedURL as keyof object]
-    : Error404;
+  const page = routes[parsedURL] ? routes[parsedURL] : Error404;
   content.innerHTML = await page.render();
   await page.after_render();
 };
