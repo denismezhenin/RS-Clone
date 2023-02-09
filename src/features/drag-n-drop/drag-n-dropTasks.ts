@@ -13,6 +13,7 @@ const dragNdropTasks = () => {
         name: DRAG_N_DROP_GROUP_TASK,
       },
       onEnd: async function (e) {
+        console.log(e)
         const prevTaskListArray = [...e.from.children].map((task, index) => ({
           _id: task.id,
           order: index,

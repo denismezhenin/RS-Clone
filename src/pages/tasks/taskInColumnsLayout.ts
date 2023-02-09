@@ -2,7 +2,6 @@ import { ITasks } from '../../data/types';
 
 const getTaskHTML = (tasks: ITasks[]) =>
   `
-  <ul class="tasks-list">
  ${tasks.sort((a, b) => a.order - b.order)
    .map(
      (task: ITasks) =>  {
@@ -38,9 +37,6 @@ const getTaskHTML = (tasks: ITasks[]) =>
      }
         )
    .join('')}
- 
-  
-</ul>
 `;
 
 

@@ -61,7 +61,7 @@ const Boards = {
     const task = document.createElement('div')
     task.innerHTML = taskForm()
     main.append(task)
-    main.id = boardId
+    // main.id = boardId
     document.addEventListener('click', async (e) => {
       if (!(e.target instanceof HTMLElement)) return;
       const { target } = e;
