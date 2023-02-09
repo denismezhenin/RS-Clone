@@ -1,9 +1,11 @@
 import { BOARDS_URL, DEFAULT_ERROR, TASKS_SET } from '../constants/constants';
 import { ToastrType } from '../data/types';
 import popUpMessages from '../features/popUpMessages/popupMessages';
+import { removeSpinner, getSpinner } from '../features/spinner/spinner';
 
 export const getTasksInColumn = async (token: string, boardId: string, columnId: string) => {
   try {
+    getSpinner();
     const response = await fetch(`${BOARDS_URL}/${boardId}/columns/${columnId}/tasks`, {
       method: 'GET',
       headers: {
@@ -18,6 +20,8 @@ export const getTasksInColumn = async (token: string, boardId: string, columnId:
     return await response.json();
   } catch (err) {
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+  } finally {
+    removeSpinner();
   }
 };
 
