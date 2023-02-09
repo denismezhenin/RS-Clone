@@ -4,7 +4,6 @@ import state from '../../state/state';
 import { signIn } from '../../API/users';
 import drawProjectsList from '../../features/drawProjectsList';
 
-
 const Home = {
   render: async () => {
     const view = `

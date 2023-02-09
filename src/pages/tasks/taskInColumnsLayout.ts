@@ -2,6 +2,7 @@ import { ITasks } from '../../data/types';
 
 const getTaskHTML = (tasks: ITasks[]) =>
   `
+<<<<<<< HEAD
   <ul class="tasks-list">
  ${tasks
    .map(

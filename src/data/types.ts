@@ -34,11 +34,12 @@ export enum FormsTaskData {
   endDate = 'end-date',
   priority = 'priority',
 }
+
 export interface IColumns {
-  boardId: string;
-  order: number;
-  title: string;
   _id: string;
+  title: string;
+  order: number;
+  boardId: string;
 }
 export interface ITasks {
   _id: string;
@@ -52,4 +53,11 @@ export interface ITasks {
 }
 
 export type sign = 'signin' | 'signup';
+
+export enum ToastrType {
+  error = 'error',
+  info = 'info',
+  success = 'success',
+  warning = 'warning',
+}
 

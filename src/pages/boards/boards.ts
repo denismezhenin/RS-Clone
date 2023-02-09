@@ -7,6 +7,9 @@ import { createColumns, getColumnsInBoard } from '../../API/columns';
 import taskForm from '../taskForm/taskHTML';
 import { tsQuerySelector } from '../../helpers/helpers';
 import createTaskFormListener from '../taskForm/createNewTask';
+import dragNdropTasks from '../../features/drag-n-drop/drag-n-dropTasks';
+import dragNdropColumns from '../../features/drag-n-drop/drag-n-dropColumns';
+
 
 const Boards = {
   render: async () => `
@@ -63,8 +66,8 @@ const Boards = {
           'new-card__active'
         );
         const board = tsQuerySelector(document, '.new-card__form')
-        const boardId = target.closest('.colums-list').id
-        const columId = target.closest('.column').id
+        const boardId = target.closest('.colums-list')?.id
+        const columId = target.closest('.column')?.id
         board.dataset.board = boardId
         board.dataset.column = columId
       }
@@ -86,6 +89,8 @@ const Boards = {
       }
     });
     createTaskFormListener();
+    dragNdropColumns();
+    dragNdropTasks();
   },
 };
 

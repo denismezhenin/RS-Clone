@@ -3,7 +3,6 @@ import { getColumnsInBoard } from '../../API/columns';
 import { IColumns } from '../../data/types';
 import { getTasksInColumn } from '../../API/tasks';
 
-
 const getArrayTasks = async (token: string, columns: IColumns[], boardId: string) => {
   const arrayPromises = columns.map((column: IColumns) => getTasksInColumn(token, boardId, column._id));
   const arrayTasks = await Promise.all(arrayPromises);
@@ -11,10 +10,9 @@ const getArrayTasks = async (token: string, columns: IColumns[], boardId: string
 };
 
 const getColumnHTML = async (token: string, boardId: string) => {
-  const columns = await getColumnsInBoard(token, boardId);
-  console.log(columns)
+  const columns: IColumns[] = await getColumnsInBoard(token, boardId);
+  columns.sort((a, b) => a.order - b.order);
   const arrayTasks = await getArrayTasks(token, columns, boardId);
-  console.log(arrayTasks)
   return `
 <ul class="colums-list" id="${boardId}">
 ${columns
@@ -36,7 +34,9 @@ ${columns
   </ul>
 </div>
 <div class="column-tasks__container">
-  ${getTaskHTML(arrayTasks[index])}
+<ul class="tasks-list" id='tasks__list-${column._id}'>
+  ${getTaskHTML(arrayTasks[column.order])}
+  </ul>
 </div>
 </div>
 </li>
