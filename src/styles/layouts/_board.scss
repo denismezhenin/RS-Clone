@@ -1,0 +1,38 @@
+.board-control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.board-title {
+  margin: 0;
+}
+
+.members-select {
+  min-width: 10rem;
+  height: 2.5rem;
+  border: 1px solid $color-additional;
+  border-radius: 5px;
+
+  background-color: $color-main;
+  outline: none;
+
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: $button-color-additional;
+}
+
+option:disabled {
+  color: $text-color-additional;
+}
+
+.invite-block {
+  display: flex;
+}
+
+.member-icons {
+  position: relative;
+
+  width: 12rem;
+}

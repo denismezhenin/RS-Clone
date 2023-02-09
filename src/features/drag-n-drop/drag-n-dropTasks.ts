@@ -25,7 +25,7 @@ const dragNdropTasks = () => {
         }));
 
         const resultTasksArray = [...prevTaskListArray, ...currentTaskListArray];
-
+        console.log(resultTasksArray)
         await updateSetOfTasks(state.authToken, resultTasksArray);
       },
     })

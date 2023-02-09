@@ -4,47 +4,63 @@ import state from '../../state/state';
 import drawProjectsList from '../../features/drawProjectsList';
 import getColumnHTML from '../columns/columnsHtml';
 import { createColumns, getColumnsInBoard } from '../../API/columns';
+import { getBoardsById } from '../../API/boards';
+import getBoardControlHtml from './getBoardControlHtml';
+import UI from '../../data/UI';
+import drawColumnPlus from './drawColumnPlus';
+import { getUsers } from '../../API/users';
+import getBoardId from '../../services/getBoardId';
+import getInactiveUsers from '../../features/getInactiveUsers';
+import getBoardIcons from './getBoardIcons';
+import setSelectedUserId from '../../features/setSelectedUserId';
+import dragNdropTasks from '../../features/drag-n-drop/drag-n-dropTasks';
+import dragNdropColumns from '../../features/drag-n-drop/drag-n-dropColumns';
 import taskForm from '../taskForm/taskHTML';
 import { tsQuerySelector } from '../../helpers/helpers';
 import createTaskFormListener from '../taskForm/createNewTask';
-import dragNdropTasks from '../../features/drag-n-drop/drag-n-dropTasks';
-import dragNdropColumns from '../../features/drag-n-drop/drag-n-dropColumns';
-
 
 const Boards = {
   render: async () => `
   <div class="main_home">
     ${getAsideHtml()}
     <div class="main-board"></div>
-  </div>`,
+</div>
+  `,
   after_render: async () => {
-    const array = window.location.hash.split('/').reverse().join('/');
-    const boardId = array.slice(0, array.indexOf('/'));
-    const main = tsQuerySelector(document, '.main-board');
-    const columns = await getColumnsInBoard(state.authToken, boardId);
-
-    if (main) {
-      if (columns.length !== 0) {
-        const result = await getColumnHTML(state.authToken, boardId);
-        main.innerHTML = result;
-      } else {
-        const firstColumn = await createColumns(state.authToken, state.boardId, { title: 'Todo', order: 0 });
-        const secondColumn = await createColumns(state.authToken, state.boardId, { title: 'In progress', order: 0 });
-        const thirdColumn = await createColumns(state.authToken, state.boardId, { title: 'Done', order: 0 });
-        const result = await getColumnHTML(state.authToken, state.boardId);
-        main.innerHTML = result;
-      }
-    }
-    const task = document.createElement('div')
-    task.innerHTML = taskForm()
-    main.append(task)
-    const plusBtn = document.querySelector('.plus-img');
-    if (plusBtn) {
-      plusBtn.addEventListener('click', createNewBoard);
-    }
     if (state.authToken) {
       drawProjectsList();
     }
+
+    const boardId = getBoardId();
+    const main = tsQuerySelector(document, '.main-board');
+    const columns = await getColumnsInBoard(state.authToken, boardId);
+    const board = await getBoardsById(state.authToken, boardId);
+    const users = await getUsers(state.authToken);
+    const inactiveUsers = getInactiveUsers(users, board.users);
+    const boardControlHtml = getBoardControlHtml(board.title, inactiveUsers);
+
+    if (main) {
+      let result = '';
+      if (columns.length !== 0) {
+        result = await getColumnHTML(state.authToken, boardId);
+      } else {
+        const COLUMNS = [UI.firstColumnName, UI.secondColumnName, UI.thirdColumnName];
+        COLUMNS.map(async (el) => await createColumns(state.authToken, state.boardId, { title: el, order: 0 }));
+        result = await getColumnHTML(state.authToken, state.boardId);
+      }
+      main.innerHTML = `${boardControlHtml}${result}`;
+      drawColumnPlus();
+    }
+
+    if (board.users.length) {
+      getBoardIcons(board.users);
+    }
+
+    const membersSelect = <HTMLSelectElement>document.querySelector('.members-select');
+    membersSelect.addEventListener('change', setSelectedUserId);
+    const task = document.createElement('div')
+    task.innerHTML = taskForm()
+    main.append(task)
     document.addEventListener('click', async (e) => {
       if (!(e.target instanceof HTMLElement)) return;
       const { target } = e;

@@ -13,12 +13,12 @@ const getColumnHTML = async (token: string, boardId: string) => {
   const columns: IColumns[] = await getColumnsInBoard(token, boardId);
   columns.sort((a, b) => a.order - b.order);
   const arrayTasks = await getArrayTasks(token, columns, boardId);
+
   return `
-<ul class="colums-list" id="${boardId}">
-${columns
-  .map(
-    (column: IColumns, index: number) => `
-<li class="column" id="${column._id}">
+<ul class="columns-list">
+${columns.map(
+    (column: IColumns) => `
+<li class="column" id='${column._id}'>
 <div class="column-header">
 <h3 class="column-title">${column.title}</h3>
 <div class="title-settings">

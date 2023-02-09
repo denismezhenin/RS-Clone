@@ -34,6 +34,7 @@ export const getTaskById = async (token: string, boardId: string, columnId: stri
         'Content-Type': 'application/json',
       },
     });
+
     if (response.status !== 200) {
       throw { ...(await response.json()) }.message;
     }
@@ -69,6 +70,7 @@ export const updateSetOfTasks = async (
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
   }
 };
+
 
 export const createTask = async (
   token: string,
@@ -150,3 +152,4 @@ export const deleteTask = async (token: string, boardId: string, columnId: strin
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
   }
 };
+

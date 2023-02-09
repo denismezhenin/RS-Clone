@@ -6,6 +6,7 @@ const state: IState = {
   boardId: '',
   name: '',
   pageLoaded: false,
+  selectedUserId: '',
 };
 
 export default state;

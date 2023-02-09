@@ -1,9 +1,9 @@
-
 import { SIGN_UP_URL, SIGN_IN_URL, USERS_URL, DEFAULT_ERROR } from '../constants/constants';
 import state from '../state/state';
 import popUpMessages from '../features/popUpMessages/popupMessages';
 import { ToastrType } from '../data/types';
 import { getSpinner, removeSpinner } from '../features/spinner/spinner';
+
 
 export const signUp = async (body: { name: string; login: string; password: string }) => {
   try {

@@ -7,10 +7,9 @@
 @import 'abstracts/variables', 'abstracts/mixins';
 @import 'base/normalize', 'base/base', 'base/fonts';
 @import 'layouts/footer', 'layouts/header', 'layouts/aside', 'layouts/shadow', 'layouts/popup', 'layouts/column',
-  'layouts/task', 'layouts/createTaskForm';
-@import 'components/buttons', 'components/inputs';
+  'layouts/task', 'layouts/board', 'layouts/createTaskForm';
+@import 'components/buttons', 'components/inputs', 'components/icons';
 @import 'pages/main';
 @import 'layouts/login';
 @import 'toastr';
 @import 'layouts/spin';
-

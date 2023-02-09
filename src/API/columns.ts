@@ -109,6 +109,7 @@ export const deleteColumn = async (token: string, boardId: string, columnId: str
     })
   ).json();
 };
+
 export const updateSetOfColumns = async (
   token: string,
   body: {
