@@ -1,0 +1,25 @@
+.user-icon,
+.rest-icon {
+  position: absolute;
+  display: inline-block;
+
+  width: 3rem;
+  height: 3rem;
+
+  border: 1px solid $color-main;
+  border-radius: 50%;
+  vertical-align: middle;
+
+  text-align: center;
+}
+
+.rest-icon {
+  z-index: 20;
+  right: 0;
+
+  background-color: $button-color-additional;
+
+  color: $button-color;
+
+  font-size: 1.4rem;
+}

@@ -1,8 +1,8 @@
 import getAsideHtml from './getAsideHtml';
-import createNewBoard from '../../features/createNewBoard';
 import state from '../../state/state';
 import { signIn } from '../../API/users';
 import drawProjectsList from '../../features/drawProjectsList';
+import listen from '../../features/listen';
 
 const Home = {
   render: async () => {
@@ -22,14 +22,11 @@ const Home = {
     return view;
   },
   after_render: async () => {
-    const plusBtn = document.querySelector('.plus-img');
-    if (plusBtn) {
-      plusBtn.addEventListener('click', createNewBoard);
-    }
-
     if (state.authToken) {
       drawProjectsList();
     }
+
+    window.addEventListener('click', listen);
   },
 };
 

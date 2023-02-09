@@ -13,6 +13,7 @@ const getColumnHTML = async (token: string, boardId: string) => {
   const columns: IColumns[] = await getColumnsInBoard(token, boardId);
   columns.sort((a, b) => a.order - b.order);
   const arrayTasks = await getArrayTasks(token, columns, boardId);
+
   return `
 <ul class="columns-list">
 ${columns.map(

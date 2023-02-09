@@ -63,13 +63,9 @@
 }
 
 .projects-container {
-  overflow-y: hidden;
+  overflow-y: scroll;
 
   max-height: 21rem;
-}
-
-.projects-container:hover {
-  overflow-y: scroll;
 }
 
 .projects-container::-webkit-scrollbar {
@@ -102,10 +98,17 @@
   font-weight: 400;
 }
 
-.plus-img {
+.plus-board {
   position: absolute;
   right: 1rem;
-  top: 1rem;
+  top: 1.2rem;
+
+  width: 2rem;
+  height: 2rem;
+
+  background: url(../assets/icons/plus.svg) no-repeat center center;
+  border: none;
+  padding: 0;
 
   cursor: pointer;
 }

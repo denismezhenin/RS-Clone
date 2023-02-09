@@ -19,6 +19,11 @@ const UI = {
   titlePlaceholder: 'New project',
   newBoardDescription: 'Start with a fast and simple task board.',
   newBoardButton: 'CREATE',
+
+  firstColumnName: 'Todo',
+  secondColumnName: 'In progress',
+  thirdColumnName: 'Done',
+  newColumnName: 'New column',
 };
 
 export default UI;
