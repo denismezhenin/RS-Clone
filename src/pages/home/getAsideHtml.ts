@@ -12,7 +12,7 @@ const getAsideHtml = () =>
       </section>
       <section class="aside-projects">
         <h3 class="aside-projects_header">${UI.asideHeader}</h3>
-        <img src="../assets/icons/plus.svg" class="plus-img">
+        <button class="plus-board"></button>
       </section>
     </aside>
   `;

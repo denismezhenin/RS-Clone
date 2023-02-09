@@ -1,3 +1,5 @@
+import { FUNCTIONS } from '../constants/constants';
+
 export interface ICreateUser {
   name: string;
   login: string;
@@ -9,6 +11,7 @@ export interface IState {
   boardId: string;
   name: string;
   pageLoaded: boolean;
+  selectedUserId: string;
 }
 
 export type Board = {
@@ -45,9 +48,17 @@ export interface ITasks {
 
 export type sign = 'signin' | 'signup';
 
+export type User = {
+  _id: string;
+  name: string;
+  login: string;
+};
+
 export enum ToastrType {
   error = 'error',
   info = 'info',
   success = 'success',
   warning = 'warning',
 }
+
+export type FunctionsKeys = keyof typeof FUNCTIONS;

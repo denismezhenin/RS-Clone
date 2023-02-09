@@ -369,7 +369,7 @@ body {
   justify-content: center;
   width: 100%;
   padding: 0 2%;
-  font-size: 70%;
+  font-size: 60%;
   align-items: center;
   color: #939090;
 }
@@ -392,7 +392,7 @@ body {
 .github-link {
   display: flex;
   margin-right: 1rem;
-  font-size: 1.5vw;
+  font-size: 1.3vw;
   text-decoration: none;
   color: #939090;
 }
@@ -408,7 +408,7 @@ body {
 }
 
 .year {
-  font-size: 1.8vw;
+  font-size: 1.3vw;
 }
 
 .logo-img {
@@ -498,17 +498,17 @@ body {
 }
 
 .button {
+  background-color: #b19bf3;
   padding: 0.5rem;
   border: 1px solid #dddbdb;
   border-radius: 5px;
-  background-color: #b19bf3;
-  cursor: pointer;
   font-style: normal;
   font-weight: 500;
   font-size: 1.6rem;
   color: #ffffff;
   text-decoration: none;
   line-height: 140%;
+  cursor: pointer;
 }
 
 .button:hover {
@@ -533,6 +533,21 @@ body {
   background: #48409e;
 }
 
+.invite-button {
+  background-color: #ffffff;
+  margin: 0 0.5rem;
+  border: none;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #b19bf3;
+}
+
+.invite-button:hover {
+  background: none;
+  box-shadow: none;
+  color: #422c82;
+}
+
 #page_container {
   position: relative;
   display: flex;
@@ -549,10 +564,13 @@ body {
 }
 
 .main-board {
+  position: relative;
   width: 100%;
+  padding: 1rem;
 }
 
 .main-info {
+  width: 90%;
   padding: 2rem;
 }
 
@@ -997,7 +1015,7 @@ body {
   justify-content: center;
   width: 100%;
   padding: 0 2%;
-  font-size: 70%;
+  font-size: 60%;
   align-items: center;
   color: #939090;
 }
@@ -1020,7 +1038,7 @@ body {
 .github-link {
   display: flex;
   margin-right: 1rem;
-  font-size: 1.5vw;
+  font-size: 1.3vw;
   text-decoration: none;
   color: #939090;
 }
@@ -1036,7 +1054,7 @@ body {
 }
 
 .year {
-  font-size: 1.8vw;
+  font-size: 1.3vw;
 }
 
 .logo-img {
@@ -1183,12 +1201,8 @@ body {
 }
 
 .projects-container {
-  overflow-y: hidden;
-  max-height: 21rem;
-}
-
-.projects-container:hover {
   overflow-y: scroll;
+  max-height: 21rem;
 }
 
 .projects-container::-webkit-scrollbar {
@@ -1217,10 +1231,15 @@ body {
   font-weight: 400;
 }
 
-.plus-img {
+.plus-board {
   position: absolute;
   right: 1rem;
-  top: 1rem;
+  top: 1.2rem;
+  width: 2rem;
+  height: 2rem;
+  background: url(../assets/icons/plus.svg) no-repeat center center;
+  border: none;
+  padding: 0;
   cursor: pointer;
 }
 
@@ -1288,20 +1307,18 @@ body {
   border-radius: 5%;
 }
 
-.main-info {
-  width: 90%;
-}
-
 .colums-list {
   display: flex;
   gap: 2%;
   width: 100%;
   height: 90%;
+  padding: 0 4rem 0 0;
 }
 
 .column {
+  flex-grow: 1;
   width: 100%;
-  min-height: 75%;
+  min-height: 72%;
   background: #f5f5f5;
   border-radius: 16px;
 }
@@ -1343,6 +1360,18 @@ body {
   display: none;
 }
 
+.plus-column {
+  position: absolute;
+  right: 1rem;
+  top: 6.5rem;
+  width: 3rem;
+  height: 3rem;
+  background: url(../assets/icons/plus.svg) no-repeat;
+  background-size: cover;
+  border: none;
+  cursor: pointer;
+}
+
 .tasks-list {
   display: flex;
   flex-direction: column;
@@ -1370,18 +1399,53 @@ body {
   justify-content: space-between;
 }
 
+.board-control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.board-title {
+  margin: 0;
+}
+
+.members-select {
+  height: 2.5rem;
+  border: 1px solid #dddbdb;
+  border-radius: 5px;
+  background-color: #ffffff;
+  outline: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: #b19bf3;
+}
+
+option:disabled {
+  color: #939090;
+}
+
+.invite-block {
+  display: flex;
+}
+
+.member-icons {
+  position: relative;
+  width: 12rem;
+}
+
 .button {
+  background-color: #b19bf3;
   padding: 0.5rem;
   border: 1px solid #dddbdb;
   border-radius: 5px;
-  background-color: #b19bf3;
-  cursor: pointer;
   font-style: normal;
   font-weight: 500;
   font-size: 1.6rem;
   color: #ffffff;
   text-decoration: none;
   line-height: 140%;
+  cursor: pointer;
 }
 
 .button:hover {
@@ -1404,6 +1468,21 @@ body {
 }
 .button-round:hover {
   background: #48409e;
+}
+
+.invite-button {
+  background-color: #ffffff;
+  margin: 0 0.5rem;
+  border: none;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #b19bf3;
+}
+
+.invite-button:hover {
+  background: none;
+  box-shadow: none;
+  color: #422c82;
 }
 
 .input {
@@ -1437,6 +1516,26 @@ body {
   color: #1d1c1c;
 }
 
+.user-icon,
+.rest-icon {
+  position: absolute;
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.rest-icon {
+  z-index: 20;
+  right: 0;
+  background-color: #b19bf3;
+  color: #422c82;
+  font-size: 1.4rem;
+}
+
 #page_container {
   position: relative;
   display: flex;
@@ -1453,10 +1552,13 @@ body {
 }
 
 .main-board {
+  position: relative;
   width: 100%;
+  padding: 1rem;
 }
 
 .main-info {
+  width: 90%;
   padding: 2rem;
 }
 
