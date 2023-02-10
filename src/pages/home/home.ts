@@ -1,6 +1,5 @@
 import getAsideHtml from './getAsideHtml';
 import state from '../../state/state';
-import { signIn } from '../../API/users';
 import drawProjectsList from '../../features/drawProjectsList';
 import listen from '../../features/listen';
 
