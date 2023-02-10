@@ -2,6 +2,7 @@ import { createTask } from '../../API/tasks';
 import { FormsTaskData } from '../../data/types';
 import { tsQuerySelector } from '../../helpers/helpers';
 import state from '../../state/state';
+import Boards from '../boards/boards';
 
 const createTaskForm = async () => {
   const form = tsQuerySelector<HTMLFormElement>(document, '.new-card__form');
@@ -36,6 +37,8 @@ const createTaskForm = async () => {
   });
   console.log(response)
   tsQuerySelector(document, '.new-card').classList.toggle('new-card__active');
+  form.reset()
+  Boards.after_render()
   // if (!response) {
   // }
   // window.location.href = '#/signin';

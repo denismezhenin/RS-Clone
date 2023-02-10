@@ -24,7 +24,7 @@ const Boards = {
   <div class="main_home">
     ${getAsideHtml()}
     <div class="main-board"></div>
-</div>
+  </div>
   `,
   after_render: async () => {
     if (state.authToken) {
@@ -56,45 +56,31 @@ const Boards = {
       getBoardIcons(board.users);
     }
 
+    if (board.users.length) {
+      getBoardIcons(board.users);
+    }
+
     const membersSelect = <HTMLSelectElement>document.querySelector('.members-select');
     membersSelect.addEventListener('change', setSelectedUserId);
     const task = document.createElement('div')
     task.innerHTML = taskForm()
     main.append(task)
-    // main.id = boardId
+    main.id = boardId
     document.addEventListener('click', async (e) => {
       if (!(e.target instanceof HTMLElement)) return;
       const { target } = e;
       if (target.classList.contains('title-setting__add')) {
-        // const board = target.closest(board)
-        // const column = target.closest(column)
-        // const form = tsQuerySelector<HTMLFormElement>(
-        //   document,
-        //   '.new-card__form'
-        // );
-        // form.dataset.board = board
-        // form.dataset.column = column
-        // const content = tsQuerySelector(document, '#page_container');
-        // const task = document.createElement('div');
-        // task.classList.add('new-card', 'new-card__active');
-        // task.innerHTML = taskForm;
-        // content.append(task);
         tsQuerySelector(document, '.new-card').classList.toggle(
           'new-card__active'
         );
         const board = tsQuerySelector(document, '.new-card__form')
-        const boardId = target.closest('.colums-list')?.id
+        const boardId = target.closest('.main-board')?.id
+        console.log(boardId)
         const columId = target.closest('.column')?.id
         board.dataset.board = boardId
         board.dataset.column = columId
       }
       if (target.classList.contains('new-card')) {
-
-        // if (target.closest('colums-list')) return
-        // if (board) {
-        //   board.dataset.board = target.closest('colums-list')
-        // }
-
         target.classList.toggle(
           'new-card__active'
         );
@@ -103,6 +89,7 @@ const Boards = {
         tsQuerySelector(document, '.new-card').classList.toggle(
           'new-card__active'
         );
+        tsQuerySelector<HTMLFormElement>(document, '.new-card__form').reset()
       }
     });
     createTaskFormListener();

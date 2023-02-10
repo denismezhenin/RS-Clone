@@ -26,3 +26,22 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.task-priority {
+  display: inline-block;
+  text-transform: uppercase;
+  padding: 0.3rem;
+  transition: none;
+  font-size: 0.9rem;
+
+  &__high {
+    color: #FF7979;
+  }
+  &__medium {
+    color: #FFBA53;
+  }
+  &__low {
+    color: #2BA700;
+  }
+}
+
