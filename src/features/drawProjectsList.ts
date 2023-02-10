@@ -3,7 +3,8 @@ import { getAllBoards } from '../API/boards';
 import { Board } from '../data/types';
 
 const drawProjectsList = async () => {
-  const userProjects: Board[] = await getAllBoards(state.authToken);
+  const allProjects: Board[] = await getAllBoards(state.authToken);
+  const userProjects = allProjects.filter((el) => el.owner === state.id || el.users.includes(state.id));
   const projects = document.querySelector('.aside-projects');
   document.querySelector('.projects-container')?.remove();
   if (projects) {
