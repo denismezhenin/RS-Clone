@@ -6,15 +6,11 @@ const getTaskHTML = (tasks: ITasks[]) =>
    .map(
      (task: ITasks) =>  {
        let description = IsJsonString(task.description); 
-      // if (typeof(JSON.parse(task.description)) =='object') {
-      //  description = JSON.parse(task.description)
-      // }
-
-      console.log(description)
       return `
       <li class="task" id="${task._id}">
      <div class="task-wrapper">
      <div class="task-header">
+      <span class="task-pirority">${description? description.priority : ""}</span>
        <h3 class="task-title">${task.title}</h3>
        ...
      </div>
@@ -29,6 +25,9 @@ const getTaskHTML = (tasks: ITasks[]) =>
        <div class="task-footer">
          <h4 class="task-assignees__text">Assignees:</h4>
          <div class="task-assignees__container"></div>
+         div class="task-time>
+         
+         </div>
        </div>
      </div>
      </div>
@@ -48,34 +47,5 @@ function IsJsonString(str: string) {
   }
   return JSON.parse(str);
 }
-//    ${tasks
-//      .sort((a, b) => a.order - b.order)
-//      .map(
-//        (task: ITasks) => `
-//  <li class="task" id='${task._id}'>
-// <div class="task-wrapper">
-// <div class="task-header">
-//   <h3 class="task-title">${task.title}</h3>
-//   ...
-// </div>
-// <div class="task-body">
-//   <div class="task-pop-up__menu hide">
-//     <ul class="task-menu__list">
-//       <li class="task-menu__item">Rename</li>
-//       <li class="task-menu__item">Delete</li>
-//     </ul>
-//   </div>
-//   <div class="task-description">${task.description}</div>
-//   <div class="task-footer">
-//     <h4 class="task-assignees__text">Assignees:</h4>
-//     <div class="task-assignees__container"></div>
-//   </div>
-// </div>
-// </div>
-// </li> 
-//  `
-//      )
-//      .join('')}
-// `;
 
 export default getTaskHTML;
