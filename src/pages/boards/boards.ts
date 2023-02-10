@@ -40,8 +40,8 @@ const Boards = {
       if (columns.length !== 0) {
         result = await getColumnHTML(state.authToken, boardId);
       } else {
-        const COLUMNS = [UI.firstColumnName, UI.secondColumnName, UI.thirdColumnName];
-        COLUMNS.map(async (el) => await createColumns(state.authToken, state.boardId, { title: el, order: 0 }));
+        const COLUMNS_ARRAY = [UI.firstColumnName, UI.secondColumnName, UI.thirdColumnName];
+        COLUMNS_ARRAY.map(async (el) => await createColumns(state.authToken, state.boardId, { title: el, order: 0 }));
         result = await getColumnHTML(state.authToken, state.boardId);
       }
       main.innerHTML = `${boardControlHtml}${result}`;
