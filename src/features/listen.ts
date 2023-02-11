@@ -7,7 +7,7 @@ const listen = (event: MouseEvent) => {
   if (target && target instanceof HTMLElement) {
     keys.forEach(async (el) => {
       if (target.classList.contains(el)) {
-        await FUNCTIONS[el]();
+        await FUNCTIONS[el](event);
       }
     });
   }

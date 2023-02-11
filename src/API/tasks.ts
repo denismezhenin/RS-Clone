@@ -69,3 +69,22 @@ export const updateSetOfTasks = async (
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
   }
 };
+
+export const getTasksSetByUserId = async (token: string, userId: string) => {
+  try {
+    const response = await fetch(TASKS_SET, {
+      method: 'GET',
+      headers: {
+        authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.status !== 200) {
+      throw { ...(await response.json()) }.message;
+    }
+    return await response.json();
+  } catch (err) {
+    popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+  }
+};
