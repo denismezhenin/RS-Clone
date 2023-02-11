@@ -1,6 +1,8 @@
 import addColumn from '../features/addColumn';
 import createNewBoard from '../features/createNewBoard';
 import invite from '../features/invite';
+import getPrevMembersPage from '../features/getPrevMembersPage';
+import getNextMembersPage from '../features/getNextMembersPage';
 
 export const BASE_URL = 'https://best-team-api.up.railway.app';
 export const SIGN_UP_URL = `${BASE_URL}/auth/signup`;
@@ -17,6 +19,8 @@ export const FUNCTIONS = {
   'plus-board': createNewBoard,
   'plus-column': addColumn,
   'invite-button': invite,
+  'arrow-left': getPrevMembersPage,
+  'arrow-right': getNextMembersPage,
 };
 
 export const LIGHT_COLORS = [
@@ -48,4 +52,8 @@ export const DRAG_N_DROP_DIRECTION = 'horizontal';
 
 export const DEFAULT_ERROR = 'Something went wrong';
 
+
 export const TIME_LESS_TEN = 10;
+
+export const MEMBERS_ON_PAGE = 6;
+

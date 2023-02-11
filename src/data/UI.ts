@@ -24,6 +24,9 @@ const UI = {
   secondColumnName: 'In progress',
   thirdColumnName: 'Done',
   newColumnName: 'New column',
+
+  memberTasksHeader: 'TASKS',
+  memberProjectsHeader: 'PROJECTS',
 };
 
 export default UI;

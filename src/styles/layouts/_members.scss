@@ -1,0 +1,144 @@
+.member-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat((2, 1fr));
+  gap: 2rem;
+
+  width: 100%;
+  min-height: 48.74rem;
+}
+
+.member-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  width: 100%;
+
+  background-color: #f7f5f5;
+  border-radius: 0.5rem;
+  padding: 1rem;
+
+  transition: box-shadow 0.3s ease;
+}
+
+.member-card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.member-name {
+  margin-bottom: 0;
+
+  color: $text-color;
+}
+
+.member-stats {
+  font-size: 1.5rem;
+
+  color: $text-color-additional;
+}
+
+.members-page-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  font-size: 3rem;
+  color: $text-color-additional;
+}
+
+.arrow-left,
+.arrow-right {
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem;
+
+  color: $text-color-additional;
+
+  cursor: pointer;
+}
+
+.arrow-left:hover,
+.arrow-right:hover {
+  color: $text-color;
+}
+
+.arrow-inactive {
+  color: $color-additional;
+}
+
+.arrow-inactive:hover {
+  color: $color-additional;
+
+  cursor: unset;
+}
+
+.members-page-circles {
+  display: flex;
+  gap: 0.5rem;
+
+  margin-top: 0.5rem;
+}
+
+.page-circle {
+  width: 1rem;
+  height: 1rem;
+
+  border-radius: 50%;
+
+  background-color: $button-color-light;
+}
+
+.page-circle-active {
+  background-color: $button-color;
+}
+
+.member-info {
+  display: flex;
+  gap: 2rem;
+
+  border: 1px solid $color-additional;
+  border-radius: 0.5rem;
+}
+
+.icon-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: $color-additional;
+  padding: 2rem;
+}
+
+.member-tasks-projects {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.member-projects-header,
+.member-tasks-header {
+  margin: 0;
+}
+
+.member-tasks-list,
+.member-projects-list {
+  max-height: 25rem;
+
+  margin: 0;
+  padding-left: 0;
+
+  overflow-y: hidden;
+}
+
+.member-task-link,
+.member-project-link {
+  font-size: 1.7rem;
+  color: $text-color-additional;
+}
+
+.member-task-link:hover,
+.member-project-link:hover {
+  color: $text-color;
+}

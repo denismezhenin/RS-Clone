@@ -12,6 +12,8 @@ export interface IState {
   name: string;
   pageLoaded: boolean;
   selectedUserId: string;
+  membersPage: number;
+  members: string[];
 }
 
 export type Board = {
