@@ -43,7 +43,6 @@ export const deleteColumnInBoard = async (e: Event, boardId: string) => {
   }
 
   await deleteColumn(state.authToken, boardId, columnId);
-  const columns: IColumns[] = await getColumnsInBoard(state.authToken, boardId);
   const columnsList = tsQuerySelector(document, '.columns-list');
   const columnsListArray = [...columnsList.children].map((column, index) => ({
     _id: column.id,
@@ -61,8 +60,6 @@ export const editColumns = async (e: Event, boardId: string) => {
   const titleSettingEdit = target.closest('.title-setting__edit');
   const columnTitle = target.closest('.column-header')?.firstElementChild;
   const columnEditForm = target.closest('.title-settings')?.firstElementChild;
-
-  await getColumnById(state.authToken, boardId, target.closest('.column')!.id);
 
   titleSettingEdit ? titleSettingEdit.classList.add('hide') : null;
   columnTitle ? columnTitle.classList.add('hide') : null;
