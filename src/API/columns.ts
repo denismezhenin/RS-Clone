@@ -77,8 +77,8 @@ export const updateColumnById = async (
   boardId: string,
   columnId: string,
   body: {
-    title: 'string';
-    order: 0;
+    title: string;
+    order: number;
   }
 ) => {
   try {

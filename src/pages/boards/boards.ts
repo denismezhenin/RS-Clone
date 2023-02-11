@@ -14,6 +14,8 @@ import getBoardIcons from './getBoardIcons';
 import setSelectedUserId from '../../features/setSelectedUserId';
 import dragNdropTasks from '../../features/drag-n-drop/drag-n-dropTasks';
 import dragNdropColumns from '../../features/drag-n-drop/drag-n-dropColumns';
+import { tsQuerySelectorAll } from '../../helpers/helpers';
+import { editColumns, confirmEditColumns, deleteColumnInBoard } from '../../features/columns/EditColumns';
 
 const Boards = {
   render: async () => `
@@ -57,6 +59,19 @@ const Boards = {
 
     dragNdropColumns();
     dragNdropTasks();
+
+    const titleSettingEdit = tsQuerySelectorAll(document, '.title-setting__edit');
+    titleSettingEdit.forEach((el) => el.addEventListener('click', async (e) => await editColumns(e, boardId)));
+
+    const columnCofirmEdit = tsQuerySelectorAll(document, '.column-cofirm-edit');
+    columnCofirmEdit.forEach((el) => {
+      el.addEventListener('click', (e) => confirmEditColumns(e, boardId));
+    });
+
+    const columnDeleteButton = tsQuerySelectorAll(document, '.column-delete__button');
+    columnDeleteButton.forEach((el) => {
+      el.addEventListener('click', (e) => deleteColumnInBoard(e, boardId));
+    });
   },
 };
 
