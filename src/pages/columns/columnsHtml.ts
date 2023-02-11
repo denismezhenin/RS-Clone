@@ -29,7 +29,7 @@ ${columns
 <div class="title-settings">
   <div class='column-edit__form hide'>
     <input class='column-title__input' type='text' value=${column.title}>
-    <button type="button" class='column-cofirm-edit'><img class='confirm-img' src='../../assets/icons/done.svg'></button>
+    <button type="button" class='column-confirm-edit'><img class='confirm-img' src='../../assets/icons/done.svg'></button>
     <button type="button" class='column-delete__button'><img class='delete-img' src="../../assets/icons/delete-button.svg"></button>
   </div>
   <button type='button' class="title-setting__edit ${

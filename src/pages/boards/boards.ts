@@ -63,7 +63,7 @@ const Boards = {
     const titleSettingEdit = tsQuerySelectorAll(document, '.title-setting__edit');
     titleSettingEdit.forEach((el) => el.addEventListener('click', async (e) => await editColumns(e, boardId)));
 
-    const columnCofirmEdit = tsQuerySelectorAll(document, '.column-cofirm-edit');
+    const columnCofirmEdit = tsQuerySelectorAll(document, '.column-confirm-edit');
     columnCofirmEdit.forEach((el) => {
       el.addEventListener('click', (e) => confirmEditColumns(e, boardId));
     });
