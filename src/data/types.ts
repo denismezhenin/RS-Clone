@@ -33,8 +33,7 @@ export enum FormsTaskData {
   color = 'color',
   title = 'title',
   description = 'description',
-  startDate = 'start-date',
-  endDate = 'end-date',
+  duration = 'duration',
   priority = 'priority',
 }
 

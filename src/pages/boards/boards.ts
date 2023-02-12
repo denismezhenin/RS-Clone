@@ -56,10 +56,6 @@ const Boards = {
       getBoardIcons(board.users);
     }
 
-    if (board.users.length) {
-      getBoardIcons(board.users);
-    }
-
     const membersSelect = <HTMLSelectElement>document.querySelector('.members-select');
     membersSelect.addEventListener('change', setSelectedUserId);
     const task = document.createElement('div')
@@ -75,7 +71,6 @@ const Boards = {
         );
         const board = tsQuerySelector(document, '.new-card__form')
         const boardId = target.closest('.main-board')?.id
-        console.log(boardId)
         const columId = target.closest('.column')?.id
         board.dataset.board = boardId
         board.dataset.column = columId

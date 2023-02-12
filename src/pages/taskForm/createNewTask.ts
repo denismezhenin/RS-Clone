@@ -6,14 +6,11 @@ import Boards from '../boards/boards';
 
 const createTaskForm = async () => {
   const form = tsQuerySelector<HTMLFormElement>(document, '.new-card__form');
-
   const formData = new FormData(form);
-
   const title = String(formData.get(FormsTaskData.title));
   const color = String(formData.get(FormsTaskData.color));
   const description = String(formData.get(FormsTaskData.description));
-  const startDate = String(formData.get(FormsTaskData.startDate));
-  const endDate = String(formData.get(FormsTaskData.endDate));
+  const duration = String(formData.get(FormsTaskData.duration));
   const priority = String(formData.get(FormsTaskData.priority));
   const boardId = form.dataset.board;
   const columnId = form.dataset.column;
@@ -22,8 +19,7 @@ const createTaskForm = async () => {
   const descriptionObject = {
     color,
     description,
-    startDate,
-    endDate,
+    duration,
     priority,
   };
   if (!boardId || !columnId) return;
@@ -39,16 +35,10 @@ const createTaskForm = async () => {
   tsQuerySelector(document, '.new-card').classList.toggle('new-card__active');
   form.reset()
   Boards.after_render()
-  // if (!response) {
-  // }
-  // window.location.href = '#/signin';
 };
 
 const createTaskFormListener = () => {
-  // if (state.pageLoaded) return;
-  // state.pageLoaded = true;
   const form = tsQuerySelector<HTMLFormElement>(document, '.new-card__form');
-
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     createTaskForm();

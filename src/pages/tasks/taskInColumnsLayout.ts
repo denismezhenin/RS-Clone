@@ -14,13 +14,13 @@ const getTaskHTML = (tasks: ITasks[]) =>
       return `
       <li class="task" id="${task._id}">
      <div class="task-wrapper">
-     <span class="task-priority task-priority__${description? description.priority : ""}">${description? description.priority : ""}</span>
+     <span class="task-priority task-priority__${description? description.priority : ""}" style="display:none">${description? description.priority : ""}</span>
      <div class="task-header">
        <h3 class="task-title">${task.title}</h3>
        ...
      </div>
      <div class="task-body">
-       <div class="task-pop-up__menu hide">
+       <div class="task-pop-up__menu">
          <ul class="task-menu__list">
            <li class="task-menu__item">Rename</li>
            <li class="task-menu__item">Delete</li>
@@ -30,9 +30,8 @@ const getTaskHTML = (tasks: ITasks[]) =>
        <div class="task-footer">
          <h4 class="task-assignees__text">Assignees:</h4>
          <div class="task-assignees__container"></div>
-         <div calss="task-time">
-         <span class="task-time__start">${description? description.startDate : ""}</span>
-         <span class="task-time__end">${description? description.endDate : ""}</span>
+         <div class="task-time">
+         <span class="task-time__start">Duration: ${description? description.duration : ""}</span>
          </div>
        </div>
      </div>
@@ -52,34 +51,5 @@ const IsJsonString = (str: string) => {
   }
   return JSON.parse(str);
 }
-//    ${tasks
-//      .sort((a, b) => a.order - b.order)
-//      .map(
-//        (task: ITasks) => `
-//  <li class="task" id='${task._id}'>
-// <div class="task-wrapper">
-// <div class="task-header">
-//   <h3 class="task-title">${task.title}</h3>
-//   ...
-// </div>
-// <div class="task-body">
-//   <div class="task-pop-up__menu hide">
-//     <ul class="task-menu__list">
-//       <li class="task-menu__item">Rename</li>
-//       <li class="task-menu__item">Delete</li>
-//     </ul>
-//   </div>
-//   <div class="task-description">${task.description}</div>
-//   <div class="task-footer">
-//     <h4 class="task-assignees__text">Assignees:</h4>
-//     <div class="task-assignees__container"></div>
-//   </div>
-// </div>
-// </div>
-// </li> 
-//  `
-//      )
-//      .join('')}
-// `;
 
 export default getTaskHTML;

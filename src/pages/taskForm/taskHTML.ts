@@ -27,13 +27,23 @@ const taskForm = () => {
             </div>
 
             <div class="create-card__line-date">
-            <div class="input-wrapper">
+              <label for="duration">Choose a duration:</label>
+                <select select name="duration" id="duration">
+                <option value="">Duration</option>
+                <option value="xs">XS  -  1 hour</option>
+                <option value="s">S   -  2 hours</option>
+                <option value="mr">M   -  3 hours</option>
+                <option value="l">L   -  4 hours</option>
+                <option value="xl">XL   -  6 hours</option>
+                <option value="xxl">XXL   -  8 hours</option>
+            </select>
+            <div class="input-wrapper" style="display: none">
             <input type="date" id="start-date" name="start-date" placeholder="Please enter starting date" class="create-card__line-date__start-date form-input" >
             <span class="input-wrapper-highlight"></span>
             <span class="input-wrapper-bar"></span>
             <label for="start-date" class="date-label form-label">Starting date</label>
             </div>
-            <div class="input-wrapper">
+            <div class="input-wrapper" style="display: none">
             <input type="date" id="end-date" name="end-date" placeholder="Please enter ending date" class="create-card__line-date__end-date form-input">
             <span class="input-wrapper-highlight"></span>
             <span class="input-wrapper-bar"></span>
