@@ -19,7 +19,7 @@ const addColumn = async () => {
 
   const doneColumn = columns.find((el) => el.title === UI.thirdColumnName);
   if (doneColumn) {
-    await updateColumnById(state.authToken, boardId, doneColumn?._id, {
+    await updateColumnById(state.authToken, boardId, doneColumn._id, {
       title: doneColumn.title,
       order: doneColumnOrder + 1,
     });
