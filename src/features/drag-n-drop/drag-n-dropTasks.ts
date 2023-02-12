@@ -7,14 +7,10 @@ import { getColumnById } from '../../API/columns';
 import getBoardId from '../../services/getBoardId';
 import { getPointsByTaskId, updatePoints } from '../../API/points';
 import { IColumns } from '../../data/types';
+import 'datejs';
 
 const getDate = () => {
-  const date = new Date();
-  return `${date.getDate() < TIME_LESS_TEN ? '0' + date.getDate() : date.getDate()}-${
-    date.getMonth() < TIME_LESS_TEN ? '0' + date.getMonth() : date.getMonth()
-  }-${date.getFullYear()} ${date.getHours() < TIME_LESS_TEN ? '0' + date.getHours() : date.getHours()}:${
-    date.getMinutes() < TIME_LESS_TEN ? '0' + date.getMinutes() : date.getMinutes()
-  }:${date.getSeconds()}`;
+  return Date.today().setTimeToNow().toString('dd-MM-yyyy HH:mm');
 };
 
 const getTimeForTasks = async (currentItem: HTMLElement, column: IColumns) => {
@@ -45,7 +41,7 @@ const getTimeForTasks = async (currentItem: HTMLElement, column: IColumns) => {
     if (endDateContainer) {
       endDateContainer.innerHTML = pointByTaskId[0].endDate === '-' ? currentDate : pointByTaskId[0].endDate;
     }
-
+    console.log(Date.today().setTimeToNow().toString('dd-MMM-yyyy HH:mm'));
     await updatePoints(state.authToken, pointByTaskId[0]._id, {
       title: 'string',
       done: false,
