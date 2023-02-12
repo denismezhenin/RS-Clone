@@ -30,7 +30,7 @@ export const createColumns = async (
   boardId: string,
   body: {
     title: string;
-    order: 0;
+    order: number;
   }
 ) => {
   try {
