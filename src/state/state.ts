@@ -7,6 +7,8 @@ const state: IState = {
   name: '',
   pageLoaded: false,
   selectedUserId: '',
+  membersPage: 1,
+  members: [],
 };
 
 export default state;

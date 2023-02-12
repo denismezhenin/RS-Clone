@@ -16,8 +16,9 @@ import setSelectedUserId from '../../features/setSelectedUserId';
 import dragNdropTasks from '../../features/drag-n-drop/drag-n-dropTasks';
 import dragNdropColumns from '../../features/drag-n-drop/drag-n-dropColumns';
 import taskForm from '../taskForm/taskHTML';
-import { tsQuerySelector } from '../../helpers/helpers';
+import { tsQuerySelector, tsQuerySelectorAll } from '../../helpers/helpers';
 import createTaskFormListener from '../taskForm/createNewTask';
+import { editColumns, confirmEditColumns, deleteColumnInBoard } from '../../features/columns/EditColumns';
 
 const Boards = {
   render: async () => `
@@ -90,6 +91,19 @@ const Boards = {
     createTaskFormListener();
     dragNdropColumns();
     dragNdropTasks();
+
+    const titleSettingEdit = tsQuerySelectorAll(document, '.title-setting__edit');
+    titleSettingEdit.forEach((el) => el.addEventListener('click', async (e) => await editColumns(e, boardId)));
+
+    const columnCofirmEdit = tsQuerySelectorAll(document, '.column-confirm-edit');
+    columnCofirmEdit.forEach((el) => {
+      el.addEventListener('click', (e) => confirmEditColumns(e, boardId));
+    });
+
+    const columnDeleteButton = tsQuerySelectorAll(document, '.column-delete__button');
+    columnDeleteButton.forEach((el) => {
+      el.addEventListener('click', (e) => deleteColumnInBoard(e, boardId));
+    });
   },
 };
 

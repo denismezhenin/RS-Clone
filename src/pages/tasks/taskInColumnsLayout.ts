@@ -6,11 +6,6 @@ const getTaskHTML = (tasks: ITasks[]) =>
    .map(
      (task: ITasks) =>  {
        let description = IsJsonString(task.description); 
-      // if (typeof(JSON.parse(task.description)) =='object') {
-      //  description = JSON.parse(task.description)
-      // }
-
-      console.log(description)
       return `
       <li class="task" id="${task._id}">
      <div class="task-wrapper">
