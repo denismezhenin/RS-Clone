@@ -16,7 +16,7 @@ const getTaskHTML = (tasks: ITasks[]) =>
      </div>
      <div class="task-body">
        <div class="task-pop-up__menu">
-         <ul class="task-menu__list hide">
+         <ul class="task-menu__list">
            <li class="task-menu__item">Rename</li>
            <li class="task-menu__item">Delete</li>
          </ul>
