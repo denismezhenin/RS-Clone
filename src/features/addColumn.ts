@@ -5,7 +5,12 @@ import getColumnHTML from '../pages/columns/columnsHtml';
 import getBoardId from '../services/getBoardId';
 import dragNdropTasks from './drag-n-drop/drag-n-dropTasks';
 import dragNdropColumns from './drag-n-drop/drag-n-dropColumns';
+
+import { tsQuerySelectorAll } from '../helpers/helpers';
+import { confirmEditColumns, deleteColumnInBoard, editColumns } from './columns/EditColumns';
+
 import { IColumns } from '../data/types';
+
 
 const addColumn = async () => {
   const boardId = getBoardId();
@@ -31,6 +36,19 @@ const addColumn = async () => {
   }
   dragNdropColumns();
   dragNdropTasks();
+
+  const titleSettingEdit = tsQuerySelectorAll(document, '.title-setting__edit');
+  titleSettingEdit.forEach((el) => el.addEventListener('click', async (e) => await editColumns(e, boardId)));
+
+  const columnCofirmEdit = tsQuerySelectorAll(document, '.column-confirm-edit');
+  columnCofirmEdit.forEach((el) => {
+    el.addEventListener('click', (e) => confirmEditColumns(e, boardId));
+  });
+
+  const columnDeleteButton = tsQuerySelectorAll(document, '.column-delete__button');
+  columnDeleteButton.forEach((el) => {
+    el.addEventListener('click', (e) => deleteColumnInBoard(e, boardId));
+  });
 };
 
 export default addColumn;

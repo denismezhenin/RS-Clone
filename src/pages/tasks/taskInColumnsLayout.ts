@@ -20,10 +20,13 @@ const getTaskHTML = (tasks: ITasks[]) =>
     </ul>
   </div>
   <div class="task-description">${task.description}</div>
-  <div class="task-footer">
-    <h4 class="task-assignees__text">Assignees:</h4>
-    <div class="task-assignees__container"></div>
-  </div>
+
+</div>
+<div class="task-footer">
+<h4 class="task-assignees__text">Assignees:</h4>
+<div class="task-assignees__container"></div>
+<p class="start-date">Start Date: <span class="start-date__container"></span></p>
+<p class="end-date">End Date: <span class="end-date__container"></span></p>
 </div>
 </div>
 </li> 

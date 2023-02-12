@@ -11,6 +11,7 @@ export const USERS_URL = `${BASE_URL}/users`;
 export const BOARDS_URL = `${BASE_URL}/boards/`;
 export const COLUMNS_SET = `${BASE_URL}/columnsSet`;
 export const TASKS_SET = `${BASE_URL}/tasksSet`;
+export const POINTS = `${BASE_URL}/points`;
 
 export const sliceNumber = -6;
 
@@ -51,4 +52,8 @@ export const DRAG_N_DROP_DIRECTION = 'horizontal';
 
 export const DEFAULT_ERROR = 'Something went wrong';
 
+
+export const TIME_LESS_TEN = 10;
+
 export const MEMBERS_ON_PAGE = 6;
+
