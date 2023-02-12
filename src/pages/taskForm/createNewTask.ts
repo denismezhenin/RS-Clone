@@ -31,7 +31,6 @@ const createTaskForm = async () => {
     userId,
     users,
   });
-  console.log(response)
   tsQuerySelector(document, '.new-card').classList.toggle('new-card__active');
   form.reset()
   Boards.after_render()
