@@ -1,22 +1,33 @@
-import { BOARDS_URL, DEFAULT_ERROR, TASKS_SET } from '../constants/constants';
+import { POINTS, DEFAULT_ERROR } from '../constants/constants';
 import { ToastrType } from '../data/types';
 import popUpMessages from '../features/popUpMessages/popupMessages';
-import { removeSpinner, getSpinner } from '../features/spinner/spinner';
+import { getSpinner, removeSpinner } from '../features/spinner/spinner';
 
-export const getTasksInColumn = async (token: string, boardId: string, columnId: string) => {
+export const createPoint = async (
+  token: string,
+  body: {
+    title: string;
+    taskId: string;
+    boardId: string;
+    done: Boolean;
+    startDate: string;
+    endDate: string;
+  }
+) => {
   try {
     getSpinner();
-    const response = await fetch(`${BOARDS_URL}/${boardId}/columns/${columnId}/tasks`, {
-      method: 'GET',
+    const response = await fetch(`${POINTS}`, {
+      method: 'POST',
+      body: JSON.stringify(body),
       headers: {
         authorization: `Bearer ${token}`,
         'Content-Type': 'application/json',
       },
     });
-
     if (response.status !== 200) {
       throw { ...(await response.json()) }.message;
     }
+
     return await response.json();
   } catch (err) {
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
@@ -25,9 +36,9 @@ export const getTasksInColumn = async (token: string, boardId: string, columnId:
   }
 };
 
-export const getTaskById = async (token: string, boardId: string, columnId: string, taskId: string) => {
+export const getPointsByTaskId = async (token: string, taskId: string) => {
   try {
-    const response = await fetch(`${BOARDS_URL}/${boardId}/columns/${columnId}/tasks/${taskId}`, {
+    const response = await fetch(`${POINTS}/${taskId}`, {
       method: 'GET',
       headers: {
         authorization: `Bearer ${token}`,
@@ -38,22 +49,20 @@ export const getTaskById = async (token: string, boardId: string, columnId: stri
     if (response.status !== 200) {
       throw { ...(await response.json()) }.message;
     }
+
     return await response.json();
   } catch (err) {
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
   }
 };
 
-export const updateSetOfTasks = async (
+export const updatePoints = async (
   token: string,
-  body: {
-    _id: string;
-    order: number;
-    columnId: string;
-  }[]
+  pointId: string,
+  body: { title: string; done: Boolean; startDate: string; endDate: string }
 ) => {
   try {
-    const response = await fetch(TASKS_SET, {
+    const response = await fetch(`${POINTS}/${pointId}`, {
       method: 'PATCH',
       body: JSON.stringify(body),
       headers: {
@@ -65,25 +74,6 @@ export const updateSetOfTasks = async (
       throw { ...(await response.json()) }.message;
     }
     await response.json();
-  } catch (err) {
-    popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
-  }
-};
-
-export const getTasksSetByUserId = async (token: string, userId: string) => {
-  try {
-    const response = await fetch(TASKS_SET, {
-      method: 'GET',
-      headers: {
-        authorization: `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
-    });
-
-    if (response.status !== 200) {
-      throw { ...(await response.json()) }.message;
-    }
-    return await response.json();
   } catch (err) {
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
   }

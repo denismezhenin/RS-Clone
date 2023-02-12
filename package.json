@@ -17,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "datejs": "^1.0.0-rc3",
     "sortablejs": "^1.15.0",
     "spin.js": "^4.1.1",
     "style-loader": "^3.3.1",
@@ -26,6 +27,7 @@
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@babel/preset-env": "^7.20.2",
+    "@types/datejs": "^0.0.32",
     "@types/sortablejs": "^1.15.0",
     "@types/toastr": "^2.1.40",
     "@typescript-eslint/eslint-plugin": "^5.49.0",

@@ -14,7 +14,7 @@ const loginHTML = (page: sign) => {
       <label for="name" class="input-wrapper-label" style="${page === 'signin' ? 'display:none' : ''}">Name</label>
       </div>
       <div class="login__form-input-wrapper input-wrapper">
-      <input type="email" required class="input-wrapper-email login-input" id="email" name="email">   
+      <input type="text" required class="input-wrapper-email login-input" id="email" name="email">   
       <span class="input-wrapper-highlight"></span>
       <span class="input-wrapper-bar"></span>
       <label for="email" class="input-wrapper-label">Email</label>

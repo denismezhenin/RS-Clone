@@ -19,7 +19,7 @@ export const getColumnsInBoard = async (token: string, boardId: string) => {
     }
     return await response.json();
   } catch (err) {
-    popUpMessages(ToastrType.error, String(err));
+    popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
   } finally {
     removeSpinner();
   }
@@ -30,7 +30,7 @@ export const createColumns = async (
   boardId: string,
   body: {
     title: string;
-    order: 0;
+    order: number;
   }
 ) => {
   try {
@@ -48,7 +48,7 @@ export const createColumns = async (
     }
     return await response.json();
   } catch (err) {
-    popUpMessages(ToastrType.error, String(err));
+    popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
   } finally {
     removeSpinner();
   }
@@ -77,8 +77,8 @@ export const updateColumnById = async (
   boardId: string,
   columnId: string,
   body: {
-    title: 'string';
-    order: 0;
+    title: string;
+    order: number;
   }
 ) => {
   try {
