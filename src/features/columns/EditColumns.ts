@@ -1,13 +1,6 @@
 import { tsQuerySelector, tsQuerySelectorAll } from '../../helpers/helpers';
 import state from '../../state/state';
-import {
-  updateColumnById,
-  deleteColumn,
-  getColumnsInBoard,
-  updateSetOfColumns,
-  getColumnById,
-} from '../../API/columns';
-import { IColumns } from '../../data/types';
+import { updateColumnById, deleteColumn, updateSetOfColumns, getColumnById } from '../../API/columns';
 import { getSpinner, removeSpinner } from '../spinner/spinner';
 
 export const confirmEditColumns = async (e: Event, boardId: string) => {
@@ -15,34 +8,37 @@ export const confirmEditColumns = async (e: Event, boardId: string) => {
   if (!(e.target instanceof HTMLElement)) return;
   const { target } = e;
 
-  const columnId = target.closest('.column')!.id;
+  const columnId = <HTMLElement>target.closest('.column');
 
   const columnTitle = target.closest('.column-header')?.firstElementChild;
   const columnEditForm = target.closest('.title-settings')?.firstElementChild;
   const titleSettingEdit = target.closest('.title-settings')?.children[1];
-  const columnTitleInput = target.closest('.title-settings')?.firstElementChild?.firstElementChild as HTMLInputElement;
+  const columnTitleInput = <HTMLInputElement>target.closest('.title-settings')?.firstElementChild?.firstElementChild;
 
-  const getColumn = await getColumnById(state.authToken, boardId, target.closest('.column')!.id);
-  await updateColumnById(state.authToken, boardId, columnId, { title: columnTitleInput.value, order: getColumn.order });
+  const getColumn = await getColumnById(state.authToken, boardId, columnId.id);
+  await updateColumnById(state.authToken, boardId, columnId.id, {
+    title: columnTitleInput.value,
+    order: getColumn.order,
+  });
 
-  columnTitle ? (columnTitle.textContent = columnTitleInput.value) : null;
-  titleSettingEdit ? titleSettingEdit.classList.remove('hide') : null;
-  columnTitle ? columnTitle.classList.remove('hide') : null;
-  columnEditForm ? columnEditForm.classList.add('hide') : null;
+  columnTitle && (columnTitle.textContent = columnTitleInput.value);
+  titleSettingEdit && titleSettingEdit.classList.remove('hide');
+  columnTitle && columnTitle.classList.remove('hide');
+  columnEditForm && columnEditForm.classList.add('hide');
   removeSpinner();
 };
 
 export const deleteColumnInBoard = async (e: Event, boardId: string) => {
   if (!(e.target instanceof HTMLElement)) return;
   const { target } = e;
-  const columnId = target.closest('.column')!.id;
+  const columnId = <HTMLElement>target.closest('.column');
 
-  const currentElement = document.getElementById(columnId);
+  const currentElement = document.getElementById(columnId.id);
   if (currentElement) {
     currentElement.remove();
   }
 
-  await deleteColumn(state.authToken, boardId, columnId);
+  await deleteColumn(state.authToken, boardId, columnId.id);
   const columnsList = tsQuerySelector(document, '.columns-list');
   const columnsListArray = [...columnsList.children].map((column, index) => ({
     _id: column.id,
@@ -61,8 +57,8 @@ export const editColumns = async (e: Event, boardId: string) => {
   const columnTitle = target.closest('.column-header')?.firstElementChild;
   const columnEditForm = target.closest('.title-settings')?.firstElementChild;
 
-  titleSettingEdit ? titleSettingEdit.classList.add('hide') : null;
-  columnTitle ? columnTitle.classList.add('hide') : null;
-  columnEditForm ? columnEditForm.classList.remove('hide') : null;
+  titleSettingEdit && titleSettingEdit.classList.add('hide');
+  columnTitle && columnTitle.classList.add('hide');
+  columnEditForm && columnEditForm.classList.remove('hide');
   removeSpinner();
 };

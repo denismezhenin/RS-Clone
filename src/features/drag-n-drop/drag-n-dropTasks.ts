@@ -24,9 +24,12 @@ const getTimeForTasks = async (currentItem: HTMLElement, column: IColumns) => {
   if (column.title === 'In progress') {
     const pointByTaskId = await getPointsByTaskId(state.authToken, currentItem.id);
     const currentDate = getDate();
-
-    startDateContainer!.innerHTML = pointByTaskId[0].startDate === '-' ? currentDate : pointByTaskId[0].startDate;
-    endDateContainer!.innerHTML = '-';
+    if (startDateContainer) {
+      startDateContainer.innerHTML = pointByTaskId[0].startDate === '-' ? currentDate : pointByTaskId[0].startDate;
+    }
+    if (endDateContainer) {
+      endDateContainer.innerHTML = '-';
+    }
 
     await updatePoints(state.authToken, pointByTaskId[0]._id, {
       title: 'string',
@@ -39,8 +42,9 @@ const getTimeForTasks = async (currentItem: HTMLElement, column: IColumns) => {
   if (column.title === 'Done') {
     const pointByTaskId = await getPointsByTaskId(state.authToken, currentItem.id);
     const currentDate = getDate();
-
-    endDateContainer!.innerHTML = pointByTaskId[0].endDate === '-' ? currentDate : pointByTaskId[0].endDate;
+    if (endDateContainer) {
+      endDateContainer.innerHTML = pointByTaskId[0].endDate === '-' ? currentDate : pointByTaskId[0].endDate;
+    }
 
     await updatePoints(state.authToken, pointByTaskId[0]._id, {
       title: 'string',
