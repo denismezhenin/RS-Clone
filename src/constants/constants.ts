@@ -5,6 +5,7 @@ import invite from '../features/invite';
 import getPrevMembersPage from '../features/getPrevMembersPage';
 import getNextMembersPage from '../features/getNextMembersPage';
 
+import {resetCreateTaskForm, toggleTaskForm} from '../pages/taskForm/taskFormListenerFunction'
 export const BASE_URL = 'https://best-team-api.up.railway.app';
 export const SIGN_UP_URL = `${BASE_URL}/auth/signup`;
 export const SIGN_IN_URL = `${BASE_URL}/auth/signin`;
@@ -24,6 +25,8 @@ export const FUNCTIONS = {
   'invite-button': invite,
   'arrow-left': getPrevMembersPage,
   'arrow-right': getNextMembersPage,
+  'create-card-action-cancel': resetCreateTaskForm,
+  'new-card': toggleTaskForm,
 };
 
 export const LIGHT_COLORS = [
@@ -56,4 +59,3 @@ export const DRAG_N_DROP_DIRECTION = 'horizontal';
 export const DEFAULT_ERROR = 'Something went wrong';
 export const TIME_LESS_TEN = 10;
 export const MEMBERS_ON_PAGE = 6;
-

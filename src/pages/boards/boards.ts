@@ -19,6 +19,7 @@ import taskForm from '../taskForm/taskHTML';
 import { tsQuerySelector, tsQuerySelectorAll } from '../../helpers/helpers';
 import createTaskFormListener from '../taskForm/createNewTask';
 import { editColumns, confirmEditColumns, deleteColumnInBoard } from '../../features/columns/EditColumns';
+import { setNewTaskFormListener } from '../taskForm/taskFormListenerFunction';
 
 const Boards = {
   render: async () => `
@@ -63,31 +64,8 @@ const Boards = {
     task.innerHTML = taskForm()
     main.append(task)
     main.id = boardId
-    document.addEventListener('click', async (e) => {
-      if (!(e.target instanceof HTMLElement)) return;
-      const { target } = e;
-      if (target.classList.contains('title-setting__add')) {
-        tsQuerySelector(document, '.new-card').classList.toggle(
-          'new-card__active'
-        );
-        const board = tsQuerySelector(document, '.new-card__form')
-        const boardId = target.closest('.main-board')?.id
-        const columId = target.closest('.column')?.id
-        board.dataset.board = boardId
-        board.dataset.column = columId
-      }
-      if (target.classList.contains('new-card')) {
-        target.classList.toggle(
-          'new-card__active'
-        );
-      }
-      if (target.classList.contains('create-card-action-cancel')) {
-        tsQuerySelector(document, '.new-card').classList.toggle(
-          'new-card__active'
-        );
-        tsQuerySelector<HTMLFormElement>(document, '.new-card__form').reset()
-      }
-    });
+
+    setNewTaskFormListener()
     createTaskFormListener();
     dragNdropColumns();
     dragNdropTasks();

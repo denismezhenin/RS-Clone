@@ -27,15 +27,12 @@
   
     &__line {
       display: flex;
-      // width: 60%;
       justify-content: space-between;
       margin-bottom: 2rem;
   
   
       &-left {
         width: 65%;
-        // display: flex;
-        // justify-content: space-between;
         &__input {
         width: 100%;
         padding: 0.3rem;
@@ -69,7 +66,6 @@
       width: 60%;
 
       .form-input {
-        // margin-right: 1rem;
         width: 100%;
       }
     }

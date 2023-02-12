@@ -16,7 +16,7 @@ const loginHTML = (page: sign) => {
       }">Name</label>
       </div>
       <div class="login__form-input-wrapper input-wrapper">
-      <input type="text" required class="input-wrapper-email login-input" id="email" name="email">   
+      <input type="text" required class="input-wrapper-email form-input" id="email" name="email">   
       <span class="input-wrapper-highlight"></span>
       <span class="input-wrapper-bar"></span>
       <label for="email" class="form-label">Email</label>
