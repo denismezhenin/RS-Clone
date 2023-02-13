@@ -12,15 +12,15 @@ const getTaskHTML = (tasks: ITasks[]) =>
      <span class="task-priority task-priority__${description? description.priority : ""}" style="display:none">${description? description.priority : ""}</span>
      <div class="task-header">
        <h3 class="task-title">${task.title}</h3>
-       ...
+       <div class="task-pop-up__menu">...
+     </div>
+     <ul class="task-menu__list hide">
+     <li class="task-menu__item edit-task">Edit</li>
+     <li class="task-menu__item delete-task">Delete</li>
+   </ul>
      </div>
      <div class="task-body">
-       <div class="task-pop-up__menu">
-         <ul class="task-menu__list hide">
-           <li class="task-menu__item">Rename</li>
-           <li class="task-menu__item">Delete</li>
-         </ul>
-       </div>
+
        <div class="task-description" style="color:${description? description.color : ""}">${description? description.description : task.description}</div>
        <div class="task-footer">
          <h4 class="task-assignees__text">Assignees:</h4>

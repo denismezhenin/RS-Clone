@@ -45,13 +45,28 @@
   }
 }
 
-.task-pop-up__menu {
+.task-header {
   position: relative;
 
   .task-menu__list {
   position: absolute;
-  top: 0;
-  left:0
+  bottom: 0;
+  right:0;
+  transform: translateY(50%);
+  background-color: #efebeb;
+  z-index: 10;
+  padding: 5px;
+  border-radius: 10px;
+  }
+  .task-menu__item {
+    display: inline-block;
+    padding: 2px 5px;
+    width: 100%;
+    background-color: #e6e2e2;
+  }
+
+  .task-menu__item:hover {
+    background-color: #766f6f;
   }
 
 }

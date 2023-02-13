@@ -20,6 +20,7 @@ import { tsQuerySelector, tsQuerySelectorAll } from '../../helpers/helpers';
 import createTaskFormListener from '../taskForm/createNewTask';
 import { editColumns, confirmEditColumns, deleteColumnInBoard } from '../../features/columns/EditColumns';
 import { setNewTaskFormListener } from '../taskForm/taskFormListenerFunction';
+import { setTaskListener } from '../../features/dropDownMenu';
 
 const Boards = {
   render: async () => `
@@ -69,7 +70,7 @@ const Boards = {
     createTaskFormListener();
     dragNdropColumns();
     dragNdropTasks();
-
+    setTaskListener()
     const titleSettingEdit = tsQuerySelectorAll(document, '.title-setting__edit');
     titleSettingEdit.forEach((el) => el.addEventListener('click', async (e) => await editColumns(e, boardId)));
 
