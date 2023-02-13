@@ -30,7 +30,6 @@ const userForm = () => {
         if (user.name) {
           state.name = user.name;
         }
-        console.log(state)
         window.location.href = '#/';
         popUpMessages(ToastrType.success, 'You are sign in!');
       }
