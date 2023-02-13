@@ -2,6 +2,7 @@ import getAsideHtml from './getAsideHtml';
 import state from '../../state/state';
 import drawProjectsList from '../../features/drawProjectsList';
 import listen from '../../features/listen';
+import createTooltip from '../../features/createTooltip';
 
 const Home = {
   render: async () => {
@@ -23,9 +24,13 @@ const Home = {
   after_render: async () => {
     if (state.authToken) {
       drawProjectsList();
+
+      window.addEventListener('click', listen);
     }
 
-    window.addEventListener('click', listen);
+    const plusBtn = document.querySelector('.plus-board');
+    document.addEventListener('mouseover', createTooltip);
+    document.addEventListener('mouseout', () => document.querySelector('.tooltip-block')?.remove());
   },
 };
 

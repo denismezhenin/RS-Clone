@@ -1,0 +1,12 @@
+.tooltip-block {
+  position: fixed;
+
+  background: $color-main;
+  border-radius: 2rem 0.4rem;
+  padding: 1rem 2rem;
+  box-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.3);
+
+  text-align: center;
+  font-size: 1.5rem;
+  color: $text-color;
+}
