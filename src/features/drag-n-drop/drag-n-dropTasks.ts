@@ -14,40 +14,40 @@ const getDate = () => {
 };
 
 const getTimeForTasks = async (currentItem: HTMLElement, column: IColumns) => {
-  const startDateContainer = currentItem.firstElementChild?.lastElementChild?.children[2].lastElementChild;
-  const endDateContainer = currentItem.firstElementChild?.lastElementChild?.children[3].lastElementChild;
+  // const startDateContainer = currentItem.firstElementChild?.lastElementChild?.children[2].lastElementChild;
+  // const endDateContainer = currentItem.firstElementChild?.lastElementChild?.children[3].lastElementChild;
 
   if (column.title === 'In progress') {
     const pointByTaskId = await getPointsByTaskId(state.authToken, currentItem.id);
     const currentDate = getDate();
-    if (startDateContainer) {
-      startDateContainer.innerHTML = pointByTaskId[0].startDate === '-' ? currentDate : pointByTaskId[0].startDate;
-    }
-    if (endDateContainer) {
-      endDateContainer.innerHTML = '-';
-    }
+    // if (startDateContainer) {
+    //   startDateContainer.innerHTML = pointByTaskId[0].startDate === '-' ? currentDate : pointByTaskId[0].startDate;
+    // }
+    // if (endDateContainer) {
+    //   endDateContainer.innerHTML = '-';
+    // }
 
-    await updatePoints(state.authToken, pointByTaskId[0]._id, {
-      title: 'string',
-      done: false,
-      startDate: pointByTaskId[0].startDate === '-' ? currentDate : pointByTaskId[0].startDate,
-      endDate: '-',
-    });
+    // await updatePoints(state.authToken, pointByTaskId[0]._id, {
+    //   title: 'string',
+    //   done: false,
+    //   startDate: pointByTaskId[0].startDate === '-' ? currentDate : pointByTaskId[0].startDate,
+    //   endDate: '-',
+    // });
   }
 
   if (column.title === 'Done') {
     const pointByTaskId = await getPointsByTaskId(state.authToken, currentItem.id);
     const currentDate = getDate();
-    if (endDateContainer) {
-      endDateContainer.innerHTML = pointByTaskId[0].endDate === '-' ? currentDate : pointByTaskId[0].endDate;
-    }
-    console.log(Date.today().setTimeToNow().toString('dd-MMM-yyyy HH:mm'));
-    await updatePoints(state.authToken, pointByTaskId[0]._id, {
-      title: 'string',
-      done: false,
-      startDate: pointByTaskId[0].startDate === '-' ? currentDate : pointByTaskId[0].startDate,
-      endDate: pointByTaskId[0].endDate === '-' ? currentDate : pointByTaskId[0].endDate,
-    });
+    // if (endDateContainer) {
+    //   endDateContainer.innerHTML = pointByTaskId[0].endDate === '-' ? currentDate : pointByTaskId[0].endDate;
+    // }
+    // console.log(Date.today().setTimeToNow().toString('dd-MMM-yyyy HH:mm'));
+    // await updatePoints(state.authToken, pointByTaskId[0]._id, {
+    //   title: 'string',
+    //   done: false,
+    //   startDate: pointByTaskId[0].startDate === '-' ? currentDate : pointByTaskId[0].startDate,
+    //   endDate: pointByTaskId[0].endDate === '-' ? currentDate : pointByTaskId[0].endDate,
+    // });
   }
 };
 

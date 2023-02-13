@@ -8,22 +8,24 @@ const loginHTML = (page: sign) => {
       <div class="login__form-input-wrapper input-wrapper" style="${page === 'signin' ? 'display:none' : ''}">
       <input type="text" ${
         page === 'signin' ? '' : 'required'
-      } class="input-wrapper-name login-input" id="name" name="name" minlength="3">
+      } class="input-wrapper-name form-input" id="name" name="name" minlength="3">
       <span class="input-wrapper-highlight"></span>
       <span class="input-wrapper-bar"></span>
-      <label for="name" class="input-wrapper-label" style="${page === 'signin' ? 'display:none' : ''}">Name</label>
+      <label for="name" class="form-label" style="${
+        page === 'signin' ? 'display:none' : ''
+      }">Name</label>
       </div>
       <div class="login__form-input-wrapper input-wrapper">
-      <input type="text" required class="input-wrapper-email login-input" id="email" name="email">   
+      <input type="text" required class="input-wrapper-email form-input" id="email" name="email">   
       <span class="input-wrapper-highlight"></span>
       <span class="input-wrapper-bar"></span>
-      <label for="email" class="input-wrapper-label">Email</label>
+      <label for="email" class="form-label">Email</label>
       </div>
       <div class="login__form-input-wrapper input-wrapper">
-      <input type="password" required class="login__form-password login-input" name="password" id="password minlength="8">
+      <input type="password" required class="login__form-password form-input" name="password" id="password minlength="8">
       <span class="input-wrapper-highlight"></span>
       <span class="input-wrapper-bar"></span>
-      <label for="password" class="input-wrapper-label">Password</label>
+      <label for="password" class="form-label">Password</label>
       </div>
       <button type="submit" class="button login__form-submit">${page === 'signin' ? 'Sign in' : 'Sign up'}</button>
     </fieldset>

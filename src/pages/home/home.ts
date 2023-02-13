@@ -27,7 +27,7 @@ const Home = {
 
       window.addEventListener('click', listen);
     }
-
+    window.addEventListener('click', listen);
     const plusBtn = document.querySelector('.plus-board');
     document.addEventListener('mouseover', createTooltip);
     document.addEventListener('mouseout', () => document.querySelector('.tooltip-block')?.remove());

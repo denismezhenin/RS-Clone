@@ -31,6 +31,15 @@ export enum FormsData {
   signup = 'signup',
 }
 
+export enum FormsTaskData {
+  color = 'color',
+  title = 'title',
+  description = 'description',
+  duration = 'duration',
+  priority = 'priority',
+}
+
+
 export interface IColumns {
   _id: string;
   title: string;
@@ -50,11 +59,13 @@ export interface ITasks {
 
 export type sign = 'signin' | 'signup';
 
+
 export type User = {
   _id: string;
   name: string;
   login: string;
 };
+
 
 export enum ToastrType {
   error = 'error',
@@ -64,3 +75,4 @@ export enum ToastrType {
 }
 
 export type FunctionsKeys = keyof typeof FUNCTIONS;
+

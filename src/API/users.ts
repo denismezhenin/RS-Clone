@@ -3,6 +3,7 @@ import popUpMessages from '../features/popUpMessages/popupMessages';
 import { ToastrType } from '../data/types';
 import { getSpinner, removeSpinner } from '../features/spinner/spinner';
 
+
 export const signUp = async (body: { name: string; login: string; password: string }) => {
   try {
     getSpinner();

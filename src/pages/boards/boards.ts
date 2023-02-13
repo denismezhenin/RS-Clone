@@ -1,4 +1,5 @@
 import getAsideHtml from '../home/getAsideHtml';
+import createNewBoard from '../../features/createNewBoard';
 import state from '../../state/state';
 import drawProjectsList from '../../features/drawProjectsList';
 import getColumnHTML from '../columns/columnsHtml';
@@ -14,8 +15,11 @@ import getBoardIcons from './getBoardIcons';
 import setSelectedUserId from '../../features/setSelectedUserId';
 import dragNdropTasks from '../../features/drag-n-drop/drag-n-dropTasks';
 import dragNdropColumns from '../../features/drag-n-drop/drag-n-dropColumns';
-import { tsQuerySelectorAll } from '../../helpers/helpers';
+import taskForm from '../taskForm/taskHTML';
+import { tsQuerySelector, tsQuerySelectorAll } from '../../helpers/helpers';
+import createTaskFormListener from '../taskForm/createNewTask';
 import { editColumns, confirmEditColumns, deleteColumnInBoard } from '../../features/columns/EditColumns';
+import { setNewTaskFormListener } from '../taskForm/taskFormListenerFunction';
 
 const Boards = {
   render: async () => `
@@ -30,7 +34,7 @@ const Boards = {
     }
 
     const boardId = getBoardId();
-    const main = document.querySelector('.main-board');
+    const main = tsQuerySelector(document, '.main-board');
     const columns = await getColumnsInBoard(state.authToken, boardId);
     const board = await getBoardsById(state.authToken, boardId);
     const users = await getUsers(state.authToken);
@@ -56,7 +60,13 @@ const Boards = {
 
     const membersSelect = <HTMLSelectElement>document.querySelector('.members-select');
     membersSelect.addEventListener('change', setSelectedUserId);
+    const task = document.createElement('div')
+    task.innerHTML = taskForm()
+    main.append(task)
+    main.id = boardId
 
+    setNewTaskFormListener()
+    createTaskFormListener();
     dragNdropColumns();
     dragNdropTasks();
 

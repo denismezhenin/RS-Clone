@@ -9,6 +9,7 @@
 }
 
 .main_home {
+  position: relative;
   display: flex;
   flex: 2 0 auto;
 
@@ -17,14 +18,12 @@
 
 .main-board {
   position: relative;
-
   width: 100%;
   padding: 1rem;
 }
 
 .main-info {
   width: 90%;
-
   padding: 2rem;
 
   //background: url(../assets/img/bg_start.jpg) no-repeat;
