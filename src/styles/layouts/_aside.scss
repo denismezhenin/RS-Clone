@@ -106,9 +106,16 @@
   width: 2rem;
   height: 2rem;
 
-  background: url(../assets/icons/plus.svg) no-repeat center center;
+  background: url(../assets/icons/plus_violet.svg) no-repeat center center;
   border: none;
   padding: 0;
 
+  color: $button-color-light;
+
   cursor: pointer;
+}
+}
+
+.plus-board:hover {
+  transform: scale(1.1);
 }
