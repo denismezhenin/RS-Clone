@@ -9,6 +9,7 @@ const state: IState = {
   selectedUserId: '',
   membersPage: 1,
   members: [],
+  hideAside: false,
 };
 
 export default state;

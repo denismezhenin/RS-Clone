@@ -2,17 +2,18 @@
   display: flex;
   flex-direction: column;
   float: left;
-
+  position: relative;
   border-right: 2px solid $color-additional;
 
   color: $text-color-additional;
+  transition: 1s;
 }
 
 .aside-nav {
   position: relative;
-
+  width: 22.1rem;
   margin: 0;
-  padding: 0 5rem 2rem 0;
+  // padding: 0 5rem 2rem 0;
 }
 
 .aside-nav:after {
@@ -113,6 +114,32 @@
   color: $button-color-light;
 
   cursor: pointer;
+}
+.hide-aside__button {
+  position: absolute;
+  left: 0px;
+  top: 0;
+  border: none;
+  outline: none;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0);
+  background: url(../assets/icons/hide-aside.svg) no-repeat center center;
+  cursor: pointer;
+}
+.project-show__button {
+  width: 5rem;
+  height: 5rem;
+  border: none;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.project-show__img {
+  width: 3.5rem;
+  margin-left: 1.5rem;
 }
 
 .plus-board:hover {
