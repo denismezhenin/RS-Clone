@@ -15,6 +15,7 @@ const getTaskHTML = (tasks: ITasks[]) =>
    .sort((a, b) => a.order - b.order)
    .map((task: ITasks) => {
      const description = IsJsonString(task.description);
+
      return `
       <li class="task" id="${task._id}">
      <div class="task-wrapper">
@@ -40,6 +41,8 @@ const getTaskHTML = (tasks: ITasks[]) =>
          <div class="task-assignees__container"></div>
          <div class="task-time">
          <span class="task-time__start">Duration: ${description ? description.duration : ''}</span>
+         <p class="start-date">Start Date: <span class="start-date__container"></span></p>
+         <p class="end-date">End Date: <span class="end-date__container"></span></p>
          </div>
        </div>
      </div>

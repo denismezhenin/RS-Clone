@@ -5,46 +5,51 @@ import { tsQuerySelectorAll } from '../../helpers/helpers';
 import { DRAG_N_DROP_ANIMATION_TIME, DRAG_N_DROP_GROUP_TASK } from '../../constants/constants';
 import { getColumnById } from '../../API/columns';
 import getBoardId from '../../services/getBoardId';
-// import { getPointsByTaskId, updatePoints } from '../../API/points';
+import { getPointsByTaskId, updatePoints } from '../../API/points';
 import { IColumns } from '../../data/types';
 import 'datejs';
 
-// const getDate = () => Date.today().setTimeToNow().toString('dd-MM-yyyy HH:mm');
+const getDate = () => Date.today().setTimeToNow().toString('dd-MM-yyyy HH:mm');
 
 const getTimeForTasks = async (currentItem: HTMLElement, column: IColumns) => {
-  // const startDateContainer = currentItem.firstElementChild?.lastElementChild?.children[2].lastElementChild;
-  // const endDateContainer = currentItem.firstElementChild?.lastElementChild?.children[3].lastElementChild;
+  const startDateContainer =
+    currentItem.firstElementChild?.lastElementChild?.children[2].lastElementChild?.children[1].lastElementChild;
+  const endDateContainer =
+    currentItem.firstElementChild?.lastElementChild?.children[2].lastElementChild?.children[2].lastElementChild;
+  console.log(startDateContainer, endDateContainer);
 
   if (column.title === 'In progress') {
-    // const pointByTaskId = await getPointsByTaskId(state.authToken, currentItem.id);
-    // const currentDate = getDate();
-    // if (startDateContainer) {
-    //   startDateContainer.innerHTML = pointByTaskId[0].startDate === '-' ? currentDate : pointByTaskId[0].startDate;
-    // }
-    // if (endDateContainer) {
-    //   endDateContainer.innerHTML = '-';
-    // }
-    // await updatePoints(state.authToken, pointByTaskId[0]._id, {
-    //   title: 'string',
-    //   done: false,
-    //   startDate: pointByTaskId[0].startDate === '-' ? currentDate : pointByTaskId[0].startDate,
-    //   endDate: '-',
-    // });
+    const pointByTaskId = await getPointsByTaskId(state.authToken, currentItem.id);
+    const currentDate = getDate();
+    console.log('currentDate', currentDate);
+
+    if (startDateContainer) {
+      startDateContainer.innerHTML = pointByTaskId[0].startDate === '-' ? currentDate : pointByTaskId[0].startDate;
+    }
+    if (endDateContainer) {
+      endDateContainer.innerHTML = '-';
+    }
+    await updatePoints(state.authToken, pointByTaskId[0]._id, {
+      title: 'string',
+      done: false,
+      startDate: pointByTaskId[0].startDate === '-' ? currentDate : pointByTaskId[0].startDate,
+      endDate: '-',
+    });
   }
 
   if (column.title === 'Done') {
-    // const pointByTaskId = await getPointsByTaskId(state.authToken, currentItem.id);
-    // const currentDate = getDate();
-    // if (endDateContainer) {
-    //   endDateContainer.innerHTML = pointByTaskId[0].endDate === '-' ? currentDate : pointByTaskId[0].endDate;
-    // }
-    // console.log(Date.today().setTimeToNow().toString('dd-MMM-yyyy HH:mm'));
-    // await updatePoints(state.authToken, pointByTaskId[0]._id, {
-    //   title: 'string',
-    //   done: false,
-    //   startDate: pointByTaskId[0].startDate === '-' ? currentDate : pointByTaskId[0].startDate,
-    //   endDate: pointByTaskId[0].endDate === '-' ? currentDate : pointByTaskId[0].endDate,
-    // });
+    const pointByTaskId = await getPointsByTaskId(state.authToken, currentItem.id);
+    const currentDate = getDate();
+    if (endDateContainer) {
+      endDateContainer.innerHTML = pointByTaskId[0].endDate === '-' ? currentDate : pointByTaskId[0].endDate;
+    }
+
+    await updatePoints(state.authToken, pointByTaskId[0]._id, {
+      title: 'string',
+      done: false,
+      startDate: pointByTaskId[0].startDate === '-' ? currentDate : pointByTaskId[0].startDate,
+      endDate: pointByTaskId[0].endDate === '-' ? currentDate : pointByTaskId[0].endDate,
+    });
   }
 };
 

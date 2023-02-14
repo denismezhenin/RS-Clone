@@ -14,7 +14,6 @@ const getAsideHtml = () =>
         <h3 class="aside-projects_header">${UI.asideHeader}</h3>
         <button class="plus-board" data-tooltip="Create new project"></button>
       </section>
-      <button class='hide-aside__button'></button>
     </aside>
   `;
 

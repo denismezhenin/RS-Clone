@@ -2,9 +2,7 @@ import getAsideHtml from './getAsideHtml';
 import state from '../../state/state';
 import drawProjectsList from '../../features/drawProjectsList';
 import listen from '../../features/listen';
-import { tsQuerySelector } from '../../helpers/helpers';
 import createTooltip from '../../features/createTooltip';
-import hideAside from '../../features/hideAside/hideAside';
 
 const Home = {
   render: async () => {
@@ -32,9 +30,6 @@ const Home = {
 
     document.addEventListener('mouseover', createTooltip);
     document.addEventListener('mouseout', () => document.querySelector('.tooltip-block')?.remove());
-
-    const hideAsideButton = tsQuerySelector(document, '.hide-aside__button');
-    hideAsideButton.addEventListener('click', hideAside);
   },
 };
 
