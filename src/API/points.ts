@@ -9,7 +9,7 @@ export const createPoint = async (
     title: string;
     taskId: string;
     boardId: string;
-    done: Boolean;
+    done: boolean;
     startDate: string;
     endDate: string;
   }
@@ -31,6 +31,7 @@ export const createPoint = async (
     return await response.json();
   } catch (err) {
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+    return true;
   } finally {
     removeSpinner();
   }
@@ -53,13 +54,14 @@ export const getPointsByTaskId = async (token: string, taskId: string) => {
     return await response.json();
   } catch (err) {
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+    return true;
   }
 };
 
 export const updatePoints = async (
   token: string,
   pointId: string,
-  body: { title: string; done: Boolean; startDate: string; endDate: string }
+  body: { title: string; done: boolean; startDate: string; endDate: string }
 ) => {
   try {
     const response = await fetch(`${POINTS}/${pointId}`, {

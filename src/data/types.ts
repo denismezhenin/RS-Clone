@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { FUNCTIONS } from '../constants/constants';
 
 export interface ICreateUser {
@@ -39,7 +40,6 @@ export enum FormsTaskData {
   priority = 'priority',
 }
 
-
 export interface IColumns {
   _id: string;
   title: string;
@@ -59,13 +59,11 @@ export interface ITasks {
 
 export type sign = 'signin' | 'signup';
 
-
 export type User = {
   _id: string;
   name: string;
   login: string;
 };
-
 
 export enum ToastrType {
   error = 'error',
@@ -75,4 +73,3 @@ export enum ToastrType {
 }
 
 export type FunctionsKeys = keyof typeof FUNCTIONS;
-

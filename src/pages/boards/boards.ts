@@ -1,5 +1,4 @@
 import getAsideHtml from '../home/getAsideHtml';
-import createNewBoard from '../../features/createNewBoard';
 import state from '../../state/state';
 import drawProjectsList from '../../features/drawProjectsList';
 import getColumnHTML from '../columns/columnsHtml';
@@ -17,7 +16,8 @@ import dragNdropTasks from '../../features/drag-n-drop/drag-n-dropTasks';
 import dragNdropColumns from '../../features/drag-n-drop/drag-n-dropColumns';
 import taskForm from '../taskForm/taskHTML';
 import { tsQuerySelector, tsQuerySelectorAll } from '../../helpers/helpers';
-import createTaskFormListener from '../taskForm/createNewTask';
+// eslint-disable-next-line import/no-cycle
+import { createTaskFormListener } from '../taskForm/createNewTask';
 import { editColumns, confirmEditColumns, deleteColumnInBoard } from '../../features/columns/EditColumns';
 import { setNewTaskFormListener } from '../taskForm/taskFormListenerFunction';
 import { setTaskListener } from '../../features/dropDownMenu';
@@ -48,7 +48,9 @@ const Boards = {
         result = await getColumnHTML(state.authToken, boardId);
       } else {
         const COLUMNS_ARRAY = [UI.firstColumnName, UI.secondColumnName, UI.thirdColumnName];
-        COLUMNS_ARRAY.map(async (el) => await createColumns(state.authToken, state.boardId, { title: el, order: 0 }));
+        COLUMNS_ARRAY.map(async (el) => {
+          await createColumns(state.authToken, state.boardId, { title: el, order: 0 });
+        });
         result = await getColumnHTML(state.authToken, state.boardId);
       }
       main.innerHTML = `${boardControlHtml}${result}`;
@@ -61,18 +63,18 @@ const Boards = {
 
     const membersSelect = <HTMLSelectElement>document.querySelector('.members-select');
     membersSelect.addEventListener('change', setSelectedUserId);
-    const task = document.createElement('div')
-    task.innerHTML = taskForm()
-    main.append(task)
-    main.id = boardId
+    const task = document.createElement('div');
+    task.innerHTML = taskForm();
+    main.append(task);
+    main.id = boardId;
 
-    setNewTaskFormListener()
+    setNewTaskFormListener();
     createTaskFormListener();
     dragNdropColumns();
     dragNdropTasks();
     setTaskListener()
     const titleSettingEdit = tsQuerySelectorAll(document, '.title-setting__edit');
-    titleSettingEdit.forEach((el) => el.addEventListener('click', async (e) => await editColumns(e, boardId)));
+    titleSettingEdit.forEach((el) => el.addEventListener('click', async (e) => editColumns(e)));
 
     const columnCofirmEdit = tsQuerySelectorAll(document, '.column-confirm-edit');
     columnCofirmEdit.forEach((el) => {

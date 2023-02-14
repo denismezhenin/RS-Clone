@@ -11,7 +11,6 @@ import { confirmEditColumns, deleteColumnInBoard, editColumns } from './columns/
 
 import { IColumns } from '../data/types';
 
-
 const addColumn = async () => {
   const boardId = getBoardId();
   const columns: IColumns[] = await getColumnsInBoard(state.authToken, boardId);
@@ -38,7 +37,7 @@ const addColumn = async () => {
   dragNdropTasks();
 
   const titleSettingEdit = tsQuerySelectorAll(document, '.title-setting__edit');
-  titleSettingEdit.forEach((el) => el.addEventListener('click', async (e) => await editColumns(e, boardId)));
+  titleSettingEdit.forEach((el) => el.addEventListener('click', async (e) => editColumns(e)));
 
   const columnCofirmEdit = tsQuerySelectorAll(document, '.column-confirm-edit');
   columnCofirmEdit.forEach((el) => {

@@ -1,11 +1,14 @@
-
 import addColumn from '../features/addColumn';
 import createNewBoard from '../features/createNewBoard';
 import invite from '../features/invite';
 import getPrevMembersPage from '../features/getPrevMembersPage';
 import getNextMembersPage from '../features/getNextMembersPage';
 // import {showDropDownMenu} from '../features/dropDownMenu';
-import {resetCreateTaskForm, toggleTaskForm} from '../pages/taskForm/taskFormListenerFunction'
+import { resetCreateTaskForm, toggleTaskForm } from '../pages/taskForm/taskFormListenerFunction';
+import getUserOptions from '../features/getUserOptions';
+
+
+
 export const BASE_URL = 'https://best-team-api.up.railway.app';
 export const SIGN_UP_URL = `${BASE_URL}/auth/signup`;
 export const SIGN_IN_URL = `${BASE_URL}/auth/signin`;
@@ -18,7 +21,6 @@ export const POINTS = `${BASE_URL}/points`;
 
 export const sliceNumber = -6;
 
-
 export const FUNCTIONS = {
   'plus-board': createNewBoard,
   'plus-column': addColumn,
@@ -27,6 +29,7 @@ export const FUNCTIONS = {
   'arrow-right': getNextMembersPage,
   'create-card-action-cancel': resetCreateTaskForm,
   'new-card': toggleTaskForm,
+  'user-active': getUserOptions,
 };
 
 export const LIGHT_COLORS = [
@@ -52,10 +55,11 @@ export const LIGHT_COLORS = [
   '#E0FFFF',
 ];
 
-
 export const DRAG_N_DROP_ANIMATION_TIME = 200;
 export const DRAG_N_DROP_GROUP_TASK = 'task';
 export const DRAG_N_DROP_DIRECTION = 'horizontal';
 export const DEFAULT_ERROR = 'Something went wrong';
-export const TIME_LESS_TEN = 10;
+
 export const MEMBERS_ON_PAGE = 6;
+
+export const TIME_LESS_TEN = 10;

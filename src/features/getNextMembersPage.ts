@@ -1,6 +1,6 @@
 import getMembersContainer from '../pages/members/getMembersContainer';
 import state from '../state/state';
-import { MEMBERS_ON_PAGE } from '../constants/constants';
+import MEMBERS_ON_PAGE from '../constants/membersOnPage';
 
 const getNextMembersPage = async (event: Event) => {
   if (event.target instanceof HTMLButtonElement) {

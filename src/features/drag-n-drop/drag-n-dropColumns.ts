@@ -6,10 +6,10 @@ import { DRAG_N_DROP_ANIMATION_TIME, DRAG_N_DROP_DIRECTION } from '../../constan
 
 const dragNdropColumns = () => {
   const columnsList = tsQuerySelector(document, '.columns-list');
-  const sortableColumns = Sortable.create(columnsList, {
+  Sortable.create(columnsList, {
     animation: DRAG_N_DROP_ANIMATION_TIME,
     direction: DRAG_N_DROP_DIRECTION,
-    onEnd: async function (e) {
+    async onEnd(e) {
       const columnsListArray = [...e.to.children].map((column, index) => ({
         _id: column.id,
         order: index,

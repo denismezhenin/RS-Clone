@@ -1,5 +1,5 @@
 import state from '../../state/state';
-import { MEMBERS_ON_PAGE } from '../../constants/constants';
+import MEMBERS_ON_PAGE from '../../constants/membersOnPage';
 import { User, Board } from '../../data/types';
 import { getUserById } from '../../API/users';
 import getUserIcon from '../../services/getUserIcon';

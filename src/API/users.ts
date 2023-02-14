@@ -3,7 +3,6 @@ import popUpMessages from '../features/popUpMessages/popupMessages';
 import { ToastrType } from '../data/types';
 import { getSpinner, removeSpinner } from '../features/spinner/spinner';
 
-
 export const signUp = async (body: { name: string; login: string; password: string }) => {
   try {
     getSpinner();
@@ -22,6 +21,7 @@ export const signUp = async (body: { name: string; login: string; password: stri
     return await response.json();
   } catch (err) {
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+    return true;
   } finally {
     removeSpinner();
   }
@@ -44,6 +44,7 @@ export const signIn = async (body: { login: string; password: string }) => {
     return await response.json();
   } catch (err) {
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+    return true;
   } finally {
     removeSpinner();
   }
@@ -64,6 +65,7 @@ export const getUsers = async (token: string) => {
     return await response.json();
   } catch (err) {
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+    return true;
   } finally {
     removeSpinner();
   }
@@ -83,6 +85,7 @@ export const getUserById = async (token: string, id: string) => {
     return await response.json();
   } catch (err) {
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+    return true;
   }
 };
 
