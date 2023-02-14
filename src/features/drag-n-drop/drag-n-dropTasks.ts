@@ -16,12 +16,10 @@ const getTimeForTasks = async (currentItem: HTMLElement, column: IColumns) => {
     currentItem.firstElementChild?.lastElementChild?.children[2].lastElementChild?.children[1].lastElementChild;
   const endDateContainer =
     currentItem.firstElementChild?.lastElementChild?.children[2].lastElementChild?.children[2].lastElementChild;
-  console.log(startDateContainer, endDateContainer);
 
   if (column.title === 'In progress') {
     const pointByTaskId = await getPointsByTaskId(state.authToken, currentItem.id);
     const currentDate = getDate();
-    console.log('currentDate', currentDate);
 
     if (startDateContainer) {
       startDateContainer.innerHTML = pointByTaskId[0].startDate === '-' ? currentDate : pointByTaskId[0].startDate;
@@ -77,6 +75,7 @@ const dragNdropTasks = () => {
         const resultTasksArray = [...prevTaskListArray, ...currentTaskListArray];
 
         const boardId = getBoardId();
+
         const column = await getColumnById(state.authToken, boardId, e.to.id.split('-')[1]);
         await getTimeForTasks(currentItem, column);
 

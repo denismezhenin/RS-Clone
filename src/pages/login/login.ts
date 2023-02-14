@@ -23,7 +23,8 @@ const userForm = () => {
     }
     if (loginForm.classList.contains(FormsData.signin)) {
       const response = await signIn({ login: email, password });
-      if (response) {
+
+      if (response.token) {
         state.authToken = response.token;
         state.id = response.id;
         const user = await getUserById(state.authToken, state.id);

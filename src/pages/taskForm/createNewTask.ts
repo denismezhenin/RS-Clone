@@ -33,7 +33,7 @@ const createTaskForm = async () => {
     userId,
     users,
   });
-  console.log('getCreatedTask', getCreatedTask._id);
+
   createPoint(state.authToken, {
     title: 'string',
     taskId: getCreatedTask._id,

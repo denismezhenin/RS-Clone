@@ -1,5 +1,6 @@
 import { BOARDS_URL, COLUMNS_SET, DEFAULT_ERROR } from '../constants/constants';
 import { ToastrType } from '../data/types';
+import getRedirect from '../features/getRedirect';
 import popUpMessages from '../features/popUpMessages/popupMessages';
 import { removeSpinner, getSpinner } from '../features/spinner/spinner';
 
@@ -19,6 +20,7 @@ export const getColumnsInBoard = async (token: string, boardId: string) => {
     }
     return await response.json();
   } catch (err) {
+    getRedirect(String(err));
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
     return true;
   } finally {
@@ -49,6 +51,7 @@ export const createColumns = async (
     }
     return await response.json();
   } catch (err) {
+    getRedirect(String(err));
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
     return true;
   } finally {
@@ -70,6 +73,7 @@ export const getColumnById = async (token: string, boardId: string, columnId: st
     }
     return { ...(await response.json()) };
   } catch (err) {
+    getRedirect(String(err));
     popUpMessages(ToastrType.error, String(err));
     return true;
   }
@@ -98,6 +102,7 @@ export const updateColumnById = async (
     }
     await response.json();
   } catch (err) {
+    getRedirect(String(err));
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
   }
 };
@@ -134,6 +139,7 @@ export const updateSetOfColumns = async (
     }
     await response.json();
   } catch (err) {
+    getRedirect(String(err));
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
   }
 };

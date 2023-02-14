@@ -1,5 +1,6 @@
 import { BOARDS_URL, DEFAULT_ERROR, TASKS_SET } from '../constants/constants';
 import { ToastrType } from '../data/types';
+import getRedirect from '../features/getRedirect';
 import popUpMessages from '../features/popUpMessages/popupMessages';
 import { removeSpinner, getSpinner } from '../features/spinner/spinner';
 
@@ -19,6 +20,7 @@ export const getTasksInColumn = async (token: string, boardId: string, columnId:
     }
     return await response.json();
   } catch (err) {
+    getRedirect(String(err));
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
     return true;
   } finally {
@@ -41,6 +43,7 @@ export const getTaskById = async (token: string, boardId: string, columnId: stri
     }
     return await response.json();
   } catch (err) {
+    getRedirect(String(err));
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
     return true;
   }
@@ -69,6 +72,7 @@ export const updateSetOfTasks = async (
     }
     await response.json();
   } catch (err) {
+    getRedirect(String(err));
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
   } finally {
     removeSpinner();
@@ -90,6 +94,7 @@ export const getTasksSetByUserId = async (token: string, userId: string) => {
     }
     return await response.json();
   } catch (err) {
+    getRedirect(String(err));
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
     return true;
   }
@@ -122,6 +127,7 @@ export const createTask = async (
     }
     return await response.json();
   } catch (err) {
+    getRedirect(String(err));
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
     return true;
   } finally {
@@ -157,6 +163,7 @@ export const updateTask = async (
     }
     return await response.json();
   } catch (err) {
+    getRedirect(String(err));
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
     return true;
   } finally {
@@ -174,6 +181,7 @@ export const deleteTask = async (token: string, boardId: string, columnId: strin
     }
     return await response.json();
   } catch (err) {
+    getRedirect(String(err));
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
     return true;
   }

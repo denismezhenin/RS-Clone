@@ -3,6 +3,7 @@ import { Board, ToastrType } from '../data/types';
 import state from '../state/state';
 import popUpMessages from '../features/popUpMessages/popupMessages';
 import { getSpinner, removeSpinner } from '../features/spinner/spinner';
+import getRedirect from '../features/getRedirect';
 
 export const getAllBoards = async (token: string) => {
   try {
@@ -19,6 +20,7 @@ export const getAllBoards = async (token: string) => {
 
     return await response.json();
   } catch (err) {
+    getRedirect(String(err));
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
     return true;
   } finally {
