@@ -1,4 +1,5 @@
 import toastr from 'toastr';
+import { ToastrType } from '../../data/types';
 
 const popUpMessages = (typeMessage: ToastrType, message: string) => {
   toastr[typeMessage](message);

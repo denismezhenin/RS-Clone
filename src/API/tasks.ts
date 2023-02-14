@@ -20,6 +20,7 @@ export const getTasksInColumn = async (token: string, boardId: string, columnId:
     return await response.json();
   } catch (err) {
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+    return true;
   } finally {
     removeSpinner();
   }
@@ -41,6 +42,7 @@ export const getTaskById = async (token: string, boardId: string, columnId: stri
     return await response.json();
   } catch (err) {
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+    return true;
   }
 };
 
@@ -75,7 +77,7 @@ export const updateSetOfTasks = async (
 
 export const getTasksSetByUserId = async (token: string, userId: string) => {
   try {
-    const response = await fetch(TASKS_SET, {
+    const response = await fetch(`${TASKS_SET}/${userId}`, {
       method: 'GET',
       headers: {
         authorization: `Bearer ${token}`,
@@ -89,9 +91,9 @@ export const getTasksSetByUserId = async (token: string, userId: string) => {
     return await response.json();
   } catch (err) {
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+    return true;
   }
 };
-
 
 export const createTask = async (
   token: string,
@@ -121,6 +123,7 @@ export const createTask = async (
     return await response.json();
   } catch (err) {
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+    return true;
   } finally {
     removeSpinner();
   }
@@ -155,6 +158,7 @@ export const updateTask = async (
     return await response.json();
   } catch (err) {
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+    return true;
   } finally {
     removeSpinner();
   }
@@ -171,7 +175,6 @@ export const deleteTask = async (token: string, boardId: string, columnId: strin
     return await response.json();
   } catch (err) {
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+    return true;
   }
 };
-
-
