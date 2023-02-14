@@ -1,4 +1,4 @@
-import { tsQuerySelector, tsQuerySelectorAll } from '../../helpers/helpers';
+import { tsQuerySelector } from '../../helpers/helpers';
 import state from '../../state/state';
 import { updateColumnById, deleteColumn, updateSetOfColumns, getColumnById } from '../../API/columns';
 import { getSpinner, removeSpinner } from '../spinner/spinner';
@@ -21,10 +21,13 @@ export const confirmEditColumns = async (e: Event, boardId: string) => {
     order: getColumn.order,
   });
 
-  columnTitle && (columnTitle.textContent = columnTitleInput.value);
-  titleSettingEdit && titleSettingEdit.classList.remove('hide');
-  columnTitle && columnTitle.classList.remove('hide');
-  columnEditForm && columnEditForm.classList.add('hide');
+  if (columnTitle && titleSettingEdit && columnEditForm) {
+    columnTitle.textContent = columnTitleInput.value;
+    titleSettingEdit.classList.remove('hide');
+    columnTitle.classList.remove('hide');
+    columnEditForm.classList.add('hide');
+  }
+
   removeSpinner();
 };
 
@@ -48,7 +51,7 @@ export const deleteColumnInBoard = async (e: Event, boardId: string) => {
   await updateSetOfColumns(state.authToken, columnsListArray);
 };
 
-export const editColumns = async (e: Event, boardId: string) => {
+export const editColumns = async (e: Event) => {
   getSpinner();
   if (!(e.target instanceof HTMLElement)) return;
   const { target } = e;
@@ -57,8 +60,11 @@ export const editColumns = async (e: Event, boardId: string) => {
   const columnTitle = target.closest('.column-header')?.firstElementChild;
   const columnEditForm = target.closest('.title-settings')?.firstElementChild;
 
-  titleSettingEdit && titleSettingEdit.classList.add('hide');
-  columnTitle && columnTitle.classList.add('hide');
-  columnEditForm && columnEditForm.classList.remove('hide');
+  if (titleSettingEdit && columnTitle && columnEditForm) {
+    titleSettingEdit.classList.add('hide');
+    columnTitle.classList.add('hide');
+    columnEditForm.classList.remove('hide');
+  }
+
   removeSpinner();
 };

@@ -2,6 +2,7 @@ import { createTask } from '../../API/tasks';
 import { FormsTaskData } from '../../data/types';
 import { tsQuerySelector } from '../../helpers/helpers';
 import state from '../../state/state';
+// eslint-disable-next-line import/no-cycle
 import Boards from '../boards/boards';
 
 const createTaskForm = async () => {
@@ -24,7 +25,7 @@ const createTaskForm = async () => {
   };
   if (!boardId || !columnId) return;
   const descriptionJSON = JSON.stringify(descriptionObject);
-  const response = await createTask(state.authToken, boardId, columnId, {
+  await createTask(state.authToken, boardId, columnId, {
     title,
     order: 0,
     description: descriptionJSON,
@@ -32,11 +33,11 @@ const createTaskForm = async () => {
     users,
   });
   tsQuerySelector(document, '.new-card').classList.toggle('new-card__active');
-  form.reset()
-  Boards.after_render()
+  form.reset();
+  Boards.after_render();
 };
 
-const createTaskFormListener = () => {
+export const createTaskFormListener = () => {
   const form = tsQuerySelector<HTMLFormElement>(document, '.new-card__form');
   form.addEventListener('submit', async (e) => {
     e.preventDefault();

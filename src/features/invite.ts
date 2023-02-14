@@ -7,7 +7,7 @@ const invite = async () => {
   const membersSelect = document.querySelector('.members-select');
   const boardId = getBoardId();
   const board = await getBoardsById(state.authToken, boardId);
-  const options = <NodeListOf<HTMLOptionElement>>document.querySelectorAll('option');
+  const options = document.querySelectorAll('option');
   const array = board.users;
 
   if (membersSelect instanceof HTMLSelectElement) {

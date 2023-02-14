@@ -4,7 +4,7 @@ import state from '../../state/state';
 import getAsideHtml from '../home/getAsideHtml';
 import drawProjectsList from '../../features/drawProjectsList';
 import getMembersContainer from './getMembersContainer';
-import { MEMBERS_ON_PAGE } from '../../constants/constants';
+import MEMBERS_ON_PAGE from '../../constants/membersOnPage';
 
 const Members = {
   render: async () => `
@@ -39,7 +39,7 @@ const Members = {
     const totalPages = Math.ceil(members.length / MEMBERS_ON_PAGE);
     const pageCircles = document.createElement('div');
     pageCircles.classList.add('members-page-circles');
-    for (let i = 0; i < totalPages; i++) {
+    for (let i = 0; i < totalPages; i += 1) {
       const pageCircle = document.createElement('div');
       pageCircle.classList.add('page-circle');
       pageCircles.append(pageCircle);

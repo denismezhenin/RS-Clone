@@ -3,7 +3,7 @@ const drawLoggedInUser = (id: string, name: string) => {
   signBlock?.classList.add('hidden');
   const userBlock = document.querySelector('.hidden');
   userBlock?.classList.remove('hidden');
-  userBlock?.classList.add('user');
+  userBlock?.classList.add('user-active');
 
   const userName = document.querySelector('.user-name');
   const icon = document.querySelector('.user-img');

@@ -68,7 +68,7 @@ const taskForm = () => {
             </div>
       </form>
   </div>`;
-  return HTML
-} 
+  return HTML;
+};
 
 export default taskForm;

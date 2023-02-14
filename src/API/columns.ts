@@ -20,6 +20,7 @@ export const getColumnsInBoard = async (token: string, boardId: string) => {
     return await response.json();
   } catch (err) {
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+    return true;
   } finally {
     removeSpinner();
   }
@@ -49,6 +50,7 @@ export const createColumns = async (
     return await response.json();
   } catch (err) {
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+    return true;
   } finally {
     removeSpinner();
   }
@@ -69,6 +71,7 @@ export const getColumnById = async (token: string, boardId: string, columnId: st
     return { ...(await response.json()) };
   } catch (err) {
     popUpMessages(ToastrType.error, String(err));
+    return true;
   }
 };
 

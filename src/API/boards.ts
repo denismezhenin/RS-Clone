@@ -20,6 +20,7 @@ export const getAllBoards = async (token: string) => {
     return await response.json();
   } catch (err) {
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+    return true;
   } finally {
     removeSpinner();
   }
