@@ -17,7 +17,7 @@ export const setTaskListener = () => {
       const task = target.closest<HTMLElement>('.task');
       if (!task) return
       // task.classList.toggle('hide');
-      tsQuerySelector(task, '.task-menu__list').classList.toggle('hide')
+      tsQuerySelector(task, '.task-menu__list').classList.toggle('hide') 
     };
       // const board = tsQuerySelector(document, '.new-card__form')
       // const boardId = target.closest('.main-board')?.id
