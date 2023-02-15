@@ -15,19 +15,6 @@
   padding: 0 5rem 2rem 0;
 }
 
-.aside-nav:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 30%;
-
-  width: 95%;
-  height: 0.15rem;
-  margin-left: -30%;
-
-  background: $color-additional;
-}
-
 .aside-item {
   display: flex;
 
@@ -42,8 +29,8 @@
   background: url(../assets/icons/home.svg) no-repeat left center;
 }
 
-.aside-messages {
-  background: url(../assets/icons/messages.svg) no-repeat left center;
+.aside-boards {
+  background: url(../assets/icons/foldershelf.svg) no-repeat left center;
 }
 
 .aside-tasks {
@@ -96,25 +83,4 @@
 
   font-size: 1.8rem;
   font-weight: 400;
-}
-
-.plus-board {
-  position: absolute;
-  right: 1rem;
-  top: 1.2rem;
-
-  width: 2rem;
-  height: 2rem;
-
-  background: url(../assets/icons/plus_violet.svg) no-repeat center center;
-  border: none;
-  padding: 0;
-
-  color: $button-color-light;
-
-  cursor: pointer;
-}
-
-.plus-board:hover {
-  transform: scale(1.1);
 }

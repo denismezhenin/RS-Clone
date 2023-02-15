@@ -54,3 +54,16 @@
 
   color: $button-color;
 }
+
+.plus-board {
+  background: url(../assets/icons/plus_light.svg) no-repeat left center;
+  background-color: $button-color-light;
+  padding-left: 3rem;
+
+  font-size: 1.4rem;
+}
+
+.plus-board:hover {
+  background: url(../assets/icons/plus_violet.svg) no-repeat left center;
+  box-shadow: none;
+}

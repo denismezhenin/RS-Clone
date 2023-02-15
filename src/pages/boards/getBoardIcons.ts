@@ -11,14 +11,15 @@ const getBoardIcons = async (userIds: string[]) => {
     const right = '0';
     const limit = userIds.length <= MAX_VISIBLE_MEMBERS ? userIds.length : MAX_VISIBLE_MEMBERS;
 
-    for (let i = 0; i < limit; i += 1) {
-      // eslint-disable-next-line no-await-in-loop
-      const user = await getUserById(state.authToken, userIds[i]);
-      const icon = getUserIcon(user.name);
-      memberIcons.append(icon);
-      icon.style.right = `${Number(right) + i * ABSOLUTE_POSITION_IN_REMS}rem`;
-      icon.style.zIndex = (zIndex - i).toString();
-    }
+    userIds.forEach(async (el, i) => {
+      if (i < limit) {
+        const user = await getUserById(state.authToken, el);
+        const icon = getUserIcon(user.name);
+        memberIcons.append(icon);
+        icon.style.right = `${Number(right) + i * ABSOLUTE_POSITION_IN_REMS}rem`;
+        icon.style.zIndex = (zIndex - i).toString();
+      }
+    });
 
     if (userIds.length > MAX_VISIBLE_MEMBERS) {
       const rest = document.createElement('div');

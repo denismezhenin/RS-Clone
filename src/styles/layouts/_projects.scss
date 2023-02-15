@@ -1,0 +1,43 @@
+.project-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+
+  width: 100%;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  //align-items: center;
+
+  width: 100%;
+
+  background-color: #f7f5f5;
+  border-radius: 0.5rem;
+  padding: 2rem;
+
+  transition: box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.project-title {
+  margin: 0;
+
+  font-size: 2rem;
+  text-align: left;
+  color: $text-color;
+}
+
+.project-stats-item {
+  font-size: 1.6rem;
+  color: $text-color-additional;
+}
+
+.project-stats-total {
+  text-decoration: underline;
+}

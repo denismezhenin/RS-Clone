@@ -178,3 +178,23 @@ export const deleteTask = async (token: string, boardId: string, columnId: strin
     return true;
   }
 };
+
+export const getTasksSetByBoardId = async (token: string, boardId: string) => {
+  try {
+    const response = await fetch(`${TASKS_SET}/${boardId}`, {
+      method: 'GET',
+      headers: {
+        authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.status !== 200) {
+      throw { ...(await response.json()) }.message;
+    }
+    return await response.json();
+  } catch (err) {
+    popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+    return true;
+  }
+};

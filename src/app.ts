@@ -8,12 +8,14 @@ import { tsQuerySelector } from './helpers/helpers';
 import Boards from './pages/boards/boards';
 import Home from './pages/home/home';
 import Error404 from './pages/error404/error404';
+import Projects from './pages/projects/projects';
 import Members from './pages/members/members';
 import Member from './pages/member/member';
 
 const routes: { [key: string]: typeof Home | typeof Boards } = {
   '/': Home,
-  '/project/:id': Boards,
+  '/projects': Projects,
+  '/projects/:id': Boards,
   '/signin': LogIn,
   '/signup': LogIn,
   '/members': Members,

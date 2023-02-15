@@ -37,7 +37,7 @@ const createTaskForm = async () => {
   Boards.after_render();
 };
 
-export const createTaskFormListener = () => {
+const createTaskFormListener = () => {
   const form = tsQuerySelector<HTMLFormElement>(document, '.new-card__form');
   form.addEventListener('submit', async (e) => {
     e.preventDefault();

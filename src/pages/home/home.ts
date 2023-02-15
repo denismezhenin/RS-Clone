@@ -2,7 +2,6 @@ import getAsideHtml from './getAsideHtml';
 import state from '../../state/state';
 import drawProjectsList from '../../features/drawProjectsList';
 import listen from '../../features/listen';
-import createTooltip from '../../features/createTooltip';
 
 const Home = {
   render: async () => {
@@ -27,9 +26,6 @@ const Home = {
 
       window.addEventListener('click', listen);
     }
-
-    document.addEventListener('mouseover', createTooltip);
-    document.addEventListener('mouseout', () => document.querySelector('.tooltip-block')?.remove());
   },
 };
 
