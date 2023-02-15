@@ -7,7 +7,6 @@ const hideAside = () => {
   const asideNav = tsQuerySelector(document, '.aside-nav');
   const logoHeader = tsQuerySelector(document, '.logo-header');
   const logo = tsQuerySelector(document, '.logo');
-  const asideProjects = tsQuerySelector(document, '.aside-projects');
 
   if (!state.hideAside) {
     hideAsideButton.style.transform = 'rotateY(180deg)';
@@ -25,7 +24,6 @@ const hideAside = () => {
   width: 6.2rem;
   margin-left: 20px;
   `;
-    asideProjects.style.display = 'none';
   }
 
   if (state.hideAside) {
@@ -43,7 +41,6 @@ const hideAside = () => {
   width: 22.3rem;
   margin-left: 0;
   `;
-    asideProjects.style.display = 'block';
   }
   state.hideAside = !state.hideAside;
 };
