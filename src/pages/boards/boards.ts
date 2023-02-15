@@ -88,7 +88,7 @@ const Boards = {
 
     const startDateContainer = [...tsQuerySelectorAll(document, '.start-date__container')];
     startDateContainer.map(async (el) => {
-      const { id } = el.closest('.task')!;
+      const { id } = <Element>el.closest('.task');
 
       const result = (await getPointsByTaskId(state.authToken, id))[0].startDate || null;
       if (result) {
@@ -98,7 +98,7 @@ const Boards = {
 
     const endDateContainer = [...tsQuerySelectorAll(document, '.end-date__container')];
     endDateContainer.map(async (el) => {
-      const { id } = el.closest('.task')!;
+      const { id } = <Element>el.closest('.task');
 
       const result = (await getPointsByTaskId(state.authToken, id))[0].endDate || null;
       if (result) {

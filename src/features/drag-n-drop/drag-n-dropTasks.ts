@@ -1,7 +1,7 @@
 import Sortable from 'sortablejs';
 import { updateSetOfTasks } from '../../API/tasks';
 import state from '../../state/state';
-import { tsQuerySelectorAll } from '../../helpers/helpers';
+import { tsQuerySelector, tsQuerySelectorAll } from '../../helpers/helpers';
 import { DRAG_N_DROP_ANIMATION_TIME, DRAG_N_DROP_GROUP_TASK } from '../../constants/constants';
 import { getColumnById } from '../../API/columns';
 import getBoardId from '../../services/getBoardId';
@@ -13,10 +13,8 @@ import UI from '../../data/UI';
 const getDate = () => Date.today().setTimeToNow().toString('dd-MM-yyyy HH:mm');
 
 const getTimeForTasks = async (currentItem: HTMLElement, column: IColumns) => {
-  const startDateContainer =
-    currentItem.firstElementChild?.lastElementChild?.children[2].lastElementChild?.children[1].lastElementChild;
-  const endDateContainer =
-    currentItem.firstElementChild?.lastElementChild?.children[2].lastElementChild?.children[2].lastElementChild;
+  const startDateContainer = tsQuerySelector(currentItem, '.start-date__container');
+  const endDateContainer = tsQuerySelector(currentItem, '.end-date__container');
 
   if (column.title === UI.secondColumnName) {
     const pointByTaskId = await getPointsByTaskId(state.authToken, currentItem.id);
@@ -53,9 +51,9 @@ const getTimeForTasks = async (currentItem: HTMLElement, column: IColumns) => {
 };
 
 const dragNdropTasks = () => {
-  const tasksList = tsQuerySelectorAll(document, '.tasks-list');
+  const tasksList = <HTMLElement[]>[...tsQuerySelectorAll(document, '.tasks-list')];
   tasksList.forEach((el) =>
-    Sortable.create(el as HTMLElement, {
+    Sortable.create(el, {
       animation: DRAG_N_DROP_ANIMATION_TIME,
       group: {
         name: DRAG_N_DROP_GROUP_TASK,
