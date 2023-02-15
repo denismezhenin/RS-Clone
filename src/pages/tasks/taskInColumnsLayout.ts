@@ -31,7 +31,9 @@ const getTaskHTML = (tasks: ITasks[]) =>
    </ul>
      </div>
      <div class="task-body">
-       <div class="task-description" style="color:${description? description.color : ""}">${description? description.description : task.description}</div>
+       <div class="task-description" style="color:${description ? description.color : ''}">${
+       description ? description.description : task.description
+     }</div>
        <div class="task-footer">
          <h4 class="task-assignees__text">Assignees:</h4>
          <div class="task-assignees__container"></div>

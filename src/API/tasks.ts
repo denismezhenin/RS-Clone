@@ -168,8 +168,12 @@ export const deleteTask = async (token: string, boardId: string, columnId: strin
   try {
     const response = await fetch(`${BOARDS_URL}/${boardId}/columns/${columnId}/tasks/${taskID}`, {
       method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     });
     if (response.status !== 200) {
+      // console.log(response)
       throw { ...(await response.json()) }.message;
     }
     return await response.json();

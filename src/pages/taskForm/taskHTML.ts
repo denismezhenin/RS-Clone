@@ -5,19 +5,19 @@ const taskForm = () => {
             <h3>New Task</h3>
             <div class="create-card__line">
               <div class="create-card__line-left input-wrapper">
-              <input type="text" name="title" id="title" class="create-card__line-left__input form-input" placeholder="Please enter the subject!">
+              <input type="text" name="title" id="title" class="create-card__line-left__input form-input" placeholder="Please enter the subject!" required>
               <span class="input-wrapper-highlight"></span>
               <span class="input-wrapper-bar"></span>
               <label for="title" class="create-card__line-left__label form-label">Title</label>
               </div>
               <div class="create-card__line-right input-wrapper">
-              <input type="color" name="color" id="color" class="create-card__line-right__color form-input">
+              <input type="color" name="color" id="color" class="create-card__line-right__color form-input" required>
               <label for="color" class="color-label form-label">Pick a color</label>
               </div>
             </div>
             <div class="create-card__line">
               <div class="create-card__line-left input-wrapper">
-              <textarea type="text" name="description" id="description" placeholder="Add a description" class="create-card__line-left__textarea form-input"></textarea>
+              <textarea type="text" name="description" id="description" placeholder="Add a description" class="create-card__line-left__textarea form-input" required></textarea>
               <span class="input-wrapper-highlight"></span>
               <label for="description" class="create-card__line-left__label form-label">Description</label>    
               </div>
@@ -28,7 +28,7 @@ const taskForm = () => {
 
             <div class="create-card__line-date">
               <label for="duration">Choose a duration:</label>
-                <select select name="duration" id="duration">
+                <select select name="duration" id="duration" required>
                 <option value="">Duration</option>
                 <option value="xs">XS  -  1 hour</option>
                 <option value="s">S   -  2 hours</option>
@@ -44,7 +44,7 @@ const taskForm = () => {
             <label for="start-date" class="date-label form-label">Starting date</label>
             </div>
             <div class="input-wrapper" style="display: none">
-            <input type="date" id="end-date" name="end-date" placeholder="Please enter ending date" class="create-card__line-date__end-date form-input">
+            <input type="date" id="end-date" name="end-date" placeholder="Please enter ending date" class="create-card__line-date__end-date form-input" >
             <span class="input-wrapper-highlight"></span>
             <span class="input-wrapper-bar"></span>
             <label for="end-date" class="date-label form-label">Ending date</label>
@@ -56,7 +56,7 @@ const taskForm = () => {
               <p class="create-card__priority-title">Priority</p>
               <input type="radio" name="priority" id="priority-high" value="high"class="create-card__priority-select">
               <label for="priority-high" class="create-card__priority-label">high</label>
-              <input type="radio"  name="priority" id="priority-medium" value="medium"class="create-card__priority-select">
+              <input type="radio"  name="priority" id="priority-medium" value="medium"class="create-card__priority-select" checked>
               <label for="priority-medium" class="create-card__priority-label">medium</label>
               <input type="radio"  name="priority" id="priority-low" value="low" class="create-card__priority-select">
               <label for="priority-low" class="create-card__priority-label">low</label>
