@@ -72,7 +72,7 @@ const Boards = {
     createTaskFormListener();
     dragNdropColumns();
     dragNdropTasks();
-    setTaskListener()
+    setTaskListener();
     const titleSettingEdit = tsQuerySelectorAll(document, '.title-setting__edit');
     titleSettingEdit.forEach((el) => el.addEventListener('click', async (e) => editColumns(e)));
 
@@ -80,7 +80,10 @@ const Boards = {
     columnCofirmEdit.forEach((el) => {
       el.addEventListener('click', (e) => confirmEditColumns(e, boardId));
     });
-
+    const color = tsQuerySelector<HTMLInputElement>(document, '#color')
+    color.addEventListener('input', () => {
+      console.log((color.value))
+    })
     const columnDeleteButton = tsQuerySelectorAll(document, '.column-delete__button');
     columnDeleteButton.forEach((el) => {
       el.addEventListener('click', (e) => deleteColumnInBoard(e, boardId));

@@ -38,7 +38,8 @@ const getTaskHTML = (tasks: ITasks[]) =>
          <h4 class="task-assignees__text">Assignees:</h4>
          <div class="task-assignees__container"></div>
          <div class="task-time">
-         <span class="task-time__start">Duration: ${description ? description.duration : ''}</span>
+         <span class="task-time__description">Duration: </span>
+         <span class="task-time__start">${description ? description.duration : ''}</span>
          </div>
        </div>
      </div>

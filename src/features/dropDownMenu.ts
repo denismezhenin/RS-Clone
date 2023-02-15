@@ -1,5 +1,7 @@
 import { deleteTask } from '../API/tasks';
 import { tsQuerySelector } from '../helpers/helpers';
+import formsParam from '../pages/taskForm/setTaskParams';
+import editTask from '../pages/taskForm/editTask';
 import state from '../state/state';
 
 export const showDropDownMenu = (target: HTMLElement) => {
@@ -31,17 +33,18 @@ export const setTaskListener = () => {
     // board.dataset.board = boardId
     // board.dataset.column = columId
     if (target.classList.contains('edit-task')) {
-      
+      formsParam(target);
+      editTask(target);
       showDropDownMenu(target);
       // tsQuerySelector(task, '.task-menu__list').classList.toggle('hide')
     }
     if (target.classList.contains('delete-task')) {
-      showDropDownMenu(target);
       const boardId = target.closest<HTMLElement>('.main-board')?.id;
       const columnId = target.closest<HTMLElement>('.column')?.id;
       const taskId = target.closest<HTMLElement>('.task')?.id;
       if (!boardId || !columnId || !taskId) return;
       await deleteTask(state.authToken, boardId, columnId, taskId);
+      showDropDownMenu(target);
     }
   });
 };
