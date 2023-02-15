@@ -63,3 +63,5 @@ export const DEFAULT_ERROR = 'Something went wrong';
 export const MEMBERS_ON_PAGE = 6;
 
 export const TIME_LESS_TEN = 10;
+
+export const INVALID_TOKEN = 'Invalid token';

@@ -25,6 +25,8 @@ const UI = {
   newColumnName: 'New column',
   memberTasksHeader: 'TASKS',
   memberProjectsHeader: 'PROJECTS',
+
+  
 };
 
 export default UI;

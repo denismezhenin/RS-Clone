@@ -8,6 +8,7 @@ import getBoardId from '../../services/getBoardId';
 import { getPointsByTaskId, updatePoints } from '../../API/points';
 import { IColumns } from '../../data/types';
 import 'datejs';
+import UI from '../../data/UI';
 
 const getDate = () => Date.today().setTimeToNow().toString('dd-MM-yyyy HH:mm');
 
@@ -17,7 +18,7 @@ const getTimeForTasks = async (currentItem: HTMLElement, column: IColumns) => {
   const endDateContainer =
     currentItem.firstElementChild?.lastElementChild?.children[2].lastElementChild?.children[2].lastElementChild;
 
-  if (column.title === 'In progress') {
+  if (column.title === UI.secondColumnName) {
     const pointByTaskId = await getPointsByTaskId(state.authToken, currentItem.id);
     const currentDate = getDate();
 
@@ -35,7 +36,7 @@ const getTimeForTasks = async (currentItem: HTMLElement, column: IColumns) => {
     });
   }
 
-  if (column.title === 'Done') {
+  if (column.title === UI.thirdColumnName) {
     const pointByTaskId = await getPointsByTaskId(state.authToken, currentItem.id);
     const currentDate = getDate();
     if (endDateContainer) {

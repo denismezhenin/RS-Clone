@@ -1,5 +1,7 @@
+import { INVALID_TOKEN } from '../constants/constants';
+
 const getRedirect = (response: string) => {
-  if (response === 'Invalid token') {
+  if (response === INVALID_TOKEN) {
     window.location.href = '#/signin';
   }
 };
