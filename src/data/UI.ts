@@ -8,7 +8,7 @@ const UI = {
   signUp: 'Sign up',
 
   asideHome: 'Home',
-  asideMessages: 'Messages',
+  asideProjects: 'Projects',
   asideTasks: 'Tasks',
   asideMembers: 'Members',
   asideSettings: 'Settings',
@@ -25,6 +25,8 @@ const UI = {
   newColumnName: 'New column',
   memberTasksHeader: 'TASKS',
   memberProjectsHeader: 'PROJECTS',
+
+  addProjectButton: 'ADD NEW PROJECT',
 };
 
 export default UI;

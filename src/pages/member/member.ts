@@ -1,6 +1,5 @@
 import state from '../../state/state';
 import getAsideHtml from '../home/getAsideHtml';
-import drawProjectsList from '../../features/drawProjectsList';
 import getBoardId from '../../services/getBoardId';
 import { User, Board, ITasks } from '../../data/types';
 import { getUserById } from '../../API/users';
@@ -17,10 +16,6 @@ const Member = {
       </div>
       `,
   after_render: async () => {
-    if (state.authToken) {
-      drawProjectsList();
-    }
-
     const main = document.querySelector('.main-member-card');
     const memberId = getBoardId();
 

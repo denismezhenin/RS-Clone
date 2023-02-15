@@ -66,7 +66,7 @@ const createNewBoard = async () => {
         popUpMessages(ToastrType.success, 'New project created');
       })
       .then(() => {
-        window.location.hash = `/project/${state.boardId}`;
+        window.location.hash = `/projects/${state.boardId}`;
       });
   });
 };

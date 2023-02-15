@@ -1,6 +1,5 @@
 import getAsideHtml from '../home/getAsideHtml';
 import state from '../../state/state';
-import drawProjectsList from '../../features/drawProjectsList';
 import getColumnHTML from '../columns/columnsHtml';
 import { createColumns, getColumnsInBoard } from '../../API/columns';
 import { getBoardsById } from '../../API/boards';
@@ -17,7 +16,7 @@ import dragNdropColumns from '../../features/drag-n-drop/drag-n-dropColumns';
 import taskForm from '../taskForm/taskHTML';
 import { tsQuerySelector, tsQuerySelectorAll } from '../../helpers/helpers';
 // eslint-disable-next-line import/no-cycle
-import { createTaskFormListener } from '../taskForm/createNewTask';
+import createTaskFormListener from '../taskForm/createNewTask';
 import { editColumns, confirmEditColumns, deleteColumnInBoard } from '../../features/columns/EditColumns';
 import { setNewTaskFormListener } from '../taskForm/taskFormlistenerFunction';
 import { getPointsByTaskId } from '../../API/points';
@@ -30,10 +29,6 @@ const Boards = {
   </div>
   `,
   after_render: async () => {
-    if (state.authToken) {
-      drawProjectsList();
-    }
-
     const boardId = getBoardId();
     const main = tsQuerySelector(document, '.main-board');
     const columns = await getColumnsInBoard(state.authToken, boardId);

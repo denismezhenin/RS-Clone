@@ -2,7 +2,6 @@ import { getAllBoards } from '../../API/boards';
 import { Board } from '../../data/types';
 import state from '../../state/state';
 import getAsideHtml from '../home/getAsideHtml';
-import drawProjectsList from '../../features/drawProjectsList';
 import getMembersContainer from './getMembersContainer';
 import MEMBERS_ON_PAGE from '../../constants/membersOnPage';
 
@@ -14,9 +13,6 @@ const Members = {
     </div>
     `,
   after_render: async () => {
-    if (state.authToken) {
-      drawProjectsList();
-    }
     const main = document.querySelector('.main-members');
     const allBoards: Board[] = await getAllBoards(state.authToken);
     const userBoards = allBoards.filter((el) => el.users.includes(state.id));
