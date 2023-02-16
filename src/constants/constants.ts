@@ -3,8 +3,11 @@ import createNewBoard from '../features/createNewBoard';
 import invite from '../features/invite';
 import getPrevMembersPage from '../features/getPrevMembersPage';
 import getNextMembersPage from '../features/getNextMembersPage';
-import getUserOptions from '../features/getUserOptions';
-
+import getUserOptions from '../pages/navBar/getUserOptions';
+import logOut from '../features/logOut';
+import changeUserName from '../features/changeUserName';
+import changeUserLogin from '../features/changeUserLogin';
+import changePassword from '../features/changePassword';
 import { resetCreateTaskForm, toggleTaskForm } from '../pages/taskForm/taskFormlistenerFunction';
 import hideAside from '../features/hideAside/hideAside';
 
@@ -29,6 +32,12 @@ export const FUNCTIONS = {
   'create-card-action-cancel': resetCreateTaskForm,
   'new-card': toggleTaskForm,
   'user-active': getUserOptions,
+  'user-name': getUserOptions,
+  'user-img': getUserOptions,
+  'logout-button': logOut,
+  'change-name-button': changeUserName,
+  'change-login-button': changeUserLogin,
+  'change-password-button': changePassword,
   'hide-aside__button': hideAside,
 };
 

@@ -45,6 +45,10 @@ const Members = {
     const arrowRight = document.createElement('button');
     arrowRight.classList.add('arrow-right');
     arrowRight.textContent = '»';
+    if (totalPages === 1) {
+      arrowRight.disabled = true;
+      arrowRight.classList.add('arrow-inactive');
+    }
 
     pageControls.append(arrowLeft, pageCircles, arrowRight);
 

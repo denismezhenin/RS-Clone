@@ -55,6 +55,16 @@
   color: $button-color;
 }
 
+.change-name-button,
+.change-login-button,
+.change-password-button {
+  font-size: 1.2rem;
+}
+
+.logout-button {
+  align-self: flex-end;
+}
+
 .plus-board {
   background: url(../assets/icons/plus_light.svg) no-repeat left center;
   background-color: $button-color-light;

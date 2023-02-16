@@ -2,7 +2,6 @@ import UI from '../data/UI';
 import state from '../state/state';
 import togglePopup from './togglePopup';
 import { createBoard } from '../API/boards';
-import drawProjectsList from './drawProjectsList';
 import popUpMessages from './popUpMessages/popupMessages';
 import { ToastrType } from '../data/types';
 
@@ -61,7 +60,6 @@ const createNewBoard = async () => {
     const resultTitle = input.value !== '' ? input.value : UI.titlePlaceholder;
     createBoard(state.authToken, { title: resultTitle, owner: state.id, users: [state.id] })
       .then(() => {
-        drawProjectsList();
         state.selectedUserId = '';
         popUpMessages(ToastrType.success, 'New project created');
       })

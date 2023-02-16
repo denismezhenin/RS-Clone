@@ -5,6 +5,7 @@ const state: IState = {
   id: '',
   boardId: '',
   name: '',
+  password: '',
   pageLoaded: false,
   selectedUserId: '',
   membersPage: 1,
