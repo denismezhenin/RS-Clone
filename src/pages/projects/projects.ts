@@ -13,6 +13,7 @@ const Projects = {
       </div>
       `,
   after_render: async () => {
+    document.body.classList.remove('body_home');
     const main = document.querySelector('.main-projects');
     const allBoards: Board[] = await getAllBoards(state.authToken);
     const userBoards = allBoards.filter((el) => el.users.includes(state.id));

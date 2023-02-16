@@ -7,6 +7,8 @@ const Error404 = {
         `;
     return view;
   },
-  after_render: async () => {},
+  after_render: async () => {
+    document.body.classList.remove('body_home');
+  },
 };
 export default Error404;

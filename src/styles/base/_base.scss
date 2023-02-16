@@ -9,8 +9,13 @@ body {
   max-width: $max-width;
   min-height: 100vh;
 
-  background: $color-main;
+  background-color: $color-main;
   margin: 0 auto;
+}
+
+.body_home {
+  background: url(../assets/img/kanban.jpg) no-repeat 80% bottom;
+  background-size: 70%;
 }
 
 .wrapper {
