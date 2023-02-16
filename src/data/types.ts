@@ -58,6 +58,14 @@ export interface ITasks {
 }
 
 export type sign = 'signin' | 'signup';
+// export type taskForm = 'edit' | 'submit';
+
+export enum taskForm {
+  edit = 'edit',
+  submit = 'submit',
+  editTask = 'edit task',
+  submitTask = 'submit task',
+}
 
 export type User = {
   _id: string;

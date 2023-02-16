@@ -3,6 +3,7 @@ import { tsQuerySelector } from '../helpers/helpers';
 import formsParam from '../pages/taskForm/setTaskParams';
 import editTask from '../pages/taskForm/editTask';
 import state from '../state/state';
+import { taskForm } from '../data/types';
 
 export const showDropDownMenu = (target: HTMLElement) => {
   const task = target.closest<HTMLElement>('.task');
@@ -33,10 +34,9 @@ export const setTaskListener = () => {
     // board.dataset.board = boardId
     // board.dataset.column = columId
     if (target.classList.contains('edit-task')) {
-      formsParam(target);
+      formsParam(target, taskForm.edit);
       editTask(target);
       showDropDownMenu(target);
-      // tsQuerySelector(task, '.task-menu__list').classList.toggle('hide')
     }
     if (target.classList.contains('delete-task')) {
       const boardId = target.closest<HTMLElement>('.main-board')?.id;

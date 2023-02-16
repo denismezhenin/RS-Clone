@@ -19,5 +19,7 @@ export const rgbToHex = (str: string) => {
     .slice(4, -1)
     .split(',')
     .map((el: string) => Number(el).toString(16))
+    .map((el: string) => el.padStart(2, '0'))
     .join('');
+  return `#${hex}`;
 };

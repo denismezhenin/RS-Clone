@@ -131,3 +131,11 @@
   }
 }
 
+.create-card-action {
+  text-transform: uppercase;
+  & > * {
+    text-transform: uppercase;
+  }
+}
+
+

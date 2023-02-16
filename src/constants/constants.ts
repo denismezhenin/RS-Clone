@@ -7,8 +7,6 @@ import getNextMembersPage from '../features/getNextMembersPage';
 import { resetCreateTaskForm, toggleTaskForm } from '../pages/taskForm/taskFormListenerFunction';
 import getUserOptions from '../features/getUserOptions';
 
-
-
 export const BASE_URL = 'https://best-team-api.up.railway.app';
 export const SIGN_UP_URL = `${BASE_URL}/auth/signup`;
 export const SIGN_IN_URL = `${BASE_URL}/auth/signin`;

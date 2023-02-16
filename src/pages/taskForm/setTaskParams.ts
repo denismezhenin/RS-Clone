@@ -1,6 +1,14 @@
+import { taskForm } from '../../data/types';
 import { tsQuerySelector } from '../../helpers/helpers';
 
-const formsParam = (target: HTMLElement) => {
+const formsParam = (target: HTMLElement, taskType: taskForm) => {
+  const submitButton = tsQuerySelector(document, '.create-card-action-submit');
+  if (taskType === taskForm.edit) {
+    submitButton.textContent = taskForm.editTask;
+  } else {
+    tsQuerySelector<HTMLFormElement>(document, '.new-card__form').reset();
+    submitButton.textContent = taskForm.submitTask;
+  }
   tsQuerySelector(document, '.new-card').classList.toggle('new-card__active');
   const board = tsQuerySelector(document, '.new-card__form');
   const boardId = target.closest('.main-board')?.id;

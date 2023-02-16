@@ -1,3 +1,4 @@
+import { taskForm } from '../../data/types';
 import { tsQuerySelector } from '../../helpers/helpers';
 import formsParam from './setTaskParams';
 
@@ -16,7 +17,7 @@ export const setNewTaskFormListener = () => {
     if (!(e.target instanceof HTMLElement)) return;
     const { target } = e;
     if (target.classList.contains('title-setting__add')) {
-      formsParam(target);
+      formsParam(target, taskForm.submit);
     }
   });
 };

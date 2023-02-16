@@ -1,4 +1,4 @@
-import { tsQuerySelector } from '../../helpers/helpers';
+import { rgbToHex, tsQuerySelector } from '../../helpers/helpers';
 
 const editTask = (target: HTMLElement) => {
   const form = tsQuerySelector(document, '.new-card');
@@ -20,11 +20,7 @@ const editTask = (target: HTMLElement) => {
   description.value = taskDescription.textContent;
   duration.value = taskDuration.textContent.toLowerCase();
   priority.checked = true;
-  color.value = taskDescription.style.color;
-  const c = taskDescription.style.color;
-  console.log(c)
-  const b = c.split('(')
-  console.log(b);
+  color.value = rgbToHex(taskDescription.style.color);
 };
 
 export default editTask;

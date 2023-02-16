@@ -64,30 +64,26 @@ const Boards = {
     const membersSelect = <HTMLSelectElement>document.querySelector('.members-select');
     membersSelect.addEventListener('change', setSelectedUserId);
     const task = document.createElement('div');
-    task.innerHTML = taskForm();
+    task.innerHTML = taskForm(inactiveUsers);
     main.append(task);
     main.id = boardId;
 
+    const titleSettingEdit = tsQuerySelectorAll(document, '.title-setting__edit');
+    titleSettingEdit.forEach((el) => el.addEventListener('click', async (e) => editColumns(e)));
+    
+    const columnCofirmEdit = tsQuerySelectorAll(document, '.column-confirm-edit');
+    columnCofirmEdit.forEach((el) => {
+      el.addEventListener('click', (e) => confirmEditColumns(e, boardId));
+    });
+    const columnDeleteButton = tsQuerySelectorAll(document, '.column-delete__button');
+    columnDeleteButton.forEach((el) => {
+      el.addEventListener('click', (e) => deleteColumnInBoard(e, boardId));
+    });
     setNewTaskFormListener();
     createTaskFormListener();
     dragNdropColumns();
     dragNdropTasks();
     setTaskListener();
-    const titleSettingEdit = tsQuerySelectorAll(document, '.title-setting__edit');
-    titleSettingEdit.forEach((el) => el.addEventListener('click', async (e) => editColumns(e)));
-
-    const columnCofirmEdit = tsQuerySelectorAll(document, '.column-confirm-edit');
-    columnCofirmEdit.forEach((el) => {
-      el.addEventListener('click', (e) => confirmEditColumns(e, boardId));
-    });
-    const color = tsQuerySelector<HTMLInputElement>(document, '#color')
-    color.addEventListener('input', () => {
-      console.log((color.value))
-    })
-    const columnDeleteButton = tsQuerySelectorAll(document, '.column-delete__button');
-    columnDeleteButton.forEach((el) => {
-      el.addEventListener('click', (e) => deleteColumnInBoard(e, boardId));
-    });
   },
 };
 

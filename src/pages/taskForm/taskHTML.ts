@@ -1,4 +1,7 @@
-const taskForm = () => {
+import invitetoTaskHTML from './invitetoTask';
+import { User } from '../../data/types';
+
+const taskForm = (users: User[]) => {
   const HTML = `
   <div class="new-card">
         <form action="" class="new-card__form create-card">
@@ -50,7 +53,7 @@ const taskForm = () => {
             <label for="end-date" class="date-label form-label">Ending date</label>
             </div>
             </div>
-            
+            ${invitetoTaskHTML(users)}
           
             <div class="create-card__priority">
               <p class="create-card__priority-title">Priority</p>
