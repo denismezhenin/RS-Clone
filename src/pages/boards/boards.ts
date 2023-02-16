@@ -10,11 +10,12 @@ import drawColumnPlus from './drawColumnPlus';
 import { getUsers } from '../../API/users';
 import getBoardId from '../../services/getBoardId';
 import getInactiveUsers from '../../features/getInactiveUsers';
+import getActiveUsers from '../../features/getActiveUsers';
 import getBoardIcons from './getBoardIcons';
 import setSelectedUserId from '../../features/setSelectedUserId';
 import dragNdropTasks from '../../features/drag-n-drop/drag-n-dropTasks';
 import dragNdropColumns from '../../features/drag-n-drop/drag-n-dropColumns';
-import taskForm from '../taskForm/taskHTML';
+import taskFormHTML from '../taskForm/taskHTML';
 import { tsQuerySelector, tsQuerySelectorAll } from '../../helpers/helpers';
 // eslint-disable-next-line import/no-cycle
 import { createTaskFormListener } from '../taskForm/createNewTask';
@@ -40,6 +41,7 @@ const Boards = {
     const board = await getBoardsById(state.authToken, boardId);
     const users = await getUsers(state.authToken);
     const inactiveUsers = getInactiveUsers(users, board.users);
+    const activeUsers = getActiveUsers(users, board.users)
     const boardControlHtml = getBoardControlHtml(board.title, inactiveUsers);
 
     if (main) {
@@ -64,7 +66,8 @@ const Boards = {
     const membersSelect = <HTMLSelectElement>document.querySelector('.members-select');
     membersSelect.addEventListener('change', setSelectedUserId);
     const task = document.createElement('div');
-    task.innerHTML = taskForm(inactiveUsers);
+    console.log(board.users)
+    task.innerHTML = taskFormHTML(activeUsers);
     main.append(task);
     main.id = boardId;
 

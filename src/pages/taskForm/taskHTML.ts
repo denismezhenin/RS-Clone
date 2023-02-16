@@ -1,7 +1,7 @@
 import invitetoTaskHTML from './invitetoTask';
 import { User } from '../../data/types';
 
-const taskForm = (users: User[]) => {
+const taskFormHTML = (users: User[]) => {
   const HTML = `
   <div class="new-card">
         <form action="" class="new-card__form create-card">
@@ -74,4 +74,4 @@ const taskForm = (users: User[]) => {
   return HTML;
 };
 
-export default taskForm;
+export default taskFormHTML;

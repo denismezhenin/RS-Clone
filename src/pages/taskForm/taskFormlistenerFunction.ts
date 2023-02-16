@@ -12,7 +12,6 @@ export const toggleTaskForm = () => {
 };
 
 export const setNewTaskFormListener = () => {
-
   document.addEventListener('click', async (e) => {
     if (!(e.target instanceof HTMLElement)) return;
     const { target } = e;

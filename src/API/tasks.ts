@@ -138,6 +138,7 @@ export const updateTask = async (
     title: string;
     order: 0;
     description: string;
+    columnId: string;
     userId: string;
     users: Array<string>;
   }
@@ -158,7 +159,7 @@ export const updateTask = async (
     return await response.json();
   } catch (err) {
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
-    return true;
+    return err;
   } finally {
     removeSpinner();
   }
