@@ -15,6 +15,7 @@ export interface IState {
   selectedUserId: string;
   membersPage: number;
   members: string[];
+  hideAside: boolean;
 }
 
 export type Board = {

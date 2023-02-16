@@ -12,11 +12,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 54px;
 }
 
 .logo {
   width: 22.3rem;
-
+  height: 54px;
   background: url(../assets/icons/cubes.ico) no-repeat left center;
   border-right: 2px solid $color-additional;
 }
@@ -29,6 +30,7 @@
 
 .navbar {
   display: flex;
+  position: relative;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;

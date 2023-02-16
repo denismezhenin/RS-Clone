@@ -19,6 +19,7 @@ import { tsQuerySelector, tsQuerySelectorAll } from '../../helpers/helpers';
 import createTaskFormListener from '../taskForm/createNewTask';
 import { editColumns, confirmEditColumns, deleteColumnInBoard } from '../../features/columns/EditColumns';
 import { setNewTaskFormListener } from '../taskForm/taskFormlistenerFunction';
+import { getPointsByTaskId } from '../../API/points';
 
 const Boards = {
   render: async () => `
@@ -78,6 +79,26 @@ const Boards = {
     const columnDeleteButton = tsQuerySelectorAll(document, '.column-delete__button');
     columnDeleteButton.forEach((el) => {
       el.addEventListener('click', (e) => deleteColumnInBoard(e, boardId));
+    });
+
+    const startDateContainer = [...tsQuerySelectorAll(document, '.start-date__container')];
+    startDateContainer.map(async (el) => {
+      const { id } = <Element>el.closest('.task');
+
+      const result = (await getPointsByTaskId(state.authToken, id))[0].startDate || null;
+      if (result) {
+        el.innerHTML = result;
+      }
+    });
+
+    const endDateContainer = [...tsQuerySelectorAll(document, '.end-date__container')];
+    endDateContainer.map(async (el) => {
+      const { id } = <Element>el.closest('.task');
+
+      const result = (await getPointsByTaskId(state.authToken, id))[0].endDate || null;
+      if (result) {
+        el.innerHTML = result;
+      }
     });
   },
 };

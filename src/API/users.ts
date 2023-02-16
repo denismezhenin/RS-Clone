@@ -2,6 +2,7 @@ import { SIGN_UP_URL, SIGN_IN_URL, USERS_URL, DEFAULT_ERROR } from '../constants
 import popUpMessages from '../features/popUpMessages/popupMessages';
 import { ToastrType } from '../data/types';
 import { getSpinner, removeSpinner } from '../features/spinner/spinner';
+import getRedirect from '../features/getRedirect';
 
 export const signUp = async (body: { name: string; login: string; password: string }) => {
   try {
@@ -64,6 +65,7 @@ export const getUsers = async (token: string) => {
     }
     return await response.json();
   } catch (err) {
+    getRedirect(String(err));
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
     return true;
   } finally {
@@ -80,10 +82,12 @@ export const getUserById = async (token: string, id: string) => {
       },
     });
     if (response.status !== 200) {
+      window.location.href = '#/signin';
       throw { ...(await response.json()) }.message;
     }
     return await response.json();
   } catch (err) {
+    getRedirect(String(err));
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
     return true;
   }
@@ -109,6 +113,7 @@ export const updateUser = async (
     }
     await response.json();
   } catch (err) {
+    getRedirect(String(err));
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
   } finally {
     removeSpinner();
