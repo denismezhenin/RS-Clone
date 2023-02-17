@@ -1,4 +1,5 @@
 import { IState } from '../data/types';
+import listen from '../features/listen';
 
 const state: IState = {
   authToken: '',
@@ -26,6 +27,8 @@ const getLocalStorage = () => {
     state.membersPage = temp.membersPage;
     state.members = temp.members;
     state.hideAside = temp.hideAside;
+
+    window.addEventListener('click', listen);
   }
 };
 

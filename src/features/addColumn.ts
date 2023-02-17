@@ -7,7 +7,7 @@ import dragNdropTasks from './drag-n-drop/drag-n-dropTasks';
 import dragNdropColumns from './drag-n-drop/drag-n-dropColumns';
 
 import { tsQuerySelectorAll } from '../helpers/helpers';
-import { confirmEditColumns, deleteColumnInBoard, editColumns } from './columns/EditColumns';
+import { confirmEditColumns, deleteColumnInBoard, editTitle } from './columns/EditColumns';
 
 import { IColumns } from '../data/types';
 
@@ -33,11 +33,15 @@ const addColumn = async () => {
   if (columnList) {
     columnList.outerHTML = result;
   }
-  dragNdropColumns();
-  dragNdropTasks();
+  await dragNdropColumns();
+  await dragNdropTasks();
 
   const titleSettingEdit = tsQuerySelectorAll(document, '.title-setting__edit');
-  titleSettingEdit.forEach((el) => el.addEventListener('click', async (e) => editColumns(e)));
+  titleSettingEdit.forEach((el) =>
+    el.addEventListener('click', async (e) =>
+      editTitle(e, '.column', '.title-setting__edit', '.column-title', '.column-edit__form')
+    )
+  );
 
   const columnCofirmEdit = tsQuerySelectorAll(document, '.column-confirm-edit');
   columnCofirmEdit.forEach((el) => {

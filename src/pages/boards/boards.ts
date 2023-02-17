@@ -17,7 +17,7 @@ import taskForm from '../taskForm/taskHTML';
 import { tsQuerySelector, tsQuerySelectorAll } from '../../helpers/helpers';
 // eslint-disable-next-line import/no-cycle
 import createTaskFormListener from '../taskForm/createNewTask';
-import { editColumns, confirmEditColumns, deleteColumnInBoard } from '../../features/columns/EditColumns';
+import { editTitle, confirmEditColumns, deleteColumnInBoard } from '../../features/columns/EditColumns';
 import { setNewTaskFormListener } from '../taskForm/taskFormlistenerFunction';
 import { getPointsByTaskId } from '../../API/points';
 
@@ -64,13 +64,17 @@ const Boards = {
     main.append(task);
     main.id = boardId;
 
-    setNewTaskFormListener();
+    await setNewTaskFormListener();
     createTaskFormListener();
-    dragNdropColumns();
-    dragNdropTasks();
+    await dragNdropColumns();
+    await dragNdropTasks();
 
     const titleSettingEdit = tsQuerySelectorAll(document, '.title-setting__edit');
-    titleSettingEdit.forEach((el) => el.addEventListener('click', async (e) => editColumns(e)));
+    titleSettingEdit.forEach((el) =>
+      el.addEventListener('click', async (e) =>
+        editTitle(e, '.column', '.title-setting__edit', '.column-title', '.column-edit__form')
+      )
+    );
 
     const columnCofirmEdit = tsQuerySelectorAll(document, '.column-confirm-edit');
     columnCofirmEdit.forEach((el) => {
