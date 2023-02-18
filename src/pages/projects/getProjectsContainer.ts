@@ -6,7 +6,7 @@ import { tsQuerySelectorAll } from '../../helpers/helpers';
 import state from '../../state/state';
 import getProjectStatsItem from './getProjectStatsItem';
 import { editTitle } from '../../features/columns/EditColumns';
-import consfirmEditBoard from '../../features/editBoards/editBoards';
+import { consfirmEditBoard, deleteProject } from '../../features/editBoards/editBoards';
 
 const projectOpen = (e: Event) => {
   if (!(e.target instanceof HTMLElement)) return;
@@ -83,6 +83,10 @@ const getProjectsContainer = async (projects: Board[]) => {
       item.addEventListener('click', (e: Event) => {
         e.stopPropagation();
       });
+    });
+    const boardDeleteButton = tsQuerySelectorAll(document, '.board-delete__button');
+    boardDeleteButton.forEach((item) => {
+      item.addEventListener('click', deleteProject);
     });
   });
 

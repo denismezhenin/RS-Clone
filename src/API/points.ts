@@ -84,3 +84,13 @@ export const updatePoints = async (
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
   }
 };
+
+export const deletePointById = async (token: string, pointId: string) =>
+  (
+    await fetch(`${POINTS}/${pointId}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+  ).json();

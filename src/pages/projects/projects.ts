@@ -24,23 +24,6 @@ const Projects = {
 
     const projectsContainer = await getProjectsContainer(userBoards);
     main?.append(newBoardBtn, projectsContainer);
-
-    // const titleSettingEdit = tsQuerySelectorAll(document, '.board-setting__edit');
-    // titleSettingEdit.forEach((el) =>
-    //   el.addEventListener('click', async (e) =>
-    //     editTitle(e, '.project-card', '.board-setting__edit', '.board-header', '.board-settings')
-    //   )
-    // );
-
-    // const columnCofirmEdit = tsQuerySelectorAll(document, '.board-confirm-edit');
-    // columnCofirmEdit.forEach((el) => {
-    //   el.addEventListener('click', (e) => confirmEditColumns(e, boardId));
-    // });
-
-    // const columnDeleteButton = tsQuerySelectorAll(document, '.board-delete__button');
-    // columnDeleteButton.forEach((el) => {
-    //   el.addEventListener('click', (e) => deleteColumnInBoard(e, boardId));
-    // });
   },
 };
 
