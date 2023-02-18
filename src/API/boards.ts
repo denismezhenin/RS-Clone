@@ -57,13 +57,25 @@ export const createBoard = async (
 };
 
 export const getBoardsById = async (token: string, id: string) => {
-  const response = await fetch(`${BOARDS_URL}/${id}`, {
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  }).catch();
-  return response.status !== 200 ? false : { ...(await response.json()) };
+  try {
+    getSpinner();
+    const response = await fetch(`${BOARDS_URL}/${id}`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (response.status !== 200) {
+      throw { ...(await response.json()) }.message;
+    }
+
+    return await response.json();
+  } catch (err) {
+    popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+    return true;
+  } finally {
+    removeSpinner();
+  }
 };
 
 export const updateBoard = async (
@@ -74,17 +86,29 @@ export const updateBoard = async (
     owner: string;
     users: string[];
   }
-) =>
-  (
-    await fetch(`${BOARDS_URL}/${id}`, {
+) => {
+  try {
+    getSpinner();
+    const response = await fetch(`${BOARDS_URL}/${id}`, {
       method: 'PUT',
       body: JSON.stringify(body),
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-    })
-  ).json();
+    });
+    if (response.status !== 200) {
+      throw { ...(await response.json()) }.message;
+    }
+
+    return await response.json();
+  } catch (err) {
+    popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+    return true;
+  } finally {
+    removeSpinner();
+  }
+};
 
 export const deleteBoard = async (token: string, id: string) =>
   (

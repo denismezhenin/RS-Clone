@@ -32,7 +32,12 @@
   text-align: left;
   color: $text-color;
 }
-
+.project-title__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 5rem;
+}
 .project-stats-item {
   font-size: 1.6rem;
   color: $text-color-additional;

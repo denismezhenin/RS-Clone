@@ -17,7 +17,7 @@ import taskForm from '../taskForm/taskHTML';
 import { tsQuerySelector, tsQuerySelectorAll } from '../../helpers/helpers';
 // eslint-disable-next-line import/no-cycle
 import createTaskFormListener from '../taskForm/createNewTask';
-import { editColumns, confirmEditColumns, deleteColumnInBoard } from '../../features/columns/EditColumns';
+import { editTitle, confirmEditColumns, deleteColumnInBoard } from '../../features/columns/EditColumns';
 import { setNewTaskFormListener } from '../taskForm/taskFormlistenerFunction';
 import { getPointsByTaskId } from '../../API/points';
 
@@ -36,7 +36,7 @@ const Boards = {
     const board = await getBoardsById(state.authToken, boardId);
     const users = await getUsers(state.authToken);
     const inactiveUsers = getInactiveUsers(users, board.users);
-    const boardControlHtml = getBoardControlHtml(board.title, inactiveUsers);
+    const boardControlHtml = await getBoardControlHtml(board.title, inactiveUsers);
 
     if (main) {
       let result = '';
@@ -47,14 +47,15 @@ const Boards = {
         COLUMNS_ARRAY.map(async (el) => {
           await createColumns(state.authToken, state.boardId, { title: el, order: 0 });
         });
+
         result = await getColumnHTML(state.authToken, state.boardId);
       }
       main.innerHTML = `${boardControlHtml}${result}`;
-      drawColumnPlus();
+      await drawColumnPlus();
     }
 
     if (board.users.length) {
-      getBoardIcons(board.users);
+      await getBoardIcons(board.users);
     }
 
     const membersSelect = <HTMLSelectElement>document.querySelector('.members-select');
@@ -64,13 +65,17 @@ const Boards = {
     main.append(task);
     main.id = boardId;
 
-    setNewTaskFormListener();
-    createTaskFormListener();
-    dragNdropColumns();
-    dragNdropTasks();
+    await setNewTaskFormListener();
+    await createTaskFormListener();
+    await dragNdropColumns();
+    await dragNdropTasks();
 
     const titleSettingEdit = tsQuerySelectorAll(document, '.title-setting__edit');
-    titleSettingEdit.forEach((el) => el.addEventListener('click', async (e) => editColumns(e)));
+    titleSettingEdit.forEach((el) =>
+      el.addEventListener('click', async (e) => {
+        await editTitle(e, '.column', '.title-setting__edit', '.column-title', '.column-edit__form');
+      })
+    );
 
     const columnCofirmEdit = tsQuerySelectorAll(document, '.column-confirm-edit');
     columnCofirmEdit.forEach((el) => {

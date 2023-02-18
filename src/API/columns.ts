@@ -6,7 +6,6 @@ import { removeSpinner, getSpinner } from '../features/spinner/spinner';
 
 export const getColumnsInBoard = async (token: string, boardId: string) => {
   try {
-    getSpinner();
     const response = await fetch(`${BOARDS_URL}/${boardId}/columns`, {
       method: 'GET',
       headers: {
@@ -23,8 +22,6 @@ export const getColumnsInBoard = async (token: string, boardId: string) => {
     getRedirect(String(err));
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
     return true;
-  } finally {
-    removeSpinner();
   }
 };
 

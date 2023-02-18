@@ -50,7 +50,7 @@ const getTimeForTasks = async (currentItem: HTMLElement, column: IColumns) => {
   }
 };
 
-const dragNdropTasks = () => {
+const dragNdropTasks = async () => {
   const tasksList = <HTMLElement[]>[...tsQuerySelectorAll(document, '.tasks-list')];
   tasksList.forEach((el) =>
     Sortable.create(el, {
