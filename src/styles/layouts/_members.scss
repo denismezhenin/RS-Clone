@@ -6,6 +6,9 @@
 
   width: 100%;
   min-height: 48.74rem;
+  @include mobile{
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .member-card {

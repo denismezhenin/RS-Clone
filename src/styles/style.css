@@ -81,7 +81,7 @@ abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
   -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted; /* 2 */
+  text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -180,9 +180,9 @@ select {
  * Correct the inability to style clickable types in iOS and Safari.
  */
 button,
-[type=button],
-[type=reset],
-[type=submit] {
+[type='button'],
+[type='reset'],
+[type='submit'] {
   -webkit-appearance: button;
 }
 
@@ -190,9 +190,9 @@ button,
  * Remove the inner border and padding in Firefox.
  */
 button::-moz-focus-inner,
-[type=button]::-moz-focus-inner,
-[type=reset]::-moz-focus-inner,
-[type=submit]::-moz-focus-inner {
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -201,9 +201,9 @@ button::-moz-focus-inner,
  * Restore the focus styles unset by the previous rule.
  */
 button:-moz-focusring,
-[type=button]:-moz-focusring,
-[type=reset]:-moz-focusring,
-[type=submit]:-moz-focusring {
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -247,8 +247,8 @@ textarea {
  * 1. Add the correct box sizing in IE 10.
  * 2. Remove the padding in IE 10.
  */
-[type=checkbox],
-[type=radio] {
+[type='checkbox'],
+[type='radio'] {
   box-sizing: border-box; /* 1 */
   padding: 0; /* 2 */
 }
@@ -256,8 +256,8 @@ textarea {
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-[type=number]::-webkit-inner-spin-button,
-[type=number]::-webkit-outer-spin-button {
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -265,7 +265,7 @@ textarea {
  * 1. Correct the odd appearance in Chrome and Safari.
  * 2. Correct the outline style in Safari.
  */
-[type=search] {
+[type='search'] {
   -webkit-appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */
 }
@@ -273,7 +273,7 @@ textarea {
 /**
  * Remove the inner padding in Chrome and Safari on macOS.
  */
-[type=search]::-webkit-search-decoration {
+[type='search']::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -322,25 +322,12 @@ li {
   list-style: none;
 }
 
-body {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  max-width: 1600px;
-  min-height: 100vh;
-  background: #ffffff;
-  margin: 0 auto;
-}
-
 .wrapper {
   max-width: 1600px;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 140%;
@@ -414,7 +401,7 @@ body {
 .logo-img {
   width: 6vw;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 #header_container {
@@ -727,7 +714,7 @@ abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
   -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted; /* 2 */
+  text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -826,9 +813,9 @@ select {
  * Correct the inability to style clickable types in iOS and Safari.
  */
 button,
-[type=button],
-[type=reset],
-[type=submit] {
+[type='button'],
+[type='reset'],
+[type='submit'] {
   -webkit-appearance: button;
 }
 
@@ -836,9 +823,9 @@ button,
  * Remove the inner border and padding in Firefox.
  */
 button::-moz-focus-inner,
-[type=button]::-moz-focus-inner,
-[type=reset]::-moz-focus-inner,
-[type=submit]::-moz-focus-inner {
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -847,9 +834,9 @@ button::-moz-focus-inner,
  * Restore the focus styles unset by the previous rule.
  */
 button:-moz-focusring,
-[type=button]:-moz-focusring,
-[type=reset]:-moz-focusring,
-[type=submit]:-moz-focusring {
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -893,8 +880,8 @@ textarea {
  * 1. Add the correct box sizing in IE 10.
  * 2. Remove the padding in IE 10.
  */
-[type=checkbox],
-[type=radio] {
+[type='checkbox'],
+[type='radio'] {
   box-sizing: border-box; /* 1 */
   padding: 0; /* 2 */
 }
@@ -902,8 +889,8 @@ textarea {
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-[type=number]::-webkit-inner-spin-button,
-[type=number]::-webkit-outer-spin-button {
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -911,7 +898,7 @@ textarea {
  * 1. Correct the odd appearance in Chrome and Safari.
  * 2. Correct the outline style in Safari.
  */
-[type=search] {
+[type='search'] {
   -webkit-appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */
 }
@@ -919,7 +906,7 @@ textarea {
 /**
  * Remove the inner padding in Chrome and Safari on macOS.
  */
-[type=search]::-webkit-search-decoration {
+[type='search']::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -968,25 +955,12 @@ li {
   list-style: none;
 }
 
-body {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  max-width: 1600px;
-  min-height: 100vh;
-  background: #ffffff;
-  margin: 0 auto;
-}
-
 .wrapper {
   max-width: 1600px;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 140%;
@@ -1060,7 +1034,7 @@ body {
 .logo-img {
   width: 6vw;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 #header_container {
@@ -1355,7 +1329,7 @@ abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
   -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted; /* 2 */
+  text-decoration: underline dotted; /* 2 */
 }
 
 /**
@@ -1454,9 +1428,9 @@ select {
  * Correct the inability to style clickable types in iOS and Safari.
  */
 button,
-[type=button],
-[type=reset],
-[type=submit] {
+[type='button'],
+[type='reset'],
+[type='submit'] {
   -webkit-appearance: button;
 }
 
@@ -1464,9 +1438,9 @@ button,
  * Remove the inner border and padding in Firefox.
  */
 button::-moz-focus-inner,
-[type=button]::-moz-focus-inner,
-[type=reset]::-moz-focus-inner,
-[type=submit]::-moz-focus-inner {
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -1475,9 +1449,9 @@ button::-moz-focus-inner,
  * Restore the focus styles unset by the previous rule.
  */
 button:-moz-focusring,
-[type=button]:-moz-focusring,
-[type=reset]:-moz-focusring,
-[type=submit]:-moz-focusring {
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -1521,8 +1495,8 @@ textarea {
  * 1. Add the correct box sizing in IE 10.
  * 2. Remove the padding in IE 10.
  */
-[type=checkbox],
-[type=radio] {
+[type='checkbox'],
+[type='radio'] {
   box-sizing: border-box; /* 1 */
   padding: 0; /* 2 */
 }
@@ -1530,8 +1504,8 @@ textarea {
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-[type=number]::-webkit-inner-spin-button,
-[type=number]::-webkit-outer-spin-button {
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -1539,7 +1513,7 @@ textarea {
  * 1. Correct the odd appearance in Chrome and Safari.
  * 2. Correct the outline style in Safari.
  */
-[type=search] {
+[type='search'] {
   -webkit-appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */
 }
@@ -1547,7 +1521,7 @@ textarea {
 /**
  * Remove the inner padding in Chrome and Safari on macOS.
  */
-[type=search]::-webkit-search-decoration {
+[type='search']::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -1596,25 +1570,12 @@ li {
   list-style: none;
 }
 
-body {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  max-width: 1600px;
-  min-height: 100vh;
-  background: #ffffff;
-  margin: 0 auto;
-}
-
 .wrapper {
   max-width: 1600px;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 140%;
@@ -1688,7 +1649,7 @@ body {
 .logo-img {
   width: 6vw;
   -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 #header_container {
@@ -1786,7 +1747,7 @@ body {
 }
 
 .aside-nav:after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 30%;
@@ -1829,17 +1790,14 @@ body {
 }
 
 .projects-container {
-<<<<<<< HEAD
   overflow-y: hidden;
   max-height: 21rem;
 }
 
 .projects-container:hover {
   overflow-y: scroll;
-=======
   overflow-y: scroll;
   max-height: 21rem;
->>>>>>> develop
 }
 
 .projects-container::-webkit-scrollbar {
@@ -2009,7 +1967,6 @@ body {
   cursor: pointer;
 }
 
-<<<<<<< HEAD
 .shadow {
   display: none;
 }
@@ -2154,7 +2111,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-=======
+}
 .tasks-list {
   display: flex;
   flex-direction: column;
@@ -2215,7 +2172,6 @@ option:disabled {
 .member-icons {
   position: relative;
   width: 12rem;
->>>>>>> develop
 }
 
 .button {
@@ -2254,8 +2210,6 @@ option:disabled {
   background: #48409e;
 }
 
-<<<<<<< HEAD
-=======
 .invite-button {
   background-color: #ffffff;
   margin: 0 0.5rem;
@@ -2271,7 +2225,6 @@ option:disabled {
   color: #422c82;
 }
 
->>>>>>> develop
 .input {
   height: 2.5rem;
   border: 1px solid #dddbdb;
@@ -2303,8 +2256,6 @@ option:disabled {
   color: #1d1c1c;
 }
 
-<<<<<<< HEAD
-=======
 .user-icon,
 .rest-icon {
   position: absolute;
@@ -2325,7 +2276,6 @@ option:disabled {
   font-size: 1.4rem;
 }
 
->>>>>>> develop
 #page_container {
   position: relative;
   display: flex;
@@ -2342,12 +2292,10 @@ option:disabled {
 }
 
 .main-board {
-<<<<<<< HEAD
   width: 100%;
 }
 
 .main-info {
-=======
   position: relative;
   width: 100%;
   padding: 1rem;
@@ -2355,7 +2303,6 @@ option:disabled {
 
 .main-info {
   width: 90%;
->>>>>>> develop
   padding: 2rem;
 }
 
@@ -2410,24 +2357,26 @@ option:disabled {
   top: 10px;
   transition: 0.2s ease all;
 }
-.login fieldset .login-input:focus ~ .input-wrapper-label, .login fieldset .login-input:enabled ~ .input-wrapper-label {
+.login fieldset .login-input:focus ~ .input-wrapper-label,
+.login fieldset .login-input:enabled ~ .input-wrapper-label {
   position: absolute;
   top: -20px;
   font-size: 14px;
-  color: #5264AE;
+  color: #5264ae;
 }
 .login fieldset .input-wrapper-bar {
   position: relative;
   display: block;
   width: 300px;
 }
-.login fieldset .input-wrapper-bar:before, .login fieldset .input-wrapper-bar:after {
-  content: "";
+.login fieldset .input-wrapper-bar:before,
+.login fieldset .input-wrapper-bar:after {
+  content: '';
   height: 2px;
   width: 0;
   bottom: 1px;
   position: absolute;
-  background: #5264AE;
+  background: #5264ae;
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
@@ -2438,7 +2387,8 @@ option:disabled {
 .login fieldset .input-wrapper-bar:after {
   right: 50%;
 }
-.login fieldset .login-input:focus ~ .input-wrapper-bar:before, .login fieldset .login-input:focus ~ .input-wrapper-bar:after {
+.login fieldset .login-input:focus ~ .input-wrapper-bar:before,
+.login fieldset .login-input:focus ~ .input-wrapper-bar:after {
   width: 50%;
 }
 .login__form-submit {
@@ -2447,4 +2397,4 @@ option:disabled {
 }
 .login__message {
   text-align: center;
-}/*# sourceMappingURL=style.css.map */
+} /*# sourceMappingURL=style.css.map */

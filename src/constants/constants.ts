@@ -10,6 +10,7 @@ import changeUserLogin from '../features/changeUserLogin';
 import changePassword from '../features/changePassword';
 import { resetCreateTaskForm, toggleTaskForm } from '../pages/taskForm/taskFormlistenerFunction';
 import hideAside from '../features/hideAside/hideAside';
+import showBurgerMenu from '../features/mobileLayout/mobileLayout';
 
 export const BASE_URL = 'https://best-team-api.up.railway.app';
 export const SIGN_UP_URL = `${BASE_URL}/auth/signup`;
@@ -39,6 +40,7 @@ export const FUNCTIONS = {
   'change-login-button': changeUserLogin,
   'change-password-button': changePassword,
   'hide-aside__button': hideAside,
+  'burger-menu__button': showBurgerMenu,
 };
 
 export const LIGHT_COLORS = [
