@@ -1,14 +1,15 @@
+import i18next from 'i18next';
+
 const Error404 = {
   render: async () => {
     const view = `
-            <section class="section">
-                <h1> 404 Error. No such page</h1>
+            <section class="section main_404">
+                <h2 class="numbers-404">404</h2>
+                <h2 class="header-404">${i18next.t('404Page')}</h2>
             </section>
         `;
     return view;
   },
-  after_render: async () => {
-    document.body.classList.remove('body_home');
-  },
+  after_render: async () => {},
 };
 export default Error404;

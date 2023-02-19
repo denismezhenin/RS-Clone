@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 import getTaskHTML from '../tasks/taskInColumnsLayout';
 import { getColumnsInBoard } from '../../API/columns';
 import { IColumns } from '../../data/types';
@@ -41,8 +42,8 @@ ${columns
 <div class="column-body">
 <div class="column-pop-up__menu hide">
   <ul class="column-menu__list">
-    <li class="column-menu__item">Rename</li>
-    <li class="column-menu__item">Delete</li>
+    <li class="column-menu__item">${i18next.t('rename')}</li>
+    <li class="column-menu__item">${i18next.t('delete')}</li>
   </ul>
 </div>
 <div class="column-tasks__container">

@@ -1,4 +1,4 @@
-import UI from '../data/UI';
+import i18next from 'i18next';
 import state from '../state/state';
 import togglePopup from './togglePopup';
 import { createBoard } from '../API/boards';
@@ -21,7 +21,7 @@ const createNewBoard = async () => {
 
   const header = document.createElement('h2');
   header.classList.add('new-board-header');
-  header.textContent = UI.newBoardPopupHeader;
+  header.textContent = i18next.t('newBoardPopupHeader');
 
   const close = document.createElement('img');
   close.classList.add('close-sign');
@@ -33,12 +33,12 @@ const createNewBoard = async () => {
   title.classList.add('new-board-form');
   const label = document.createElement('label');
   label.setAttribute('for', 'title');
-  label.textContent = UI.titleLabel;
+  label.textContent = i18next.t('titleLabel');
   const input = document.createElement('input');
   input.classList.add('input', 'new-board-input');
   input.type = 'text';
   input.id = 'title';
-  input.placeholder = UI.titlePlaceholder;
+  input.placeholder = i18next.t('titlePlaceholder');
   title.append(label, input);
 
   const boardImg = document.createElement('img');
@@ -47,21 +47,21 @@ const createNewBoard = async () => {
 
   const text = document.createElement('p');
   text.classList.add('new-board-text');
-  text.textContent = UI.newBoardDescription;
+  text.textContent = i18next.t('newBoardDescription');
 
   const createBtn = document.createElement('button');
   createBtn.classList.add('button', 'create-button');
-  createBtn.textContent = UI.newBoardButton;
+  createBtn.textContent = i18next.t('newBoardButton');
   createBtn.addEventListener('click', togglePopup);
 
   popup.append(header, title, boardImg, createBtn);
 
   createBtn.addEventListener('click', () => {
-    const resultTitle = input.value !== '' ? input.value : UI.titlePlaceholder;
+    const resultTitle = input.value !== '' ? input.value : i18next.t('titlePlaceholder');
     createBoard(state.authToken, { title: resultTitle, owner: state.id, users: [state.id] })
       .then(() => {
         state.selectedUserId = '';
-        popUpMessages(ToastrType.success, 'New project created');
+        popUpMessages(ToastrType.success, i18next.t('newBoardMessage'));
       })
       .then(() => {
         window.location.hash = `/projects/${state.boardId}`;

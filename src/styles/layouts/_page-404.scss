@@ -1,0 +1,26 @@
+.main_404 {
+  flex-grow: 2;
+
+  background: url(../assets/img/kanban-vs-scrum.png) no-repeat 55% 110%;
+  background-size: 70%;
+}
+
+.numbers-404 {
+  font-size: 5rem;
+  text-align: center;
+}
+
+.header-404 {
+  font-size: 3rem;
+  color: $text-color;
+  text-align: center;
+}
+
+.dark-theme .main_404 {
+  background: url(../assets/img/kanban-vs-scrum-dark.jpg) no-repeat 55% 110%;
+  background-size: 70%;
+}
+
+.dark-theme .header-404 {
+  color: $color-additional;
+}

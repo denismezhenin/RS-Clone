@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 import { User } from '../../data/types';
 
 const getBoardControlHtml = async (title: string, users: User[]) => `
@@ -7,7 +8,7 @@ const getBoardControlHtml = async (title: string, users: User[]) => `
       <select class="members-select">
         ${users.map((el) => `<option data-member-id=${el._id}>${el.name}</option>`)}
       </select>
-      <button class="button invite-button">Invite</button>
+      <button class="button invite-button">${i18next.t('inviteButton')}</button>
       <div class="member-icons"></div>
     </div>
   </div>

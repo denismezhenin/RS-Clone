@@ -1,6 +1,6 @@
 const getBottomBarHtml = () =>
   `
-    <footer class="footer">
+    <div class="footer">
         <ul class="container__footer">
           <li>
             <p class="year">2023</p>
@@ -29,7 +29,7 @@ const getBottomBarHtml = () =>
             /></a>
           </li>
         </ul>
-      </footer>
+      </div>
     `;
 
 export default getBottomBarHtml;

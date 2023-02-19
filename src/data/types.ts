@@ -17,6 +17,8 @@ export interface IState {
   membersPage: number;
   members: string[];
   hideAside: boolean;
+  theme: string;
+  language: string;
 }
 
 export type Board = {

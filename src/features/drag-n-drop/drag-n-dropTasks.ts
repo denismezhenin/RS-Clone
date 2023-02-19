@@ -16,7 +16,7 @@ const getTimeForTasks = async (currentItem: HTMLElement, column: IColumns) => {
   const startDateContainer = tsQuerySelector(currentItem, '.start-date__container');
   const endDateContainer = tsQuerySelector(currentItem, '.end-date__container');
 
-  if (column.title === UI.secondColumnName) {
+  if (column.title === UI.secondColumnName || column.title === 'В работе') {
     const pointByTaskId = await getPointsByTaskId(state.authToken, currentItem.id);
     const currentDate = getDate();
 
@@ -34,7 +34,7 @@ const getTimeForTasks = async (currentItem: HTMLElement, column: IColumns) => {
     });
   }
 
-  if (column.title === UI.thirdColumnName) {
+  if (column.title === UI.thirdColumnName || column.title === 'Сделано') {
     const pointByTaskId = await getPointsByTaskId(state.authToken, currentItem.id);
     const currentDate = getDate();
     if (endDateContainer) {

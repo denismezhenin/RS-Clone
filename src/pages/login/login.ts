@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 import { getUserById, signIn, signUp } from '../../API/users';
 import { FormsData, ToastrType } from '../../data/types';
 import popUpMessages from '../../features/popUpMessages/popupMessages';
@@ -33,7 +34,7 @@ const userForm = () => {
           state.name = user.name;
         }
         window.location.href = '#/';
-        popUpMessages(ToastrType.success, 'You are sign in!');
+        popUpMessages(ToastrType.success, `${i18next.t('singInMessage')}`);
       }
     }
   });

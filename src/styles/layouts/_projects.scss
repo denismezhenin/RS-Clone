@@ -10,7 +10,6 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  //align-items: center;
 
   width: 100%;
 
@@ -18,11 +17,19 @@
   border-radius: 0.5rem;
   padding: 2rem;
 
+  color: $text-color-additional;
+
   transition: box-shadow 0.3s ease;
 }
 
 .project-card:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.dark-theme .project-card {
+  background-color: $text-color-additional;
+
+  color: $color-additional;
 }
 
 .project-title {
@@ -40,7 +47,6 @@
 }
 .project-stats-item {
   font-size: 1.6rem;
-  color: $text-color-additional;
 }
 
 .project-stats-total {

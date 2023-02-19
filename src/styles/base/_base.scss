@@ -13,9 +13,10 @@ body {
   margin: 0 auto;
 }
 
-.body_home {
-  background: url(../assets/img/kanban.jpg) no-repeat 55% bottom;
-  background-size: 60%;
+.dark-theme {
+  background-color: $text-color;
+
+  color: $color-main;
 }
 
 .wrapper {

@@ -17,6 +17,10 @@
   border-radius: 16px;
 }
 
+.dark-theme .task {
+  background: $text-color;
+}
+
 .task-wrapper {
   width: 90%;
 }
@@ -35,13 +39,13 @@
   font-size: 0.9rem;
 
   &__high {
-    color: #FF7979;
+    color: #ff7979;
   }
   &__medium {
-    color: #FFBA53;
+    color: #ffba53;
   }
   &__low {
-    color: #2BA700;
+    color: #2ba700;
   }
 }
 
@@ -49,11 +53,8 @@
   position: relative;
 
   .task-menu__list {
-  position: absolute;
-  top: 0;
-  left:0
+    position: absolute;
+    top: 0;
+    left: 0;
   }
-
 }
-
-

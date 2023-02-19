@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 import { getColumnsInBoard } from '../../API/columns';
 import { getTasksSetByBoardId } from '../../API/tasks';
 import { Board, IColumns, ITasks } from '../../data/types';
@@ -40,13 +41,18 @@ const getProjectsContainer = async (projects: Board[]) => {
     const tasks: ITasks[] = await getTasksSetByBoardId(state.authToken, el._id);
     const totalTasks = document.createElement('p');
     totalTasks.classList.add('project-stats-item', 'project-stats-total');
-    totalTasks.textContent = `Tasks total: ${tasks.length}`;
+    totalTasks.textContent = `${i18next.t('tasksTotal')}: ${tasks.length}`;
 
     const columns: IColumns[] = await getColumnsInBoard(state.authToken, el._id);
 
-    const todoColumn = await getProjectStatsItem(columns, 'to do', UI.firstColumnName, el._id);
-    const inProgressColumn = await getProjectStatsItem(columns, 'in progress', UI.secondColumnName, el._id);
-    const doneColumn = await getProjectStatsItem(columns, 'done', UI.thirdColumnName, el._id);
+    const todoColumn = await getProjectStatsItem(columns, i18next.t('toDo'), i18next.t('firstColumnName'), el._id);
+    const inProgressColumn = await getProjectStatsItem(
+      columns,
+      i18next.t('inProgress'),
+      i18next.t('secondColumnName'),
+      el._id
+    );
+    const doneColumn = await getProjectStatsItem(columns, i18next.t('done'), i18next.t('thirdColumnName'), el._id);
 
     titleContainer.appendChild(title);
     stats.append(totalTasks, todoColumn, inProgressColumn, doneColumn);

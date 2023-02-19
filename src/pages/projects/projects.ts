@@ -1,9 +1,9 @@
+import i18next from 'i18next';
 import getAsideHtml from '../home/getAsideHtml';
 import state from '../../state/state';
 import { getAllBoards } from '../../API/boards';
 import { Board } from '../../data/types';
 import getProjectsContainer from './getProjectsContainer';
-import UI from '../../data/UI';
 
 const Projects = {
   render: async () => `
@@ -20,10 +20,16 @@ const Projects = {
 
     const newBoardBtn = document.createElement('button');
     newBoardBtn.classList.add('button', 'plus-board');
-    newBoardBtn.textContent = UI.addProjectButton;
+    newBoardBtn.textContent = i18next.t('addProjectButton');
 
-    const projectsContainer = await getProjectsContainer(userBoards);
-    main?.append(newBoardBtn, projectsContainer);
+    if (userBoards.length) {
+      const projectsContainer = await getProjectsContainer(userBoards);
+      main?.append(newBoardBtn, projectsContainer);
+    } else {
+      const noProjects = document.createElement('h2');
+      noProjects.textContent = i18next.t('noProjects');
+      main?.append(newBoardBtn, noProjects);
+    }
   },
 };
 
