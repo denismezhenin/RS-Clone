@@ -19,6 +19,7 @@ export interface IState {
   hideAside: boolean;
   theme: string;
   language: string;
+  selectedTask: string;
 }
 
 export type Board = {

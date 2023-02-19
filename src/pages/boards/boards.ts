@@ -21,6 +21,7 @@ import { editTitle, confirmEditColumns, deleteColumnInBoard } from '../../featur
 import { setNewTaskFormListener } from '../taskForm/taskFormlistenerFunction';
 import { getPointsByTaskId } from '../../API/points';
 import { Board, User } from '../../data/types';
+import highlightTask from './highlightTask';
 
 const Boards = {
   render: async () => `
@@ -30,7 +31,6 @@ const Boards = {
   </div>
   `,
   after_render: async () => {
-    document.body.classList.remove('body_home');
     const boardId = getBoardId();
     const main = tsQuerySelector(document, '.main-board');
     const columns = await getColumnsInBoard(state.authToken, boardId);
@@ -114,6 +114,10 @@ const Boards = {
         el.innerHTML = result;
       }
     });
+
+    if (state.selectedTask) {
+      await highlightTask();
+    }
   },
 };
 

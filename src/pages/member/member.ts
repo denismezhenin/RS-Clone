@@ -7,6 +7,7 @@ import { getUserById } from '../../API/users';
 import getUserIcon from '../../services/getUserIcon';
 import { getAllBoards } from '../../API/boards';
 import { getTasksSetByUserId } from '../../API/tasks';
+import goToTaskBoard from './goToTaskBoard';
 
 const Member = {
   render: async () => `
@@ -50,8 +51,9 @@ const Member = {
     tasksList.classList.add('member-tasks-list');
     tasks.forEach((el) => {
       const li = document.createElement('li');
-      const link = document.createElement('a');
-      link.href = `#/projects/${el.boardId}`;
+      const link = document.createElement('p');
+      link.setAttribute('id', el._id);
+      link.setAttribute('data-board-id', el.boardId);
       link.textContent = `${el.title}`;
       link.classList.add('member-task-link');
       li.append(link);
@@ -79,6 +81,8 @@ const Member = {
     info.append(tasksBlock, projectsBlock);
     card.append(iconName, info);
     main?.append(card);
+
+    card.addEventListener('click', goToTaskBoard);
   },
 };
 

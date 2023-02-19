@@ -58,3 +58,13 @@
     left: 0;
   }
 }
+
+.highlighted {
+  background: #ece9f6;
+  box-shadow: 0 0 4rem #422c8280;
+}
+
+.dark-theme .highlighted {
+  background: #9187b1;
+  box-shadow: 0 0 4rem #54545580;
+}

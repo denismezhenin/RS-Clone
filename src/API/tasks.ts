@@ -81,7 +81,7 @@ export const updateSetOfTasks = async (
 
 export const getTasksSetByUserId = async (token: string, userId: string) => {
   try {
-    const response = await fetch(`${TASKS_SET}/${userId}`, {
+    const response = await fetch(`${TASKS_SET}?userId=${userId}`, {
       method: 'GET',
       headers: {
         authorization: `Bearer ${token}`,

@@ -14,6 +14,7 @@ const state: IState = {
   hideAside: false,
   theme: '',
   language: '',
+  selectedTask: '',
 };
 
 const getLocalStorage = () => {
@@ -32,7 +33,7 @@ const getLocalStorage = () => {
     state.password = temp.password;
     state.theme = temp.theme;
     state.language = temp.language;
-    
+
     window.addEventListener('click', listen);
   }
 };
