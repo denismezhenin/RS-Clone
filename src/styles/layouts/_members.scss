@@ -20,11 +20,19 @@
   border-radius: 0.5rem;
   padding: 1rem;
 
+  color: $text-color-additional;
+
   transition: box-shadow 0.3s ease;
 }
 
 .member-card:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.dark-theme .member-card {
+  background-color: $text-color-additional;
+
+  color: $color-additional;
 }
 
 .member-name {
@@ -35,8 +43,6 @@
 
 .member-stats {
   font-size: 1.5rem;
-
-  color: $text-color-additional;
 }
 
 .members-page-controls {
@@ -141,4 +147,9 @@
 .member-task-link:hover,
 .member-project-link:hover {
   color: $text-color;
+}
+
+.dark-theme .member-task-link:hover,
+.dark-theme .member-project-link:hover {
+  color: $color-additional;
 }

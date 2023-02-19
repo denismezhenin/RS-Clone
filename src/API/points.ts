@@ -1,5 +1,6 @@
 import { POINTS, DEFAULT_ERROR } from '../constants/constants';
 import { ToastrType } from '../data/types';
+import getRedirect from '../features/getRedirect';
 import popUpMessages from '../features/popUpMessages/popupMessages';
 import { getSpinner, removeSpinner } from '../features/spinner/spinner';
 
@@ -30,6 +31,7 @@ export const createPoint = async (
 
     return await response.json();
   } catch (err) {
+    getRedirect(String(err));
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
     return true;
   } finally {
@@ -53,6 +55,7 @@ export const getPointsByTaskId = async (token: string, taskId: string) => {
 
     return await response.json();
   } catch (err) {
+    getRedirect(String(err));
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
     return true;
   }
@@ -77,6 +80,17 @@ export const updatePoints = async (
     }
     await response.json();
   } catch (err) {
+    getRedirect(String(err));
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
   }
 };
+
+export const deletePointById = async (token: string, pointId: string) =>
+  (
+    await fetch(`${POINTS}/${pointId}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+  ).json();

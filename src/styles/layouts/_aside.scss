@@ -2,30 +2,18 @@
   display: flex;
   flex-direction: column;
   float: left;
-
+  position: relative;
   border-right: 2px solid $color-additional;
 
   color: $text-color-additional;
+  transition: 1s;
 }
 
 .aside-nav {
   position: relative;
-
+  width: 22.1rem;
   margin: 0;
   padding: 0 5rem 2rem 0;
-}
-
-.aside-nav:after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 30%;
-
-  width: 95%;
-  height: 0.15rem;
-  margin-left: -30%;
-
-  background: $color-additional;
 }
 
 .aside-item {
@@ -42,8 +30,8 @@
   background: url(../assets/icons/home.svg) no-repeat left center;
 }
 
-.aside-messages {
-  background: url(../assets/icons/messages.svg) no-repeat left center;
+.aside-boards {
+  background: url(../assets/icons/foldershelf.svg) no-repeat left center;
 }
 
 .aside-tasks {
@@ -52,6 +40,10 @@
 
 .aside-members {
   background: url(../assets/icons/members.svg) no-repeat left center;
+}
+
+.aside-stats {
+  background: url(../assets/icons/statistics.svg) no-repeat left center;
 }
 
 .aside-settings {
@@ -98,21 +90,32 @@
   font-weight: 400;
 }
 
-.plus-board {
+.hide-aside__button {
   position: absolute;
-  right: 1rem;
-  top: 1.2rem;
-
-  width: 2rem;
-  height: 2rem;
-
-  background: url(../assets/icons/plus_violet.svg) no-repeat center center;
+  left: -3.5rem;
+  top: 0;
   border: none;
-  padding: 0;
-
-  color: $button-color-light;
-
+  outline: none;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0);
+  background: url(../assets/icons/hide-aside.svg) no-repeat center center;
   cursor: pointer;
+}
+
+.project-show__button {
+  width: 5rem;
+  height: 5rem;
+  border: none;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.project-show__img {
+  width: 3.5rem;
+  margin-left: 1.5rem;
 }
 
 .plus-board:hover {

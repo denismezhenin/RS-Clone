@@ -4,15 +4,19 @@ import invite from '../features/invite';
 import inviteToTask from '../features/inviteToTask';
 import getPrevMembersPage from '../features/getPrevMembersPage';
 import getNextMembersPage from '../features/getNextMembersPage';
-// import {showDropDownMenu} from '../features/dropDownMenu';
-import { resetCreateTaskForm, toggleTaskForm } from '../pages/taskForm/taskFormListenerFunction';
-import getUserOptions from '../features/getUserOptions';
+import getUserOptions from '../pages/navBar/getUserOptions';
+import logOut from '../features/logOut';
+import changeUserName from '../features/changeUserName';
+import changeUserLogin from '../features/changeUserLogin';
+import changePassword from '../features/changePassword';
+import { resetCreateTaskForm, toggleTaskForm } from '../pages/taskForm/taskFormlistenerFunction';
+import hideAside from '../features/hideAside/hideAside';
 
 export const BASE_URL = 'https://best-team-api.up.railway.app';
 export const SIGN_UP_URL = `${BASE_URL}/auth/signup`;
 export const SIGN_IN_URL = `${BASE_URL}/auth/signin`;
 export const USERS_URL = `${BASE_URL}/users`;
-export const BOARDS_URL = `${BASE_URL}/boards/`;
+export const BOARDS_URL = `${BASE_URL}/boards`;
 
 export const COLUMNS_SET = `${BASE_URL}/columnsSet`;
 export const TASKS_SET = `${BASE_URL}/tasksSet`;
@@ -30,6 +34,13 @@ export const FUNCTIONS = {
   'create-card-action-cancel': resetCreateTaskForm,
   'new-card': toggleTaskForm,
   'user-active': getUserOptions,
+  'user-name': getUserOptions,
+  'user-img': getUserOptions,
+  'logout-button': logOut,
+  'change-name-button': changeUserName,
+  'change-login-button': changeUserLogin,
+  'change-password-button': changePassword,
+  'hide-aside__button': hideAside,
 };
 
 export const LIGHT_COLORS = [
@@ -63,3 +74,6 @@ export const DEFAULT_ERROR = 'Something went wrong';
 export const MEMBERS_ON_PAGE = 6;
 
 export const TIME_LESS_TEN = 10;
+
+export const INVALID_TOKEN = 'Invalid token';
+export const BOARD_DELETED = 'Board deleted';

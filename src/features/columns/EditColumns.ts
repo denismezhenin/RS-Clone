@@ -51,14 +51,14 @@ export const deleteColumnInBoard = async (e: Event, boardId: string) => {
   await updateSetOfColumns(state.authToken, columnsListArray);
 };
 
-export const editColumns = async (e: Event) => {
+export const editTitle = async (e: Event, parent: string, settingEdit: string, title: string, settingForm: string) => {
   getSpinner();
   if (!(e.target instanceof HTMLElement)) return;
   const { target } = e;
-
-  const titleSettingEdit = target.closest('.title-setting__edit');
-  const columnTitle = target.closest('.column-header')?.firstElementChild;
-  const columnEditForm = target.closest('.title-settings')?.firstElementChild;
+  e.stopPropagation();
+  const titleSettingEdit = tsQuerySelector(<HTMLElement>target.closest(parent), settingEdit);
+  const columnTitle = tsQuerySelector(<HTMLElement>target.closest(parent), title);
+  const columnEditForm = tsQuerySelector(<HTMLElement>target.closest(parent), settingForm);
 
   if (titleSettingEdit && columnTitle && columnEditForm) {
     titleSettingEdit.classList.add('hide');

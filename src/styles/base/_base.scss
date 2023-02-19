@@ -9,8 +9,14 @@ body {
   max-width: $max-width;
   min-height: 100vh;
 
-  background: $color-main;
+  background-color: $color-main;
   margin: 0 auto;
+}
+
+.dark-theme {
+  background-color: $text-color;
+
+  color: $color-main;
 }
 
 .wrapper {

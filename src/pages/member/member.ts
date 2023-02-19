@@ -1,13 +1,12 @@
+import i18next from 'i18next';
 import state from '../../state/state';
 import getAsideHtml from '../home/getAsideHtml';
-import drawProjectsList from '../../features/drawProjectsList';
 import getBoardId from '../../services/getBoardId';
 import { User, Board, ITasks } from '../../data/types';
 import { getUserById } from '../../API/users';
 import getUserIcon from '../../services/getUserIcon';
 import { getAllBoards } from '../../API/boards';
 import { getTasksSetByUserId } from '../../API/tasks';
-import UI from '../../data/UI';
 
 const Member = {
   render: async () => `
@@ -17,10 +16,7 @@ const Member = {
       </div>
       `,
   after_render: async () => {
-    if (state.authToken) {
-      drawProjectsList();
-    }
-
+    document.body.classList.remove('body_home');
     const main = document.querySelector('.main-member-card');
     const memberId = getBoardId();
 
@@ -49,13 +45,13 @@ const Member = {
     const tasksBlock = document.createElement('div');
     const tasksHeader = document.createElement('h4');
     tasksHeader.classList.add('member-tasks-header');
-    tasksHeader.textContent = UI.memberTasksHeader;
+    tasksHeader.textContent = i18next.t('memberTasksHeader');
     const tasksList = document.createElement('ul');
     tasksList.classList.add('member-tasks-list');
     tasks.forEach((el) => {
       const li = document.createElement('li');
       const link = document.createElement('a');
-      link.href = `#/project/${el.boardId}`;
+      link.href = `#/projects/${el.boardId}`;
       link.textContent = `${el.title}`;
       link.classList.add('member-task-link');
       li.append(link);
@@ -66,13 +62,13 @@ const Member = {
     const projectsBlock = document.createElement('div');
     const projectsHeader = document.createElement('h4');
     projectsHeader.classList.add('member-projects-header');
-    projectsHeader.textContent = UI.memberProjectsHeader;
+    projectsHeader.textContent = i18next.t('memberProjectsHeader');
     const projectsList = document.createElement('ul');
     projectsList.classList.add('member-projects-list');
     userBoards.forEach((el) => {
       const li = document.createElement('li');
       const link = document.createElement('a');
-      link.href = `#/project/${el._id}`;
+      link.href = `#/projects/${el._id}`;
       link.textContent = `${el.title}`;
       link.classList.add('member-project-link');
       li.append(link);

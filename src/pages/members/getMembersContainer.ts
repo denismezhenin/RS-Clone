@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 import state from '../../state/state';
 import MEMBERS_ON_PAGE from '../../constants/membersOnPage';
 import { User, Board } from '../../data/types';
@@ -30,7 +31,7 @@ const getMembersContainer = async () => {
       const tasks = await getTasksSetByUserId(state.authToken, el);
       const stats = document.createElement('p');
       stats.classList.add('member-stats');
-      stats.textContent = `TASKS / PROJECTS: ${tasks.length} / ${userBoards.length}`;
+      stats.textContent = `${i18next.t('tasksVsProjects')}: ${tasks.length} / ${userBoards.length}`;
 
       card.append(icon, name, stats);
       membersContainer.appendChild(card);

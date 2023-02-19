@@ -1,9 +1,16 @@
+header {
+  background: $color-main;
+}
+
+.dark-theme header {
+  background: $text-color;
+}
+
 #header_container {
   flex: 0 0 auto;
 
   width: 100%;
 
-  background: $color-main;
   padding: 0 2%;
   border-bottom: 2px solid $color-additional;
 }
@@ -12,10 +19,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  height: 54px;
 }
 
 .logo {
   width: 22.3rem;
+  height: 54px;
 
   background: url(../assets/icons/cubes.ico) no-repeat left center;
   border-right: 2px solid $color-additional;
@@ -25,10 +35,16 @@
   padding-left: 4rem;
 
   font-size: 2rem;
+  color: $text-color;
+}
+
+.dark-theme .logo-header {
+  color: $color-main;
 }
 
 .navbar {
   display: flex;
+  position: relative;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -69,9 +85,14 @@
   padding-right: 3rem;
 
   background: url(../assets/icons/arrow-down.svg) no-repeat right center;
-  background-size: 8%;
+  background-size: 10%;
 
   cursor: pointer;
+}
+
+.dark-theme .user-active {
+  background: url(../assets/icons/arrow-down_light.svg) no-repeat right center;
+  background-size: 15%;
 }
 
 .user-name {

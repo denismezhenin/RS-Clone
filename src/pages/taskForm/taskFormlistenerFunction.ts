@@ -11,7 +11,7 @@ export const toggleTaskForm = () => {
   tsQuerySelector(document, '.new-card').classList.toggle('new-card__active');
 };
 
-export const setNewTaskFormListener = () => {
+export const setNewTaskFormListener = async () => {
   document.addEventListener('click', async (e) => {
     if (!(e.target instanceof HTMLElement)) return;
     const { target } = e;

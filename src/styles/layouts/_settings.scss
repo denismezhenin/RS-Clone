@@ -1,0 +1,90 @@
+.theme-section,
+.language-section {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.settings-header {
+  min-width: 15rem;
+
+  font-size: 1.8rem;
+}
+
+.theme-form,
+.language-form {
+  display: flex;
+}
+
+.theme-image {
+  width: 20rem;
+
+  border-radius: 0.3rem;
+  margin-right: 2rem;
+}
+
+.lang {
+  margin-right: 4rem;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  font-weight: 400;
+  font-size: 1.6rem;
+
+  cursor: pointer;
+}
+
+.radio-label > input {
+  position: absolute;
+  z-index: -1;
+
+  opacity: 0;
+}
+
+.radio-label > span::before {
+  content: '';
+  display: inline-block;
+  flex-shrink: 0;
+  flex-grow: 0;
+
+  width: 1em;
+  height: 1em;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+  border: 1px solid $button-color-additional;
+  border-radius: 50%;
+  margin: 0 0.8rem 0.2rem 0;
+}
+
+.radio-label > input:hover + span::before {
+  border-color: $button-color-additional;
+  box-shadow: 0 0 0 0.2rem rgba(146, 0, 136, 0.25);
+}
+
+.radio-label > input:focus:not(:checked) + span::before {
+  border-color: $button-color-additional;
+}
+
+.radio-label > input:checked + span::before {
+  border-color: $button-color-additional;
+  background-color: $button-color-additional;
+}
+
+.radio-label > input:checked:hover + span::before {
+  border-color: $button-color-additional;
+  background-color: $button-color-additional;
+  box-shadow: none;
+}
+
+.radio-label > span {
+  display: inline-flex;
+  align-items: center;
+
+  user-select: none;
+}

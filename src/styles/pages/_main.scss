@@ -25,9 +25,16 @@
 .main-info {
   width: 90%;
   padding: 2rem;
+}
 
-  //background: url(../assets/img/bg_start.jpg) no-repeat;
-  //background-size: cover;
+.main-info {
+  background: url(../assets/img/kanban-vs-scrum.png) no-repeat 55% 110%;
+  background-size: 85%;
+}
+
+.dark-theme .main-info {
+  background: url(../assets/img/kanban-vs-scrum-dark.jpg) no-repeat 55% 110%;
+  background-size: 85%;
 }
 
 .main-info_header {
@@ -48,6 +55,28 @@
 }
 
 .main-member-card {
+  width: 100%;
+
+  padding: 2rem;
+}
+
+.main-projects {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+
+  width: 100%;
+
+  padding: 2rem;
+}
+
+.main-settings {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5rem;
+
   width: 100%;
 
   padding: 2rem;

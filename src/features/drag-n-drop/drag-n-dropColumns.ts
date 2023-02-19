@@ -4,7 +4,7 @@ import state from '../../state/state';
 import { updateSetOfColumns } from '../../API/columns';
 import { DRAG_N_DROP_ANIMATION_TIME, DRAG_N_DROP_DIRECTION } from '../../constants/constants';
 
-const dragNdropColumns = () => {
+const dragNdropColumns = async () => {
   const columnsList = tsQuerySelector(document, '.columns-list');
   Sortable.create(columnsList, {
     animation: DRAG_N_DROP_ANIMATION_TIME,

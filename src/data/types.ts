@@ -11,11 +11,15 @@ export interface IState {
   id: string;
   boardId: string;
   name: string;
+  password: string;
   pageLoaded: boolean;
   selectedUserId: string;
   selectedUserIdToTask: string;
   membersPage: number;
   members: string[];
+  hideAside: boolean;
+  theme: string;
+  language: string;
 }
 
 export type Board = {
@@ -59,7 +63,6 @@ export interface ITasks {
 }
 
 export type sign = 'signin' | 'signup';
-// export type taskForm = 'edit' | 'submit';
 
 export enum taskForm {
   edit = 'edit',

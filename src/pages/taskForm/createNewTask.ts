@@ -6,6 +6,7 @@ import state from '../../state/state';
 // eslint-disable-next-line import/no-cycle
 import Boards from '../boards/boards';
 import taskFormHTML from './taskHTML';
+import { createPoint } from '../../API/points';
 
 const createTaskForm = async () => {
   const form = tsQuerySelector<HTMLFormElement>(document, '.new-card__form');
@@ -47,12 +48,28 @@ const createTaskForm = async () => {
       users,
     });
   }
+  const getCreatedTask = await createTask(state.authToken, boardId, columnId, {
+    title,
+    order: 0,
+    description: descriptionJSON,
+    userId,
+    users,
+  });
+
+  createPoint(state.authToken, {
+    title: 'string',
+    taskId: getCreatedTask._id,
+    boardId,
+    done: false,
+    startDate: '-',
+    endDate: '-',
+  });
   tsQuerySelector(document, '.new-card').classList.toggle('new-card__active');
   form.reset();
   Boards.after_render();
 };
 
-export const createTaskFormListener = () => {
+const createTaskFormListener = async () => {
   const form = tsQuerySelector<HTMLFormElement>(document, '.new-card__form');
   form.addEventListener('submit', async (e) => {
     e.preventDefault();

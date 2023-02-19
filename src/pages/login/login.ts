@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 import { getUserById, signIn, signUp } from '../../API/users';
 import { FormsData, ToastrType } from '../../data/types';
 import popUpMessages from '../../features/popUpMessages/popupMessages';
@@ -23,15 +24,17 @@ const userForm = () => {
     }
     if (loginForm.classList.contains(FormsData.signin)) {
       const response = await signIn({ login: email, password });
-      if (response) {
+
+      if (response.token) {
         state.authToken = response.token;
         state.id = response.id;
+        state.password = password;
         const user = await getUserById(state.authToken, state.id);
         if (user.name) {
           state.name = user.name;
         }
         window.location.href = '#/';
-        popUpMessages(ToastrType.success, 'You are sign in!');
+        popUpMessages(ToastrType.success, `${i18next.t('singInMessage')}`);
       }
     }
   });
