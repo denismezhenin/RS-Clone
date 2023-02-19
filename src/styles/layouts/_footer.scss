@@ -55,6 +55,9 @@ footer {
   font-size: 1.3vw;
   text-decoration: none;
   color: $text-color-additional;
+  @include mobile{
+    font-size: 2vw;
+  }
 }
 
 .dark-theme .github-link {
@@ -73,9 +76,15 @@ footer {
 
 .year {
   font-size: 1.3vw;
+  @include mobile{
+    font-size: 2vw;
+  }
 }
 
 .logo-img {
   width: 6vw;
   object-fit: contain;
+  @include mobile{
+    font-size: 10vw;
+  }
 }

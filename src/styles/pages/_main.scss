@@ -4,15 +4,16 @@
   flex-direction: column;
   flex: 1 0 auto;
   gap: 50px;
-
+  margin: 0 auto;
   width: 100%;
 }
 
 .main_home {
   position: relative;
   display: flex;
+  width: 100%;
   flex: 2 0 auto;
-
+  margin: 0 auto;
   padding: 0 2%;
 }
 
@@ -20,6 +21,7 @@
   position: relative;
   width: 100%;
   padding: 1rem;
+  overflow: hidden;
 }
 
 .main-info {

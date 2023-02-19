@@ -29,17 +29,25 @@ header {
 
   background: url(../assets/icons/cubes.ico) no-repeat left center;
   border-right: 2px solid $color-additional;
+  @include mobile {
+    width: 4.5rem;
+  }
 }
 
 .logo-header {
   padding-left: 4rem;
-
   font-size: 2rem;
   color: $text-color;
+  @include mobile {
+    display: none;
+  }
 }
 
 .dark-theme .logo-header {
   color: $color-main;
+  @include mobile {
+    display: none;
+  }
 }
 
 .navbar {
@@ -81,13 +89,21 @@ header {
 .user-active {
   display: flex;
   align-items: center;
-
   padding-right: 3rem;
-
   background: url(../assets/icons/arrow-down.svg) no-repeat right center;
   background-size: 10%;
-
   cursor: pointer;
+  @include tablet {
+    width: 22.2rem;
+    height: 6rem;
+    padding-left: 6rem;
+    position: absolute;
+    right: -2.1vw;
+    padding-right: 0;
+    background: white;
+    display: none;
+    z-index: 10;
+  }
 }
 
 .dark-theme .user-active {
@@ -97,7 +113,6 @@ header {
 
 .user-name {
   margin: 0 1rem 0 0;
-
   font-size: 1.5rem;
   white-space: nowrap;
 }

@@ -9,6 +9,7 @@ const dragNdropColumns = async () => {
   Sortable.create(columnsList, {
     animation: DRAG_N_DROP_ANIMATION_TIME,
     direction: DRAG_N_DROP_DIRECTION,
+    handle: '.column-header',
     async onEnd(e) {
       const columnsListArray = [...e.to.children].map((column, index) => ({
         _id: column.id,
