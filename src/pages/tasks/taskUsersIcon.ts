@@ -27,7 +27,6 @@ const getTaskUserIcons = async (userIds: string[]) => {
       memberIcons.append(rest);
     }
   }
-  console.log(memberIcons)
   return memberIcons;
 };
 

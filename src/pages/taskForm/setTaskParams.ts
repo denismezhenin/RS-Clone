@@ -11,6 +11,7 @@ const formsParam = (target: HTMLElement, taskType: taskForm) => {
     tsQuerySelector<HTMLFormElement>(document, '.new-card__form').reset();
     submitButton.textContent = taskForm.submitTask;
     board.dataset.type = taskForm.submit;
+    tsQuerySelector(document, '.member-icons__task').innerHTML = '';
   }
   tsQuerySelector(document, '.new-card').classList.toggle('new-card__active');
   const boardId = target.closest('.main-board')?.id;

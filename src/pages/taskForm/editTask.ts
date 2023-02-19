@@ -15,10 +15,9 @@ const editTask = (target: HTMLElement) => {
   if (!taskDescription.textContent || !taskDuration.textContent || !taskPriority.textContent || !taskTitle.textContent)
     return;
   const priority = tsQuerySelector<HTMLInputElement>(form, `#priority-${taskPriority.textContent.toLocaleLowerCase()}`);
-  // console.log()
   title.value = taskTitle.textContent;
   description.value = taskDescription.textContent;
-  duration.value = taskDuration.textContent.toLowerCase();
+  duration.value = taskDuration.textContent.split('Duration: ').join('').toLowerCase();
   priority.checked = true;
   color.value = rgbToHex(taskDescription.style.color);
 };

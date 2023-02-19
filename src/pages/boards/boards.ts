@@ -16,13 +16,13 @@ import dragNdropTasks from '../../features/drag-n-drop/drag-n-dropTasks';
 import dragNdropColumns from '../../features/drag-n-drop/drag-n-dropColumns';
 import taskFormHTML from '../taskForm/taskHTML';
 import { tsQuerySelector, tsQuerySelectorAll } from '../../helpers/helpers';
-// eslint-disable-next-line import/no-cycle
 import createTaskFormListener from '../taskForm/createNewTask';
-import { setTaskListener } from '../../features/dropDownMenu';
+import setTaskListener from '../../features/dropDownMenu';
 import { editTitle, confirmEditColumns, deleteColumnInBoard } from '../../features/columns/EditColumns';
 import { setNewTaskFormListener } from '../taskForm/taskFormlistenerFunction';
 import { getPointsByTaskId } from '../../API/points';
 import { Board, User } from '../../data/types';
+import renderIconsInTask from '../../features/renderIcontsInTask';
 
 const Boards = {
   render: async () => `
@@ -70,15 +70,19 @@ const Boards = {
     const membersSelect = <HTMLSelectElement>document.querySelector('.members-select');
     membersSelect.addEventListener('change', setSelectedUserId);
     const task = document.createElement('div');
-    // console.log(board.users)
     task.innerHTML = taskFormHTML(activeUsers);
     main.append(task);
     main.id = boardId;
 
-    await setNewTaskFormListener();
-    await createTaskFormListener();
     await dragNdropColumns();
     await dragNdropTasks();
+
+    if (!state.pageLoaded) {
+      await setTaskListener();
+      await setNewTaskFormListener();
+      await createTaskFormListener();
+      state.pageLoaded = true;
+    }
 
     const titleSettingEdit = tsQuerySelectorAll(document, '.title-setting__edit');
     titleSettingEdit.forEach((el) =>
@@ -86,42 +90,17 @@ const Boards = {
         await editTitle(e, '.column', '.title-setting__edit', '.column-title', '.column-edit__form');
       })
     );
+
     const columnCofirmEdit = tsQuerySelectorAll(document, '.column-confirm-edit');
     columnCofirmEdit.forEach((el) => {
       el.addEventListener('click', (e) => confirmEditColumns(e, boardId));
     });
+
     const columnDeleteButton = tsQuerySelectorAll(document, '.column-delete__button');
     columnDeleteButton.forEach((el) => {
       el.addEventListener('click', (e) => deleteColumnInBoard(e, boardId));
     });
 
-    const memberIntask = document.querySelectorAll<HTMLDivElement>('.task-assignees__container');
-    // console.log(memberIntask)
-    memberIntask.forEach(async (el) => {
-      // console.log(el)
-      const usersArray = el.dataset.users?.split(',');
-      // console.log(usersArray);
-      const taskId = el.closest<HTMLElement>('.task')?.id;
-      // console.log(tsQuerySelector(document, `[data-ID="${taskId}"]`))
-      if (usersArray) {
-        await getBoardIcons(usersArray, `[data-ID="${taskId}"]`);
-      }
-    });
-    // setTimeout(() => {
-
-    //   const memberIntask = document.querySelectorAll<HTMLDivElement>('.task-assignees__container');
-    //   // console.log(memberIntask)
-    //   memberIntask.forEach(async (el) => {
-    //     // console.log(el)
-    //     const usersArray = el.dataset.users?.split(',');
-    //     // console.log(usersArray);
-    //     const taskId = el.closest<HTMLElement>('.task')?.id;
-    //     // console.log(tsQuerySelector(document, `[data-ID="${taskId}"]`))
-    //     if (usersArray) {
-    //       await getBoardIcons(usersArray, `[data-ID="${taskId}"]`);
-    //     }
-    //   });
-    // }, 0);
     const startDateContainer = [...tsQuerySelectorAll(document, '.start-date__container')];
     startDateContainer.map(async (el) => {
       const { id } = <Element>el.closest('.task');
@@ -141,6 +120,7 @@ const Boards = {
         el.innerHTML = result;
       }
     });
+    await renderIconsInTask();
   },
 };
 

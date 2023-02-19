@@ -33,7 +33,6 @@ const getLocalStorage = () => {
     state.password = temp.password;
     state.theme = temp.theme;
     state.language = temp.language;
-    
     window.addEventListener('click', listen);
   }
 };
@@ -41,6 +40,7 @@ const getLocalStorage = () => {
 window.addEventListener('load', getLocalStorage);
 
 const setLocalStorage = () => {
+  state.pageLoaded = false;
   localStorage.setItem('state', JSON.stringify(state));
 };
 
