@@ -38,6 +38,9 @@ header {
   padding-left: 4rem;
   font-size: 2rem;
   color: $text-color;
+  @include mobile {
+    display: none;
+  }
 }
 
 .dark-theme .logo-header {
@@ -89,7 +92,6 @@ header {
   padding-right: 3rem;
   background: url(../assets/icons/arrow-down.svg) no-repeat right center;
   background-size: 10%;
-
   cursor: pointer;
   @include tablet {
     width: 22.2rem;
