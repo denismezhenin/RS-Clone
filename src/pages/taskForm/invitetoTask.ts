@@ -13,11 +13,11 @@ const invitetoTaskHTML = (users: User[]) =>
   `
 <div class="board-control">
     <div class="invite-block">
-      <select class="members-select">
-        ${users.map((el) => `<option data-member-id=${el._id}>${el.name}</option>`)}
+      <select class="members-select__task">
+        ${users.map((el) => `<option data-member-id=${el._id} class="task-members__option">${el.name}</option>`)}
       </select>
-      <button class="button invite-button">Invite</button>
-      <div class="member-icons"></div>
+      <input type="button" class="button invite-button_task" value="Invite">
+      <div class="member-icons__task"></div>
     </div>
   </div>
 `;

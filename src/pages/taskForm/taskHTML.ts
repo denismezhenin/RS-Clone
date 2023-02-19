@@ -53,8 +53,9 @@ const taskFormHTML = (users: User[]) => {
             <label for="end-date" class="date-label form-label">Ending date</label>
             </div>
             </div>
+            <div class="create-card__members">
             ${invitetoTaskHTML(users)}
-          
+            </div>
             <div class="create-card__priority">
               <p class="create-card__priority-title">Priority</p>
               <input type="radio" name="priority" id="priority-high" value="high"class="create-card__priority-select">

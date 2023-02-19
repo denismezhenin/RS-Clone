@@ -13,6 +13,7 @@ export interface IState {
   name: string;
   pageLoaded: boolean;
   selectedUserId: string;
+  selectedUserIdToTask: string;
   membersPage: number;
   members: string[];
 }

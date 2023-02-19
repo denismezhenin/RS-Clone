@@ -1,4 +1,5 @@
 import { ITasks } from '../../data/types';
+import getBoardIcons from '../boards/getBoardIcons';
 
 const IsJsonString = (str: string) => {
   try {
@@ -15,6 +16,7 @@ const getTaskHTML = (tasks: ITasks[]) =>
    .sort((a, b) => a.order - b.order)
    .map((task: ITasks) => {
      const description = IsJsonString(task.description);
+    //  const id = `#${task._id}`;
      return `
       <li class="task" id="${task._id}">
      <div class="task-wrapper">
@@ -35,8 +37,11 @@ const getTaskHTML = (tasks: ITasks[]) =>
        description ? description.description : task.description
      }</div>
        <div class="task-footer">
-         <h4 class="task-assignees__text">Assignees:</h4>
-         <div class="task-assignees__container"></div>
+       <div class="task-assignees">
+       <h4 class="task-assignees__text">Assignees:</h4>
+       <div class="task-assignees__container" data-users="${task.users}" data-ID="${task._id}">
+       </div>
+       </div>
          <div class="task-time">
          <span class="task-time__description">Duration: </span>
          <span class="task-time__start">${description ? description.duration : ''}</span>

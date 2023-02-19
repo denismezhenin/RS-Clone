@@ -21,7 +21,7 @@ const invite = async () => {
     if (!array.includes(id)) {
       array.push(id);
       await updateBoard(state.authToken, boardId, { title: board.title, owner: id, users: array });
-      getBoardIcons(array);
+      getBoardIcons(array, '.member-icons');
       options.forEach((item) => {
         const dataId = item.getAttribute('data-member-id');
         if (dataId === id) {

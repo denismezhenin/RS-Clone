@@ -1,6 +1,7 @@
 import addColumn from '../features/addColumn';
 import createNewBoard from '../features/createNewBoard';
 import invite from '../features/invite';
+import inviteToTask from '../features/inviteToTask';
 import getPrevMembersPage from '../features/getPrevMembersPage';
 import getNextMembersPage from '../features/getNextMembersPage';
 // import {showDropDownMenu} from '../features/dropDownMenu';
@@ -23,6 +24,7 @@ export const FUNCTIONS = {
   'plus-board': createNewBoard,
   'plus-column': addColumn,
   'invite-button': invite,
+  'invite-button_task': inviteToTask,
   'arrow-left': getPrevMembersPage,
   'arrow-right': getNextMembersPage,
   'create-card-action-cancel': resetCreateTaskForm,

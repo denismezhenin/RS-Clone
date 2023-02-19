@@ -2,11 +2,11 @@ import { getUserById } from '../../API/users';
 import getUserIcon from '../../services/getUserIcon';
 import state from '../../state/state';
 
-const getBoardIcons = async (userIds: string[], selector: string) => {
+const getTaskUserIcons = async (userIds: string[]) => {
   const ABSOLUTE_POSITION_IN_REMS = 2.3;
   const MAX_VISIBLE_MEMBERS = 5;
-  const memberIcons = document.querySelector(selector);
-  if (memberIcons && userIds.length > 0) {
+  const memberIcons = document.createElement('div');
+  if (userIds.length > 0) {
     const zIndex = userIds.length;
     const right = '0';
     const limit = userIds.length <= MAX_VISIBLE_MEMBERS ? userIds.length : MAX_VISIBLE_MEMBERS;
@@ -27,6 +27,8 @@ const getBoardIcons = async (userIds: string[], selector: string) => {
       memberIcons.append(rest);
     }
   }
+  console.log(memberIcons)
+  return memberIcons;
 };
 
-export default getBoardIcons;
+export default getTaskUserIcons;

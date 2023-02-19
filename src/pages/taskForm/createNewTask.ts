@@ -1,5 +1,6 @@
 import { createTask, updateTask } from '../../API/tasks';
 import { FormsTaskData, taskForm } from '../../data/types';
+import { getInvitedUsers } from '../../features/inviteToTask';
 import { tsQuerySelector } from '../../helpers/helpers';
 import state from '../../state/state';
 // eslint-disable-next-line import/no-cycle
@@ -17,7 +18,7 @@ const createTaskForm = async () => {
   const boardId = form.dataset.board;
   const columnId = form.dataset.column;
   const taskId = form.dataset.task;
-  const users: Array<string> = [];
+  const users: Array<string> = Array.from(getInvitedUsers());
   const userId = state.id;
   const { type } = form.dataset;
   const descriptionObject = {

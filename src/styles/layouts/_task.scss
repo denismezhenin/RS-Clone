@@ -71,4 +71,19 @@
 
 }
 
+.task-assignees {
+  display: flex;
+
+  &__text {
+  width: 50%;
+  padding: 0;
+  margin: 0;
+  }
+  &__container {
+    position: relative;
+    width: 50%;
+  }
+}
+
+
 

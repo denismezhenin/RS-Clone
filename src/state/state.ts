@@ -7,6 +7,7 @@ const state: IState = {
   name: '',
   pageLoaded: false,
   selectedUserId: '',
+  selectedUserIdToTask: '',
   membersPage: 1,
   members: [],
 };

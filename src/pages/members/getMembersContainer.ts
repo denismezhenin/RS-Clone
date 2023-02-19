@@ -17,7 +17,7 @@ const getMembersContainer = async () => {
       card.classList.add('member-card');
       card.href = `#/members/${el}`;
       const user: User = await getUserById(state.authToken, el);
-      const icon = getUserIcon(user.name);
+      const icon = getUserIcon(user.name, user._id);
       icon.classList.remove('user-icon');
       icon.classList.add('member-icon');
 

@@ -41,7 +41,7 @@ const Boards = {
     const board = await getBoardsById(state.authToken, boardId);
     const users = await getUsers(state.authToken);
     const inactiveUsers = getInactiveUsers(users, board.users);
-    const activeUsers = getActiveUsers(users, board.users)
+    const activeUsers = getActiveUsers(users, board.users);
     const boardControlHtml = getBoardControlHtml(board.title, inactiveUsers);
 
     if (main) {
@@ -60,20 +60,20 @@ const Boards = {
     }
 
     if (board.users.length) {
-      getBoardIcons(board.users);
+      getBoardIcons(board.users, '.member-icons');
     }
 
     const membersSelect = <HTMLSelectElement>document.querySelector('.members-select');
     membersSelect.addEventListener('change', setSelectedUserId);
     const task = document.createElement('div');
-    console.log(board.users)
+    // console.log(board.users)
     task.innerHTML = taskFormHTML(activeUsers);
     main.append(task);
     main.id = boardId;
 
     const titleSettingEdit = tsQuerySelectorAll(document, '.title-setting__edit');
     titleSettingEdit.forEach((el) => el.addEventListener('click', async (e) => editColumns(e)));
-    
+
     const columnCofirmEdit = tsQuerySelectorAll(document, '.column-confirm-edit');
     columnCofirmEdit.forEach((el) => {
       el.addEventListener('click', (e) => confirmEditColumns(e, boardId));
@@ -82,11 +82,42 @@ const Boards = {
     columnDeleteButton.forEach((el) => {
       el.addEventListener('click', (e) => deleteColumnInBoard(e, boardId));
     });
+
     setNewTaskFormListener();
     createTaskFormListener();
     dragNdropColumns();
     dragNdropTasks();
     setTaskListener();
+    const memberIntask = document.querySelectorAll<HTMLDivElement>('.task-assignees__container');
+    // console.log(memberIntask)
+    memberIntask.forEach(async (el) => {
+      // console.log(el)
+      const usersArray = el.dataset.users?.split(',');
+      // console.log(usersArray);
+      const taskId = el.closest<HTMLElement>('.task')?.id;
+      // console.log(tsQuerySelector(document, `[data-ID="${taskId}"]`))
+      if (usersArray) {
+        await getBoardIcons(usersArray, `[data-ID="${taskId}"]`);
+      }
+    });
+    // setTimeout(() => {
+
+    //   const memberIntask = document.querySelectorAll<HTMLDivElement>('.task-assignees__container');
+    //   // console.log(memberIntask)
+    //   memberIntask.forEach(async (el) => {
+    //     // console.log(el)
+    //     const usersArray = el.dataset.users?.split(',');
+    //     // console.log(usersArray);
+    //     const taskId = el.closest<HTMLElement>('.task')?.id;
+    //     // console.log(tsQuerySelector(document, `[data-ID="${taskId}"]`))
+    //     if (usersArray) {
+    //       await getBoardIcons(usersArray, `[data-ID="${taskId}"]`);
+    //     }
+    //   });
+    // }, 0);
+    document.addEventListener('DOMContentLoaded', async () => {
+      console.log('yes');
+    });
   },
 };
 
