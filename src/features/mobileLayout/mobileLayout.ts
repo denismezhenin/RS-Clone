@@ -8,7 +8,7 @@ const hideBurgerMenu = (e: Event) => {
   }
   document.querySelector('.shadow')?.remove();
 
-  const aside = tsQuerySelector(document, '.aside');
+  const aside = tsQuerySelector(document, '.aside') || null;
   if (aside) {
     aside.style.display = '';
   }
@@ -20,8 +20,10 @@ const hideBurgerMenu = (e: Event) => {
 };
 
 const showBurgerMenu = () => {
-  const aside = tsQuerySelector(document, '.aside');
-  aside.style.display = 'block';
+  const aside = <HTMLElement>document.querySelector('.aside') || null;
+  if (aside) {
+    aside.style.display = 'block';
+  }
 
   const userActive = tsQuerySelector(document, '.user-active');
   userActive.style.display = 'flex';
