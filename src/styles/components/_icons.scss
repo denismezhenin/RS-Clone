@@ -1,16 +1,15 @@
 .user-icon,
 .rest-icon {
   position: absolute;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   width: 3rem;
   height: 3rem;
 
   border: 1px solid $color-main;
   border-radius: 50%;
-  vertical-align: middle;
-
-  text-align: center;
 }
 
 .rest-icon {
@@ -27,15 +26,15 @@
 .user-img {
   width: 4rem;
   height: 4rem;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: $button-color-light;
   border: 1px solid $color-main;
   border-radius: 50%;
   padding: 0.3rem;
 
   color: $button-color;
-  text-align: center;
-  vertical-align: middle;
 }
 
 .member-icon {
