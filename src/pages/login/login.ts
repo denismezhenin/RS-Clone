@@ -7,7 +7,13 @@ import state from '../../state/state';
 
 const userForm = () => {
   const loginForm = tsQuerySelector<HTMLFormElement>(document, '.login__form');
+  const searchInput = tsQuerySelector(document, '.search-input');
+  const burgerMenuButton = tsQuerySelector(document, '.burger-menu__button');
+  const navbar = tsQuerySelector(document, '.navbar');
 
+  searchInput.style.display = 'none';
+  burgerMenuButton.style.display = 'none';
+  navbar.style.justifyContent = 'right';
   loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const formData = new FormData(loginForm);
@@ -33,8 +39,11 @@ const userForm = () => {
         if (user.name) {
           state.name = user.name;
         }
+
         window.location.href = '#/';
         popUpMessages(ToastrType.success, `${i18next.t('singInMessage')}`);
+        searchInput.style.display = '';
+        burgerMenuButton.style.display = '';
       }
     }
   });

@@ -1,5 +1,4 @@
 import './styles/style.scss';
-
 import i18next from 'i18next';
 import Navbar from './pages/navBar/Navbar';
 import Bottombar from './pages/bottomBar/Bottombar';

@@ -1,9 +1,12 @@
+import i18next from 'i18next';
+
 const drawColumnPlus = async () => {
-  const boardLayout = document.querySelector('.main-board');
-  if (boardLayout) {
+  const columnsHtml = document.querySelector('.columns-list');
+  if (columnsHtml) {
     const plusColumn = document.createElement('button');
     plusColumn.classList.add('plus-column');
-    boardLayout.append(plusColumn);
+    plusColumn.setAttribute('data-tooltip', i18next.t('addColumnTooltip'));
+    columnsHtml.append(plusColumn);
   }
 };
 

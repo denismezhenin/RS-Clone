@@ -4,10 +4,9 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-
   max-width: $max-width;
-  min-height: 100vh;
+  height: 100vh;
+  overflow-y: hidden;
 
   background-color: $color-main;
   margin: 0 auto;

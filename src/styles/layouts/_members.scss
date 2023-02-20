@@ -6,6 +6,9 @@
 
   width: 100%;
   min-height: 48.74rem;
+  @include mobile{
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .member-card {
@@ -121,6 +124,8 @@
   display: flex;
   flex-direction: column;
   gap: 4rem;
+
+  width: 100%;
 }
 
 .member-projects-header,
@@ -131,17 +136,41 @@
 .member-tasks-list,
 .member-projects-list {
   max-height: 25rem;
+  width: 100%;
 
   margin: 0;
   padding-left: 0;
 
-  overflow-y: hidden;
+  overflow-y: auto;
+}
+
+.member-tasks-list::-webkit-scrollbar,
+.member-projects-list::-webkit-scrollbar {
+  width: 1rem;
+}
+
+.member-tasks-list::-webkit-scrollbar-track,
+.member-projects-list::-webkit-scrollbar-track {
+  border-radius: 0.5rem;
+
+  background-color: $color-main;
+}
+
+.member-tasks-list::-webkit-scrollbar-thumb,
+.member-projects-list::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+
+  background-color: #c2affb;
 }
 
 .member-task-link,
 .member-project-link {
+  margin: 0.5rem 0;
+
   font-size: 1.7rem;
   color: $text-color-additional;
+
+  cursor: pointer;
 }
 
 .member-task-link:hover,

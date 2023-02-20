@@ -15,6 +15,7 @@ const state: IState = {
   hideAside: false,
   theme: '',
   language: '',
+  selectedTask: '',
 };
 
 const getLocalStorage = () => {

@@ -104,3 +104,13 @@
 .repeat-new-password {
   color: $text-color;
 }
+
+.board-title__input,
+.column-title__input {
+  max-width: 60%;
+  border: 1px solid #c2affb;
+  background-color: #c2affb39;
+  border-radius: 5px;
+  margin-left: 5%;
+  transition: 0.5s;
+}

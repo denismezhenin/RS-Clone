@@ -3,6 +3,9 @@
   display: flex;
   align-items: center;
   gap: 4rem;
+  @include tablet {
+    flex-direction: column;
+  }
 }
 
 .settings-header {
@@ -16,6 +19,12 @@
   display: flex;
 }
 
+.theme-form {
+  @include mobile {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
 .theme-image {
   width: 20rem;
 

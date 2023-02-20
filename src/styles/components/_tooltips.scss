@@ -1,7 +1,8 @@
 .tooltip-block {
   position: fixed;
+  z-index: 50;
 
-  background: $color-main;
+  background: #f7f5f5;
   border-radius: 2rem 0.4rem;
   padding: 1rem 2rem;
   box-shadow: 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.3);

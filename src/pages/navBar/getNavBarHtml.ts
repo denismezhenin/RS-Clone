@@ -18,6 +18,13 @@ const getNavBarHtml = async () =>
         <a class="sign-in" href="/#/signin">${i18next.t('signIn')}</a>
         <a class="button sign-up-button" href="/#/signup">${i18next.t('signUp')}</a>
       </div>
+    
+      <button class="burger-menu__button">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+   
     </div>
   </div>
   `;

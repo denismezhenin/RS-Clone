@@ -2,9 +2,11 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  min-height: 100%;
-  width: 90%;
+  width: 95%;
   padding: 0;
+  height: 68vh;
+  overflow-y: scroll;
+  border-radius: 16px;
 }
 
 .task {
@@ -12,7 +14,6 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-
   background: #ffffff;
   border-radius: 16px;
 }
@@ -88,6 +89,12 @@
   }
 }
 
+.highlighted {
+  background: #ece9f6;
+  box-shadow: 0 0 4rem #422c8280;
+}
 
-
-
+.dark-theme .highlighted {
+  background: #9187b1;
+  box-shadow: 0 0 4rem #54545580;
+}

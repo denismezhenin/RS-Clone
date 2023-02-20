@@ -29,10 +29,8 @@ const Members = {
 
     if (members.length) {
       const membersContainer = await getMembersContainer();
-
       const pageControls = document.createElement('div');
       pageControls.classList.add('members-page-controls');
-
       const arrowLeft = document.createElement('button');
       arrowLeft.classList.add('arrow-left');
       arrowLeft.textContent = '«';

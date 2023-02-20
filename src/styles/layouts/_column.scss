@@ -5,18 +5,25 @@
 .columns-list {
   display: flex;
   flex-direction: row;
-  gap: 2%;
+  gap: 1%;
   width: 100%;
-  height: 90%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: 95%;
   padding: 0 4rem 0 0;
 }
 
 .column {
   flex-grow: 1;
-  width: 100%;
-  min-height: 72%;
+  height: 97%;
   background: #f5f5f5;
   border-radius: 16px;
+  width: 350px;
+  min-width: 350px;
+}
+
+.dark-theme .column {
+  background: $text-color-additional;
 }
 
 .dark-theme .column {
@@ -36,6 +43,10 @@
 .title-settings {
   display: flex;
   gap: 10px;
+}
+
+.dark-theme .title-setting__add {
+  background-color: $color-additional;
 }
 
 .confirm-img {
@@ -90,3 +101,8 @@
 
   cursor: pointer;
 }
+
+.dark-theme .plus-column {
+  background-color: $color-additional;
+}
+
