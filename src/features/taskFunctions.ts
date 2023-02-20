@@ -49,5 +49,3 @@ export const editThisTask = async (target: HTMLElement) => {
   formsParam(target, taskForm.edit);
   editTask(target);
 };
-
-
