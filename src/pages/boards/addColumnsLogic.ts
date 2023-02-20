@@ -3,33 +3,24 @@ import getBoardId from '../../services/getBoardId';
 import setSelectedUserId from '../../features/setSelectedUserId';
 import dragNdropTasks from '../../features/drag-n-drop/drag-n-dropTasks';
 import dragNdropColumns from '../../features/drag-n-drop/drag-n-dropColumns';
-import { tsQuerySelector, tsQuerySelectorAll } from '../../helpers/helpers';
+import { tsQuerySelectorAll } from '../../helpers/helpers';
 import createTaskFormListener from '../taskForm/createNewTask';
 import { editTitle, confirmEditColumns, deleteColumnInBoard } from '../../features/columns/EditColumns';
 import { setNewTaskFormListener } from '../taskForm/taskFormlistenerFunction';
 import { getPointsByTaskId } from '../../API/points';
 import highlightTask from './highlightTask';
-import getBoardIcons from './getBoardIcons';
 import { getBoardsById } from '../../API/boards';
 import { Board } from '../../data/types';
 import renderIconsInTask from '../../features/renderIcontsInTask';
 import setTaskListener from '../../features/dropDownMenu';
+import getBoardIcons from './getBoardIcons';
 
 const addColumnsLogic = async () => {
   const boardId = getBoardId();
-  // const main = tsQuerySelector(document, '.main-board');
   const board: Board = await getBoardsById(state.authToken, boardId);
 
   if (board.users.length) {
     await getBoardIcons(board.users, '.member-icons');
-
-const addColumnsLogic = async () => {
-  const boardId = getBoardId();
-  const main = tsQuerySelector(document, '.main-board');
-  const board: Board = await getBoardsById(state.authToken, boardId);
-
-  if (board.users.length) {
-    await getBoardIcons(board.users);
   }
 
   const membersSelect = <HTMLSelectElement>document.querySelector('.members-select');
