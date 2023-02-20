@@ -55,6 +55,14 @@
   color: $button-color;
 }
 
+.dark-theme .invite-button {
+  background-color: $text-color;
+}
+
+.dark-theme .invite-button:hover {
+  color: $color-main;
+}
+
 .change-name-button,
 .change-login-button,
 .change-password-button {

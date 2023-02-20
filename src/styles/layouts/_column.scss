@@ -41,6 +41,10 @@
   gap: 10px;
 }
 
+.dark-theme .title-setting__add {
+  background-color: $color-additional;
+}
+
 .confirm-img {
   width: auto;
 }
@@ -92,4 +96,8 @@
   border: none;
 
   cursor: pointer;
+}
+
+.dark-theme .plus-column {
+  background-color: $color-additional;
 }

@@ -3,6 +3,7 @@ import getAsideHtml from './getAsideHtml';
 import state from '../../state/state';
 import listen from '../../features/listen';
 import { getUsers } from '../../API/users';
+import createTooltip from '../../features/createTooltip';
 
 const Home = {
   render: async () => {
@@ -29,6 +30,9 @@ const Home = {
 
     if (state.authToken) {
       window.addEventListener('click', listen);
+
+      document.addEventListener('mouseover', createTooltip);
+      document.addEventListener('mouseout', () => document.querySelector('.tooltip-block')?.remove());
     }
   },
 };

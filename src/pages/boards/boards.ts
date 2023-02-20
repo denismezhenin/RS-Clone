@@ -9,19 +9,9 @@ import drawColumnPlus from './drawColumnPlus';
 import { getUsers } from '../../API/users';
 import getBoardId from '../../services/getBoardId';
 import getInactiveUsers from '../../features/getInactiveUsers';
-import getBoardIcons from './getBoardIcons';
-import setSelectedUserId from '../../features/setSelectedUserId';
-import dragNdropTasks from '../../features/drag-n-drop/drag-n-dropTasks';
-import dragNdropColumns from '../../features/drag-n-drop/drag-n-dropColumns';
-import taskForm from '../taskForm/taskHTML';
-import { tsQuerySelector, tsQuerySelectorAll } from '../../helpers/helpers';
-// eslint-disable-next-line import/no-cycle
-import createTaskFormListener from '../taskForm/createNewTask';
-import { editTitle, confirmEditColumns, deleteColumnInBoard } from '../../features/columns/EditColumns';
-import { setNewTaskFormListener } from '../taskForm/taskFormlistenerFunction';
-import { getPointsByTaskId } from '../../API/points';
-import { Board, User } from '../../data/types';
-import highlightTask from './highlightTask';
+import { tsQuerySelector } from '../../helpers/helpers';
+import { Board, IColumns, User } from '../../data/types';
+import addColumnsLogic from './addColumnsLogic';
 
 const Boards = {
   render: async () => `
@@ -40,83 +30,33 @@ const Boards = {
     const filteredBoardUsers = board.users.filter((el) => usersIds.includes(el));
     await updateBoard(state.authToken, boardId, { title: board.title, owner: board.owner, users: filteredBoardUsers });
     const inactiveUsers = getInactiveUsers(users, board.users);
-    const boardControlHtml = await getBoardControlHtml(board.title, inactiveUsers);
 
     if (main) {
       let result = '';
       if (columns.length !== 0) {
         result = await getColumnHTML(state.authToken, boardId);
+        const boardControlHtml = await getBoardControlHtml(board.title, inactiveUsers);
+        main.innerHTML = `${boardControlHtml}${result}`;
+        await drawColumnPlus();
+        await addColumnsLogic();
       } else {
         const COLUMNS_ARRAY = [
           i18next.t('firstColumnName'),
           i18next.t('secondColumnName'),
           i18next.t('thirdColumnName'),
         ];
-        COLUMNS_ARRAY.map(async (el) => {
-          await createColumns(state.authToken, state.boardId, { title: el, order: 0 });
+        const columnPromises: Promise<IColumns>[] = [];
+        COLUMNS_ARRAY.forEach((el, i) =>
+          columnPromises.push(createColumns(state.authToken, state.boardId, { title: el, order: i }))
+        );
+
+        Promise.all(columnPromises).then(async () => {
+          const boardControlHtml = await getBoardControlHtml(board.title, inactiveUsers);
+          main.innerHTML = `${boardControlHtml}${await getColumnHTML(state.authToken, state.boardId)}`;
+          await drawColumnPlus();
+          await addColumnsLogic();
         });
-
-        result = await getColumnHTML(state.authToken, state.boardId);
       }
-      main.innerHTML = `${boardControlHtml}${result}`;
-      await drawColumnPlus();
-    }
-
-    if (board.users.length) {
-      await getBoardIcons(board.users);
-    }
-
-    const membersSelect = <HTMLSelectElement>document.querySelector('.members-select');
-    membersSelect.addEventListener('change', setSelectedUserId);
-    const task = document.createElement('div');
-    task.innerHTML = taskForm();
-    main.append(task);
-    main.id = boardId;
-
-    await setNewTaskFormListener();
-    await createTaskFormListener();
-    await dragNdropColumns();
-    await dragNdropTasks();
-
-    const titleSettingEdit = tsQuerySelectorAll(document, '.title-setting__edit');
-    titleSettingEdit.forEach((el) =>
-      el.addEventListener('click', async (e) => {
-        await editTitle(e, '.column', '.title-setting__edit', '.column-title', '.column-edit__form');
-      })
-    );
-
-    const columnCofirmEdit = tsQuerySelectorAll(document, '.column-confirm-edit');
-    columnCofirmEdit.forEach((el) => {
-      el.addEventListener('click', (e) => confirmEditColumns(e, boardId));
-    });
-
-    const columnDeleteButton = tsQuerySelectorAll(document, '.column-delete__button');
-    columnDeleteButton.forEach((el) => {
-      el.addEventListener('click', (e) => deleteColumnInBoard(e, boardId));
-    });
-
-    const startDateContainer = [...tsQuerySelectorAll(document, '.start-date__container')];
-    startDateContainer.map(async (el) => {
-      const { id } = <Element>el.closest('.task');
-
-      const result = (await getPointsByTaskId(state.authToken, id))[0].startDate || null;
-      if (result) {
-        el.innerHTML = result;
-      }
-    });
-
-    const endDateContainer = [...tsQuerySelectorAll(document, '.end-date__container')];
-    endDateContainer.map(async (el) => {
-      const { id } = <Element>el.closest('.task');
-
-      const result = (await getPointsByTaskId(state.authToken, id))[0].endDate || null;
-      if (result) {
-        el.innerHTML = result;
-      }
-    });
-
-    if (state.selectedTask) {
-      await highlightTask();
     }
   },
 };

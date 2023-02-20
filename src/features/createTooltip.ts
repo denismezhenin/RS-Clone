@@ -14,7 +14,7 @@ const createTooltip = (event: Event) => {
     const left = position.left + (event.target.offsetWidth - tooltip.offsetWidth) / 2;
     const top = position.top - tooltip.offsetHeight;
 
-    tooltip.style.left = `${left}px`;
+    tooltip.style.left = `${left - 30}px`;
     tooltip.style.top = `${top}px`;
   }
 };
