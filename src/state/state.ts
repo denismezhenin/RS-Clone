@@ -34,6 +34,7 @@ const getLocalStorage = () => {
     state.password = temp.password;
     state.theme = temp.theme;
     state.language = temp.language;
+
     window.addEventListener('click', listen);
   }
 };

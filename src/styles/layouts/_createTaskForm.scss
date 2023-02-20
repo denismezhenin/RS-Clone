@@ -125,6 +125,7 @@
     transition: none;
   }
 }
+
 #duration {
   width: inherit;
 }
@@ -145,3 +146,6 @@
   background-color: $color-additional;
 }
 
+.dark-theme .new-card__form {
+  background-color: $color-additional;
+}

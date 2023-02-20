@@ -68,13 +68,13 @@
   justify-content: center;
   align-items: flex-start;
   width: 30%;
+
   background-color: $color-main;
   padding: 2rem;
   border-radius: 0.5rem;
   @include tablet {
     width: 36.1vw;
   }
-
 }
 
 .user-email {

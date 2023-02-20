@@ -14,6 +14,11 @@ const getBoardIcons = async (userIds: string[], selector: string) => {
       if (i < limit) {
         const user = await getUserById(state.authToken, el);
         const icon = getUserIcon(user.name, user._id);
+
+    userIds.forEach(async (el, i) => {
+      if (i < limit) {
+        const user = await getUserById(state.authToken, el);
+        const icon = getUserIcon(user.name);
         memberIcons.append(icon);
         icon.style.right = `${Number(right) + i * ABSOLUTE_POSITION_IN_REMS}rem`;
         icon.style.zIndex = (zIndex - i).toString();

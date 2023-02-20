@@ -29,8 +29,10 @@ const Members = {
 
     if (members.length) {
       const membersContainer = await getMembersContainer();
+
       const pageControls = document.createElement('div');
       pageControls.classList.add('members-page-controls');
+
       const arrowLeft = document.createElement('button');
       arrowLeft.classList.add('arrow-left');
       arrowLeft.textContent = '«';
@@ -38,6 +40,7 @@ const Members = {
         arrowLeft.disabled = true;
         arrowLeft.classList.add('arrow-inactive');
       }
+
       const totalPages = Math.ceil(members.length / MEMBERS_ON_PAGE);
       const pageCircles = document.createElement('div');
       pageCircles.classList.add('members-page-circles');
@@ -47,6 +50,7 @@ const Members = {
         pageCircles.append(pageCircle);
       }
       pageCircles.children[state.membersPage - 1].classList.add('page-circle-active');
+
       const arrowRight = document.createElement('button');
       arrowRight.classList.add('arrow-right');
       arrowRight.textContent = '»';

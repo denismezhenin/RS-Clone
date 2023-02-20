@@ -6,6 +6,7 @@ import state from '../../state/state';
 import { createPoint } from '../../API/points';
 import { reloadBoard } from '../../features/taskFunctions';
 
+
 const createTaskForm = async () => {
   const form = tsQuerySelector<HTMLFormElement>(document, '.new-card__form');
   const formData = new FormData(form);
@@ -57,6 +58,7 @@ const createTaskForm = async () => {
   tsQuerySelector(document, '.new-card').classList.toggle('new-card__active');
   form.reset();
   reloadBoard();
+
 };
 
 const createTaskFormListener = async () => {

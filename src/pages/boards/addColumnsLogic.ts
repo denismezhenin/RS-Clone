@@ -22,11 +22,18 @@ const addColumnsLogic = async () => {
 
   if (board.users.length) {
     await getBoardIcons(board.users, '.member-icons');
+
+const addColumnsLogic = async () => {
+  const boardId = getBoardId();
+  const main = tsQuerySelector(document, '.main-board');
+  const board: Board = await getBoardsById(state.authToken, boardId);
+
+  if (board.users.length) {
+    await getBoardIcons(board.users);
   }
 
   const membersSelect = <HTMLSelectElement>document.querySelector('.members-select');
   membersSelect.addEventListener('change', setSelectedUserId);
-
   await dragNdropColumns();
   await dragNdropTasks();
 
