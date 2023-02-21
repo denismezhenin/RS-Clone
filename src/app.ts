@@ -12,6 +12,7 @@ import Projects from './pages/projects/projects';
 import Members from './pages/members/members';
 import Member from './pages/member/member';
 import Settings from './pages/settings/settings';
+import Tasks from './pages/tasksPage/tasks';
 import en from './data/en.json';
 import ru from './data/ru.json';
 import state from './state/state';
@@ -25,6 +26,7 @@ const routes: { [key: string]: typeof Home | typeof Boards } = {
   '/members': Members,
   '/members/:id': Member,
   '/settings': Settings,
+  '/tasks': Tasks,
 };
 
 const router = async () => {
