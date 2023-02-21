@@ -144,6 +144,7 @@ export const updateTask = async (
     title: string;
     order: 0;
     description: string;
+    columnId: string;
     userId: string;
     users: Array<string>;
   }

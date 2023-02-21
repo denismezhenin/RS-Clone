@@ -1,6 +1,8 @@
 import i18next from 'i18next';
+import invitetoTaskHTML from './invitetoTask';
+import { User } from '../../data/types';
 
-const taskForm = () => {
+const taskFormHTML = (users: User[]) => {
   const HTML = `
   <div class="new-card">
         <form action="" class="new-card__form create-card">
@@ -8,7 +10,7 @@ const taskForm = () => {
             <div class="create-card__line">
               <div class="create-card__line-left input-wrapper">
               <input type="text" name="title" id="title" class="create-card__line-left__input form-input" placeholder=${i18next.t(
-                'taskNamePlaceholder'
+                'taskNamePlaceholder required'
               )}>
               <span class="input-wrapper-highlight"></span>
               <span class="input-wrapper-bar"></span>
@@ -23,7 +25,7 @@ const taskForm = () => {
               <div class="create-card__line-left input-wrapper">
               <textarea type="text" name="description" id="description" placeholder=${i18next.t(
                 'taskDescriptionPlaceholder'
-              )} class="create-card__line-left__textarea form-input"></textarea>
+              )} class="create-card__line-left__textarea form-input" required></textarea>
               <span class="input-wrapper-highlight"></span>
               <label for="description" class="create-card__line-left__label form-label">${i18next.t(
                 'taskDescription'
@@ -36,11 +38,11 @@ const taskForm = () => {
 
             <div class="create-card__line-date">
               <label for="duration">${i18next.t('durationChoice')}</label>
-                <select select name="duration" id="duration">
+                <select select name="duration" id="duration" required>
                 <option value="">${i18next.t('duration')}</option>
                 <option value="xs">XS  -  ${i18next.t('oneHour')}</option>
                 <option value="s">S   -  ${i18next.t('twoHours')}</option>
-                <option value="mr">M   -  ${i18next.t('threeHours')}</option>
+                <option value="m">M   -  ${i18next.t('threeHours')}</option>
                 <option value="l">L   -  ${i18next.t('fourHours')}</option>
                 <option value="xl">XL   -  ${i18next.t('sixHours')}</option>
                 <option value="xxl">XXL   -  ${i18next.t('eightHours')}</option>
@@ -62,13 +64,14 @@ const taskForm = () => {
             <label for="end-date" class="date-label form-label">${i18next.t('endDate')}</label>
             </div>
             </div>
-            
-          
+            <div class="create-card__members">
+            ${invitetoTaskHTML(users)}
+            </div>
             <div class="create-card__priority">
               <p class="create-card__priority-title">${i18next.t('priority')}</p>
               <input type="radio" name="priority" id="priority-high" value="high"class="create-card__priority-select">
               <label for="priority-high" class="create-card__priority-label">${i18next.t('high')}</label>
-              <input type="radio"  name="priority" id="priority-medium" value="medium"class="create-card__priority-select">
+              <input type="radio"  name="priority" id="priority-medium" value="medium"class="create-card__priority-select"  checked>
               <label for="priority-medium" class="create-card__priority-label">${i18next.t('medium')}</label>
               <input type="radio"  name="priority" id="priority-low" value="low" class="create-card__priority-select">
               <label for="priority-low" class="create-card__priority-label">${i18next.t('low')}</label>
@@ -83,4 +86,4 @@ const taskForm = () => {
   return HTML;
 };
 
-export default taskForm;
+export default taskFormHTML;

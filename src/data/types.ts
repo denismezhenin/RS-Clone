@@ -14,6 +14,7 @@ export interface IState {
   password: string;
   pageLoaded: boolean;
   selectedUserId: string;
+  selectedUserIdToTask: string;
   membersPage: number;
   members: string[];
   hideAside: boolean;
@@ -63,6 +64,13 @@ export interface ITasks {
 }
 
 export type sign = 'signin' | 'signup';
+
+export enum taskForm {
+  edit = 'edit',
+  submit = 'submit',
+  editTask = 'edit task',
+  submitTask = 'submit task',
+}
 
 export type User = {
   _id: string;

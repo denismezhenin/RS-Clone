@@ -9,6 +9,7 @@ const state: IState = {
   password: '',
   pageLoaded: false,
   selectedUserId: '',
+  selectedUserIdToTask: '',
   membersPage: 1,
   members: [],
   hideAside: false,
@@ -41,6 +42,7 @@ const getLocalStorage = () => {
 window.addEventListener('load', getLocalStorage);
 
 const setLocalStorage = () => {
+  state.pageLoaded = false;
   localStorage.setItem('state', JSON.stringify(state));
 };
 

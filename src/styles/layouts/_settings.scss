@@ -18,6 +18,7 @@
 .language-form {
   display: flex;
 }
+
 .theme-form {
   @include mobile {
     flex-direction: column;

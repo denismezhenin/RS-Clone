@@ -13,3 +13,13 @@ export function tsQuerySelectorAll(parent: Element | Document, selector: string)
   }
   return element;
 }
+
+export const rgbToHex = (str: string) => {
+  const hex = str
+    .slice(4, -1)
+    .split(',')
+    .map((el: string) => Number(el).toString(16))
+    .map((el: string) => el.padStart(2, '0'))
+    .join('');
+  return `#${hex}`;
+};

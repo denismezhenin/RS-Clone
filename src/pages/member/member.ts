@@ -27,7 +27,7 @@ const Member = {
     const iconName = document.createElement('section');
     iconName.classList.add('icon-name');
     const user: User = await getUserById(state.authToken, memberId);
-    const icon = getUserIcon(user.name);
+    const icon = getUserIcon(user.name, user._id);
     icon.classList.remove('user-icon');
     icon.classList.add('member-icon');
 

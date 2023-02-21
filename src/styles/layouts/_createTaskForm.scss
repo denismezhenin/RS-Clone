@@ -16,12 +16,14 @@
   }
 
   .create-card {
+    position: relative;
     width: 80%;
     max-width: 800px;
     padding: 40px;
     margin: 0 auto;
     background-color: #fff;
     border-radius: 1rem;
+    z-index: 500;
 
     &__line {
       display: flex;
@@ -123,8 +125,25 @@
     transition: none;
   }
 }
+
 #duration {
   width: inherit;
+}
+
+.create-card-action {
+  text-transform: uppercase;
+  & > * {
+    text-transform: uppercase;
+  }
+}
+
+.create-card__members {
+  max-width: 50%;
+  position: relative;
+}
+
+.dark-theme .new-card__form {
+  background-color: $color-additional;
 }
 
 .dark-theme .new-card__form {

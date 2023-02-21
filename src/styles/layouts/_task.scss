@@ -50,13 +50,42 @@
   }
 }
 
-.task-pop-up__menu {
+.task-header {
   position: relative;
 
   .task-menu__list {
-    position: absolute;
-    top: 0;
-    left: 0;
+  position: absolute;
+  bottom: 0;
+  right:0;
+  transform: translateY(70%);
+  background-color: #efebeb;
+  z-index: 10;
+  padding: 5px;
+  border-radius: 10px;
+  }
+  .task-menu__item {
+    display: inline-block;
+    padding: 2px 5px;
+    width: 100%;
+    background-color: #e6e2e2;
+  }
+
+  .task-menu__item:hover {
+    background-color: #766f6f;
+  }
+}
+
+.task-assignees {
+  display: flex;
+
+  &__text {
+  width: 50%;
+  padding: 0;
+  margin: 0;
+  }
+  &__container {
+    position: relative;
+    width: 50%;
   }
 }
 

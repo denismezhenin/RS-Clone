@@ -16,7 +16,6 @@ const getTaskHTML = (tasks: ITasks[]) =>
    .sort((a, b) => a.order - b.order)
    .map((task: ITasks) => {
      const description = IsJsonString(task.description);
-
      return `
       <li class="task" id="${task._id}">
      <div class="task-wrapper">
@@ -25,7 +24,12 @@ const getTaskHTML = (tasks: ITasks[]) =>
      }</span>
      <div class="task-header">
        <h3 class="task-title">${task.title}</h3>
-       ...
+       <div class="task-pop-up__menu">...
+     </div>
+     <ul class="task-menu__list hide">
+     <li class="task-menu__item edit-task">${i18next.t('rename')}</li>
+     <li class="task-menu__item delete-task">${i18next.t('delete')}</li>
+   </ul>
      </div>
      <div class="task-body">
        <div class="task-pop-up__menu">
@@ -38,8 +42,10 @@ const getTaskHTML = (tasks: ITasks[]) =>
        description ? description.description : task.description
      }</div>
        <div class="task-footer">
-         <h4 class="task-assignees__text">${i18next.t('assignees')}:</h4>
-         <div class="task-assignees__container"></div>
+       <div class="task-assignees">
+       <h4 class="task-assignees__text">${i18next.t('assignees')}:</h4>
+       <div class="task-assignees__container" data-users="${task.users}" data-ID="${task._id}"></div>
+       </div>
          <div class="task-time">
          <span class="task-time__start">${i18next.t('duration')}: ${description ? description.duration : ''}</span>
          <p class="start-date">${i18next.t('startDate')}: <span class="start-date__container"></span></p>
