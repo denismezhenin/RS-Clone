@@ -62,7 +62,6 @@ const createTaskForm = async () => {
 const createTaskFormListener = async () => {
   const form = tsQuerySelector<HTMLFormElement>(document, '.new-card__form');
   form.addEventListener('submit', async (e) => {
-    console.log('submit')
     e.preventDefault();
     createTaskForm();
   });
