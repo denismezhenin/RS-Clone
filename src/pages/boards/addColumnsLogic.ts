@@ -64,6 +64,7 @@ const addColumnsLogic = async () => {
       el.innerHTML = result;
     }
   });
+  await createTaskFormListener();
 
   if (state.selectedTask) {
     await highlightTask();
@@ -71,7 +72,6 @@ const addColumnsLogic = async () => {
   if (!state.pageLoaded) {
     await setTaskListener();
     await setNewTaskFormListener();
-    await createTaskFormListener();
     state.pageLoaded = true;
   }
   await renderIconsInTask();

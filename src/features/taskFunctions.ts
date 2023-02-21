@@ -37,15 +37,19 @@ export const editThisTask = async (target: HTMLElement) => {
   const task = target.closest<HTMLElement>('.task');
   if (!boardId || !task) return;
   const board: Board = await getBoardsById(state.authToken, boardId);
-  const usersContainer = tsQuerySelector(task, '.task-assignees__container');
-  if (!usersContainer || !usersContainer.dataset.users) return;
-  const usersInvited = usersContainer.dataset.users.split(',');
   const users: User[] = await getUsers(state.authToken);
   const memberContainer = tsQuerySelector(document, '.create-card__members');
   const activeUsers = getActiveUsers(users, board.users);
-  const inActiveUsers = activeUsers.filter((el) => !usersInvited.includes(el._id));
-  memberContainer.innerHTML = invitetoTaskHTML(inActiveUsers);
-  await getBoardIcons(usersInvited, `.member-icons__task`);
+  const usersContainer = tsQuerySelector(task, '.task-assignees__container');
+  if (usersContainer) {
+    const usersInvited = usersContainer.dataset.users ? usersContainer.dataset.users.split(',') : [];
+    const inActiveUsers = activeUsers.filter((el) => !usersInvited.includes(el._id));
+    memberContainer.innerHTML = invitetoTaskHTML(inActiveUsers);
+    memberContainer.innerHTML = invitetoTaskHTML(inActiveUsers);
+    if (usersInvited.length > 0) {
+      await getBoardIcons(usersInvited, `.member-icons__task`);
+    }
+  }
   formsParam(target, taskForm.edit);
   editTask(target);
 };

@@ -60,6 +60,10 @@ const Boards = {
         Promise.all(columnPromises).then(async () => {
           const boardControlHtml = await getBoardControlHtml(board.title, inactiveUsers);
           main.innerHTML = `${boardControlHtml}${await getColumnHTML(state.authToken, state.boardId)}`;
+          const task = document.createElement('div');
+          task.innerHTML = taskFormHTML(activeUsers);
+          main.append(task);
+          main.id = boardId;
           await drawColumnPlus();
           await addColumnsLogic();
         });
