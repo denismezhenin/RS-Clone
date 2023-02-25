@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 import { tsQuerySelector } from '../../helpers/helpers';
 import state from '../../state/state';
 import { getBoardsById, updateBoard, deleteBoard } from '../../API/boards';
@@ -6,7 +7,6 @@ import { IColumns, ITasks, ToastrType } from '../../data/types';
 import { getTasksInColumn, deleteTask } from '../../API/tasks';
 import { deletePointById, getPointsByTaskId } from '../../API/points';
 import popUpMessages from '../popUpMessages/popupMessages';
-import { BOARD_DELETED } from '../../constants/constants';
 
 export const consfirmEditBoard = async (e: Event) => {
   if (!(e.target instanceof HTMLElement)) return;
@@ -36,6 +36,7 @@ export const consfirmEditBoard = async (e: Event) => {
     boardSettingEdit.classList.remove('hide');
     projectTitle.classList.remove('hide');
     boardEditForm.classList.add('hide');
+    popUpMessages(ToastrType.success, i18next.t('boardTitleChangedMessage'));
   }
 };
 
@@ -47,7 +48,7 @@ export const deleteProject = async (e: Event) => {
   const projectCard = <HTMLElement>target.closest('.project-card');
   const projectId = projectCard.id.split('-')[1];
   projectCard.remove();
-  popUpMessages(ToastrType.success, BOARD_DELETED);
+  popUpMessages(ToastrType.success, i18next.t('boardDeletedMessage'));
   const getColumns: IColumns[] = await getColumnsInBoard(state.authToken, projectId);
 
   const getTasksPromises = getColumns.map(async (column) => {

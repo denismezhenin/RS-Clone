@@ -24,6 +24,11 @@
   "newBoardDescription": "Start with a fast and simple task board.",
   "newBoardButton": "CREATE",
   "newBoardMessage": "New project created",
+  "boardDeletedMessage": "Board deleted",
+  "boardTitleChangedMessage": "Board title changed",
+  "newColumnCreatedMessage": "New column created",
+  "columnTitleChangedMessage": "Column title changed",
+  "columnDeletedMessage": "Column deleted",
   "firstColumnName": "Todo",
   "secondColumnName": "In progress",
   "thirdColumnName": "Done",
@@ -39,9 +44,12 @@
   "logoutButton": "Log out",
   "singInMessage": "You are sign in!",
   "wrongNameMessage": "Name should contain only letters and be at least 3 characters long",
+  "nameChangedMessage": "Name successfully changed!",
   "wrongEmailMessage": "Wrong email format (example@mail.info)",
+  "emailChangedMessage": "Login successfully changed!",
   "wrongPasswordMessage": "Password should be at least 6 characters long",
   "wrongPasswordRepeatMessage": "Repeat your new password correctly!",
+  "passwordChangedMessage": "Password successfully changed!",
   "addProjectButton": "ADD NEW PROJECT",
   "tasksVsProjects": "Tasks / Projects",
   "tasksTotal": "Tasks total",
@@ -91,5 +99,6 @@
   "tableTaskStartDate": "Start date",
   "tableTaskEndDate": "End date",
   "taskFilterHeader": "Show tasks in status",
-  "allStatuses": "All tasks"
+  "allStatuses": "All tasks",
+  "defaultError": "Something went wrong"
 }

@@ -1,4 +1,5 @@
-import { BOARDS_URL, DEFAULT_ERROR } from '../constants/constants';
+import i18next from 'i18next';
+import { BOARDS_URL } from '../constants/constants';
 import { Board, ToastrType } from '../data/types';
 import state from '../state/state';
 import popUpMessages from '../features/popUpMessages/popupMessages';
@@ -21,7 +22,7 @@ export const getAllBoards = async (token: string) => {
     return await response.json();
   } catch (err) {
     getRedirect(String(err));
-    popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+    popUpMessages(ToastrType.error, String(err) || i18next.t('defaultError'));
     return true;
   } finally {
     removeSpinner();
@@ -71,7 +72,7 @@ export const getBoardsById = async (token: string, id: string) => {
 
     return await response.json();
   } catch (err) {
-    popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+    popUpMessages(ToastrType.error, String(err) || i18next.t('defaultError'));
     return true;
   } finally {
     removeSpinner();
@@ -103,7 +104,7 @@ export const updateBoard = async (
 
     return await response.json();
   } catch (err) {
-    popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+    popUpMessages(ToastrType.error, String(err) || i18next.t('defaultError'));
     return true;
   } finally {
     removeSpinner();

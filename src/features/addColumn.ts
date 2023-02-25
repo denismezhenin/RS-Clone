@@ -8,7 +8,8 @@ import dragNdropTasks from './drag-n-drop/drag-n-dropTasks';
 import dragNdropColumns from './drag-n-drop/drag-n-dropColumns';
 import { tsQuerySelectorAll } from '../helpers/helpers';
 import { confirmEditColumns, deleteColumnInBoard, editTitle } from './columns/EditColumns';
-import { IColumns } from '../data/types';
+import { IColumns, ToastrType } from '../data/types';
+import popUpMessages from './popUpMessages/popupMessages';
 
 const addColumn = async () => {
   const boardId = getBoardId();
@@ -17,7 +18,7 @@ const addColumn = async () => {
   const columnList = document.querySelector('.columns-list');
   await createColumns(state.authToken, boardId, {
     title: i18next.t('newColumnName'),
-    order: doneColumnOrder - 1,
+    order: doneColumnOrder,
   });
 
   const doneColumn = columns.find((el) => el.title === UI.thirdColumnName || el.title === 'Сделано');
@@ -31,6 +32,7 @@ const addColumn = async () => {
   const result = await getColumnHTML(state.authToken, boardId);
   if (columnList) {
     columnList.outerHTML = result;
+    popUpMessages(ToastrType.success, i18next.t('newColumnCreatedMessage'));
   }
   await dragNdropColumns();
   await dragNdropTasks();

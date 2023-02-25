@@ -1,4 +1,5 @@
-import { POINTS, DEFAULT_ERROR } from '../constants/constants';
+import i18next from 'i18next';
+import { POINTS } from '../constants/constants';
 import { ToastrType } from '../data/types';
 import getRedirect from '../features/getRedirect';
 import popUpMessages from '../features/popUpMessages/popupMessages';
@@ -32,7 +33,7 @@ export const createPoint = async (
     return await response.json();
   } catch (err) {
     getRedirect(String(err));
-    popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+    popUpMessages(ToastrType.error, String(err) || i18next.t('defaultError'));
     return true;
   } finally {
     removeSpinner();
@@ -57,7 +58,7 @@ export const getPointsByTaskId = async (token: string, taskId: string) => {
     return await response.json();
   } catch (err) {
     getRedirect(String(err));
-    popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+    popUpMessages(ToastrType.error, String(err) || i18next.t('defaultError'));
     return true;
   } finally {
     removeSpinner();
@@ -84,7 +85,7 @@ export const updatePoints = async (
     await response.json();
   } catch (err) {
     getRedirect(String(err));
-    popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
+    popUpMessages(ToastrType.error, String(err) || i18next.t('defaultError'));
   }
 };
 

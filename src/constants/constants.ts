@@ -78,6 +78,5 @@ export const MEMBERS_ON_PAGE = 6;
 export const TIME_LESS_TEN = 10;
 
 export const INVALID_TOKEN = 'Invalid token';
-export const BOARD_DELETED = 'Board deleted';
 
 export const DELAY = 3000;

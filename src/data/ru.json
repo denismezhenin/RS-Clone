@@ -24,6 +24,11 @@
   "newBoardDescription": "Начните с быстрой и простой доски задач.",
   "newBoardButton": "СОЗДАТЬ",
   "newBoardMessage": "Новый проект создан",
+  "boardDeletedMessage": "Проект удалён",
+  "boardTitleChangedMessage": "Название проекта изменено",
+  "newColumnCreatedMessage": "Новая колонка создана",
+  "columnTitleChangedMessage": "Название колонки изменено",
+  "columnDeletedMessage": "Колонка удалена",
   "firstColumnName": "Выполнить",
   "secondColumnName": "В работе",
   "thirdColumnName": "Сделано",
@@ -39,9 +44,12 @@
   "logoutButton": "Выйти",
   "singInMessage": "Вы вошли!",
   "wrongNameMessage": "Имя должно состоять только из букв и иметь длину не менее 3 символов.",
+  "nameChangedMessage": "Имя успешно изменено!",
   "wrongEmailMessage": "Неверный формат электронной почты (example@mail.info)",
+  "emailChangedMessage": "Логин успешно изменён!",
   "wrongPasswordMessage": "Пароль должен быть не менее 6 символов",
   "wrongPasswordRepeatMessage": "Правильно повторите новый пароль!",
+  "passwordChangedMessage": "Пароль успешно изменён!",
   "addProjectButton": "ДОБАВИТЬ НОВЫЙ ПРОЕКТ",
   "tasksVsProjects": "Задачи / Проекты",
   "tasksTotal": "Задач всего",
@@ -91,5 +99,6 @@
   "tableTaskStartDate": "Дата начала",
   "tableTaskEndDate": "Дата завершения",
   "taskFilterHeader": "Показывать задачи в статусе",
-  "allStatuses": "Все задачи"
+  "allStatuses": "Все задачи",
+  "defaultError": "Что-то пошло не так"
 }
