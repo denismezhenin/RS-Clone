@@ -41,6 +41,7 @@ export const createPoint = async (
 
 export const getPointsByTaskId = async (token: string, taskId: string) => {
   try {
+    getSpinner();
     const response = await fetch(`${POINTS}/${taskId}`, {
       method: 'GET',
       headers: {
@@ -58,6 +59,8 @@ export const getPointsByTaskId = async (token: string, taskId: string) => {
     getRedirect(String(err));
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
     return true;
+  } finally {
+    removeSpinner();
   }
 };
 

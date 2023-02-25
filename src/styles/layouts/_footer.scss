@@ -52,11 +52,11 @@ footer {
 
   margin-right: 1rem;
 
-  font-size: 1.3vw;
+  font-size: 1.5vw;
   text-decoration: none;
   color: $text-color-additional;
-  @include mobile{
-    font-size: 2vw;
+  @include mobile {
+    font-size: 1.9vw;
   }
 }
 
@@ -71,12 +71,18 @@ footer {
 .github-img {
   width: 1.6rem;
   height: 1.6rem;
+
   margin: 0.5rem 0.2rem;
+
+  @include mobile {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
 }
 
 .year {
   font-size: 1.3vw;
-  @include mobile{
+  @include mobile {
     font-size: 2vw;
   }
 }
@@ -84,7 +90,7 @@ footer {
 .logo-img {
   width: 6vw;
   object-fit: contain;
-  @include mobile{
-    font-size: 10vw;
+  @include mobile {
+    width: 10vw;
   }
 }

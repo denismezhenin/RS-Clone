@@ -9,7 +9,10 @@ const getNavBarHtml = async () =>
           </a>
     <div class="navbar">
     <button class='hide-aside__button'></button>
-      <input class="input search-input" placeholder=${i18next.t('searchInputText')}>
+    <form class="search-form search-hidden">
+      <label for="search">${i18next.t('searchInputLabel')}</label>
+      <input class="input search-input" type="search" id="search" placeholder=${i18next.t('searchInputText')}>
+    </form>
       <div class="hidden">
         <h3 class="user-name">Ivan Ivanov</h3>
         <div class="user-img"></div>

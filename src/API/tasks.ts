@@ -81,6 +81,7 @@ export const updateSetOfTasks = async (
 
 export const getTasksSetByUserId = async (token: string, userId: string) => {
   try {
+    getSpinner();
     const response = await fetch(`${TASKS_SET}?userId=${userId}`, {
       method: 'GET',
       headers: {
@@ -97,6 +98,8 @@ export const getTasksSetByUserId = async (token: string, userId: string) => {
     getRedirect(String(err));
     popUpMessages(ToastrType.error, String(err) || DEFAULT_ERROR);
     return true;
+  } finally {
+    removeSpinner();
   }
 };
 

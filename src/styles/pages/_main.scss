@@ -83,3 +83,14 @@
 
   padding: 2rem;
 }
+
+.main-tasks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 2rem 0 2rem 2rem;
+
+  overflow-x: hidden;
+}

@@ -58,12 +58,27 @@ header {
   align-items: center;
   flex: 2 0 auto;
 
-  padding-left: 5rem;
+  padding-left: 2rem;
 }
 
-.search-input {
-  font-size: 1.5rem;
+.search-form {
+  font-size: 1.6rem;
   color: $text-color-additional;
+}
+
+.search-form label {
+  @include tablet {
+    display: none;
+  }
+}
+
+.search-input:focus {
+  font-size: 1.5rem;
+  color: $text-color;
+}
+
+.search-hidden {
+  visibility: hidden;
 }
 
 .sign {

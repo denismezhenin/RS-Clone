@@ -58,6 +58,7 @@ export const createColumns = async (
 
 export const getColumnById = async (token: string, boardId: string, columnId: string) => {
   try {
+    getSpinner();
     const response = await fetch(`${BOARDS_URL}/${boardId}/columns/${columnId}`, {
       method: 'GET',
       headers: {
@@ -73,6 +74,8 @@ export const getColumnById = async (token: string, boardId: string, columnId: st
     getRedirect(String(err));
     popUpMessages(ToastrType.error, String(err));
     return true;
+  } finally {
+    removeSpinner();
   }
 };
 

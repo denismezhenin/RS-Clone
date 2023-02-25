@@ -25,7 +25,8 @@
   padding: 2rem;
   color: $text-color-additional;
   transition: box-shadow 0.3s ease;
-  
+
+  cursor: pointer;
 }
 
 .project-card:hover {
@@ -57,4 +58,10 @@
 
 .project-stats-total {
   text-decoration: underline;
+}
+
+.no-projects {
+  width: 100%;
+
+  text-align: center;
 }

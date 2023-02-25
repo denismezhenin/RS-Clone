@@ -1,7 +1,8 @@
 import state from '../../state/state';
 
-const goToTaskBoard = (event: MouseEvent) => {
+const goToTaskBoard = (event: Event) => {
   const { target } = event;
+
   if (
     target instanceof HTMLParagraphElement &&
     target.classList.contains('member-task-link') &&
@@ -12,6 +13,18 @@ const goToTaskBoard = (event: MouseEvent) => {
     if (taskId && boardId) {
       state.selectedTask = taskId;
       window.location.href = `#/projects/${boardId}#target`;
+    }
+  }
+
+  if (target instanceof HTMLSpanElement) {
+    const row = target.closest('.task-row');
+    if (row) {
+      const taskId = row.getAttribute('id');
+      const boardId = row.getAttribute('data-board-id');
+      if (taskId && boardId) {
+        state.selectedTask = taskId;
+        window.location.href = `#/projects/${boardId}#target`;
+      }
     }
   }
 };

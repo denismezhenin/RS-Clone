@@ -12,6 +12,10 @@
   line-height: 140%;
 
   cursor: pointer;
+
+  @include tablet {
+    font-size: 1.4rem;
+  }
 }
 
 .button:hover {

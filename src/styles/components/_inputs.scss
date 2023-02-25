@@ -90,6 +90,10 @@
 
 .new-board-input {
   background-color: $color-main;
+
+  @include mobile {
+    width: 12rem;
+  }
 }
 
 .new-board-input:focus {
@@ -103,6 +107,21 @@
 .new-password-input,
 .repeat-new-password {
   color: $text-color;
+
+  @include mobile {
+    width: 30vw;
+
+    font-size: 1.2rem;
+  }
+}
+
+.new-name-input::placeholder,
+.new-login-input::placeholder,
+.new-password-input::placeholder,
+.repeat-new-password::placeholder {
+  @include mobile {
+    font-size: 1.2rem;
+  }
 }
 
 .board-title__input,
