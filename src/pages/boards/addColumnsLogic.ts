@@ -3,7 +3,7 @@ import getBoardId from '../../services/getBoardId';
 import setSelectedUserId from '../../features/setSelectedUserId';
 import dragNdropTasks from '../../features/drag-n-drop/drag-n-dropTasks';
 import dragNdropColumns from '../../features/drag-n-drop/drag-n-dropColumns';
-import { tsQuerySelectorAll } from '../../helpers/helpers';
+import { tsQuerySelector, tsQuerySelectorAll } from '../../helpers/helpers';
 import createTaskFormListener from '../taskForm/createNewTask';
 import { editTitle, confirmEditColumns, deleteColumnInBoard } from '../../features/columns/EditColumns';
 import { setNewTaskFormListener } from '../taskForm/taskFormlistenerFunction';
@@ -14,6 +14,7 @@ import { Board } from '../../data/types';
 import renderIconsInTask from '../../features/renderIcontsInTask';
 import setTaskListener from '../../features/dropDownMenu';
 import getBoardIcons from './getBoardIcons';
+import { roastedTask } from '../../features/changeStatusOfTask';
 
 const addColumnsLogic = async () => {
   const boardId = getBoardId();
@@ -47,21 +48,37 @@ const addColumnsLogic = async () => {
 
   const startDateContainer = [...tsQuerySelectorAll(document, '.start-date__container')];
   startDateContainer.map(async (el) => {
-    const { id } = <Element>el.closest('.task');
+    const task = <HTMLElement>el.closest('.task');
+    const { id } = task;
 
-    const result = (await getPointsByTaskId(state.authToken, id))[0].startDate || null;
-    if (result) {
-      el.innerHTML = result;
+    const result = await getPointsByTaskId(state.authToken, id);
+    const time = result[0].startDate ? result[0].startDate : null;
+    if (time) {
+      el.innerHTML = time;
+      if (result[0].endDate === '-' && result[0].startDate !== '-') roastedTask(result[0].startDate, task);
+    }
+    if (result[0].startDate === '-') {
+      tsQuerySelector(task, '.start-date').style.display = 'none';
+    } else {
+      tsQuerySelector(task, '.start-date').style.display = 'block';
     }
   });
 
-  const endDateContainer = [...tsQuerySelectorAll(document, '.end-date__container')];
+  const endDateContainer = [...tsQuerySelectorAll<HTMLElement>(document, '.end-date__container')];
   endDateContainer.map(async (el) => {
-    const { id } = <Element>el.closest('.task');
+    const task = <HTMLElement>el.closest('.task');
+    const { id } = task;
 
-    const result = (await getPointsByTaskId(state.authToken, id))[0].endDate || null;
-    if (result) {
-      el.innerHTML = result;
+    const result = await getPointsByTaskId(state.authToken, id);
+    const time = result[0].endDate ? result[0].endDate : null;
+    if (time) {
+      el.innerHTML = time;
+      if (result[0].endDate !== '-') tsQuerySelector(task, '.task__roasted-icon').style.display = 'block';
+    }
+    if (result[0].endDate === '-') {
+      tsQuerySelector(task, '.end-date').style.display = 'none';
+    } else {
+      tsQuerySelector(task, '.end-date').style.display = 'block';
     }
   });
   await createTaskFormListener();

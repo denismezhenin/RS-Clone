@@ -6,8 +6,8 @@ export function tsQuerySelector<T extends HTMLElement>(parent: Element | Documen
   return element;
 }
 
-export function tsQuerySelectorAll(parent: Element | Document, selector: string) {
-  const element = parent.querySelectorAll(selector);
+export function tsQuerySelectorAll<T extends HTMLElement>(parent: Element | Document, selector: string) {
+  const element = parent.querySelectorAll<T>(selector);
   if (!element) {
     throw new Error('No such element');
   }
@@ -23,3 +23,5 @@ export const rgbToHex = (str: string) => {
     .join('');
   return `#${hex}`;
 };
+
+export const getDate = () => Date.today().setTimeToNow().toString('dd-MM-yyyy HH:mm');

@@ -72,7 +72,7 @@
   "low": "low",
   "cancelBtn": "cancel",
   "addTaskBtn": "add task",
-  "rename": "Rename",
+  "rename": "Edit",
   "delete": "Delete",
   "assignees": "Assignees",
   "noMembers": "You have no members in projects",

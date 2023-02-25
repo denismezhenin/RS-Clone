@@ -16,6 +16,72 @@
   width: 100%;
   background: #ffffff;
   border-radius: 16px;
+  padding: 1.3rem;
+
+  &__high {
+    border: 2px solid #ff7979;
+  }
+  &__medium {
+    border: 1px solid #ffba53;
+  }
+  &__low {
+    border: 2px solid #2ba700;
+  }
+
+  &__options {
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+
+  &__roasted {
+    margin: 0;
+    width: 20px;
+    height: 20px;
+
+    &-gif {
+      display: none;
+      width: 20px;
+      height: 20px;
+    }
+
+    &-icon {
+      display: none;
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &-title {
+    margin: 1.3rem 0;
+    padding: 0;
+    // font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2.4rem;
+    line-height: 2.9rem;
+    color: #0D062D;
+  }
+
+  &-description {
+    margin-bottom: 1.3rem;
+    // font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.9rem;    
+    color: #807C8D;
+  }
+
+  &-duration {
+    margin-left: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.9rem;    
+    color: #807C8D;
+  }
 }
 
 .dark-theme .task {
@@ -23,7 +89,7 @@
 }
 
 .task-wrapper {
-  width: 90%;
+width: 100%;
 }
 
 .task-header {
@@ -38,6 +104,7 @@
   padding: 0.3rem;
   transition: none;
   font-size: 0.9rem;
+  visibility: hidden;
 
   &__high {
     color: #ff7979;
@@ -77,6 +144,8 @@
 
 .task-assignees {
   display: flex;
+  // height: 3rem;
+  align-items: center;
 
   &__text {
   width: 50%;
@@ -85,8 +154,11 @@
   }
   &__container {
     position: relative;
-    width: 50%;
+    width: 40%;
+    height: 3rem;
   }
+
+
 }
 
 .highlighted {
@@ -98,3 +170,18 @@
   background: #9187b1;
   box-shadow: 0 0 4rem #54545580;
 }
+.task-time {
+  margin-top: 1.3rem;
+
+  .start-date, .end-date {
+    margin-bottom: 0;
+    display: none;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.9rem;    
+    color: #807C8D;
+  }
+  
+}
+

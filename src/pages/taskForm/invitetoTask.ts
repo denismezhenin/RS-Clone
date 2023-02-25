@@ -8,7 +8,7 @@ const invitetoTaskHTML = (users: User[]) =>
   `
 <div class="board-control">
     <div class="invite-block">
-      <select class="members-select__task">
+      <select class="members-select__task" name="assignees" id="assignees">
         ${users.map(
           (el) => `<option data-member-id=${el._id} class="task-members__option" value="${el._id}">${el.name}</option>`
         )}

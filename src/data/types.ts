@@ -86,3 +86,7 @@ export enum ToastrType {
 }
 
 export type FunctionsKeys = keyof typeof FUNCTIONS;
+
+export interface Duration {
+  [key: string]: number;
+}

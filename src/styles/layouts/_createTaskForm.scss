@@ -19,19 +19,21 @@
     position: relative;
     width: 80%;
     max-width: 800px;
-    padding: 40px;
+    padding: 2rem;
     margin: 0 auto;
     background-color: #fff;
     border-radius: 1rem;
     z-index: 500;
+    font-size: 2rem;
+    line-height: 2rem;
 
     &__line {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 2rem;
+      margin-bottom: 1.3rem;
 
       &-left {
-        width: 65%;
+        width: 75%;
         &__input {
           width: 100%;
           padding: 0.3rem;
@@ -49,7 +51,7 @@
       }
 
       &-right {
-        width: 30%;
+        width: 20%;
         &__color {
           width: 10rem;
           padding: 0 !important;
@@ -59,8 +61,8 @@
 
     &__line-date {
       display: flex;
-      justify-content: space-between;
-      width: 60%;
+      width: 75%;
+      margin-bottom: 1.3rem;
 
       .form-input {
         width: 100%;
@@ -71,12 +73,20 @@
     }
 
     &__priority {
+      display: flex;
+      align-items: center;
       &-title {
-        margin: 0.5rem;
+        font-weight: 400;
+        font-size: 1.6rem;
+        line-height: 1.9rem; 
+        margin-right: 1.3rem;
       }
 
       &-label {
+
         text-transform: uppercase;
+        font-size: 1.7rem;
+        line-height: 1.7rem;
         padding: 0.5rem;
         border: 2px solid green;
         border-radius: 2rem;
@@ -106,12 +116,14 @@
     &-action {
       display: flex;
       justify-content: right;
-      margin-top: 2rem;
+      margin-top: 1.3rem;
 
       &-cancel {
         margin-right: 1rem;
       }
     }
+
+
   }
   .create-card__priority-select:checked + .create-card__priority-label {
     border: 0.3rem solid;
@@ -126,10 +138,6 @@
   }
 }
 
-#duration {
-  width: inherit;
-}
-
 .create-card-action {
   text-transform: uppercase;
   & > * {
@@ -138,8 +146,24 @@
 }
 
 .create-card__members {
-  max-width: 50%;
   position: relative;
+  max-width: 50%;
+  margin-bottom: 1.3rem;
+
+  .members-select__task {
+   width: 162px;
+  //  font-size: 2rem;
+  }
+
+  .invite-button_task {
+    margin-left: 1rem;
+  }
+
+  .member-icons__task {
+    position: relative;
+    margin-left: 1.3rem;
+    width: 12rem;
+  }
 }
 
 .dark-theme .new-card__form {
@@ -148,4 +172,10 @@
 
 .dark-theme .new-card__form {
   background-color: $color-additional;
+}
+
+.create-card__duration {
+  margin-left: 1rem;
+  width: 162px;
+  // font-size: 2rem;
 }
