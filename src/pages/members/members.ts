@@ -15,6 +15,10 @@ const Members = {
     </div>
     `,
   after_render: async () => {
+    const link = <HTMLAnchorElement>document.querySelector('.aside-members');
+    link.classList.add('active-link');
+    link.style.pointerEvents = 'none';
+
     state.membersPage = 1;
     document.body.classList.remove('body_home');
     const main = document.querySelector('.main-members');

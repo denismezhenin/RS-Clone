@@ -27,6 +27,9 @@ const Home = {
   },
   after_render: async () => {
     document.body.classList.add('body_home');
+    const link = <HTMLAnchorElement>document.querySelector('.aside-home');
+    link.classList.add('active-link');
+    link.style.pointerEvents = 'none';
 
     if (state.authToken) {
       window.addEventListener('click', listen);

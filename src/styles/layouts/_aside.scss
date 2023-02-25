@@ -25,6 +25,7 @@
 }
 
 .aside-item {
+  position: relative;
   display: flex;
 
   margin: 2rem;
@@ -34,28 +35,81 @@
   color: $text-color-additional;
 }
 
+.aside-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.5rem;
+
+  width: 0;
+  height: 0.15rem;
+
+  background: linear-gradient(to right, $button-color-light, $button-color 100%);
+
+  transition: width 0.3s;
+}
+
+.aside-item:hover:before {
+  width: 100%;
+}
+
+.aside-item:hover,
+.active-link {
+  color: #5c3eb9;
+}
+
 .aside-home {
   background: url(../assets/icons/home.svg) no-repeat left center;
+}
+
+.aside-home.active-link,
+.aside-home:hover {
+  background: url(../assets/icons/home_active.svg) no-repeat left center;
 }
 
 .aside-boards {
   background: url(../assets/icons/foldershelf.svg) no-repeat left center;
 }
 
+.aside-boards.active-link,
+.aside-boards:hover {
+  background: url(../assets/icons/foldershelf_active.svg) no-repeat left center;
+}
+
 .aside-tasks {
   background: url(../assets/icons/tasks.svg) no-repeat left center;
+}
+
+.aside-tasks.active-link,
+.aside-tasks:hover {
+  background: url(../assets/icons/tasks_active.svg) no-repeat left center;
 }
 
 .aside-members {
   background: url(../assets/icons/members.svg) no-repeat left center;
 }
 
+.aside-members.active-link,
+.aside-members:hover {
+  background: url(../assets/icons/members_active.svg) no-repeat left center;
+}
+
 .aside-stats {
   background: url(../assets/icons/statistics.svg) no-repeat left center;
 }
 
+.aside-stats.active-link,
+.aside-stats:hover {
+  background: url(../assets/icons/statistics_active.svg) no-repeat left center;
+}
+
 .aside-settings {
   background: url(../assets/icons/settings.svg) no-repeat left center;
+}
+
+.aside-settings.active-link,
+.aside-settings:hover {
+  background: url(../assets/icons/settings_active.svg) no-repeat left center;
 }
 
 .aside-projects {

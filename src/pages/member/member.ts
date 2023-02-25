@@ -17,6 +17,9 @@ const Member = {
       </div>
       `,
   after_render: async () => {
+    const linkAside = <HTMLAnchorElement>document.querySelector('.aside-members');
+    linkAside.classList.add('active-link');
+
     document.body.classList.remove('body_home');
     const main = document.querySelector('.main-member-card');
     const memberId = getBoardId();

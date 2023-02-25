@@ -13,6 +13,10 @@ const Projects = {
       </div>
       `,
   after_render: async () => {
+    const link = <HTMLAnchorElement>document.querySelector('.aside-boards');
+    link.classList.add('active-link');
+    link.style.pointerEvents = 'none';
+
     state.selectedTask = '';
     document.body.classList.remove('body_home');
     const main = document.querySelector('.main-projects');

@@ -65,7 +65,7 @@ const getProjectsContainer = async (projects: Board[]) => {
     <button type="button" class='board-confirm-edit'><img class='confirm-img' src='../../assets/icons/done.svg'></button>
     <button type="button" class='board-delete__button'><img class='delete-img' src="../../assets/icons/delete-button.svg"></button>
   </div>
-  <button type='button' class="board-setting__edit"><img src='../../assets/icons/edit-button.svg' alt='edit'></button>
+  <button type='button' class="board-setting__edit"><img class="edit-img" src='../../assets/icons/edit-button.svg' alt='edit'></button>
  </div>
     `;
     titleContainer.innerHTML += boardEdit;

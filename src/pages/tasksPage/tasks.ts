@@ -15,6 +15,10 @@ const Tasks = {
     return view;
   },
   after_render: async () => {
+    const link = <HTMLAnchorElement>document.querySelector('.aside-tasks');
+    link.classList.add('active-link');
+    link.style.pointerEvents = 'none';
+
     const main = document.querySelector('.main-tasks');
     const table = document.querySelector('.tasks-table');
     const userTasks: ITasks[] = await getTasksSetByUserId(state.authToken, state.id);

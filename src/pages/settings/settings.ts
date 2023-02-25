@@ -9,7 +9,9 @@ const Settings = {
     return view;
   },
   after_render: async () => {
-    document.body.classList.remove('body_home');
+    const link = <HTMLAnchorElement>document.querySelector('.aside-settings');
+    link.classList.add('active-link');
+    link.style.pointerEvents = 'none';
 
     const inputLight = document.querySelector('.light');
     const inputDark = document.querySelector('.dark');

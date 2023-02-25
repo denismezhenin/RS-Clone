@@ -43,6 +43,11 @@ header {
   }
 }
 
+.logo-header:hover,
+.dark-theme .logo-header:hover {
+  color: $button-color-additional;
+}
+
 .dark-theme .logo-header {
   color: $color-main;
   @include mobile {

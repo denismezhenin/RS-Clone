@@ -23,6 +23,9 @@ const Boards = {
   </div>
   `,
   after_render: async () => {
+    const link = <HTMLAnchorElement>document.querySelector('.aside-boards');
+    link.classList.add('active-link');
+
     const boardId = getBoardId();
     const main = tsQuerySelector(document, '.main-board');
     const columns = await getColumnsInBoard(state.authToken, boardId);
