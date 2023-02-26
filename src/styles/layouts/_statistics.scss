@@ -96,3 +96,23 @@
 .stats-image {
   width: 100%;
 }
+
+.main-statistics::-webkit-scrollbar {
+  width: 5px;
+}
+
+.main-statistics::-webkit-scrollbar-track {
+  border-radius: 0.5rem;
+
+  background-color: $color-main;
+
+  cursor: pointer;
+}
+
+.main-statistics::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+
+  background-color: #c2affb;
+
+  cursor: pointer;
+}
