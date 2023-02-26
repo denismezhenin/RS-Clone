@@ -22,7 +22,6 @@ const hideBurgerMenu = (e: Event) => {
 const showBurgerMenu = (e: Event) => {
   if (!(e.target instanceof HTMLElement)) return;
   const { target } = e;
-  console.log(target);
 
   if (target.closest('.burger-menu__button')) {
     const aside = <HTMLElement>document.querySelector('.aside');

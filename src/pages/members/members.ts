@@ -6,6 +6,7 @@ import getAsideHtml from '../home/getAsideHtml';
 import getMembersContainer from './getMembersContainer';
 import MEMBERS_ON_PAGE from '../../constants/membersOnPage';
 import { getUsers } from '../../API/users';
+import { checkHideAside } from '../../features/hideAside/hideAside';
 
 const Members = {
   render: async () => `
@@ -18,6 +19,7 @@ const Members = {
     const link = <HTMLAnchorElement>document.querySelector('.aside-members');
     link.classList.add('active-link');
     link.style.pointerEvents = 'none';
+    checkHideAside();
 
     state.membersPage = 1;
     document.body.classList.remove('body_home');

@@ -1,3 +1,13 @@
+.main-statistics {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 100%;
+  max-height: 80vh;
+  padding: 2rem;
+  overflow: auto;
+}
 .main-statisticsId {
   width: 100%;
 }
@@ -16,14 +26,7 @@
 .chart-view__buttons {
   width: 50px;
 }
-// .form_radio_group {
-// 	display: inline-block;
-// 	overflow: hidden;
-// }
-// .statisticsId-button__item {
-//   display: inline-block;
-//   float: left;
-// }
+
 .statisticsId-button__form input[type='radio'],
 .general-button__form input[type='radio'] {
   display: none;
@@ -88,4 +91,8 @@
 .statistics-icon {
   width: 30px;
   height: 30px;
+}
+
+.stats-image {
+  width: 100%;
 }

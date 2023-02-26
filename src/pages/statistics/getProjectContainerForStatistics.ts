@@ -1,9 +1,4 @@
-import i18next from 'i18next';
-import { getTasksSetByBoardId } from '../../API/tasks';
-import { Board, IColumns, ITasks } from '../../data/types';
-import state from '../../state/state';
-import { getColumnsInBoard } from '../../API/columns';
-import getProjectStatsItem from '../projects/getProjectStatsItem';
+import { Board } from '../../data/types';
 
 const statisticsOpen = (e: Event) => {
   if (!(e.target instanceof HTMLElement)) return;
@@ -32,26 +27,10 @@ const getProjectsContainerForStatistics = async (projects: Board[]) => {
     title.textContent = el.title.toUpperCase();
 
     const stats = document.createElement('div');
-    stats.classList.add('project-stats');
-
-    const tasks: ITasks[] = await getTasksSetByBoardId(state.authToken, el._id);
-    const totalTasks = document.createElement('p');
-    totalTasks.classList.add('project-stats-item', 'project-stats-total');
-    totalTasks.textContent = `${i18next.t('tasksTotal')}: ${tasks.length}`;
-
-    const columns: IColumns[] = await getColumnsInBoard(state.authToken, el._id);
-
-    const todoColumn = await getProjectStatsItem(columns, i18next.t('toDo'), i18next.t('firstColumnName'), el._id);
-    const inProgressColumn = await getProjectStatsItem(
-      columns,
-      i18next.t('inProgress'),
-      i18next.t('secondColumnName'),
-      el._id
-    );
-    const doneColumn = await getProjectStatsItem(columns, i18next.t('done'), i18next.t('thirdColumnName'), el._id);
+    stats.classList.add('stats-image__container');
 
     titleContainer.appendChild(title);
-    stats.append(totalTasks, todoColumn, inProgressColumn, doneColumn);
+    stats.innerHTML = `<img class="stats-image" src="../../assets/icons/bar-chart-statistics.svg">`;
     card.append(titleContainer, stats);
     membersContainer.appendChild(card);
 

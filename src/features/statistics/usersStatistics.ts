@@ -1,5 +1,5 @@
 import { Chart } from 'chart.js/auto';
-
+import i18next from 'i18next';
 import { getTasksSetByUserId } from '../../API/tasks';
 import { tsQuerySelector } from '../../helpers/helpers';
 import state from '../../state/state';
@@ -20,6 +20,10 @@ const getUserStatisticsBar = async (
   getSpinner();
   const statisticsIdUserDoughnut = <HTMLCanvasElement>tsQuerySelector(document, '.statisticsId-user__doughnut');
   statisticsIdUserDoughnut.remove();
+  const userStatisticsText = tsQuerySelector(document, '.user-statistics__text');
+  if (!userStatisticsText.classList.contains('hide')) {
+    userStatisticsText.classList.add('hide');
+  }
   const canvas = document.createElement('canvas');
   canvas.className = 'statisticsId-user__doughnut';
   const userStatistics = tsQuerySelector(document, '.user-statistics');
@@ -40,7 +44,7 @@ const getUserStatisticsBar = async (
   new Chart(canvas, {
     type: 'bar',
     data: {
-      labels: ['Todo', 'In Progress', 'Done'],
+      labels: [i18next.t('firstColumnName'), i18next.t('secondColumnName'), i18next.t('thirdColumnName')],
       datasets: [
         {
           label: user,

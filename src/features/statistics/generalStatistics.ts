@@ -1,4 +1,5 @@
 import Chart from 'chart.js/auto';
+import i18next from 'i18next';
 import { Board } from '../../data/types';
 import { tsQuerySelector } from '../../helpers/helpers';
 
@@ -13,7 +14,7 @@ export const getGeneralStatisticsDoughnut = (
   const schedule = new Chart(generalDoughnut, {
     type: 'doughnut',
     data: {
-      labels: ['Todo', 'In Progress', 'Done'],
+      labels: [i18next.t('firstColumnName'), i18next.t('secondColumnName'), i18next.t('thirdColumnName')],
       datasets: [
         {
           label: board.title,
@@ -38,7 +39,7 @@ export const getGeneralStatisticsBar = (
   const schedule = new Chart(generalBar, {
     type: 'bar',
     data: {
-      labels: ['Todo', 'In Progress', 'Done'],
+      labels: [i18next.t('firstColumnName'), i18next.t('secondColumnName'), i18next.t('thirdColumnName')],
       datasets: [
         {
           label: board.title,

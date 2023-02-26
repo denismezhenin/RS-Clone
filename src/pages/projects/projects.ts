@@ -4,6 +4,7 @@ import state from '../../state/state';
 import { getAllBoards } from '../../API/boards';
 import { Board } from '../../data/types';
 import getProjectsContainer from './getProjectsContainer';
+import { checkHideAside } from '../../features/hideAside/hideAside';
 
 const Projects = {
   render: async () => `
@@ -16,6 +17,7 @@ const Projects = {
     const link = <HTMLAnchorElement>document.querySelector('.aside-boards');
     link.classList.add('active-link');
     link.style.pointerEvents = 'none';
+    checkHideAside();
 
     state.selectedTask = '';
     document.body.classList.remove('body_home');

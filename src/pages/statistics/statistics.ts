@@ -5,6 +5,7 @@ import { getAllBoards } from '../../API/boards';
 import state from '../../state/state';
 
 import getProjectsContainerForStatistics from './getProjectContainerForStatistics';
+import { checkHideAside } from '../../features/hideAside/hideAside';
 
 const Statistics = {
   render: async () => `
@@ -14,6 +15,11 @@ const Statistics = {
     </div>
     `,
   after_render: async () => {
+    const link = <HTMLAnchorElement>document.querySelector('.aside-stats');
+    link.classList.add('active-link');
+    link.style.pointerEvents = 'none';
+    checkHideAside();
+
     document.body.classList.remove('body_home');
     const main = document.querySelector('.main-statistics');
     const allBoards: Board[] = await getAllBoards(state.authToken);

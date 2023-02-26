@@ -10,6 +10,7 @@ import { getGeneralStatisticsBar, getGeneralStatisticsDoughnut } from '../../fea
 import toggleButtonStatistics from '../../features/statistics/toggleButtonStatistics';
 import getIcons from '../../features/statistics/getIconsForStatistics';
 import getStatisticsHTML from './statisticsHTML';
+import { checkHideAside } from '../../features/hideAside/hideAside';
 
 const StatisticsId = {
   render: async () => {
@@ -19,7 +20,7 @@ const StatisticsId = {
   after_render: async () => {
     const link = <HTMLAnchorElement>document.querySelector('.aside-stats');
     link.classList.add('active-link');
-    link.style.pointerEvents = 'none';
+    checkHideAside();
 
     document.body.classList.remove('body_home');
     const main = <HTMLElement>tsQuerySelector(document, '.main-statisticsId');

@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 import getAsideHtml from '../home/getAsideHtml';
 
 const getStatisticsHTML = () =>
@@ -9,11 +10,11 @@ const getStatisticsHTML = () =>
     <form class="statisticsId-button__form">
       <div class="statisticsId-button__item">
         <input type="radio" id="general-button" name="statistics" class="statstics-general__button" checked />
-        <label for="general-button">General</label>
+        <label for="general-button">${i18next.t('generalStatistics')}</label>
       </div>
       <div class="statisticsId-button__item">
         <input type="radio" id="users-button" name="statistics" class="statstics-users__button" />
-        <label for="users-button">Users</label>
+        <label for="users-button">${i18next.t('usersStatistics')}</label>
       </div>
     </form>
     <div class="general-statistics">
@@ -38,6 +39,7 @@ const getStatisticsHTML = () =>
     </div>
     <div class="user-statistics">
       <div class="member-icons"></div>
+      <p class="user-statistics__text">${i18next.t('clickOnUsers')}</p>
       <canvas class="statisticsId-user__doughnut"></canvas>
     </div>
   </div>

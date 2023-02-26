@@ -10,7 +10,7 @@ import changeUserName from '../features/changeUserName';
 import changeUserLogin from '../features/changeUserLogin';
 import changePassword from '../features/changePassword';
 import { resetCreateTaskForm, toggleTaskForm } from '../pages/taskForm/taskFormlistenerFunction';
-import hideAside from '../features/hideAside/hideAside';
+import { hideAside } from '../features/hideAside/hideAside';
 import showBurgerMenu from '../features/mobileLayout/mobileLayout';
 
 export const BASE_URL = 'https://final-task-backend-production-c8c4.up.railway.app';

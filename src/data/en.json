@@ -100,5 +100,8 @@
   "tableTaskEndDate": "End date",
   "taskFilterHeader": "Show tasks in status",
   "allStatuses": "All tasks",
-  "defaultError": "Something went wrong"
+  "defaultError": "Something went wrong",
+  "generalStatistics": "General",
+  "usersStatistics": "Users",
+  "clickOnUsers": "Click on user"
 }

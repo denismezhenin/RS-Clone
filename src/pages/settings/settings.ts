@@ -2,6 +2,7 @@ import getSettingsHtml from './getSettingsHtml';
 import changeTheme from '../../features/settings/changeTheme';
 import changeLanguage from '../../features/settings/changeLanguage';
 import state from '../../state/state';
+import { checkHideAside } from '../../features/hideAside/hideAside';
 
 const Settings = {
   render: async () => {
@@ -12,6 +13,7 @@ const Settings = {
     const link = <HTMLAnchorElement>document.querySelector('.aside-settings');
     link.classList.add('active-link');
     link.style.pointerEvents = 'none';
+    checkHideAside();
 
     const inputLight = document.querySelector('.light');
     const inputDark = document.querySelector('.dark');
