@@ -27,13 +27,33 @@
     font-size: 2rem;
     line-height: 2rem;
 
+    @include mobile {
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+    }
+
+    h3 {
+      text-align: center;
+      margin: 1rem;
+    }
+
     &__line {
       display: flex;
       justify-content: space-between;
       margin-bottom: 1.3rem;
+      
+      @include mobile {
+        flex-direction: column;
+        margin-bottom: 0.5rem;
+      }
 
       &-left {
         width: 75%;
+
+        @include mobile {
+          width: 100%;
+        }
+
         &__input {
           width: 100%;
           padding: 0.3rem;
@@ -52,6 +72,11 @@
 
       &-right {
         width: 20%;
+        
+        @include mobile {
+          width: 100%;
+        }
+
         &__color {
           width: 10rem;
           padding: 0 !important;
@@ -64,6 +89,10 @@
       width: 75%;
       margin-bottom: 1.3rem;
 
+      @include mobile {
+        width: 100%;
+      }
+
       .form-input {
         width: 100%;
       }
@@ -75,11 +104,22 @@
     &__priority {
       display: flex;
       align-items: center;
+
+      @include mobile {
+        flex-direction: column;
+        margin-bottom: 2rem;
+      }
+
       &-title {
         font-weight: 400;
         font-size: 1.6rem;
         line-height: 1.9rem; 
         margin-right: 1.3rem;
+
+        @include mobile {
+          margin: 0rem 0 1.5rem;
+        }
+
       }
 
       &-label {
@@ -118,10 +158,15 @@
       justify-content: right;
       margin-top: 1.3rem;
 
+      @include mobile {
+        justify-content: center;
+      }
+
       &-cancel {
         margin-right: 1rem;
       }
     }
+
 
 
   }
@@ -149,6 +194,43 @@
   position: relative;
   max-width: 50%;
   margin-bottom: 1.3rem;
+
+  @include mobile {
+    width: 100%;
+  }
+
+  .board-control {
+    @include mobile {
+      min-width: 100%;
+      display: block
+  }
+  }
+
+  .invite-block {
+
+    @include mobile {
+      // display: flex;
+      // flex-wrap: wrap;
+      min-width: 100%;
+    }
+
+    .members-select__task {
+      @include mobile {
+        min-width: 50%;
+    }
+    }
+
+    .invite-button_task {
+      @include mobile {
+        width: 50%;
+    }
+    }
+    .member-icons__task {
+      @include mobile {
+        min-width: 100%;
+    }
+    }
+  }
 
   .members-select__task {
    width: 162px;

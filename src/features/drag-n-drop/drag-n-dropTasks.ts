@@ -70,6 +70,7 @@ const getTimeForTasks = async (currentItem: HTMLElement, column: IColumns) => {
     const currentDate = getDate();
     if (endDateContainer) {
       endDateContainer.innerHTML = pointByTaskId[0].endDate === '-' ? currentDate : pointByTaskId[0].endDate;
+      startDateContainer.innerHTML = pointByTaskId[0].startDate === '-' ? currentDate : pointByTaskId[0].startDate;
       tsQuerySelector(currentItem, '.task__roasted-gif').style.display = 'none';
       tsQuerySelector(currentItem, '.task__roasted-icon').style.display = 'block';
     }

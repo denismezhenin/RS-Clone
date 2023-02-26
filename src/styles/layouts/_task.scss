@@ -72,6 +72,8 @@
     font-size: 1.6rem;
     line-height: 1.9rem;    
     color: #807C8D;
+    height: auto;
+    word-wrap: break-word;
   }
 
   &-duration {
@@ -181,6 +183,10 @@ width: 100%;
     font-size: 1.6rem;
     line-height: 1.9rem;    
     color: #807C8D;
+  }
+
+  .end-date {
+    margin-top: 0;
   }
   
 }

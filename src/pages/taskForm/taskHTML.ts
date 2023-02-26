@@ -25,13 +25,13 @@ const taskFormHTML = (users: User[]) => {
               <div class="create-card__line-left input-wrapper">
               <textarea type="text" name="description" id="description" placeholder="${i18next.t(
                 'taskDescriptionPlaceholder'
-              )}" class="create-card__line-left__textarea form-input" required></textarea>
+              )}" class="create-card__line-left__textarea form-input" required maxlength="300" rows="10"></textarea>
               <span class="input-wrapper-highlight"></span>
               <label for="description" class="create-card__line-left__label form-label">${i18next.t(
                 'taskDescription'
               )}</label>    
               </div>
-              <div class="create-card__line-right input-wrapper">
+              <div class="create-card__line-right">
 
               </div>
             </div>
@@ -68,7 +68,7 @@ const taskFormHTML = (users: User[]) => {
             ${invitetoTaskHTML(users)}
             </div>
             <div class="create-card__priority">
-              <p class="create-card__priority-title">${i18next.t('priority')}</p>
+              <p class="create-card__priority-title">${i18next.t('priority')}:</p>
               <div class="create-card__priority-container">
               <input type="radio" name="priority" id="priority-high" value="high"class="create-card__priority-select">
               <label for="priority-high" class="create-card__priority-label">${i18next.t('high')}</label>
