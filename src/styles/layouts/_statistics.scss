@@ -1,0 +1,91 @@
+.main-statisticsId {
+  width: 100%;
+}
+.statisticsId-title {
+  text-align: center;
+  font-size: 3rem;
+}
+.statisticsId-button__form,
+.general-button__form {
+  display: flex;
+  justify-content: center;
+}
+.statisticsId-button__item {
+  width: 100px;
+}
+.chart-view__buttons {
+  width: 50px;
+}
+// .form_radio_group {
+// 	display: inline-block;
+// 	overflow: hidden;
+// }
+// .statisticsId-button__item {
+//   display: inline-block;
+//   float: left;
+// }
+.statisticsId-button__form input[type='radio'],
+.general-button__form input[type='radio'] {
+  display: none;
+}
+.statisticsId-button__form label,
+.general-button__form label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0px 15px;
+  line-height: 34px;
+  border: 1px solid #999;
+  border-right: none;
+  user-select: none;
+  width: 100%;
+}
+
+.statisticsId-button__form .statisticsId-button__item:first-child label,
+.general-button__form .statisticsId-button__item:first-child label {
+  border-radius: 6px 0 0 6px;
+}
+.statisticsId-button__form .statisticsId-button__item:last-child label,
+.general-button__form .statisticsId-button__item:last-child label {
+  border-radius: 0 6px 6px 0;
+  border-right: 1px solid #999;
+}
+
+.statisticsId-button__form input[type='radio']:checked + label,
+.general-button__form input[type='radio']:checked + label {
+  background: #c2affb;
+}
+
+.statisticsId-button__form label:hover,
+.general-button__form label:hover {
+  color: #666;
+}
+
+.statisticsId-button__form input[type='radio']:disabled + label,
+.general-button__form input[type='radio']:disabled + label {
+  background: #efefef;
+  color: #666;
+}
+.general-statistics,
+.user-statistics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.statisticsId-general__doughnut,
+.statisticsId-general__bar,
+.statisticsId-user__doughnut {
+  margin-top: 2%;
+  min-width: 50%;
+  max-width: 50%;
+  max-height: 50vh;
+}
+
+.general-button__form {
+  margin-top: 2%;
+}
+.statistics-icon {
+  width: 30px;
+  height: 30px;
+}

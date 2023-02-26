@@ -80,3 +80,5 @@ export const TIME_LESS_TEN = 10;
 export const INVALID_TOKEN = 'Invalid token';
 
 export const DELAY = 3000;
+
+export const MAX_VISIBLE_MEMBERS = 5;

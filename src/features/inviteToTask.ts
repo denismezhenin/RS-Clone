@@ -1,6 +1,5 @@
 import state from '../state/state';
 import getBoardIcons from '../pages/boards/getBoardIcons';
-
 import { tsQuerySelector } from '../helpers/helpers';
 
 export const getInvitedUsers = () => {
@@ -15,7 +14,7 @@ const inviteToTask = async () => {
   const membersSelect = document.querySelector('.members-select__task');
   const array = getInvitedUsers();
   const options = document.querySelectorAll('.task-members__option');
-
+  const MAX_VISIBLE_MEMBERS = 5;
   if (membersSelect instanceof HTMLSelectElement) {
     let id = state.selectedUserIdToTask;
     if (id === '') {
@@ -26,7 +25,7 @@ const inviteToTask = async () => {
     }
     if (!array.has(id)) {
       array.add(id);
-      getBoardIcons(Array.from(array), '.member-icons__task');
+      getBoardIcons(Array.from(array), '.member-icons__task', MAX_VISIBLE_MEMBERS);
       options.forEach((item) => {
         const dataId = item.getAttribute('data-member-id');
         if (dataId === id) {
