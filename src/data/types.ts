@@ -107,3 +107,7 @@ export enum Arrows {
   up = '↑',
   down = '↓',
 }
+
+export interface Duration {
+  [key: string]: number;
+}

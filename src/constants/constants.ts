@@ -83,4 +83,17 @@ export const INVALID_TOKEN = 'Invalid token';
 
 export const DELAY = 3000;
 
+interface Duration {
+  [key: string]: number;
+}
+
+export const duration: Duration = {
+  xs: 1,
+  s: 2,
+  m: 3,
+  l: 4,
+  xl: 6,
+  xxl: 8,
+};
+
 export const MAX_VISIBLE_MEMBERS = 5;

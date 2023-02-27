@@ -1,10 +1,12 @@
+import i18next from 'i18next';
 import { createTask, updateTask } from '../../API/tasks';
-import { FormsTaskData, taskForm } from '../../data/types';
+import { FormsTaskData, taskForm, ToastrType } from '../../data/types';
 import { getInvitedUsers } from '../../features/inviteToTask';
 import { tsQuerySelector } from '../../helpers/helpers';
 import state from '../../state/state';
 import { createPoint } from '../../API/points';
 import { reloadBoard } from '../../features/taskFunctions';
+import popUpMessages from '../../features/popUpMessages/popupMessages';
 
 const createTaskForm = async () => {
   const form = tsQuerySelector<HTMLFormElement>(document, '.new-card__form');
@@ -44,6 +46,7 @@ const createTaskForm = async () => {
       startDate: '-',
       endDate: '-',
     });
+    popUpMessages(ToastrType.success, i18next.t('taskCreated'));
   } else {
     await updateTask(state.authToken, boardId, columnId, taskId, {
       title,
@@ -53,6 +56,7 @@ const createTaskForm = async () => {
       userId,
       users,
     });
+    popUpMessages(ToastrType.success, i18next.t('taskEdited'));
   }
   tsQuerySelector(document, '.new-card').classList.toggle('new-card__active');
   form.reset();

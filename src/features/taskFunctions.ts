@@ -1,15 +1,17 @@
+import i18next from 'i18next';
 import Boards from '../pages/boards/boards';
 import state from '../state/state';
 import { deleteTask } from '../API/tasks';
 import { tsQuerySelector } from '../helpers/helpers';
 import formsParam from '../pages/taskForm/setTaskParams';
 import editTask from '../pages/taskForm/editTask';
-import { taskForm, Board, User } from '../data/types';
+import { taskForm, Board, User, ToastrType } from '../data/types';
 import getActiveUsers from './getActiveUsers';
 import { getBoardsById } from '../API/boards';
 import invitetoTaskHTML from '../pages/taskForm/invitetoTask';
 import { getUsers } from '../API/users';
 import getBoardIcons from '../pages/boards/getBoardIcons';
+import popUpMessages from './popUpMessages/popupMessages';
 import { MAX_VISIBLE_MEMBERS } from '../constants/constants';
 
 export const showDropDownMenu = (target: HTMLElement) => {
@@ -26,10 +28,12 @@ export const deleteThisTask = async (target: HTMLElement) => {
   const boardId = target.closest<HTMLElement>('.main-board')?.id;
   const columnId = target.closest<HTMLElement>('.column')?.id;
   const taskId = target.closest<HTMLElement>('.task')?.id;
+  const task = target.closest<HTMLElement>('.task');
   if (!boardId || !columnId || !taskId) return;
   showDropDownMenu(target);
   await deleteTask(state.authToken, boardId, columnId, taskId);
-  await reloadBoard();
+  popUpMessages(ToastrType.success, i18next.t('taskDeleted'));
+  task?.remove();
 };
 
 export const editThisTask = async (target: HTMLElement) => {
@@ -45,7 +49,6 @@ export const editThisTask = async (target: HTMLElement) => {
   if (usersContainer) {
     const usersInvited = usersContainer.dataset.users ? usersContainer.dataset.users.split(',') : [];
     const inActiveUsers = activeUsers.filter((el) => !usersInvited.includes(el._id));
-    memberContainer.innerHTML = invitetoTaskHTML(inActiveUsers);
     memberContainer.innerHTML = invitetoTaskHTML(inActiveUsers);
     if (usersInvited.length > 0) {
       await getBoardIcons(usersInvited, `.member-icons__task`, MAX_VISIBLE_MEMBERS);

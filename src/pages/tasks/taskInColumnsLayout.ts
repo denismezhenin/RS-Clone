@@ -17,37 +17,39 @@ const getTaskHTML = (tasks: ITasks[]) =>
    .map((task: ITasks) => {
      const description = IsJsonString(task.description);
      return `
-      <li class="task" id="${task._id}">
+     <li class="task task__${description ? description.priority : ''}" id="${task._id}">
      <div class="task-wrapper">
-     <span class="task-priority task-priority__${description ? description.priority : ''}" style="display:none">${
+     <div class="task-header">
+     <figure class="task__roasted">
+        <img class="task__roasted-gif"src="../../assets/img/fire-joypixels.gif">
+        <img class="task__roasted-icon" src="../../assets/icons/icons8-done.svg">
+      </figure>
+     <span class="task-priority task-priority__${description ? description.priority : ''}" >${
        description ? description.priority : ''
      }</span>
-     <div class="task-header">
-       <h3 class="task-title">${task.title}</h3>
-       <div class="task-pop-up__menu">...
-     </div>
+     <div class="task-pop-up__menu">...
      <ul class="task-menu__list hide">
-     <li class="task-menu__item edit-task">${i18next.t('rename')}</li>
-     <li class="task-menu__item delete-task">${i18next.t('delete')}</li>
-   </ul>
+     <li class="task-menu__item edit-task"><img src="../../assets/icons/edit-button.svg"><span>${i18next.t(
+       'rename'
+     )}</span></li>
+     <li class="task-menu__item delete-task"><img src="../../assets/icons/delete-button.svg"><span>${i18next.t(
+       'delete'
+     )}</span></li>
+     </ul>
      </div>
+     </div>
+     <h3 class="task-title" style="color:${description ? description.color : ''}">${task.title}</h3>
      <div class="task-body">
-       <div class="task-pop-up__menu">
-         <ul class="task-menu__list hide">
-           <li class="task-menu__item">${i18next.t('rename')}</li>
-           <li class="task-menu__item">${i18next.t('delete')}</li>
-         </ul>
-       </div>
-       <div class="task-description" style="color:${description ? description.color : ''}">${
-       description ? description.description : task.description
-     }</div>
+       <p class="task-description">${description ? description.description : task.description}</p>
        <div class="task-footer">
        <div class="task-assignees">
-       <h4 class="task-assignees__text">${i18next.t('assignees')}:</h4>
        <div class="task-assignees__container" data-users="${task.users}" data-ID="${task._id}"></div>
+       <div class="task-duration">
+       <span class="task-time__start">${i18next.t('duration')}: </span>
+       <span class="task-time__duration">${description ? String(description.duration).toUpperCase() : ''}</span>
+       </div>
        </div>
          <div class="task-time">
-         <span class="task-time__start">${i18next.t('duration')}: ${description ? description.duration : ''}</span>
          <p class="start-date">${i18next.t('startDate')}: <span class="start-date__container"></span></p>
          <p class="end-date">${i18next.t('endDate')}: <span class="end-date__container"></span></p>
          </div>

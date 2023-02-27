@@ -8,14 +8,14 @@ const getBoardIcons = async (userIds: string[], selector: string, maxVisibleMemb
 
   if (memberIcons && userIds.length > 0) {
     const zIndex = userIds.length;
-    const right = '0';
+    const left = '0';
     const limit = userIds.length <= maxVisibleMembers ? userIds.length : maxVisibleMembers;
     userIds.forEach(async (el, i) => {
       if (i < limit) {
         const user = await getUserById(state.authToken, el);
         const icon = getUserIcon(user.name, user._id);
         memberIcons.append(icon);
-        icon.style.right = `${Number(right) + i * ABSOLUTE_POSITION_IN_REMS}rem`;
+        icon.style.left = `${Number(left) + i * ABSOLUTE_POSITION_IN_REMS}rem`;
         icon.style.zIndex = (zIndex - i).toString();
         icon.href = `#/members/${el}`;
       }

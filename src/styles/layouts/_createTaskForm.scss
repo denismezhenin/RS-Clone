@@ -19,19 +19,41 @@
     position: relative;
     width: 80%;
     max-width: 800px;
-    padding: 0 3rem 3rem 3rem;
+    padding: 2rem;
     margin: 0 auto;
     background-color: #fff;
     border-radius: 1rem;
     z-index: 500;
+    font-size: 2rem;
+    line-height: 2rem;
+
+    @include mobile {
+      font-size: 1.5rem;
+      line-height: 1.5rem;
+    }
+
+    h3 {
+      text-align: center;
+      margin: 1rem;
+    }
 
     &__line {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 2rem;
+      margin-bottom: 1.3rem;
+      
+      @include mobile {
+        flex-direction: column;
+        margin-bottom: 0.5rem;
+      }
 
       &-left {
-        width: 65%;
+        width: 75%;
+
+        @include mobile {
+          width: 100%;
+        }
+
         &__input {
           width: 100%;
           padding: 0.3rem;
@@ -53,7 +75,12 @@
       }
 
       &-right {
-        width: 30%;
+        width: 20%;
+        
+        @include mobile {
+          width: 100%;
+        }
+
         &__color {
           width: 10rem;
           padding: 0 !important;
@@ -63,10 +90,12 @@
 
     &__line-date {
       display: flex;
-      justify-content: space-between;
-      width: 60%;
-      font-size: 1.5rem;
-      color: #5264ae;
+      width: 75%;
+      margin-bottom: 1.3rem;
+
+      @include mobile {
+        width: 100%;
+      }
 
       .form-input {
         width: 100%;
@@ -78,20 +107,30 @@
 
     &__priority {
       display: flex;
-      gap: 0.5rem;
       align-items: center;
 
+      @include mobile {
+        flex-direction: column;
+        margin-bottom: 2rem;
+      }
+
       &-title {
-        margin: 0.5rem;
+        font-weight: 400;
         font-size: 1.6rem;
-        color: #5264ae;
+        line-height: 1.9rem; 
+        margin-right: 1.3rem;
+
+        @include mobile {
+          margin: 0rem 0 1.5rem;
+        }
       }
 
       &-label {
-        height: 3.5rem;
-        width: 15%;
+
         text-transform: uppercase;
-        padding: 0.2rem 0.7rem;
+        font-size: 1.7rem;
+        line-height: 1.7rem;
+        padding: 0.5rem;
         border: 2px solid green;
         border-radius: 2rem;
         transition: none;
@@ -127,12 +166,31 @@
     &-action {
       display: flex;
       justify-content: right;
-      margin-top: 2rem;
+      margin-top: 1.3rem;
+
+      @include mobile {
+        justify-content: center;
+      }
 
       &-cancel {
         margin-right: 1rem;
       }
     }
+
+  }
+
+  .create-card__members .board-control_task {
+    margin: 2rem 0;
+  }
+
+  .members-select__task {
+    width: 15rem;
+
+    border: 2px solid $text-color-additional;
+    border-radius: 0.5rem;
+
+    font-size: 1.6rem;
+    color: $text-color-additional;
   }
 
   .create-card__members .board-control_task {
@@ -163,7 +221,6 @@
 }
 
 #duration {
-  width: inherit;
   height: 3rem;
 
   border: 2px solid $text-color-additional;
@@ -178,8 +235,58 @@
 }
 
 .create-card__members {
-  max-width: 55%;
   position: relative;
+  max-width: 50%;
+  margin-bottom: 1.3rem;
+
+  @include mobile {
+    width: 100%;
+  }
+
+  .board-control {
+    @include mobile {
+      min-width: 100%;
+      display: block
+  }
+  }
+
+  .invite-block {
+
+    @include mobile {
+      min-width: 100%;
+    }
+
+    .members-select__task {
+      @include mobile {
+        min-width: 50%;
+    }
+    }
+
+    .invite-button_task {
+      @include mobile {
+        width: 50%;
+    }
+    }
+    .member-icons__task {
+      @include mobile {
+        min-width: 120px;
+    }
+    }
+  }
+
+  .members-select__task {
+   width: 162px;
+  }
+
+  .invite-button_task {
+    margin-left: 1rem;
+  }
+
+  .member-icons__task {
+    position: relative;
+    margin-left: 1.3rem;
+    width: 12rem;
+  }
 }
 
 .dark-theme .new-card__form {
@@ -188,4 +295,9 @@
 
 .dark-theme .new-card__form {
   background-color: $color-additional;
+}
+
+.create-card__duration {
+  margin-left: 1rem;
+  width: 162px;
 }
