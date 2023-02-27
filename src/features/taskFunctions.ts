@@ -50,7 +50,6 @@ export const editThisTask = async (target: HTMLElement) => {
     const usersInvited = usersContainer.dataset.users ? usersContainer.dataset.users.split(',') : [];
     const inActiveUsers = activeUsers.filter((el) => !usersInvited.includes(el._id));
     memberContainer.innerHTML = invitetoTaskHTML(inActiveUsers);
-    memberContainer.innerHTML = invitetoTaskHTML(inActiveUsers);
     if (usersInvited.length > 0) {
       await getBoardIcons(usersInvited, `.member-icons__task`, MAX_VISIBLE_MEMBERS);
     }
