@@ -1,4 +1,5 @@
 import Sortable from 'sortablejs';
+import i18next from 'i18next';
 import { updateSetOfTasks } from '../../API/tasks';
 import state from '../../state/state';
 import { getDate, tsQuerySelector, tsQuerySelectorAll } from '../../helpers/helpers';
@@ -15,7 +16,7 @@ const getTimeForTasks = async (currentItem: HTMLElement, column: IColumns) => {
   const startDateContainer = tsQuerySelector(currentItem, '.start-date__container');
   const endDateContainer = tsQuerySelector(currentItem, '.end-date__container');
 
-  if (column.title === UI.secondColumnName || column.title === 'В работе') {
+  if (column.title !== `${i18next.t('firstColumnName')}` || column.title !== `${i18next.t('thirdColumnName')}`) {
     const pointByTaskId = await getPointsByTaskId(state.authToken, currentItem.id);
     const currentDate = getDate();
     tsQuerySelector(currentItem, '.task__roasted-icon').style.display = 'none';
@@ -53,6 +54,21 @@ const getTimeForTasks = async (currentItem: HTMLElement, column: IColumns) => {
       startDate: pointByTaskId[0].startDate === '-' ? currentDate : pointByTaskId[0].startDate,
       endDate: pointByTaskId[0].endDate === '-' ? currentDate : pointByTaskId[0].endDate,
     });
+  }
+  if (column.title === UI.firstColumnName || column.title === 'Выполнить') {
+    tsQuerySelector(currentItem, '.end-date').style.display = 'none';
+    tsQuerySelector(currentItem, '.start-date').style.display = 'none';
+    tsQuerySelector(currentItem, '.task__roasted-icon').style.display = 'none';
+    tsQuerySelector(currentItem, '.task__roasted-gif').style.display = 'none';
+    const pointByTaskId = await getPointsByTaskId(state.authToken, currentItem.id);
+    await updatePoints(state.authToken, pointByTaskId[0]._id, {
+      title: 'string',
+      done: false,
+      startDate: '-',
+      endDate: '-',
+    });
+    startDateContainer.innerHTML = '-';
+    endDateContainer.innerHTML = '-';
   }
 };
 
