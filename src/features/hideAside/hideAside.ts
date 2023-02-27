@@ -27,7 +27,7 @@ export const checkHideAside = () => {
 
     asideMenuItem.forEach((el) => {
       if (el instanceof HTMLAnchorElement) {
-        el.classList.remove('aside-item_hidden');
+        el.classList.add('aside-item_hidden');
       }
     });
   }
@@ -47,17 +47,16 @@ export const checkHideAside = () => {
   width: 22.3rem;
   margin-left: 0;
   `;
-  }
 
-  asideMenuItem.forEach((el) => {
-    if (el instanceof HTMLAnchorElement) {
-      el.classList.add('aside-item_hidden');
-    }
-  });
+    asideMenuItem.forEach((el) => {
+      if (el instanceof HTMLAnchorElement) {
+        el.classList.remove('aside-item_hidden');
+      }
+    });
+  }
 };
 
 export const hideAside = () => {
-
   state.hideAside = !state.hideAside;
   checkHideAside();
 };

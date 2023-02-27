@@ -92,6 +92,10 @@
   gap: 10px;
 }
 
+.title-setting__add {
+  cursor: pointer;
+}
+
 .dark-theme .title-setting__add {
   background-color: $color-additional;
   border-radius: 0.5rem;
