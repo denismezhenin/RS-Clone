@@ -95,4 +95,5 @@ export const duration: Duration = {
   xl: 6,
   xxl: 8,
 };
+
 export const MAX_VISIBLE_MEMBERS = 5;

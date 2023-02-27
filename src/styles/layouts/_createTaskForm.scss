@@ -193,6 +193,20 @@
     color: $text-color-additional;
   }
 
+  .create-card__members .board-control_task {
+    margin: 2rem 0;
+  }
+
+  .members-select__task {
+    width: 15rem;
+
+    border: 2px solid $text-color-additional;
+    border-radius: 0.5rem;
+
+    font-size: 1.6rem;
+    color: $text-color-additional;
+  }
+
   .create-card__priority-select:checked + .create-card__priority-label {
     border: 0.3rem solid;
   }
