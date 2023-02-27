@@ -4,11 +4,10 @@ import { tsQuerySelector } from '../helpers/helpers';
 
 export const getInvitedUsers = () => {
   const form = tsQuerySelector<HTMLFormElement>(document, '.new-card__form');
-  const users = form.querySelector<HTMLDivElement>('.member-icons__task');
-  const userArray = users?.dataset.users?.split(',');
+  const usersForm = form.querySelector<HTMLDivElement>('.member-icons__task');
+  const userArray = usersForm?.dataset.users?.split(', ');
   const res = userArray ? [...userArray] : [];
-  const reslut: Set<string> = new Set(res);
-  return reslut;
+  return res;
 };
 
 const inviteToTask = async () => {
@@ -16,8 +15,8 @@ const inviteToTask = async () => {
   const array = getInvitedUsers();
   const options = document.querySelectorAll('.task-members__option');
   const form = tsQuerySelector<HTMLFormElement>(document, '.new-card__form');
-  const users = form.querySelector<HTMLDivElement>('.member-icons__task');
-  if (!users) return;
+  const usersForm = form.querySelector<HTMLDivElement>('.member-icons__task');
+  if (!usersForm) return;
   const MAX_VISIBLE_MEMBERS = 5;
   if (membersSelect instanceof HTMLSelectElement) {
     let id = state.selectedUserIdToTask;
@@ -27,9 +26,10 @@ const inviteToTask = async () => {
         id = dataId;
       }
     }
-    if (!array.has(id)) {
-      array.add(id);
-      users.dataset.users = `${Array.from(array)}`;
+    if (!array.includes(id)) {
+      array.push(id);
+      const res = array.join(', ');
+      usersForm.dataset.users = res;
       getBoardIcons(Array.from(array), '.member-icons__task', MAX_VISIBLE_MEMBERS);
       options.forEach((item) => {
         const dataId = item.getAttribute('data-member-id');

@@ -46,13 +46,16 @@ export const editThisTask = async (target: HTMLElement) => {
   const memberContainer = tsQuerySelector(document, '.create-card__members');
   const activeUsers = getActiveUsers(users, board.users);
   const usersContainer = tsQuerySelector(task, '.task-assignees__container');
-  if (usersContainer) {
-    const usersInvited = usersContainer.dataset.users ? usersContainer.dataset.users.split(',') : [];
-    const inActiveUsers = activeUsers.filter((el) => !usersInvited.includes(el._id));
-    memberContainer.innerHTML = invitetoTaskHTML(inActiveUsers);
-    if (usersInvited.length > 0) {
-      await getBoardIcons(usersInvited, `.member-icons__task`, MAX_VISIBLE_MEMBERS);
-    }
+  const form = tsQuerySelector<HTMLFormElement>(document, '.new-card__form');
+  const usersForm = form.querySelector<HTMLDivElement>('.member-icons__task');
+  if (!usersForm) return;
+  if (!usersContainer) return;
+  const usersInvited = usersContainer.dataset.users ? usersContainer.dataset.users.split(',') : [''];
+  const inActiveUsers = activeUsers.filter((el) => !usersInvited.includes(el._id));
+  const usersInvitedArray = usersInvited.join(', ');
+  memberContainer.innerHTML = invitetoTaskHTML(inActiveUsers, usersInvitedArray);
+  if (usersInvited.length > 0) {
+    await getBoardIcons(usersInvited, `.member-icons__task`, MAX_VISIBLE_MEMBERS);
   }
   formsParam(target, taskForm.edit);
   editTask(target);
