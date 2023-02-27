@@ -19,7 +19,7 @@ const editTask = (target: HTMLElement) => {
   description.value = taskDescription.textContent;
   duration.value = taskDuration.textContent.toLowerCase();
   priority.checked = true;
-  color.value = rgbToHex(taskDescription.style.color);
+  color.value = rgbToHex(taskTitle.style.color);
 };
 
 export default editTask;
