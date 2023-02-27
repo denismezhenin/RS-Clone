@@ -7,7 +7,7 @@ const getBoardIcons = async (userIds: string[], selector: string, maxVisibleMemb
   const memberIcons = document.querySelector(selector);
 
   if (memberIcons && userIds.length > 0) {
-    const zIndex = userIds.length;
+    const zIndex = 5;
     const left = '0';
     const limit = userIds.length <= maxVisibleMembers ? userIds.length : maxVisibleMembers;
     userIds.forEach(async (el, i) => {
