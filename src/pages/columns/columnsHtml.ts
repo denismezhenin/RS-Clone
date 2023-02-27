@@ -36,7 +36,9 @@ ${columns
   <button type='button' class="title-setting__edit ${
     ['Todo', 'In progress', 'Done', 'Выполнить', 'В работе', 'Сделано'].includes(column.title) ? 'hide' : ''
   }"><img class="edit-img" src='../../assets/icons/edit-button.svg' alt='edit'></button>
-  <img class="title-setting__add" src="../../assets/icons/plus.svg" alt="plus" />
+  <img class="title-setting__add ${
+    ['Todo', 'Выполнить'].includes(column.title) ? '' : 'hide'
+  }" src="../../assets/icons/plus.svg" alt="plus" />
 </div>
 </div>
 <div class="column-body">

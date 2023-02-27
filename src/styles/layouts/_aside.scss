@@ -31,7 +31,7 @@
   margin: 2rem;
   padding-left: 4rem;
 
-  font-size: 2rem;
+  font-size: 1.7rem;
   color: $text-color-additional;
 }
 
@@ -123,7 +123,7 @@
 }
 
 .projects-container::-webkit-scrollbar {
-  width: 1rem;
+  width: 5px;
 }
 
 .projects-container::-webkit-scrollbar-track {
@@ -134,7 +134,7 @@
 
 .projects-container::-webkit-scrollbar-thumb {
   border-radius: 0.5rem;
-
+  
   background-color: #c2affb;
 }
 

@@ -9,6 +9,7 @@ const invite = async () => {
   const board = await getBoardsById(state.authToken, boardId);
   const options = document.querySelectorAll('option');
   const array = board.users;
+  const MAX_VISIBLE_MEMBERS = 5;
 
   if (membersSelect instanceof HTMLSelectElement) {
     let id = state.selectedUserId;
@@ -21,7 +22,7 @@ const invite = async () => {
     if (!array.includes(id)) {
       array.push(id);
       await updateBoard(state.authToken, boardId, { title: board.title, owner: id, users: array });
-      getBoardIcons(array, '.member-icons');
+      getBoardIcons(array, '.member-icons', MAX_VISIBLE_MEMBERS);
       options.forEach((item) => {
         const dataId = item.getAttribute('data-member-id');
         if (dataId === id) {

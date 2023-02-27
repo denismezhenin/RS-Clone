@@ -2,6 +2,7 @@ import i18next from 'i18next';
 import { getColumnsInBoard } from '../../API/columns';
 import { getTasksSetByBoardId } from '../../API/tasks';
 import { Board, IColumns, ITasks } from '../../data/types';
+
 import { tsQuerySelectorAll } from '../../helpers/helpers';
 import state from '../../state/state';
 import getProjectStatsItem from './getProjectStatsItem';

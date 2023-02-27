@@ -10,7 +10,7 @@ import changeUserName from '../features/changeUserName';
 import changeUserLogin from '../features/changeUserLogin';
 import changePassword from '../features/changePassword';
 import { resetCreateTaskForm, toggleTaskForm } from '../pages/taskForm/taskFormlistenerFunction';
-import hideAside from '../features/hideAside/hideAside';
+import { hideAside } from '../features/hideAside/hideAside';
 import showBurgerMenu from '../features/mobileLayout/mobileLayout';
 
 export const BASE_URL = 'https://final-task-backend-production-c8c4.up.railway.app';
@@ -80,3 +80,5 @@ export const TIME_LESS_TEN = 10;
 export const INVALID_TOKEN = 'Invalid token';
 
 export const DELAY = 3000;
+
+export const MAX_VISIBLE_MEMBERS = 5;

@@ -100,5 +100,8 @@
   "tableTaskEndDate": "Дата завершения",
   "taskFilterHeader": "Показывать задачи в статусе",
   "allStatuses": "Все задачи",
-  "defaultError": "Что-то пошло не так"
+  "defaultError": "Что-то пошло не так",
+  "generalStatistics": "Общая",
+  "usersStatistics": "Команда",
+  "clickOnUsers": "Кликните на пользователя"
 }
