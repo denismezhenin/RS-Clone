@@ -2,6 +2,8 @@ import { getColumnById } from '../../API/columns';
 import { getPointsByTaskId } from '../../API/points';
 import { ITasks, IColumns, IPointByTaskId } from '../../data/types';
 import state from '../../state/state';
+import getColumnTitle from '../columns/getColumnTitle';
+import getPriorityTranslated from './getPriorityTranslated';
 
 const getTaskRowHtml = async (task: ITasks, index: number) => {
   const taskColumn: IColumns = await getColumnById(state.authToken, task.boardId, task.columnId);
@@ -17,11 +19,11 @@ const getTaskRowHtml = async (task: ITasks, index: number) => {
   return `
     <span class="table-task-field number-ceil">${index + 1}</span>
     <span class="table-task-field title-ceil">${task.title}</span>
-    <span class="table-task-field status-ceil">${taskColumnName}</span>
+    <span class="table-task-field status-ceil">${getColumnTitle(taskColumnName)}</span>
     <span class="table-task-field start-ceil">${startDate}</span>
     <span class="table-task-field end-ceil">${endDate}</span>
     <span class="table-task-field duration-ceil">${duration.toUpperCase()}</span>
-    <span class="table-task-field priority-ceil">${priority.toUpperCase()}</span>
+    <span class="table-task-field priority-ceil">${getPriorityTranslated(priority).toUpperCase()}</span>
   `;
 };
 

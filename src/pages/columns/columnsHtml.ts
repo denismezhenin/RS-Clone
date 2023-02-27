@@ -3,6 +3,7 @@ import getTaskHTML from '../tasks/taskInColumnsLayout';
 import { getColumnsInBoard } from '../../API/columns';
 import { IColumns } from '../../data/types';
 import { getTasksInColumn } from '../../API/tasks';
+import getColumnTitle from './getColumnTitle';
 
 const getArrayTasks = async (token: string, columns: IColumns[], boardId: string) => {
   const arrayPromises = columns.map((column: IColumns) => getTasksInColumn(token, boardId, column._id));
@@ -26,7 +27,7 @@ ${columns
     (column: IColumns) => `
 <li class="column" id='${column._id}'>
 <div class="column-header">
-<h3 class="column-title">${column.title}</h3>
+<h3 class="column-title">${getColumnTitle(column.title)}</h3>
 <div class="title-settings">
   <div class='column-edit__form hide'>
     <input class='column-title__input' type='text' value=${column.title}>
