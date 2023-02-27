@@ -18,6 +18,7 @@ const getTaskUserIcons = async (userIds: string[]) => {
       memberIcons.append(icon);
       icon.style.right = `${Number(right) + i * ABSOLUTE_POSITION_IN_REMS}rem`;
       icon.style.zIndex = (zIndex - i).toString();
+      icon.href = `#/members/${user._id}`;
     }
 
     if (userIds.length > MAX_VISIBLE_MEMBERS) {
