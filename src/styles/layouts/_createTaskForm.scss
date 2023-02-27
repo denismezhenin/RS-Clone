@@ -206,13 +206,12 @@
   }
 }
 
-// #duration {
-//   width: inherit;
-//   height: 3rem;
+#duration {
+  height: 3rem;
 
-//   border: 2px solid $text-color-additional;
-//   border-radius: 0.5rem;
-// }
+  border: 2px solid $text-color-additional;
+  border-radius: 0.5rem;
+}
 
 .create-card-action {
   text-transform: uppercase;

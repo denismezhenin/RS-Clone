@@ -9,7 +9,6 @@ export const getInvitedUsers = () => {
   const res = userArray ? [...userArray] : [];
   const reslut: Set<string> = new Set(res);
   return reslut;
-
 };
 
 const inviteToTask = async () => {
