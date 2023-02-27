@@ -8,6 +8,7 @@ import getUserIcon from '../../services/getUserIcon';
 import { getAllBoards } from '../../API/boards';
 import { getTasksSetByUserId } from '../../API/tasks';
 import goToTaskBoard from './goToTaskBoard';
+import { checkHideAside } from '../../features/hideAside/hideAside';
 
 const Member = {
   render: async () => `
@@ -17,6 +18,10 @@ const Member = {
       </div>
       `,
   after_render: async () => {
+    const linkAside = <HTMLAnchorElement>document.querySelector('.aside-members');
+    linkAside.classList.add('active-link');
+    checkHideAside();
+
     document.body.classList.remove('body_home');
     const main = document.querySelector('.main-member-card');
     const memberId = getBoardId();

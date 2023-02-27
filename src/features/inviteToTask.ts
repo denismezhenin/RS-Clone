@@ -1,28 +1,15 @@
 import state from '../state/state';
 import getBoardIcons from '../pages/boards/getBoardIcons';
-
 import { tsQuerySelector } from '../helpers/helpers';
 
 export const getInvitedUsers = () => {
-  // const result: Set<string> = new Set();
-  // let result;
   const form = tsQuerySelector<HTMLFormElement>(document, '.new-card__form');
   const users = form.querySelector<HTMLDivElement>('.member-icons__task');
-  // if (!users) return;
-  if (users?.dataset.users) {
-    // usersArray = users.dataset.users.length > 0 ? users.dataset.users?.split(',') : [];
-    // const spred = (...usersArray)
-    // result.add(...usersArray)
-  }
   const userArray = users?.dataset.users?.split(',');
-  // if (!u) return;
-  // if (!usersArray) return;
-  const result = userArray ? [...userArray] : [];
-  // eslint-disable-next-line consistent-return
-  const reslut2: Set<string> = new Set(result);
+  const res = userArray ? [...userArray] : [];
+  const reslut: Set<string> = new Set(res);
+  return reslut;
 
-  return reslut2;
-  // return result;
 };
 
 const inviteToTask = async () => {
@@ -32,7 +19,7 @@ const inviteToTask = async () => {
   const form = tsQuerySelector<HTMLFormElement>(document, '.new-card__form');
   const users = form.querySelector<HTMLDivElement>('.member-icons__task');
   if (!users) return;
-
+  const MAX_VISIBLE_MEMBERS = 5;
   if (membersSelect instanceof HTMLSelectElement) {
     let id = state.selectedUserIdToTask;
     if (id === '') {
@@ -44,7 +31,7 @@ const inviteToTask = async () => {
     if (!array.has(id)) {
       array.add(id);
       users.dataset.users = `${Array.from(array)}`;
-      getBoardIcons(Array.from(array), '.member-icons__task');
+      getBoardIcons(Array.from(array), '.member-icons__task', MAX_VISIBLE_MEMBERS);
       options.forEach((item) => {
         const dataId = item.getAttribute('data-member-id');
         if (dataId === id) {

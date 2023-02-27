@@ -5,7 +5,7 @@
 }
 
 .board-title {
-  margin: 0;
+  margin: 0 0 1rem 1rem;
   @include mobile {
     font-size: 2rem;
   }
@@ -38,4 +38,9 @@ option:disabled {
   position: relative;
 
   width: 12rem;
+}
+.board-edit__form{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

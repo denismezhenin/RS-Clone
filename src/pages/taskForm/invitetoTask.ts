@@ -6,7 +6,7 @@ import { User } from '../../data/types';
 
 const invitetoTaskHTML = (users: User[]) =>
   `
-<div class="board-control">
+<div class="board-control board-control_task">
     <div class="invite-block">
       <select class="members-select__task" name="assignees" id="assignees">
         ${users.map(

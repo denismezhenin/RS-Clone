@@ -16,6 +16,8 @@ import Tasks from './pages/tasksPage/tasks';
 import en from './data/en.json';
 import ru from './data/ru.json';
 import state from './state/state';
+import Statistics from './pages/statistics/statistics';
+import StatisticsId from './pages/statistics/statisticsId';
 
 const routes: { [key: string]: typeof Home | typeof Boards } = {
   '/': Home,
@@ -25,6 +27,8 @@ const routes: { [key: string]: typeof Home | typeof Boards } = {
   '/signup': LogIn,
   '/members': Members,
   '/members/:id': Member,
+  '/statistics': Statistics,
+  '/statistics/:id': StatisticsId,
   '/settings': Settings,
   '/tasks': Tasks,
 };

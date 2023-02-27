@@ -17,6 +17,10 @@
   background-color: $color-main;
   padding: 2rem;
   border-radius: 0.5rem;
+
+  @include tablet {
+    padding: 1rem;
+  }
 }
 
 .dark-theme .popup-active,
@@ -26,17 +30,34 @@
 
 .new-board-header {
   position: relative;
+
+  width: 100%;
+
+  text-align: center;
+
+  @include tablet {
+    font-size: 2rem;
+  }
 }
 
 .close-sign {
   position: absolute;
   top: -3rem;
-  right: -18rem;
+  right: -2%;
 
   width: 3rem;
 
   transition: all 0.5s ease;
   cursor: pointer;
+
+  @include tablet {
+    top: -2rem;
+  }
+
+  @include mobile {
+    top: -2rem;
+    right: -5%;
+  }
 }
 
 .close-sign:hover {
@@ -49,6 +70,11 @@
   gap: 0.5rem;
 
   font-size: 1.6rem;
+
+  @include tablet {
+    flex-direction: column;
+    gap: 0;
+  }
 }
 
 .new-board-img {
@@ -89,9 +115,19 @@
 }
 
 details {
+  min-height: 6rem;
+
   margin: 1rem 0;
 
   font-size: 1.7rem;
+
+  @include tablet {
+    font-size: 1.4rem;
+  }
+}
+
+.password-change {
+  min-height: 9rem;
 }
 
 summary {

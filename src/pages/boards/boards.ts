@@ -14,6 +14,7 @@ import { Board, IColumns, User } from '../../data/types';
 import addColumnsLogic from './addColumnsLogic';
 import taskFormHTML from '../taskForm/taskHTML';
 import getActiveUsers from '../../features/getActiveUsers';
+import { checkHideAside } from '../../features/hideAside/hideAside';
 
 const Boards = {
   render: async () => `
@@ -23,6 +24,9 @@ const Boards = {
   </div>
   `,
   after_render: async () => {
+    const link = <HTMLAnchorElement>document.querySelector('.aside-boards');
+    link.classList.add('active-link');
+    checkHideAside();
     const boardId = getBoardId();
     const main = tsQuerySelector(document, '.main-board');
     const columns = await getColumnsInBoard(state.authToken, boardId);

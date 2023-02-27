@@ -6,7 +6,7 @@
 
   width: 100%;
   min-height: 48.74rem;
-  @include mobile{
+  @include mobile {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -46,6 +46,10 @@
 
 .member-stats {
   font-size: 1.5rem;
+
+  @include mobile {
+    font-size: 1.3rem;
+  }
 }
 
 .members-page-controls {
@@ -55,6 +59,10 @@
 
   font-size: 3rem;
   color: $text-color-additional;
+
+  @include mobile {
+    font-size: 2rem;
+  }
 }
 
 .arrow-left,
@@ -146,7 +154,7 @@
 
 .member-tasks-list::-webkit-scrollbar,
 .member-projects-list::-webkit-scrollbar {
-  width: 1rem;
+  width: 5px;
 }
 
 .member-tasks-list::-webkit-scrollbar-track,

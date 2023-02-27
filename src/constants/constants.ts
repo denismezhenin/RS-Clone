@@ -10,8 +10,9 @@ import changeUserName from '../features/changeUserName';
 import changeUserLogin from '../features/changeUserLogin';
 import changePassword from '../features/changePassword';
 import { resetCreateTaskForm, toggleTaskForm } from '../pages/taskForm/taskFormlistenerFunction';
-import hideAside from '../features/hideAside/hideAside';
+import { hideAside } from '../features/hideAside/hideAside';
 import showBurgerMenu from '../features/mobileLayout/mobileLayout';
+import reverseTaskList from '../features/tasksPage/reverseTaskList';
 
 export const BASE_URL = 'https://final-task-backend-production-c8c4.up.railway.app';
 export const SIGN_UP_URL = `${BASE_URL}/auth/signup`;
@@ -43,6 +44,7 @@ export const FUNCTIONS = {
   'change-password-button': changePassword,
   'hide-aside__button': hideAside,
   'burger-menu__button': showBurgerMenu,
+  'priority-field': reverseTaskList,
 };
 
 export const LIGHT_COLORS = [
@@ -78,7 +80,6 @@ export const MEMBERS_ON_PAGE = 6;
 export const TIME_LESS_TEN = 10;
 
 export const INVALID_TOKEN = 'Invalid token';
-export const BOARD_DELETED = 'Board deleted';
 
 export const DELAY = 3000;
 
@@ -94,3 +95,4 @@ export const duration: Duration = {
   xl: 6,
   xxl: 8,
 };
+export const MAX_VISIBLE_MEMBERS = 5;

@@ -1,0 +1,100 @@
+.no-tasks {
+  width: 100%;
+
+  text-align: center;
+}
+
+.tasks-table {
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: 1fr 3fr 3fr 4fr 4fr 2fr 2.5fr;
+  column-gap: 0.5rem;
+
+  min-width: 65rem;
+
+  background-color: $color-additional;
+
+  font-size: 1.5rem;
+  color: $text-color-additional;
+}
+
+.rows {
+  max-height: 45rem;
+  min-width: 65rem;
+
+  overflow-y: auto;
+}
+
+.rows::-webkit-scrollbar,
+.tasks-table::-webkit-scrollbar {
+  width: 5px;
+}
+
+.rows::-webkit-scrollbar-track,
+.tasks-table::-webkit-scrollbar-track {
+  border-radius: 0.5rem;
+
+  background-color: $color-main;
+
+  cursor: pointer;
+}
+
+.rows::-webkit-scrollbar-thumb,
+.tasks-table::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+
+  background-color: #c2affb;
+
+  cursor: pointer;
+}
+
+.priority-field {
+  cursor: pointer;
+}
+
+.priority-field:hover {
+  color: $color-main;
+}
+
+.task-row {
+  display: grid;
+  grid-template-columns: 1fr 3fr 3fr 4fr 4fr 2fr 2.5fr;
+  column-gap: 0.5rem;
+
+  font-size: 1.5rem;
+  color: $text-color;
+
+  cursor: pointer;
+}
+
+.task-row:hover {
+  background-color: #f2f0f0;
+}
+
+.end-ceil,
+.start-ceil,
+.priority-ceil {
+  @include tablet {
+    font-size: 1.4rem;
+  }
+}
+
+.dark-theme .task-row {
+  color: $color-additional;
+}
+
+.dark-theme .task-row:hover {
+  background-color: $text-color-additional;
+}
+
+.filter-tasks-form {
+  display: flex;
+  justify-content: space-around;
+
+  width: 100%;
+}

@@ -12,6 +12,7 @@ import invitetoTaskHTML from '../pages/taskForm/invitetoTask';
 import { getUsers } from '../API/users';
 import getBoardIcons from '../pages/boards/getBoardIcons';
 import popUpMessages from './popUpMessages/popupMessages';
+import { MAX_VISIBLE_MEMBERS } from '../constants/constants';
 
 export const showDropDownMenu = (target: HTMLElement) => {
   const task = target.closest<HTMLElement>('.task');
@@ -51,7 +52,7 @@ export const editThisTask = async (target: HTMLElement) => {
     memberContainer.innerHTML = invitetoTaskHTML(inActiveUsers);
     memberContainer.innerHTML = invitetoTaskHTML(inActiveUsers);
     if (usersInvited.length > 0) {
-      await getBoardIcons(usersInvited, `.member-icons__task`);
+      await getBoardIcons(usersInvited, `.member-icons__task`, MAX_VISIBLE_MEMBERS);
     }
   }
   formsParam(target, taskForm.edit);

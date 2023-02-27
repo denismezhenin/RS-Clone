@@ -5,13 +5,18 @@
   gap: 4rem;
   @include tablet {
     flex-direction: column;
+    gap: 2rem;
   }
 }
 
 .settings-header {
+  width: 100%;
   min-width: 15rem;
 
+  margin: 0;
+
   font-size: 1.8rem;
+  text-align: left;
 }
 
 .theme-form,
@@ -22,7 +27,7 @@
 .theme-form {
   @include mobile {
     flex-direction: column;
-    gap: 10px;
+    gap: 1rem;
   }
 }
 .theme-image {
@@ -45,6 +50,12 @@
   font-size: 1.6rem;
 
   cursor: pointer;
+
+  @include mobile {
+    gap: 0;
+
+    font-size: 1.4rem;
+  }
 }
 
 .radio-label > input {
@@ -68,7 +79,11 @@
   background-size: 50% 50%;
   border: 1px solid $button-color-additional;
   border-radius: 50%;
-  margin: 0 0.8rem 0.2rem 0;
+  margin: 0 0.5rem 0.2rem 0;
+
+  @include mobile {
+    margin: 0 0.2rem 0.2rem 0;
+  }
 }
 
 .radio-label > input:hover + span::before {

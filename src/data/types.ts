@@ -6,6 +6,17 @@ export interface ICreateUser {
   login: string;
   password: string;
 }
+
+export interface ITasks {
+  _id: string;
+  title: string;
+  order: number;
+  description: string;
+  userId: string;
+  boardId: string;
+  columnId: string;
+  users: string[];
+}
 export interface IState {
   authToken: string;
   id: string;
@@ -21,6 +32,11 @@ export interface IState {
   theme: string;
   language: string;
   selectedTask: string;
+  sort: string;
+  order: string;
+  tasks: ITasks[];
+  filteredTasks: ITasks[];
+  foundTasks: ITasks[];
 }
 
 export type Board = {
@@ -52,15 +68,15 @@ export interface IColumns {
   order: number;
   boardId: string;
 }
-export interface ITasks {
-  _id: string;
-  title: string;
-  order: number;
-  description: string;
-  userId: string;
+
+export interface IPointByTaskId {
   boardId: string;
-  columnId: string;
-  users: string[];
+  done: boolean;
+  endDate: string;
+  startDate: string;
+  taskId: string;
+  title: string;
+  _id: string;
 }
 
 export type sign = 'signin' | 'signup';
@@ -87,6 +103,10 @@ export enum ToastrType {
 
 export type FunctionsKeys = keyof typeof FUNCTIONS;
 
+export enum Arrows {
+  up = '↑',
+  down = '↓',
+}
 export interface Duration {
   [key: string]: number;
 }

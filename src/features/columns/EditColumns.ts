@@ -1,7 +1,10 @@
+import i18next from 'i18next';
 import { tsQuerySelector } from '../../helpers/helpers';
 import state from '../../state/state';
 import { updateColumnById, deleteColumn, updateSetOfColumns, getColumnById } from '../../API/columns';
 import { getSpinner, removeSpinner } from '../spinner/spinner';
+import popUpMessages from '../popUpMessages/popupMessages';
+import { ToastrType } from '../../data/types';
 
 export const confirmEditColumns = async (e: Event, boardId: string) => {
   getSpinner();
@@ -26,6 +29,7 @@ export const confirmEditColumns = async (e: Event, boardId: string) => {
     titleSettingEdit.classList.remove('hide');
     columnTitle.classList.remove('hide');
     columnEditForm.classList.add('hide');
+    popUpMessages(ToastrType.success, i18next.t('columnTitleChangedMessage'));
   }
 
   removeSpinner();
@@ -39,6 +43,7 @@ export const deleteColumnInBoard = async (e: Event, boardId: string) => {
   const currentElement = document.getElementById(columnId.id);
   if (currentElement) {
     currentElement.remove();
+    popUpMessages(ToastrType.success, i18next.t('columnDeletedMessage'));
   }
 
   await deleteColumn(state.authToken, boardId, columnId.id);

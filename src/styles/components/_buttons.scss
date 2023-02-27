@@ -12,6 +12,10 @@
   line-height: 140%;
 
   cursor: pointer;
+
+  @include tablet {
+    font-size: 1.4rem;
+  }
 }
 
 .button:hover {
@@ -27,18 +31,21 @@
 }
 
 .button-round {
-  width: 180px;
-  height: 42px;
+  width: 15rem;
+  height: 3.5rem;
   background: #ffffff;
   border: 2px solid #ff7979;
   border-radius: 20px;
+  font-size: 1.7rem;
+  cursor: pointer;
 
   &:hover {
-    background: #48409e;
+    background: $color-additional;
   }
 }
 
-.invite-button {
+.invite-button,
+.invite-button_task {
   background-color: $color-main;
   margin: 0 0.5rem;
   border: none;
@@ -48,7 +55,13 @@
   color: $button-color-additional;
 }
 
-.invite-button:hover {
+.invite-button_task {
+  font-size: 1.6rem;
+  color: #5264ae;
+}
+
+.invite-button:hover,
+.invite-button_task:hover {
   background: none;
   box-shadow: none;
 
@@ -85,6 +98,7 @@
   background: url(../assets/icons/plus_violet.svg) no-repeat left center;
   box-shadow: none;
 }
+
 .title-setting__edit,
 .board-setting__edit {
   display: flex;
@@ -97,6 +111,15 @@
   background: #f5f5f5;
   cursor: pointer;
 }
+
+.edit-img {
+  transition: transform 0.3s;
+}
+
+.edit-img:hover {
+  transform: scale(1.2);
+}
+
 .column-delete__button,
 .board-delete__button {
   width: 32px;
@@ -105,6 +128,7 @@
   background: #f5f5f5;
   cursor: pointer;
 }
+
 .column-confirm-edit,
 .board-confirm-edit {
   width: 32px;
@@ -112,6 +136,15 @@
   outline: none;
   background: #f5f5f5;
   cursor: pointer;
+}
+
+.dark-theme .board-setting__edit,
+.dark-theme .board-delete__button,
+.dark-theme .board-confirm-edit,
+.dark-theme .title-setting__edit,
+.dark-theme .column-delete__button,
+.dark-theme .column-confirm-edit {
+  background: $text-color-additional;
 }
 
 .hide-aside__button {
@@ -129,6 +162,11 @@
     display: none;
   }
 }
+
+.hide-aside__button:hover {
+  background: url(../assets/icons/hide-aside_active.svg) no-repeat center center;
+}
+
 .burger-menu__button {
   width: 30px;
   height: 30px;
@@ -163,4 +201,8 @@
 }
 .hide {
   display: none;
+}
+
+.dark-theme .burger-menu__button span {
+  background-color: #9b84df;
 }

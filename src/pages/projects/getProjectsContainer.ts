@@ -2,7 +2,7 @@ import i18next from 'i18next';
 import { getColumnsInBoard } from '../../API/columns';
 import { getTasksSetByBoardId } from '../../API/tasks';
 import { Board, IColumns, ITasks } from '../../data/types';
-import UI from '../../data/UI';
+
 import { tsQuerySelectorAll } from '../../helpers/helpers';
 import state from '../../state/state';
 import getProjectStatsItem from './getProjectStatsItem';
@@ -66,7 +66,7 @@ const getProjectsContainer = async (projects: Board[]) => {
     <button type="button" class='board-confirm-edit'><img class='confirm-img' src='../../assets/icons/done.svg'></button>
     <button type="button" class='board-delete__button'><img class='delete-img' src="../../assets/icons/delete-button.svg"></button>
   </div>
-  <button type='button' class="board-setting__edit"><img src='../../assets/icons/edit-button.svg' alt='edit'></button>
+  <button type='button' class="board-setting__edit"><img class="edit-img" src='../../assets/icons/edit-button.svg' alt='edit'></button>
  </div>
     `;
     titleContainer.innerHTML += boardEdit;

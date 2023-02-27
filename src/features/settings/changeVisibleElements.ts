@@ -19,7 +19,9 @@ const changeVisibleElements = () => {
   const asideSettings = <HTMLAnchorElement>document.querySelector('.aside-settings');
   asideSettings.textContent = i18next.t('asideSettings');
 
-  const chooseTheme = <HTMLHeadingElement>document.querySelector('.settings-header_theme');
+  const chooseTheme = <HTMLHeadingElement>(
+    document.querySelector('.settings-header_theme')
+  );
   chooseTheme.textContent = i18next.t('chooseTheme');
 
   const chooseLang = <HTMLHeadingElement>document.querySelector('.settings-header_language');

@@ -4,6 +4,7 @@ import state from '../../state/state';
 import listen from '../../features/listen';
 import { getUsers } from '../../API/users';
 import createTooltip from '../../features/createTooltip';
+import { checkHideAside } from '../../features/hideAside/hideAside';
 
 const Home = {
   render: async () => {
@@ -27,6 +28,10 @@ const Home = {
   },
   after_render: async () => {
     document.body.classList.add('body_home');
+    const link = <HTMLAnchorElement>document.querySelector('.aside-home');
+    link.classList.add('active-link');
+    link.style.pointerEvents = 'none';
+    checkHideAside();
 
     if (state.authToken) {
       window.addEventListener('click', listen);
