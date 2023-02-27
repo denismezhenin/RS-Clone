@@ -8,10 +8,6 @@ export const roastedTask = (time: string, selector: HTMLElement) => {
   if (!durationTime) return;
   const hours = duration[durationTime];
   const differenceInTime = Date.compare(Date.parse(currentDate), Date.parse(time).addHours(hours * 0.8));
-  // console.log(Date.parse(currentDate))
-  // console.log(Date.parse(currentDate));
-  // console.log(Date.parse(time).addHours(hours * 0.8));
-  // console.log(differenceInTime);
   if (differenceInTime >= 0) {
     tsQuerySelector(selector, '.task__roasted-gif').style.display = 'block';
   }
