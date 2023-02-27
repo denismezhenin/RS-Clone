@@ -11,6 +11,7 @@
 
 .tasks-list::-webkit-scrollbar {
   width: 5px;
+  height: 8px;
 }
 
 .tasks-list::-webkit-scrollbar-track {
@@ -36,10 +37,11 @@
   width: 100%;
   background: #ffffff;
   border-radius: 16px;
+  font-size: 1.7rem;
 }
 
 .dark-theme .task {
-  background: $text-color;
+  background: $text-color-additional;
 }
 
 .task-wrapper {
@@ -50,6 +52,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.task-pop-up__menu {
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.task-pop-up__menu:hover {
+  transform: scale(1.2);
 }
 
 .task-priority {
@@ -99,6 +110,7 @@
   display: flex;
 
   &__text {
+    visibility: hidden;
     width: 50%;
     padding: 0;
     margin: 0;

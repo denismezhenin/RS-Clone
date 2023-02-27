@@ -31,18 +31,21 @@
 }
 
 .button-round {
-  width: 180px;
-  height: 42px;
+  width: 15rem;
+  height: 3.5rem;
   background: #ffffff;
   border: 2px solid #ff7979;
   border-radius: 20px;
+  font-size: 1.7rem;
+  cursor: pointer;
 
   &:hover {
-    background: #48409e;
+    background: $color-additional;
   }
 }
 
-.invite-button {
+.invite-button,
+.invite-button_task {
   background-color: $color-main;
   margin: 0 0.5rem;
   border: none;
@@ -52,7 +55,13 @@
   color: $button-color-additional;
 }
 
-.invite-button:hover {
+.invite-button_task {
+  font-size: 1.6rem;
+  color: #5264ae;
+}
+
+.invite-button:hover,
+.invite-button_task:hover {
   background: none;
   box-shadow: none;
 
@@ -192,4 +201,8 @@
 }
 .hide {
   display: none;
+}
+
+.dark-theme .burger-menu__button span {
+  background-color: #9b84df;
 }

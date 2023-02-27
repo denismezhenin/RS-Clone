@@ -52,10 +52,10 @@ footer {
 
   margin-right: 1rem;
 
-  font-size: 1.5vw;
+  font-size: 1.3vw;
   text-decoration: none;
   color: $text-color-additional;
-  @include mobile {
+  @include tablet {
     font-size: 1.9vw;
   }
 }
