@@ -1,2 +1,6 @@
-# RS-Clone
-Final course project
+- # RS-Clone
+- Final course project
+- Deploy: https://best-team-task-manager.netlify.app
+- You can create your own new user, or log in as a test user
+- Login: **IMask**
+- Password: ***Tesla4ever***
