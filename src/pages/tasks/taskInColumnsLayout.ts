@@ -29,8 +29,12 @@ const getTaskHTML = (tasks: ITasks[]) =>
      }</span>
      <div class="task-pop-up__menu">...
      <ul class="task-menu__list hide">
-     <li class="task-menu__item edit-task">${i18next.t('rename')}</li>
-     <li class="task-menu__item delete-task">${i18next.t('delete')}</li>
+     <li class="task-menu__item edit-task"><img src="../../assets/icons/edit-button.svg"><span>${i18next.t(
+       'rename'
+     )}</span></li>
+     <li class="task-menu__item delete-task"><img src="../../assets/icons/delete-button.svg"><span>${i18next.t(
+       'delete'
+     )}</span></li>
      </ul>
      </div>
      </div>

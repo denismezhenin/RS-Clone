@@ -9,10 +9,13 @@ const setTaskListener = async () => {
       showDropDownMenu(target);
       return;
     }
-    if (target.classList.contains('edit-task')) {
+    // if (target.closest('edit-task')) console.log('d')
+    // console.log(target.closest('edit-task'))
+    // console.log(target.parentElement?.classList.contains('edit-task'))
+    if (target.classList.contains('edit-task') || target.parentElement?.classList.contains('edit-task')) {
       editThisTask(target);
     }
-    if (target.classList.contains('delete-task')) {
+    if (target.classList.contains('delete-task') || target.parentElement?.classList.contains('delete-task')) {
       deleteThisTask(target);
     }
     if (!target.closest('.task-menu__list')) {

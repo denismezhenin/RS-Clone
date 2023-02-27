@@ -25,10 +25,11 @@ export const deleteThisTask = async (target: HTMLElement) => {
   const boardId = target.closest<HTMLElement>('.main-board')?.id;
   const columnId = target.closest<HTMLElement>('.column')?.id;
   const taskId = target.closest<HTMLElement>('.task')?.id;
+  const task = target.closest<HTMLElement>('.task');
   if (!boardId || !columnId || !taskId) return;
   showDropDownMenu(target);
   await deleteTask(state.authToken, boardId, columnId, taskId);
-  await reloadBoard();
+  task?.remove();
 };
 
 export const editThisTask = async (target: HTMLElement) => {

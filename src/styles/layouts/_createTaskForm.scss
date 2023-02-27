@@ -209,8 +209,6 @@
   .invite-block {
 
     @include mobile {
-      // display: flex;
-      // flex-wrap: wrap;
       min-width: 100%;
     }
 
@@ -227,7 +225,7 @@
     }
     .member-icons__task {
       @include mobile {
-        min-width: 100%;
+        min-width: 120px;
     }
     }
   }
