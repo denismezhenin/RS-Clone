@@ -18,16 +18,27 @@ import { MAX_VISIBLE_MEMBERS } from '../../constants/constants';
 
 const addColumnsLogic = async () => {
   const boardId = getBoardId();
+
+  if (boardId === 'projects') return;
+
   const board: Board = await getBoardsById(state.authToken, boardId);
 
-  if (board.users.length) {
+  if (board?.users?.length) {
     await getBoardIcons(board.users, '.member-icons', MAX_VISIBLE_MEMBERS);
   }
 
-  const membersSelect = <HTMLSelectElement>document.querySelector('.members-select');
-  membersSelect.addEventListener('change', setSelectedUserId);
-  await dragNdropColumns();
-  await dragNdropTasks();
+  const membersSelect = document.querySelector('.members-select');
+  if (membersSelect instanceof HTMLSelectElement) {
+    membersSelect.addEventListener('change', setSelectedUserId);
+    await dragNdropColumns();
+    await dragNdropTasks();
+
+    await createTaskFormListener();
+
+    if (state.selectedTask) {
+      await highlightTask();
+    }
+  }
 
   const titleSettingEdit = tsQuerySelectorAll(document, '.title-setting__edit');
   titleSettingEdit.forEach((el) =>
@@ -65,11 +76,7 @@ const addColumnsLogic = async () => {
       el.innerHTML = result;
     }
   });
-  await createTaskFormListener();
 
-  if (state.selectedTask) {
-    await highlightTask();
-  }
   if (!state.pageLoaded) {
     await setTaskListener();
     await setNewTaskFormListener();

@@ -72,8 +72,7 @@ export const getBoardsById = async (token: string, id: string) => {
 
     return await response.json();
   } catch (err) {
-    popUpMessages(ToastrType.error, String(err) || i18next.t('defaultError'));
-    return true;
+    return popUpMessages(ToastrType.error, String(err) || i18next.t('defaultError'));
   } finally {
     removeSpinner();
   }

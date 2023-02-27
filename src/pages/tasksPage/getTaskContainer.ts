@@ -1,21 +1,37 @@
-import { ITasks, Arrows } from '../../data/types';
+import { Arrows, ITasks } from '../../data/types';
 import state from '../../state/state';
 import getTaskRowHtml from './getTaskRowHtml';
 import sortTasks from '../../features/tasksPage/sortTasks';
 
-const getTaskContainer = async (userTasks: ITasks[]) => {
+const getTaskContainer = async () => {
   const table = document.querySelector('.tasks-table');
   const tableRows = document.createElement('div');
   tableRows.classList.add('rows');
   table?.append(tableRows);
+  const searchInput = <HTMLInputElement>document.querySelector('.search-input');
+  const allStatusesCheckbox = <HTMLInputElement>document.querySelector('.all-statuses');
+
+  let sortedTasks: ITasks[] = [];
+  if (searchInput.value !== '' && !allStatusesCheckbox.checked) {
+    sortedTasks =
+      state.filteredTasks.length > state.foundTasks.length
+        ? sortTasks(state.foundTasks)
+        : sortTasks(state.filteredTasks);
+  } else if (searchInput.value !== '' && allStatusesCheckbox.checked) {
+    sortedTasks = sortTasks(state.foundTasks);
+  } else if (searchInput.value === '' && !allStatusesCheckbox.checked) {
+    sortedTasks = sortTasks(state.filteredTasks);
+  } else {
+    sortedTasks = sortTasks(state.tasks);
+  }
 
   const promises: Promise<string>[] = [];
-  const sortedTasks = sortTasks(userTasks);
   sortedTasks.forEach(async (el) => {
     const row = document.createElement('div');
     row.classList.add('task-row');
     tableRows?.append(row);
     row.setAttribute('id', el._id);
+    row.setAttribute('data-column-id', el.columnId);
     row.setAttribute('data-board-id', el.boardId);
     promises.push(getTaskRowHtml(el, sortedTasks.indexOf(el)));
   });

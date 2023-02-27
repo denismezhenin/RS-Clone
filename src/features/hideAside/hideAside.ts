@@ -24,6 +24,12 @@ export const checkHideAside = () => {
   width: 6.2rem;
   margin-left: 20px;
   `;
+
+    asideMenuItem.forEach((el) => {
+      if (el instanceof HTMLAnchorElement) {
+        el.classList.remove('aside-item_hidden');
+      }
+    });
   }
 
   if (state.hideAside) {
@@ -42,8 +48,16 @@ export const checkHideAside = () => {
   margin-left: 0;
   `;
   }
+
+  asideMenuItem.forEach((el) => {
+    if (el instanceof HTMLAnchorElement) {
+      el.classList.add('aside-item_hidden');
+    }
+  });
 };
+
 export const hideAside = () => {
+
   state.hideAside = !state.hideAside;
   checkHideAside();
 };

@@ -58,6 +58,10 @@
   color: #5c3eb9;
 }
 
+.aside-item_hidden:hover:before {
+  width: 0;
+}
+
 .aside-home {
   background: url(../assets/icons/home.svg) no-repeat left center;
 }

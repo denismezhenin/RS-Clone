@@ -6,6 +6,17 @@ export interface ICreateUser {
   login: string;
   password: string;
 }
+
+export interface ITasks {
+  _id: string;
+  title: string;
+  order: number;
+  description: string;
+  userId: string;
+  boardId: string;
+  columnId: string;
+  users: string[];
+}
 export interface IState {
   authToken: string;
   id: string;
@@ -23,6 +34,9 @@ export interface IState {
   selectedTask: string;
   sort: string;
   order: string;
+  tasks: ITasks[];
+  filteredTasks: ITasks[];
+  foundTasks: ITasks[];
 }
 
 export type Board = {
@@ -53,17 +67,6 @@ export interface IColumns {
   title: string;
   order: number;
   boardId: string;
-}
-
-export interface ITasks {
-  _id: string;
-  title: string;
-  order: number;
-  description: string;
-  userId: string;
-  boardId: string;
-  columnId: string;
-  users: string[];
 }
 
 export interface IPointByTaskId {

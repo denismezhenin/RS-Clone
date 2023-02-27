@@ -18,6 +18,9 @@ const state: IState = {
   selectedTask: '',
   sort: 'priority',
   order: 'ASC',
+  tasks: [],
+  filteredTasks: [],
+  foundTasks: [],
 };
 
 const getLocalStorage = () => {

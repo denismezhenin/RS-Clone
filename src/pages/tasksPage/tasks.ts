@@ -5,7 +5,6 @@ import state from '../../state/state';
 import getTaskContainer from './getTaskContainer';
 import getTaskHtml from './getTaskHtml';
 import goToTaskBoard from '../member/goToTaskBoard';
-import reverseTaskList from '../../features/tasksPage/reverseTaskList';
 import searchByTasks from '../../features/tasksPage/searchByTasks';
 import filterTasks from '../../features/tasksPage/filterTasks';
 import { checkHideAside } from '../../features/hideAside/hideAside';
@@ -24,12 +23,10 @@ const Tasks = {
     const main = document.querySelector('.main-tasks');
     const table = document.querySelector('.tasks-table');
     const userTasks: ITasks[] = await getTasksSetByUserId(state.authToken, state.id);
+    state.tasks = userTasks;
 
     if (userTasks.length) {
-      getTaskContainer(userTasks);
-
-      const priorityField = document.querySelector('.priority-field');
-      priorityField?.addEventListener('click', () => reverseTaskList(userTasks));
+      getTaskContainer();
 
       table?.addEventListener('click', goToTaskBoard);
 
