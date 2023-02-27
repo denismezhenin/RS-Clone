@@ -10,8 +10,6 @@ const setTaskListener = async () => {
       return;
     }
     // if (target.closest('edit-task')) console.log('d')
-    // console.log(target.closest('edit-task'))
-    // console.log(target.parentElement?.classList.contains('edit-task'))
     if (target.classList.contains('edit-task') || target.parentElement?.classList.contains('edit-task')) {
       editThisTask(target);
     }
