@@ -2,7 +2,7 @@ import i18next from 'i18next';
 import Boards from '../pages/boards/boards';
 import state from '../state/state';
 import { deleteTask } from '../API/tasks';
-import { tsQuerySelector, tsQuerySelectorAll } from '../helpers/helpers';
+import { tsQuerySelector } from '../helpers/helpers';
 import formsParam from '../pages/taskForm/setTaskParams';
 import editTask from '../pages/taskForm/editTask';
 import { taskForm, Board, User, ToastrType } from '../data/types';
