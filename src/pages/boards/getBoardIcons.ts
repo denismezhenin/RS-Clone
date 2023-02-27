@@ -17,6 +17,7 @@ const getBoardIcons = async (userIds: string[], selector: string, maxVisibleMemb
         memberIcons.append(icon);
         icon.style.left = `${Number(left) + i * ABSOLUTE_POSITION_IN_REMS}rem`;
         icon.style.zIndex = (zIndex - i).toString();
+        icon.href = `#/members/${el}`;
       }
     });
 
