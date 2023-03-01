@@ -4,4 +4,4 @@
 - You can create your own new user, or log in as a test user
 - Login: **IMask**
 - Password: ***Tesla4ever***
-- Stack: Typescript, i18next, chart.js, SortableJS, toastr.js, spin.js
+- Stack: Typescript, eslint, AirBnB, prettier, i18next, chart.js, SortableJS, toastr.js, spin.js, SCSS, WebPack
