@@ -14,7 +14,7 @@ import { hideAside } from '../features/hideAside/hideAside';
 import showBurgerMenu from '../features/mobileLayout/mobileLayout';
 import reverseTaskList from '../features/tasksPage/reverseTaskList';
 
-export const BASE_URL = 'https://final-task-backend-production-c8c4.up.railway.app';
+export const BASE_URL = 'https://best-team-api.up.railway.app';
 export const SIGN_UP_URL = `${BASE_URL}/auth/signup`;
 export const SIGN_IN_URL = `${BASE_URL}/auth/signin`;
 export const USERS_URL = `${BASE_URL}/users`;
