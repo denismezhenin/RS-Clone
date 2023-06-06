@@ -4,11 +4,15 @@ Task manager is similar to Trello and Github Projects. Here you can create your 
 
 Deploy [link](https://best-team-task-manager.netlify.app/)
 
-![](https://user-images.githubusercontent.com/100029788/221612561-0fb7f1f9-6341-49d9-982b-9781bfc7b9d3.png)
+Mock user login:
 
+```
+login: test@test.com
+
+password: testUser
+```
 
 ## Key features:
-
 
 -  SPA with routing
 -  Drag-n-drop tasks and columns
@@ -52,3 +56,11 @@ The project is made in team with mentor
 
 ### Mentor
 [Aleh Harnizonau](https://github.com/alehharnizonau)
+
+![](https://user-images.githubusercontent.com/100029788/221612561-0fb7f1f9-6341-49d9-982b-9781bfc7b9d3.png)
+
+
+<img width="1853" alt="task" src="https://github.com/Sashkakotov/RS-Clone/assets/103366013/272ecbbe-823c-40f7-9494-1f77aef1bd91">
+
+
+<img width="1852" alt="stat" src="https://github.com/Sashkakotov/RS-Clone/assets/103366013/74e09d09-085e-46a0-ba84-3d3febd3c11c">
